@@ -707,7 +707,7 @@ header {
 	display: block;
 	width: 219px;
 	height: 72px;
-	background-image: url(../img/usiv_logo.svg);
+	background-image: url(../img/usiva.svg);
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: 219px 72px;
@@ -719,7 +719,7 @@ only screen and (-o-min-device-pixel-ratio: 2/1),
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-device-pixel-ratio: 2) {
 	#logo_home h1 a {
-		background-image: url(../img/usiv_logo.svg);
+		background-image: url(../img/usiva.svg);
 		background-size: 219px 72px;
 	}
 }
