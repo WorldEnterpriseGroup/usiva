@@ -43,7 +43,7 @@ $userheaders = "From: info@domain.com\n";
 $userheaders .= "MIME-Version: 1.0" . PHP_EOL;
 $userheaders .= "Content-type: text/plain; charset=utf-8" . PHP_EOL;
 $userheaders .= "Content-Transfer-Encoding: quoted-printable" . PHP_EOL;
-$usermessage = "Thank you for join to Prometeo Newsletter!";
+$usermessage = "Thank you for join to USIV Newsletter!";
 mail($user,$usersubject,$usermessage,$userheaders);
 
 if(mail($address, $e_subject, $msg, $headers)) {
