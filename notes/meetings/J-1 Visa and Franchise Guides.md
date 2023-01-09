@@ -44,3 +44,21 @@ I) Researcher travels to the US to begin the research program at the INSTAR Lab 
 J) INSTAR Lab Inc. provides ongoing support and supervision to the researcher during the program.
 
 K) Researcher completes the research program and returns to their home country.
+
+<hr>
+
+For students without bachelor's degree, how can we provide J-1? 
+
+- [ ] Need a profile of the people and on the business. Do they match?
+
+From openAI: In order to qualify for a J-1 visa, individuals must have a foreign degree or professional certificate or be enrolled in a university outside the U.S. In other words, it is generally not possible to obtain a J-1 visa if you do not have a bachelor's degree or equivalent. There may be some exceptions to this requirement for certain types of exchange programs, such as summer work and travel programs, but these programs typically have different eligibility requirements.
+
+## Plan Of Action
+
+- [ ] Talk to client for the program, can be B-1, serves a starting convo and will reach out again to give more information.
+
+- [ ] Research, why INSTAR is suitable for the program?
+
+- [ ] Research, what is the professional certificate? Look up the criteria for that. Is this a viable option for us and how?
+
+- [ ] Reach out to 2-3 college/university (previous classmates) if they're interested for the J-1 Program focused on the Interstellar research or lab development.
