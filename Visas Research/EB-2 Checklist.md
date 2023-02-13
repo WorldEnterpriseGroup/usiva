@@ -1,4 +1,4 @@
-This is a cheklist that consists of the three prongs from  the <a href="https://www.eb2niw.com/matter-of-dhanasar-new-rules-for-niw/">Dhanasar Case</a>.
+This is a cheklist based on the three prongs from  the <a href="https://www.eb2niw.com/matter-of-dhanasar-new-rules-for-niw/">Dhanasar Case</a>.
 
 **Prong I** - A petitioner has shown that the area of employment is of **substantial intrinsic merit**.
 
@@ -14,5 +14,14 @@ This is a cheklist that consists of the three prongs from  the <a href="https://
   * clearly establish that the alien’s past record justifies projections of future benefit to the national interest
 
 ---
+
+## Progress Chart
+
+| 📑 Prong I 	| 👯 Description 	| 🔨 Done 	|
+|-	|-	|-	|
+| :white_check_mark: Dream 	| :black_square_button: UX Research 	|  :heavy_check_mark:	|
+| :white_check_mark: Discovery 	| :black_square_button: UI Design 	| :black_square_button: Documentation 	|
+| :white_check_mark: Development 	| :black_square_button: Brand Identity 	| :black_square_button: Business Plan 	|
+| :black_square_button: Deployment 	| :black_square_button: Call to Actions 	| :black_square_button: Proposal 	|
 
 
