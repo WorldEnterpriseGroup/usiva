@@ -1,4 +1,4 @@
-## Overview for EB-2 Visa
+## Overview for EB-2 Visa NIW
 ### Prong I - Substantial Merit and National Importance
 A petitioner has shown that the area of employment is of **substantial intrinsic merit**.  This prong is designed to reward immigrants who possess extraordinary abilities in their respective fields and who can contribute to the country in an exceptional way. Applicants must demonstrate extraordinary ability in the sciences, arts, education, business, or athletics, or must demonstrate that they possess a superior level of expertise in their profession.
 
@@ -11,7 +11,6 @@ This prong allows immigrants to bypass the labor certification process and recei
 ---
 
 ## Checklist
-
 <table>
     <thead>
         <tr>
@@ -22,16 +21,10 @@ This prong allows immigrants to bypass the labor certification process and recei
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><a href="https://www.uscis.gov/i-140">Form I-140</a></td>
-            <td>Petition for Immigrant Worker</td>
-            <td></td>
-            <td>:white_check_mark:</td>
-        </tr>
          <tr>
             <td rowspan=4>Prong I: Substantial Merit and National Importance</td>
             <td colspan=3>A petitioner has shown that the area of employment is of **substantial intrinsic merit**.  This prong is designed to reward immigrants who possess extraordinary abilities in their respective fields and who can contribute to the country in an exceptional way. Applicants must demonstrate extraordinary ability in the sciences, arts, education, business, or athletics, or must demonstrate that they possess a superior level of expertise in their profession.
-
+<br>
 The first prong, substantial merit and national importance, focuses on the specific endeavor that the 
 foreign national proposes to undertake. A petitioner must establish that any proposed benefit from the individual’s endeavors will be **national in scope**. The endeavor's merit may be demonstrated in a range of 
 areas such as business, entrepreneurialism, science, technology, culture, health, or education. In 
@@ -48,7 +41,7 @@ prospective impact. </td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
         </tr>
-             <tr>
+         <tr>
             <td>L2 Name B</td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
@@ -75,7 +68,7 @@ prospective impact. </td>
            <tr>
             <td rowspan=4>Prong III: Substantial Merit and National Importance</td>
             <td colspan=3>This prong allows immigrants to bypass the labor certification process and receive their visa without demonstrating that there are no qualified U.S. workers available. Applicants must demonstrate that their presence in the U.S. is in the national interest and that they are able to make an exceptional contribution to their field.
-
+<br>
 The third prong requires the petitioner to demonstrate that, on balance, it would be beneficial to the 
 United States to waive the requirements of a job offer and thus of a labor certification. In 
 performing this analysis, USCIS may evaluate factors such as: whether, in light of the nature of the 
@@ -105,6 +98,31 @@ Requires the peitioner to:
              <tr>
             <td>L2 Name B</td>
             <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+                   <tr>
+            <td rowspan=4>Personal Documents</td>
+            <td colspan=3>This prong allows immigrants to bypass the labor certification process and receive their visa without demonstrating that there are no qualified U.S. workers available. Applicants must demonstrate that their presence in the U.S. is in the national interest and that they are able to make an exceptional contribution to their field.</td>
+        </tr>
+        <tr>
+            <td>L2 Name B</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+            <td>L2 Name B</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+             <tr>
+            <td>L2 Name B</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+            <td>Official Document</td>
+            <td><a href="https://www.uscis.gov/i-140">Form I-140</a></td>
+            <td>Petition for Immigrant Worker</td>
             <td>:white_check_mark:</td>
         </tr>
     </tbody>
