@@ -1,10 +1,20 @@
+## Overview
 This is a cheklist based on the three prongs from  the <a href="https://www.eb2niw.com/matter-of-dhanasar-new-rules-for-niw/">Dhanasar Case</a>.
 
-**Prong I** - A petitioner has shown that the area of employment is of **substantial intrinsic merit**.
+<br>
 
-**Prong II** - A petitioner must establish that any proposed benefit from the individual’s endeavors will be **national in scope**.
+### **Prong I - Substantial Merit and National Importance** 
+A petitioner has shown that the area of employment is of **substantial intrinsic merit**.
 
-**Prong III** - Requires the peitioner to,
+<br>
+
+### **Prong II - Well Positioned to Advance the Proposed Endeavor**
+A petitioner must establish that any proposed benefit from the individual’s endeavors will be **national in scope**.
+
+<br>
+
+### **Prong III - Benefits to the United States**
+Requires the peitioner to,
   * demonstrate that the national interest would be adversely affected if a labor certification were required
 
   * demonstrate that the individual presents a national benefit so great as to outweigh the national interest inherent in the labor certification process
@@ -15,13 +25,11 @@ This is a cheklist based on the three prongs from  the <a href="https://www.eb2n
 
 ---
 
-## Progress Chart
+## Checklist
 
-| 📑 Prong I 	| 👯 Description 	| 🔨 Done 	|
+| 📑 Sections	| 👯 Description 	| 🔨 Completed 	|
 |-	|-	|-	|
-| :white_check_mark: Dream 	| :black_square_button: UX Research 	|  :heavy_check_mark:	|
-| :white_check_mark: Discovery 	| :black_square_button: UI Design 	| :black_square_button: Documentation 	|
-| :white_check_mark: Development 	| :black_square_button: Brand Identity 	| :black_square_button: Business Plan 	|
-| :black_square_button: Deployment 	| :black_square_button: Call to Actions 	| :black_square_button: Proposal 	|
-
-
+| <a href="https://www.uscis.gov/i-140">Form I-140</a> 	| Petition for Immigrant Worker 	|  :white_check_mark: |
+| Dream 	| UX Research 	|  :white_check_mark: |
+| Dream 	| UX Research 	|  :black_square_button: |
+| Dream 	| UX Research 	|  :black_square_button: |
