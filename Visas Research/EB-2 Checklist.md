@@ -47,7 +47,7 @@ prospective impact. </td>
             <td>:white_check_mark:</td>
         </tr>
       <tr>
-            <td rowspan=4>Prong II: Substantial Merit and National Importance</td>
+            <td rowspan=4>Prong II: Advanced Degrees or Exceptional Ability</td>
             <td colspan=3>To determine whether you are well positioned to advance the proposed endeavor, we consider factors including, but not limited to: the individual’s education, skills, knowledge and record of success in related or similar efforts; a model or plan for future activities; any progress towards achieving the proposed endeavor; and the interest of potential customers, users, investors, or other relevant entities or individuals. We recognize that forecasting feasibility or future success may present challenges to petitioners and USCIS officers, and that many innovations and entrepreneurial endeavors may ultimately fail, in whole or in part, despite an intelligent plan and competent execution. We do not, therefore, require petitioners to demonstrate that their endeavors are more likely than not to ultimately succeed. But notwithstanding this inherent uncertainty, in order to merit a national interest waiver, petitioners must establish, by a preponderance of the evidence, that they are well positioned to advance the proposed endeavor.</td>
         </tr>
         <tr>
@@ -66,7 +66,7 @@ prospective impact. </td>
             <td>:white_check_mark:</td>
         </tr>
            <tr>
-            <td rowspan=4>Prong III: Substantial Merit and National Importance</td>
+            <td rowspan=4>Prong III: National Interest Waiver</td>
             <td colspan=3>This prong allows immigrants to bypass the labor certification process and receive their visa without demonstrating that there are no qualified U.S. workers available. Applicants must demonstrate that their presence in the U.S. is in the national interest and that they are able to make an exceptional contribution to their field.
 <br>
 The third prong requires the petitioner to demonstrate that, on balance, it would be beneficial to the 
@@ -100,29 +100,36 @@ Requires the peitioner to:
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
         </tr>
-                   <tr>
-            <td rowspan=4>Personal Documents</td>
-            <td colspan=3>This prong allows immigrants to bypass the labor certification process and receive their visa without demonstrating that there are no qualified U.S. workers available. Applicants must demonstrate that their presence in the U.S. is in the national interest and that they are able to make an exceptional contribution to their field.</td>
-        </tr>
         <tr>
-            <td>L2 Name B</td>
+            <td rowspan=4>Immigration Document</td>
+            <td>Passport</td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
         </tr>
         <tr>
-            <td>L2 Name B</td>
+            <td>Previous USCIS Approved Documents</td>
+            <td>(H-1B, L-1, H-4 etc)</td>
+            <td>:white_check_mark:</td>
+        </tr>
+         <tr>
+            <td>All I-20s and EADs for F-1</td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
         </tr>
-             <tr>
-            <td>L2 Name B</td>
-            <td>L3 Name C</td>
+         <tr>
+            <td>Entry I-94</td>
+            <td>(retrieve electronic copy from CBP website)</td>
             <td>:white_check_mark:</td>
         </tr>
         <tr>
-            <td>Official Document</td>
+            <td rowspan=2>Submission Documents</td>
             <td><a href="https://www.uscis.gov/i-140">Form I-140</a></td>
-            <td>Petition for Immigrant Worker</td>
+            <td>Petition for Immigrant Worker - [Instructions](https://www.uscis.gov/sites/default/files/document/forms/i-140instr.pdf)</td>
+            <td>:white_check_mark:</td>
+        </tr>
+                <tr>
+            <td>[ETA-9089](https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/Form%20ETA-9089%20-%20August%202021.pdf)</td>
+            <td>Labor Certification Form - [Instructions](https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/eta_form_9089_instructions.pdf)</td>
             <td>:white_check_mark:</td>
         </tr>
     </tbody>
