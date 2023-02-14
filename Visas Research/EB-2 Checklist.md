@@ -1,12 +1,10 @@
 ## Overview for EB-2 Visa NIW
-### Prong I - Substantial Merit and National Importance
-A petitioner has shown that the area of employment is of **substantial intrinsic merit**.  This prong is designed to reward immigrants who possess extraordinary abilities in their respective fields and who can contribute to the country in an exceptional way. Applicants must demonstrate extraordinary ability in the sciences, arts, education, business, or athletics, or must demonstrate that they possess a superior level of expertise in their profession.
 
-### Prong II - Advanced Degrees or Exceptional Ability
-Applicants who possess an advanced degree or demonstrate exceptional ability in their profession may qualify for this prong. Applicants must demonstrate that they possess a degree above the baccalaureate level, or demonstrate exceptional ability in their profession.
+The EB-2 visa NIW (National Interest Waiver) is a classification of employment-based immigration visa that allows a foreign national to skip the labor certification process and receive an employment-based green card. This visa is reserved for individuals who possess advanced degrees or exceptional abilities, and who can demonstrate that their work is in the national interest of the United States. The EB-2 NIW can be obtained without a job offer or a U.S. employer sponsor. The applicant must demonstrate that their work is in the national interest of the United States, and that the visa would benefit the U.S. economy, culture, or educational system.
 
-### Prong III - National Interest Waiver
-This prong allows immigrants to bypass the labor certification process and receive their visa without demonstrating that there are no qualified U.S. workers available. Applicants must demonstrate that their presence in the U.S. is in the national interest and that they are able to make an exceptional contribution to their field.
+Use the following checklist to ensure that you have all the necessary documents and information to apply for an EB-2 NIW. This should take over 100 hours to complete and we do recommend working with a consultant. Though, you are allowed to "self-petition" and submit the documents on your own.  
+
+The submission for an EB-2 NIW Visa typically includes a petition letter, supporting evidence, and any available supplemental materials. The total number of pages depends on the individual case, but generally the submission would range from 20 to 50 pages. pages total for your submission.
 
 ---
 
@@ -22,7 +20,7 @@ This prong allows immigrants to bypass the labor certification process and recei
     </thead>
     <tbody>
          <tr>
-            <td rowspan=4>Prong I: Substantial Merit and National Importance</td>
+            <td rowspan=11>Prong I: Substantial Merit and National Importance</td>
             <td colspan=3>A petitioner has shown that the area of employment is of **substantial intrinsic merit**.  This prong is designed to reward immigrants who possess extraordinary abilities in their respective fields and who can contribute to the country in an exceptional way. Applicants must demonstrate extraordinary ability in the sciences, arts, education, business, or athletics, or must demonstrate that they possess a superior level of expertise in their profession.
 <br>
 The first prong, substantial merit and national importance, focuses on the specific endeavor that the 
@@ -32,41 +30,111 @@ determining whether the proposed endeavor has national importance, we consider i
 prospective impact. </td>
         </tr>
         <tr>
-            <td>L2 Name B</td>
+            <td>Economic or social benefits of a project</td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
         </tr>
         <tr>
-            <td>L2 Name B</td>
+            <td>Number of people or entities impacted by the project.</td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
         </tr>
          <tr>
-            <td>L2 Name B</td>
+            <td>National or international awards won by the project.</td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
         </tr>
-      <tr>
-            <td rowspan=4>Prong II: Advanced Degrees or Exceptional Ability</td>
+                <tr>
+            <td>Historical or cultural significance of the project.</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+            <td>Achievements of the project, such as job creation or reduction in poverty.</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+         <tr>
+            <td>Impact of the project on the environment or public health.</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+                <tr>
+            <td>Contributions of the project to scientific or technological advancement.</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+            <td>Potential of the project to inspire change or innovation.</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+         <tr>
+            <td>Endorsements or testimonials from experts or other stakeholders.</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+            <td>Media coverage or public interest in the project.</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+      <td rowspan=11>Prong II: Advanced Degrees or Exceptional Ability</td>
             <td colspan=3>To determine whether you are well positioned to advance the proposed endeavor, we consider factors including, but not limited to: the individual’s education, skills, knowledge and record of success in related or similar efforts; a model or plan for future activities; any progress towards achieving the proposed endeavor; and the interest of potential customers, users, investors, or other relevant entities or individuals. We recognize that forecasting feasibility or future success may present challenges to petitioners and USCIS officers, and that many innovations and entrepreneurial endeavors may ultimately fail, in whole or in part, despite an intelligent plan and competent execution. We do not, therefore, require petitioners to demonstrate that their endeavors are more likely than not to ultimately succeed. But notwithstanding this inherent uncertainty, in order to merit a national interest waiver, petitioners must establish, by a preponderance of the evidence, that they are well positioned to advance the proposed endeavor.</td>
         </tr>
         <tr>
-            <td>L2 Name B</td>
+            <td>Diplomas</td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
         </tr>
         <tr>
-            <td>L2 Name B</td>
+            <td>Transcripts</td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
         </tr>
-             <tr>
-            <td>L2 Name B</td>
+         <tr>
+            <td>Licenses</td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
         </tr>
-           <tr>
-            <td rowspan=4>Prong III: National Interest Waiver</td>
+        <tr>
+            <td>Certifications</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+            <td>Awards</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+         <tr>
+            <td>Other Education Documents</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+         <tr>
+            <td>Proof of 5+ Years Work Experience</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+            <td>Professional Association Memberships</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+            <td>Recognition of Achievement Documents</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+         <tr>
+            <td>Salary Certificate</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+            <td rowspan=10>Prong III: National Interest Waiver</td>
             <td colspan=3>This prong allows immigrants to bypass the labor certification process and receive their visa without demonstrating that there are no qualified U.S. workers available. Applicants must demonstrate that their presence in the U.S. is in the national interest and that they are able to make an exceptional contribution to their field.
 <br>
 The third prong requires the petitioner to demonstrate that, on balance, it would be beneficial to the 
@@ -78,30 +146,76 @@ from the foreign national's contributions; and whether the national interest in 
 contributions is sufficiently urgent to warrant forgoing the labor certification process. In each case, 
 the factor(s) considered must, taken together, indicate that on balance, it would be beneficial to the 
 United States to waive the requirements of a job offer and thus of a labor certification.
-
-Requires the peitioner to:
-  * demonstrate that the national interest would be adversely affected if a labor certification were required
-  * demonstrate that the individual presents a national benefit so great as to outweigh the national interest inherent in the labor certification process
-  * establish that the individual will serve the national importance to a substantially greater degree than would an available U.S. worker having the same minimum qualifications
-  * clearly establish that the alien’s past record justifies projections of future benefit to the national importance</td>
+</td>
         </tr>
         <tr>
-            <td>L2 Name B</td>
+            <td>Scholarly Publications</td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
         </tr>
         <tr>
-            <td>L2 Name B</td>
+            <td>Citations</td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
         </tr>
-             <tr>
-            <td>L2 Name B</td>
+         <tr>
+            <td>Press or Publications about you/your work</td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
         </tr>
         <tr>
-            <td rowspan=4>Immigration Document</td>
+            <td>Peer Reviewer</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+            <td>Conferences and Presentations</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+         <tr>
+            <td>Commercial Usage of Your Work</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+         <tr>
+            <td>Patents</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+         <tr>
+            <td>Records of Success</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+         <tr>
+            <td>Extra Documents</td>
+            <td>Any other Documentation that sets you apart from others in your field</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+            <td rowspan=4>Letters of Interest</td>
+            <td>References</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+            <td>Recommendations</td>
+            <td>Description</td>
+            <td>:white_check_mark:</td>
+        </tr>
+         <tr>
+            <td>Testimonials</td>
+            <td>L3 Name C</td>
+            <td>:white_check_mark:</td>
+        </tr>
+         <tr>
+            <td>Prestige</td>
+            <td>Description</td>
+            <td>:white_check_mark:</td>
+        </tr>
+        <tr>
+            <td rowspan=4>Immigration Documents</td>
             <td>Passport</td>
             <td>L3 Name C</td>
             <td>:white_check_mark:</td>
@@ -124,12 +238,12 @@ Requires the peitioner to:
         <tr>
             <td rowspan=2>Submission Documents</td>
             <td><a href="https://www.uscis.gov/i-140">Form I-140</a></td>
-            <td>Petition for Immigrant Worker - [Instructions](https://www.uscis.gov/sites/default/files/document/forms/i-140instr.pdf)</td>
+            <td>Petition for Immigrant Worker - <a href="https://www.uscis.gov/sites/default/files/document/forms/i-140instr.pdf">Instructions</a></td>
             <td>:white_check_mark:</td>
         </tr>
                 <tr>
-            <td>[ETA-9089](https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/Form%20ETA-9089%20-%20August%202021.pdf)</td>
-            <td>Labor Certification Form - [Instructions](https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/eta_form_9089_instructions.pdf)</td>
+                    <td><a href="https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/Form%20ETA-9089%20-%20August%202021.pdf">ETA-9089</a></td>
+                    <td>Labor Certification Form - <a href="https://www.dol.gov/sites/dolgov/files/ETA/oflc/pdfs/eta_form_9089_instructions.pdf">Instructions</a></td>
             <td>:white_check_mark:</td>
         </tr>
     </tbody>
