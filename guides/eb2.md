@@ -1,4 +1,4 @@
-## Overview for EB-2 Visa NIW
+## Overview for [EB-2 Visa NIW](https://www.uscis.gov/working-in-the-united-states/permanent-workers/employment-based-immigration-second-preference-eb-2)
 
 The EB-2 visa NIW (National Interest Waiver) is a classification of employment-based immigration visa that allows a foreign national to skip the labor certification process and receive an employment-based green card. This visa is reserved for individuals who possess advanced degrees or exceptional abilities, and who can demonstrate that their work is in the national interest of the United States. The EB-2 NIW can be obtained without a job offer or a U.S. employer sponsor. The applicant must demonstrate that their work is in the national interest of the United States, and that the visa would benefit the U.S. economy, culture, or educational system.
 
@@ -248,3 +248,16 @@ United States to waive the requirements of a job offer and thus of a labor certi
         </tr>
     </tbody>
 </table>
+
+<hr>
+
+### Resources
+- [Matter of DHANASAR – New Rules for NIW – EB2 NIW](https://www.eb2niw.com/matter-of-dhanasar-new-rules-for-niw/)
+- [Dhanasar Decision - Fragomen](https://www.fragomen.com/insights/dhanasar-decision-a-paradigm-shift-for-green-card-aspirants.html)
+- [EB2 NIW Checklist 2020](https://www.mplg.us/wp-content/uploads/2020/12/EB-2-NIW-Checklist-2020.pdf)
+- [EB2 NIW Checklist #2](https://www.eb2niw.com/documents-checklist-for-i-140-eb2-niw-petition/)
+- [Andrew's Example EB-2 Submission on GitHub](https://andreychemist.github.io/)
+
+### Facebook Groups
+- [EB2 NIW Self](https://www.facebook.com/groups/niwself/permalink/5708134369298988/?mibextid=uevf24) 
+
