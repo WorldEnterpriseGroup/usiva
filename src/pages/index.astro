@@ -1,0 +1,218 @@
+---
+import ActionLinks from '../components/ActionLinks.astro';
+import BoundaryGrid from '../components/BoundaryGrid.astro';
+import EditorialHero from '../components/EditorialHero.astro';
+import EvidenceGrid from '../components/EvidenceGrid.astro';
+import RoleMap from '../components/RoleMap.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import type { Action, PathwayItem } from '../components/types';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const heroPathway: PathwayItem[] = [
+  { label: 'Document readiness', detail: 'Records, funding, and timing' },
+  { label: 'Student visa posture', detail: 'F-1, I-20, SEVIS, and interview' },
+  { label: 'Authorized research work', detail: 'Assistantship, CPT, OPT, and STEM OPT' },
+  { label: 'Careful next step', detail: 'Written approvals and legal escalation' },
+];
+
+const heroActions: Action[] = [
+  { label: 'Plan R&D Scholar readiness', href: '/international-rd-scholars.html', tone: 'gold' },
+  { label: 'Apply through US Fellows', href: 'https://usfellows.org/apply.html', tone: 'outline', external: true },
+];
+
+const services = [
+  {
+    marker: '01',
+    title: 'Document readiness',
+    text: 'Passport, identity records, transcripts, English proficiency evidence, credential evaluations, funding proof, prior visa history, and university-specific requirements.',
+  },
+  {
+    marker: '02',
+    title: 'Student visa posture',
+    text: 'F-1 planning, I-20 readiness, SEVIS fee timing, DS-160 preparation, interview narrative, non-immigrant intent, and financial documentation.',
+  },
+  {
+    marker: '03',
+    title: 'Authorized research work',
+    text: 'Assistantship, on-campus work, CPT, OPT, STEM OPT, sponsor rules, school DSO coordination, and the difference between training, study, and employment.',
+  },
+];
+
+const rolePanels = [
+  {
+    eyebrow: 'US Fellows',
+    title: 'Research pathway',
+    description: 'US Fellows helps the scholar build the thesis, university, professor, funding, recommendation, and partner strategy.',
+    items: [
+      'International R&D Scholars Program',
+      'Grants.gov and SAM.gov funding literacy',
+      'A focused university application portfolio',
+      'Professor, PI/KP, NGO, and industry partner logic',
+    ],
+    tone: 'fellows' as const,
+  },
+  {
+    eyebrow: 'USIVA',
+    title: 'Visa and compliance planning',
+    description: 'USIVA helps the scholar understand which immigration and work-authorization questions must be answered before each stage.',
+    items: [
+      'F-1 readiness and non-immigrant intent framing',
+      'Assistantship and authorized work boundaries',
+      'OPT and STEM OPT planning conversations',
+      'Escalation to licensed legal counsel when advice is needed',
+    ],
+    tone: 'usiva' as const,
+  },
+];
+
+const boundaries = [
+  {
+    title: 'Before admission',
+    text: 'No U.S. student work authorization exists simply because a scholar is preparing a PhD packet. Remote activity, volunteering, compensation, and training should be reviewed carefully.',
+  },
+  {
+    title: 'During F-1 study',
+    text: 'Full course of study, assistantship duties, on-campus employment, CPT, and other activity must be coordinated through the university and its designated school official.',
+  },
+  {
+    title: 'After the PhD',
+    text: 'OPT and STEM OPT are possible only when eligibility, timing, degree relationship, employer requirements, reporting, and government rules are satisfied.',
+  },
+];
+
+const ctaActions: Action[] = [
+  { label: 'View US Fellows pathway', href: 'https://usfellows.org/international-rd-scholars.html', tone: 'gold', external: true },
+  { label: 'View USIVA companion', href: '/international-rd-scholars.html', tone: 'light' },
+];
+---
+
+<BaseLayout
+  title="USIVA | Visa and Compliance Planning for International Scholars"
+  description="USIVA provides visa-readiness and compliance planning for international scholars, students, researchers, and US Fellows International R&D Scholars."
+  activePath="/"
+  topbarMessage="Visa-readiness planning for study, research, and compliant opportunity."
+  topbarLink={{ label: 'US Fellows R&D Scholars', href: 'https://usfellows.org/international-rd-scholars.html', external: true }}
+>
+  <EditorialHero
+    eyebrow="U.S. Immigration and Visa Association"
+    title="Visa planning that respects the whole research journey."
+    description="USIVA helps international scholars understand the documentation, timing, work-authorization boundaries, and compliance decisions that surround study, funded assistantships, research training, OPT, and other eligible pathways."
+    panelLabel="Companion role"
+    panelTitle="US Fellows builds the research pathway. USIVA helps protect the visa posture."
+    panelText="The two sites link together because scholars need both: a fundable academic strategy and a clean, careful compliance plan."
+    panelItems={heroPathway}
+    panelCaption="A planning sequence that moves from evidence to study, authorized activity, and the next careful decision."
+    actions={heroActions}
+  />
+
+  <section class="section section--paper" id="services">
+    <div class="shell-container">
+      <SectionIntro
+        eyebrow="What USIVA adds"
+        title="Clear planning before the scholar makes expensive moves."
+        description="International candidates often focus on admission first and immigration later. USIVA moves the compliance questions earlier so the scholar understands evidence, timing, risk, and authorization boundaries before the application cycle becomes urgent."
+      />
+      <div class="home-grid home-grid--evidence">
+        <EvidenceGrid items={services} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist" aria-labelledby="roles-title">
+    <div class="shell-container">
+      <div class="section-intro section-intro--compact">
+        <p class="eyebrow">Connected responsibilities</p>
+        <h2 id="roles-title">Two sites, one careful handoff.</h2>
+        <div class="section-rule" aria-hidden="true"></div>
+        <p>Research ambition and visa discipline work best when the candidate can see which organization owns the next question.</p>
+      </div>
+      <RoleMap panels={rolePanels} />
+    </div>
+  </section>
+
+  <section class="section section--night" id="boundaries">
+    <div class="shell-container">
+      <div class="boundary-intro">
+        <SectionIntro
+          eyebrow="Compliance first"
+          title="Good research planning never outruns visa rules."
+          description="USIVA keeps the scholar focused on authorized activity, university process, documentation quality, and written approvals. No website page can replace individualized legal advice, and no program can guarantee an immigration outcome."
+        />
+      </div>
+      <BoundaryGrid items={boundaries} />
+    </div>
+  </section>
+
+  <section class="section section--signal">
+    <div class="shell-container cta-layout">
+      <div>
+        <p class="eyebrow">Connected pathway</p>
+        <h2>Start with the research plan, then protect the visa plan.</h2>
+        <p>The International R&amp;D Scholars Program belongs on US Fellows. The companion compliance page belongs on USIVA. Together, they help the candidate prepare with ambition and discipline.</p>
+      </div>
+      <div class="cta-layout__actions">
+        <ActionLinks actions={ctaActions} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .home-grid--evidence {
+    margin-block-start: var(--space-4);
+  }
+
+  .section-intro--compact h2 {
+    max-width: 14ch;
+  }
+
+  .boundary-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1.2fr);
+    margin-block-end: var(--space-4);
+  }
+
+  .boundary-intro .section-intro {
+    grid-column: 1 / -1;
+  }
+
+  .section--signal h2 {
+    color: var(--color-paper);
+    font-size: var(--step-3);
+    max-width: 17ch;
+  }
+
+  .section--signal .eyebrow {
+    color: var(--color-highlight);
+  }
+
+  .section--signal p {
+    color: #fff4e0;
+  }
+
+  .cta-layout {
+    align-items: center;
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .cta-layout__actions .action-links {
+    margin-block-start: 0;
+  }
+
+  @media (max-width: 760px) {
+    .boundary-intro {
+      display: block;
+      margin-block-end: var(--space-3);
+    }
+
+    .cta-layout {
+      display: block;
+    }
+
+    .cta-layout__actions .action-links {
+      margin-block-start: var(--space-3);
+    }
+  }
+</style>

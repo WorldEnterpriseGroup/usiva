@@ -1,0 +1,283 @@
+---
+import ActionLinks from '../components/ActionLinks.astro';
+import BoundaryGrid from '../components/BoundaryGrid.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import EditorialHero from '../components/EditorialHero.astro';
+import ReadinessGrid from '../components/ReadinessGrid.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import SourceList from '../components/SourceList.astro';
+import StepTimeline from '../components/StepTimeline.astro';
+import type { Action, PathwayItem } from '../components/types';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const heroPathway: PathwayItem[] = [
+  { label: 'Pre-application', detail: 'Records, funding, and risk questions' },
+  { label: 'Admission cycle', detail: 'I-20, SEVIS, DS-160, and interview' },
+  { label: 'PhD years', detail: 'Status, assistantship, and DSO coordination' },
+  { label: 'After graduation', detail: 'OPT, STEM OPT, or counsel-led options' },
+];
+
+const heroActions: Action[] = [
+  { label: 'View research pathway', href: 'https://usfellows.org/international-rd-scholars.html', tone: 'gold', external: true },
+  { label: 'Review readiness packet', href: '#readiness', tone: 'outline' },
+];
+
+const timeline = [
+  {
+    stage: 'Before applying',
+    title: 'Pre-application readiness',
+    description: 'Confirm passport status, academic records, TOEFL or waiver path, credential evaluation needs, financial planning, prior visa history, and any risk questions that should be escalated before money is spent.',
+  },
+  {
+    stage: 'Admission cycle',
+    title: 'I-20 and F-1 preparation',
+    description: 'After admission and funding decisions, prepare I-20 evidence, SEVIS fee timing, DS-160, interview readiness, non-immigrant intent narrative, and proof of financial support.',
+  },
+  {
+    stage: 'PhD years',
+    title: 'Maintain student status',
+    description: 'Coordinate full course load, assistantship duties, on-campus work, CPT questions, travel signatures, address updates, and any research partner activity with the designated school official.',
+  },
+  {
+    stage: 'Graduation',
+    title: 'OPT and possible STEM OPT',
+    description: 'Plan post-completion OPT timing, degree relationship, unemployment limits, reporting duties, and STEM OPT eligibility when the degree CIP code and employer conditions support it.',
+  },
+  {
+    stage: 'Long range',
+    title: 'University, NGO, industry, or other legal pathways',
+    description: 'Evaluate postdoc, employer-sponsored, exchange, or other options with appropriate counsel. The pathway creates preparation and confidence, not an immigration guarantee.',
+  },
+];
+
+const readiness = [
+  {
+    title: 'Identity and travel',
+    text: 'Passport validity, name consistency, prior visas, travel history, civil records, and any issue that could affect interview preparation.',
+  },
+  {
+    title: 'Academic evidence',
+    text: 'Transcripts, diplomas, NACES-member evaluation when required, English proficiency documentation, writing samples, CV, and program portal requirements.',
+  },
+  {
+    title: 'Funding evidence',
+    text: 'Assistantship letters, tuition waiver terms, stipend details, bank evidence if needed, sponsor documentation, and realistic living-cost assumptions.',
+  },
+  {
+    title: 'University authorization',
+    text: 'I-20, SEVIS ID, DSO instructions, assistantship scope, CPT approvals if applicable, travel signatures, and program start rules.',
+  },
+  {
+    title: 'Research partner boundaries',
+    text: 'Written role descriptions, no unauthorized work, sponsor restrictions, conflict checks, university approvals, and contract or grant compliance.',
+  },
+  {
+    title: 'Post-completion planning',
+    text: 'OPT filing window, field relationship, employer eligibility, STEM OPT degree and employer checks, reporting requirements, and status maintenance.',
+  },
+];
+
+const workBoundaries = [
+  {
+    title: 'Assistantship',
+    text: 'A GA, TA, or RA is a university-controlled role with duties, stipend, tuition treatment, and status implications defined by the institution.',
+  },
+  {
+    title: 'CPT',
+    text: 'Curricular Practical Training is tied to curriculum and must be authorized by the school before the activity begins.',
+  },
+  {
+    title: 'OPT',
+    text: 'Optional Practical Training is employment authorization related to the field of study. Timing, filing, and maintenance rules matter.',
+  },
+  {
+    title: 'STEM OPT',
+    text: 'STEM OPT requires a STEM-designated degree, eligible employer, Form I-983 training plan, reporting, and continuing compliance.',
+  },
+];
+
+const roleRows = [
+  {
+    area: 'Before admission',
+    first: 'Research direction, university portfolio, professor map, funding snapshots, recommendation strategy.',
+    second: 'Credential timing, English-proficiency planning, visa-history review, F-1 evidence planning, risk escalation.',
+  },
+  {
+    area: 'PhD years',
+    first: 'Research development, partner relationships, contract-management learning, public-value alignment.',
+    second: 'Status maintenance, DSO coordination, assistantship boundaries, travel and reporting discipline.',
+  },
+  {
+    area: 'After graduation',
+    first: 'Postdoc, NGO, industry, and research partner strategy based on the scholar\'s field and funding lane.',
+    second: 'OPT, STEM OPT, employer documentation, status timing, and referral to licensed counsel for legal advice.',
+  },
+];
+
+const sources = [
+  { label: 'USCIS: Optional Practical Training for F-1 Students', href: 'https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students' },
+  { label: 'DHS Study in the States: STEM OPT Hub', href: 'https://studyinthestates.dhs.gov/stem-opt-hub' },
+  { label: 'DHS Study in the States: Working in the United States', href: 'https://studyinthestates.dhs.gov/students/resources/working' },
+  { label: 'NACES: Member credential evaluation agencies', href: 'https://www.naces.org/members' },
+  { label: 'ETS: TOEFL iBT fees', href: 'https://www.ets.org/toefl/test-takers/ibt/register/fees.html' },
+  { label: 'US Fellows: International R&D Scholars Program', href: 'https://usfellows.org/international-rd-scholars.html' },
+];
+
+const ctaActions: Action[] = [
+  { label: 'Start with US Fellows', href: 'https://usfellows.org/apply.html', tone: 'gold', external: true },
+  { label: 'View full pathway', href: 'https://usfellows.org/international-rd-scholars.html', tone: 'light', external: true },
+];
+---
+
+<BaseLayout
+  title="International R&D Scholars Visa Planning | USIVA"
+  description="USIVA companion page for the US Fellows International R&D Scholars Program, covering F-1 readiness, assistantship boundaries, OPT planning, documentation, and compliance."
+  activePath="/international-rd-scholars.html"
+  topbarMessage="Companion compliance planning for the US Fellows International R&D Scholars Program."
+  topbarLink={{ label: 'View the US Fellows pathway', href: 'https://usfellows.org/international-rd-scholars.html', external: true }}
+>
+  <EditorialHero
+    eyebrow="International R&D Scholars visa planning"
+    title="The research plan is ambitious. The visa plan must be precise."
+    description="USIVA helps International R&D Scholars understand the compliance decisions across a staged path: pre-application records, F-1 study, funded assistantships, authorized research work, OPT, STEM OPT where eligible, and the legal boundaries around every next step."
+    panelLabel="Compliance thesis"
+    panelTitle="No permanent promise. No work outside authorization. No shortcut around the university."
+    panelText="The pathway is designed for non-immigrant study and research progression. Every work, funding, and partner activity must fit the school, sponsor, and government rules that apply at that stage."
+    panelItems={heroPathway}
+    panelCaption="The compliance questions change as the scholar moves from preparation to study, authorized activity, and the long range."
+    actions={heroActions}
+  />
+
+  <section class="section section--paper" id="timeline">
+    <div class="shell-container">
+      <SectionIntro
+        eyebrow="Stage-based compliance map"
+        title="Visa planning changes at each stage of the scholar's path."
+        description="US Fellows helps build the fundable PhD strategy. USIVA helps the scholar understand which immigration and authorization questions must be resolved before each stage can proceed responsibly."
+      />
+      <div class="timeline-wrap">
+        <StepTimeline steps={timeline} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist" id="readiness">
+    <div class="shell-container">
+      <SectionIntro
+        eyebrow="Readiness packet"
+        title="USIVA wants the scholar organized before the deadline pressure arrives."
+        description="A clean readiness packet helps the candidate answer university, consular, DSO, sponsor, and employer questions without scrambling."
+      />
+      <div class="readiness-wrap">
+        <ReadinessGrid items={readiness} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--night">
+    <div class="shell-container">
+      <SectionIntro
+        eyebrow="Work authorization"
+        title="Assistantship, internship, research, and employment are not interchangeable."
+        description="The International R&D Scholars model exposes candidates to real partners, but exposure must not become unauthorized work. USIVA helps clarify which activities require university approval, DSO action, sponsor review, or legal counsel."
+      />
+      <div class="boundary-wrap">
+        <BoundaryGrid items={workBoundaries} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper" aria-labelledby="responsibility-title">
+    <div class="shell-container">
+      <SectionIntro
+        eyebrow="Role clarity"
+        title="Two connected sites, two different responsibilities."
+        description="The pathway is easier to navigate when research strategy and visa-readiness questions remain visible as separate responsibilities."
+      />
+      <h2 id="responsibility-title" class="visually-hidden">US Fellows and USIVA responsibilities</h2>
+      <div class="comparison-wrap">
+        <ComparisonTable
+          firstLabel="US Fellows"
+          secondLabel="USIVA"
+          caption="Research strategy and visa-readiness responsibilities by stage"
+          rows={roleRows}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--mist" id="sources">
+    <div class="shell-container">
+      <SectionIntro
+        eyebrow="Primary references"
+        title="Public rules and fee pages must be checked before decisions."
+        description="These references help candidates and advisors verify the current public framework. Program-specific instructions from the university and DSO control the actual case."
+      />
+      <div class="sources-wrap">
+        <SourceList sources={sources} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--signal">
+    <div class="shell-container cta-layout">
+      <div>
+        <p class="eyebrow">Next step</p>
+        <h2>Build the research file and the visa-readiness file together.</h2>
+        <p>The strongest candidate prepares both sides: fundable research logic through US Fellows and careful compliance planning through USIVA.</p>
+      </div>
+      <div class="cta-layout__actions">
+        <ActionLinks actions={ctaActions} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  section[id] {
+    scroll-margin-top: 8rem;
+  }
+
+  .timeline-wrap,
+  .readiness-wrap,
+  .boundary-wrap,
+  .comparison-wrap,
+  .sources-wrap {
+    margin-block-start: var(--space-4);
+  }
+
+  .section--signal h2 {
+    color: var(--color-paper);
+    font-size: var(--step-3);
+    max-width: 17ch;
+  }
+
+  .section--signal .eyebrow {
+    color: var(--color-highlight);
+  }
+
+  .section--signal p {
+    color: #fff4e0;
+  }
+
+  .cta-layout {
+    align-items: center;
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .cta-layout__actions .action-links {
+    margin-block-start: 0;
+  }
+
+  @media (max-width: 760px) {
+    .cta-layout {
+      display: block;
+    }
+
+    .cta-layout__actions .action-links {
+      margin-block-start: var(--space-3);
+    }
+  }
+</style>

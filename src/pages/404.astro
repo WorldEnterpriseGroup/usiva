@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page not found | USIVA"
+  description="This USIVA route is not part of the current public site map. Return to the home page or open the route atlas."
+  activePath="/404.html"
+  canonical="https://usiva.org/404.html"
+  noindex={true}
+  topbarMessage="USIVA publishes one current route map."
+  topbarLink={{ label: 'Open the route atlas', href: '/other-pages.html' }}
+>
+  <section class="error-page" aria-labelledby="error-heading">
+    <div class="error-page__inner">
+      <p class="eyebrow">404 · route not found</p>
+      <h1 id="error-heading">That page is not part of the new USIVA route map.</h1>
+      <p class="error-page__lede">The public site has been cut over to a focused set of visa-readiness, compliance-planning, guidance, and source-trail pages.</p>
+      <div class="error-page__actions">
+        <a class="button button--gold" href="/">Return home</a>
+        <a class="button button--outline" href="/other-pages.html">Open the route atlas</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .error-page {
+    align-items: center;
+    background: var(--color-navy-deep);
+    color: var(--color-paper);
+    display: flex;
+    min-height: 60vh;
+    padding-block: var(--space-5);
+  }
+
+  .error-page__inner {
+    margin-inline: auto;
+    max-width: 76rem;
+    padding-inline: var(--gutter);
+    width: 100%;
+  }
+
+  .error-page h1 {
+    color: var(--color-paper);
+    font-size: clamp(2.7rem, 7vw, 6.2rem);
+    max-width: 15ch;
+  }
+
+  .error-page .eyebrow {
+    color: var(--color-highlight);
+  }
+
+  .error-page__lede {
+    color: #d6e1e5;
+    font-size: var(--step-1);
+    max-width: 44rem;
+  }
+
+  .error-page__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin-block-start: var(--space-3);
+  }
+
+  .button {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: var(--radius-s);
+    display: inline-flex;
+    font-size: var(--step--1);
+    font-weight: 850;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.8rem 1.25rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .button--gold {
+    background: var(--color-gold);
+    color: var(--color-navy-deep);
+  }
+
+  .button--outline {
+    border-color: #d6e1e5;
+    color: var(--color-paper);
+  }
+</style>

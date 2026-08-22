@@ -1,0 +1,67 @@
+---
+interface ReadinessItem {
+  title: string;
+  text: string;
+}
+
+interface Props {
+  items: ReadinessItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="readiness-grid">
+  {items.map((item, index) => (
+    <li>
+      <article>
+        <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+        <div>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </div>
+      </article>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .readiness-grid {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    list-style: none;
+  }
+
+  .readiness-grid article {
+    align-items: start;
+    background: var(--color-paper);
+    border-left: 0.28rem solid var(--color-teal);
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 2rem 1fr;
+    height: 100%;
+    padding: var(--space-2);
+  }
+
+  .readiness-grid article > span {
+    color: var(--color-teal);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+
+  .readiness-grid h3 {
+    font-size: var(--step-1);
+    margin-block-end: 0.45rem;
+  }
+
+  .readiness-grid p {
+    font-size: var(--step--1);
+  }
+
+  @media (max-width: 740px) {
+    .readiness-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

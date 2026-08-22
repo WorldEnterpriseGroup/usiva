@@ -1,0 +1,37 @@
+---
+import SiteLayout from './SiteLayout.astro';
+
+interface HeaderLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  activePath: string;
+  topbarMessage: string;
+  topbarLink: HeaderLink;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
+}
+
+const { title, description, activePath, topbarMessage, topbarLink, canonical, ogImage, ogType, noindex } = Astro.props;
+---
+
+<SiteLayout
+  title={title}
+  description={description}
+  activePath={activePath}
+  topbarMessage={topbarMessage}
+  topbarLink={topbarLink}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogType={ogType}
+  noindex={noindex}
+>
+  <slot />
+</SiteLayout>

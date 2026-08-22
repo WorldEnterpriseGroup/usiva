@@ -1,0 +1,32 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  description?: string;
+}
+
+const { eyebrow, title, description } = Astro.props;
+---
+
+<header class="section-intro">
+  <p class="eyebrow">{eyebrow}</p>
+  <h2>{title}</h2>
+  <div class="section-rule" aria-hidden="true"></div>
+  {description && <p>{description}</p>}
+</header>
+
+<style>
+  .section-intro {
+    max-width: 58rem;
+  }
+
+  .section-intro h2 {
+    font-size: var(--step-3);
+    max-width: 17ch;
+  }
+
+  .section-intro > p:last-child {
+    font-size: var(--step-0);
+    max-width: 65ch;
+  }
+</style>

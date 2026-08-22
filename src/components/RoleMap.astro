@@ -1,0 +1,82 @@
+---
+interface RolePanel {
+  eyebrow: string;
+  title: string;
+  description: string;
+  items: string[];
+  tone: 'fellows' | 'usiva';
+}
+
+interface Props {
+  panels: RolePanel[];
+}
+
+const { panels } = Astro.props;
+---
+
+<div class="role-map">
+  {panels.map((panel) => (
+    <article class:list={['role-map__panel', `role-map__panel--${panel.tone}`]}>
+      <p class="eyebrow">{panel.eyebrow}</p>
+      <h3>{panel.title}</h3>
+      <p>{panel.description}</p>
+      <ul>
+        {panel.items.map((item) => <li>{item}</li>)}
+      </ul>
+    </article>
+  ))}
+</div>
+
+<style>
+  .role-map {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .role-map__panel {
+    background: var(--color-paper);
+    border-top: 0.32rem solid var(--color-gold);
+    box-shadow: var(--shadow-soft);
+    padding: clamp(1.4rem, 3vw, 2.4rem);
+  }
+
+  .role-map__panel--usiva {
+    border-top-color: var(--color-teal);
+  }
+
+  .role-map__panel h3 {
+    font-size: var(--step-2);
+    margin-block-end: 0.65rem;
+  }
+
+  .role-map__panel ul {
+    border-top: 1px solid var(--color-line);
+    color: var(--color-muted);
+    list-style: none;
+    margin-block-start: var(--space-2);
+    padding-block-start: var(--space-2);
+  }
+
+  .role-map__panel li {
+    padding-inline-start: 1.2rem;
+    position: relative;
+  }
+
+  .role-map__panel li + li {
+    margin-block-start: 0.55rem;
+  }
+
+  .role-map__panel li::before {
+    color: var(--color-accent);
+    content: '—';
+    left: 0;
+    position: absolute;
+  }
+
+  @media (max-width: 720px) {
+    .role-map {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

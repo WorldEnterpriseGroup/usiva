@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "legacySourcePaths": [
+    "assets/css/site.css",
+    "assets/photos/usiva-rd-scholar-hero.avif"
+  ],
+  "legacyAssetNames": [
+    "site.css",
+    "usiva-rd-scholar-hero.avif"
+  ],
+  "legacyAssetHashes": {
+    "site.css": "0ee10d4c29288d4ce3091205d5973a55e3a03558ea0132934539d69b4e57b44c",
+    "usiva-rd-scholar-hero.avif": "194417fd39a403c987c88076c634900b0ea4133e81b49d3511bfad2bcc8f62b8"
+  },
+  "legacyHtmlHashes": [
+    "32eafde6dbbf63f237f674c3fbdc0bb767387d87af2db7856f67cbc941719437",
+    "21fc8aa5e7cc669a2e0254dc9933a2243f89b430259a8f7d9f46da60dd440823"
+  ],
+  "legacyCopy": []
+}

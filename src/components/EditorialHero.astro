@@ -1,0 +1,153 @@
+---
+import ActionLinks from './ActionLinks.astro';
+import PathwayMap from './PathwayMap.astro';
+import type { Action, PathwayItem } from './types';
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  panelLabel: string;
+  panelTitle: string;
+  panelText: string;
+  panelItems: PathwayItem[];
+  panelCaption: string;
+  actions: Action[];
+}
+
+const { eyebrow, title, description, panelLabel, panelTitle, panelText, panelItems, panelCaption, actions } = Astro.props;
+---
+
+<section class="hero" aria-labelledby="page-title">
+  <div class="shell-container hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1 id="page-title">{title}</h1>
+      <p class="hero__description">{description}</p>
+      <ActionLinks actions={actions} />
+    </div>
+
+    <aside class="hero__panel" aria-label={panelLabel}>
+      <p class="hero__panel-label">{panelLabel}</p>
+      <h2>{panelTitle}</h2>
+      <p>{panelText}</p>
+      <PathwayMap items={panelItems} caption={panelCaption} />
+    </aside>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background:
+      radial-gradient(circle at 84% 22%, rgba(199, 159, 69, 0.16), transparent 24rem),
+      linear-gradient(115deg, var(--color-navy-deep), var(--color-navy) 60%, var(--color-navy-soft));
+    color: var(--color-paper);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero::before {
+    border: 1px solid rgba(214, 225, 229, 0.2);
+    border-radius: 50%;
+    content: '';
+    height: 32rem;
+    position: absolute;
+    right: -11rem;
+    top: -15rem;
+    width: 32rem;
+  }
+
+  .hero::after {
+    background: linear-gradient(90deg, var(--color-accent) 0 33.333%, var(--color-paper) 33.333% 66.666%, var(--color-teal) 66.666%);
+    bottom: 0;
+    content: '';
+    height: 0.32rem;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+
+  .hero__inner {
+    align-items: end;
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 6.5rem);
+    grid-template-columns: minmax(0, 1.18fr) minmax(18rem, 0.82fr);
+    min-height: min(52rem, calc(100vh - 8.5rem));
+    padding-block: var(--space-5) calc(var(--space-5) + 1rem);
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero__copy {
+    padding-block-end: var(--space-2);
+  }
+
+  .hero h1 {
+    color: var(--color-paper);
+    font-size: var(--step-4);
+    max-width: 12ch;
+  }
+
+  .hero__description {
+    color: #d6e1e5;
+    font-size: clamp(1.05rem, 0.95rem + 0.42vw, 1.35rem);
+    line-height: 1.55;
+    margin-block-start: var(--space-3);
+    max-width: 48rem;
+  }
+
+  .hero__panel {
+    background: rgba(255, 255, 255, 0.96);
+    border-top: 0.32rem solid var(--color-gold);
+    box-shadow: var(--shadow-deep);
+    color: var(--color-ink);
+    padding: clamp(1.3rem, 2.8vw, 2.25rem);
+  }
+
+  .hero__panel-label {
+    color: var(--color-accent);
+    font-size: var(--step--1);
+    font-weight: 850;
+    letter-spacing: 0.13em;
+    margin-block-end: var(--space-1);
+    text-transform: uppercase;
+  }
+
+  .hero__panel h2 {
+    font-size: var(--step-2);
+  }
+
+  .hero__panel > p:not(.hero__panel-label) {
+    margin-block-start: var(--space-1);
+  }
+
+  .hero__panel .pathway-map {
+    margin-block-start: var(--space-2);
+  }
+
+  @media (max-width: 920px) {
+    .hero__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.76fr);
+    }
+
+    .hero h1 {
+      font-size: var(--step-3);
+    }
+  }
+
+  @media (max-width: 720px) {
+    .hero__inner {
+      display: block;
+      min-height: 0;
+      padding-block: var(--space-5) calc(var(--space-4) + 1rem);
+    }
+
+    .hero__panel {
+      margin-block-start: var(--space-4);
+    }
+
+    .hero h1 {
+      max-width: 15ch;
+    }
+  }
+</style>

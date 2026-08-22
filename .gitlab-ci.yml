@@ -1,11 +1,65 @@
-pages:
+---
+# Internal/demo Pages only. The public artifact is produced by GitHub Actions
+# in https://github.com/US-Council/usiva and is published from gh-pages.
+
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "demo"'
+    - when: never
+
+stages:
+  - deploy
+
+deploy-demo-pages:
   stage: deploy
-  image: alpine:3.20
+  image: node:22.13.0-bookworm-slim
+  variables:
+    CI: "true"
   script:
+    - test -f package.json
+    - test -f pnpm-lock.yaml
+    - corepack enable
+    - corepack install --global pnpm@11.22.0
+    - pnpm install --frozen-lockfile --config.allowBuilds.esbuild=true
+    - pnpm run build
+    - pnpm run check
+    - pnpm test
+    - pnpm run audit
+    - pnpm audit --prod
+    - test -d dist
+    - test -s dist/index.html
+    - test -d dist/assets
+    - >
+      if [ -d dist/_astro ]; then
+        echo "Astro assets must not use the _astro directory" >&2;
+        exit 1;
+      fi
+    - rm -rf public
     - mkdir -p public
-    - cp -r index.html international-rd-scholars.html assets robots.txt sitemap.xml CNAME .nojekyll public/
+    - cp -a dist/. public/
+    - ': > public/.nojekyll'
+    - rm -f public/CNAME
+    - |
+      find public -type f -name '*.html' \
+        -exec sed -i -E \
+        's/content="index, ?follow"/content="noindex, nofollow"/g' {} +
+    - >
+      printf '%s\n' 'User-agent: *' 'Disallow: /' > public/robots.txt
+    - rm -f public/sitemap.xml
+    - test ! -s public/.nojekyll
+    - test ! -e public/CNAME
+    - test ! -d public/_astro
+    - >
+      if grep -R 'content="index' public --include='*.html'; then
+        echo 'Demo artifact must be noindex' >&2;
+        exit 1;
+      fi
+    - test ! -e public/sitemap.xml
+  pages: true
   artifacts:
     paths:
       - public
+  environment:
+    name: demo
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: '$CI_COMMIT_BRANCH == "demo"'

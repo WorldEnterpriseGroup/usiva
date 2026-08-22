@@ -1,0 +1,82 @@
+---
+import type { PathwayItem } from './types';
+
+interface Props {
+  items: PathwayItem[];
+  caption: string;
+}
+
+const { items, caption } = Astro.props;
+---
+
+<figure class="pathway-map" aria-labelledby="pathway-caption">
+  <ol>
+    {items.map((item, index) => (
+      <li>
+        <span class="pathway-map__index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+        <span>
+          <strong>{item.label}</strong>
+          <small>{item.detail}</small>
+        </span>
+      </li>
+    ))}
+  </ol>
+  <figcaption id="pathway-caption">{caption}</figcaption>
+</figure>
+
+<style>
+  .pathway-map {
+    background: rgba(9, 27, 45, 0.78);
+    border: 1px solid rgba(240, 227, 190, 0.32);
+    padding: var(--space-2);
+  }
+
+  .pathway-map ol {
+    display: grid;
+    gap: 0.42rem;
+    list-style: none;
+  }
+
+  .pathway-map li {
+    align-items: center;
+    border-bottom: 1px solid rgba(214, 225, 229, 0.19);
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: 2.2rem 1fr;
+    padding-block: 0.55rem;
+  }
+
+  .pathway-map li:last-child {
+    border-bottom: 0;
+  }
+
+  .pathway-map__index {
+    color: var(--color-highlight);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+
+  .pathway-map strong,
+  .pathway-map small {
+    display: block;
+  }
+
+  .pathway-map strong {
+    color: var(--color-paper);
+    font-size: var(--step--1);
+  }
+
+  .pathway-map small {
+    color: #c8d5dc;
+    font-size: 0.76rem;
+    line-height: 1.35;
+    margin-block-start: 0.12rem;
+  }
+
+  .pathway-map figcaption {
+    color: #c8d5dc;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    margin-block-start: var(--space-1);
+  }
+</style>

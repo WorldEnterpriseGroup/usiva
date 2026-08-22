@@ -1,0 +1,95 @@
+---
+interface ComparisonRow {
+  area: string;
+  first: string;
+  second: string;
+}
+
+interface Props {
+  firstLabel: string;
+  secondLabel: string;
+  rows: ComparisonRow[];
+  caption: string;
+}
+
+const { firstLabel, secondLabel, rows, caption } = Astro.props;
+---
+
+<div class="comparison-wrap">
+  <table>
+    <caption>{caption}</caption>
+    <thead>
+      <tr>
+        <th scope="col">Area</th>
+        <th scope="col">{firstLabel}</th>
+        <th scope="col">{secondLabel}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row) => (
+        <tr>
+          <th scope="row">{row.area}</th>
+          <td>{row.first}</td>
+          <td>{row.second}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .comparison-wrap {
+    border: 1px solid var(--color-line);
+    overflow-x: auto;
+  }
+
+  .comparison-wrap table {
+    background: var(--color-paper);
+    border-collapse: collapse;
+    min-width: 48rem;
+    width: 100%;
+  }
+
+  .comparison-wrap caption {
+    background: var(--color-navy);
+    color: var(--color-paper);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    padding: 0.9rem 1rem;
+    text-align: left;
+  }
+
+  .comparison-wrap th,
+  .comparison-wrap td {
+    border-bottom: 1px solid var(--color-line);
+    padding: 1rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .comparison-wrap thead th {
+    background: var(--color-mist);
+    color: var(--color-ink);
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .comparison-wrap tbody th {
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: var(--step--1);
+    font-weight: 800;
+    width: 20%;
+  }
+
+  .comparison-wrap td {
+    color: var(--color-muted);
+    font-size: var(--step--1);
+  }
+
+  .comparison-wrap tr:last-child th,
+  .comparison-wrap tr:last-child td {
+    border-bottom: 0;
+  }
+</style>

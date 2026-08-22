@@ -1,0 +1,88 @@
+---
+interface TimelineStep {
+  stage: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  steps: TimelineStep[];
+}
+
+const { steps } = Astro.props;
+---
+
+<ol class="step-timeline">
+  {steps.map((step, index) => (
+    <li>
+      <div class="step-timeline__stage">
+        <span class="step-timeline__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+        <span>{step.stage}</span>
+      </div>
+      <h3>{step.title}</h3>
+      <p>{step.description}</p>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .step-timeline {
+    border-top: 1px solid var(--color-line);
+    list-style: none;
+  }
+
+  .step-timeline li {
+    align-items: start;
+    border-bottom: 1px solid var(--color-line);
+    display: grid;
+    gap: var(--space-2);
+    grid-template-columns: minmax(8rem, 0.6fr) minmax(12rem, 0.9fr) 1.4fr;
+    padding-block: var(--space-3);
+  }
+
+  .step-timeline__stage {
+    color: var(--color-accent);
+    display: flex;
+    flex-direction: column;
+    font-size: var(--step--1);
+    font-weight: 850;
+    gap: 0.4rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .step-timeline__number {
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+  }
+
+  .step-timeline h3 {
+    font-size: var(--step-1);
+  }
+
+  .step-timeline p {
+    font-size: var(--step--1);
+  }
+
+  @media (max-width: 760px) {
+    .step-timeline li {
+      grid-template-columns: 5.5rem 1fr;
+    }
+
+    .step-timeline p {
+      grid-column: 2;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .step-timeline li {
+      display: block;
+    }
+
+    .step-timeline h3 {
+      margin-block: 0.35rem 0.45rem;
+    }
+  }
+</style>

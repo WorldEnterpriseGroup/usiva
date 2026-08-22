@@ -1,0 +1,94 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import '../styles/global.css';
+
+interface HeaderLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  activePath: string;
+  topbarMessage: string;
+  topbarLink: HeaderLink;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  activePath,
+  topbarMessage,
+  topbarLink,
+  canonical,
+  ogImage = '/assets/usiva-social.svg',
+  ogType = 'website',
+  noindex = false,
+} = Astro.props;
+
+const siteRoot = Astro.site ?? new URL('https://usiva.org');
+const routePath = Astro.url.pathname === '/index.html' ? '/' : Astro.url.pathname;
+const canonicalUrl = canonical ? new URL(canonical, siteRoot) : new URL(routePath, siteRoot);
+const socialImageUrl = new URL(ogImage, siteRoot);
+const robots = noindex ? 'noindex, nofollow' : 'index, follow';
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: canonicalUrl.href,
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'USIVA',
+    url: siteRoot.href,
+  },
+  about: {
+    '@type': 'Organization',
+    name: 'U.S. Immigration and Visa Association',
+    url: siteRoot.href,
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#10263d" />
+    <link rel="canonical" href={canonicalUrl.href} />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="icon" href="/assets/usiva-social.svg" type="image/svg+xml" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="USIVA" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl.href} />
+    <meta property="og:image" content={socialImageUrl.href} />
+    <meta property="og:image:alt" content="USIVA — visa-readiness and compliance planning" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl.href} />
+    <meta name="twitter:image:alt" content="USIVA — visa-readiness and compliance planning" />
+    <title>{title}</title>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)}></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <SiteHeader activePath={activePath} topbarMessage={topbarMessage} topbarLink={topbarLink} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

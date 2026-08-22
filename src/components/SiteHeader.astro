@@ -1,0 +1,190 @@
+---
+import BrandMark from './BrandMark.astro';
+
+interface HeaderLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+interface Props {
+  activePath: string;
+  topbarMessage: string;
+  topbarLink: HeaderLink;
+}
+
+const { activePath, topbarMessage, topbarLink } = Astro.props;
+const scholarsPath = '/international-rd-scholars.html';
+const isScholarsPage = activePath === scholarsPath;
+const isHomePage = activePath === '/';
+
+const navItems: HeaderLink[] = isScholarsPage
+  ? [
+      { label: 'Home', href: '/' },
+      { label: 'Visa timeline', href: '#timeline' },
+      { label: 'Readiness packet', href: '#readiness' },
+      { label: 'Sources', href: '#sources' },
+      { label: 'Apply through US Fellows', href: 'https://usfellows.org/apply.html', external: true },
+    ]
+  : isHomePage
+  ? [
+      { label: 'R&D Scholars', href: scholarsPath },
+      { label: 'Services', href: '#services' },
+      { label: 'Compliance', href: '#boundaries' },
+      { label: 'US Fellows', href: 'https://usfellows.org/', external: true },
+    ]
+  : [
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services.html' },
+      { label: 'About', href: '/about.html' },
+      { label: 'Guides', href: '/other-pages.html' },
+      { label: 'Contact', href: '/contacts.html' },
+      { label: 'US Fellows', href: 'https://usfellows.org/', external: true },
+    ];
+---
+
+<div class="topbar">
+  <div class="shell-container topbar__inner">
+    <span>{topbarMessage}</span>
+    <a href={topbarLink.href} class="topbar__link" data-external={topbarLink.external ? true : undefined}>
+      {topbarLink.label}
+      <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="shell-container site-header__inner">
+    <a class="site-header__brand" href="/" aria-label="USIVA home">
+      <BrandMark />
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <ul>
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              data-external={item.external ? true : undefined}
+              aria-current={item.href === activePath ? 'page' : undefined}
+            >
+              {item.label}
+              {item.external && <span aria-hidden="true">↗</span>}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .topbar {
+    background: var(--color-navy-deep);
+    color: #d6e1e5;
+    font-size: var(--step--1);
+    letter-spacing: 0.015em;
+  }
+
+  .topbar__inner {
+    align-items: center;
+    display: flex;
+    gap: var(--space-2);
+    justify-content: space-between;
+    min-height: 2.65rem;
+    padding-block: 0.45rem;
+  }
+
+  .topbar__link {
+    color: var(--color-paper);
+    font-weight: 800;
+  }
+
+  .topbar__link span,
+  .site-nav a span {
+    display: inline-block;
+    margin-inline-start: 0.32rem;
+  }
+
+  .site-header {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--color-line);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+
+  .site-header__inner {
+    align-items: center;
+    display: flex;
+    gap: var(--space-3);
+    justify-content: space-between;
+    min-height: 5.8rem;
+  }
+
+  .site-header__brand {
+    flex: 0 0 auto;
+    text-decoration: none;
+  }
+
+  .site-nav {
+    margin-inline-start: auto;
+  }
+
+  .site-nav ul {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.3rem;
+    justify-content: flex-end;
+    list-style: none;
+  }
+
+  .site-nav a {
+    color: var(--color-ink);
+    font-size: var(--step--1);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .site-nav a[aria-current='page'] {
+    color: var(--color-accent);
+  }
+
+  .site-nav a:hover {
+    color: var(--color-accent-dark);
+  }
+
+  @media (max-width: 860px) {
+    .site-header__inner {
+      align-items: flex-start;
+      flex-direction: column;
+      padding-block: 1rem;
+    }
+
+    .site-nav {
+      margin-inline-start: 0;
+      width: 100%;
+    }
+
+    .site-nav ul {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .topbar__inner {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .topbar__link {
+      white-space: normal;
+    }
+
+    .site-nav ul {
+      gap: 0.6rem 1rem;
+    }
+  }
+</style>

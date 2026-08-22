@@ -1,0 +1,209 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import '../styles/global.css';
+
+const { frontmatter } = Astro.props;
+const title = String(frontmatter?.title ?? 'USIVA guidance');
+const description = String(frontmatter?.description ?? 'USIVA informational planning guidance for international study and research pathways.');
+const route = String(frontmatter?.route ?? Astro.url.pathname);
+const siteRoot = Astro.site ?? new URL('https://usiva.org');
+const canonicalUrl = new URL(route, siteRoot);
+const socialImageUrl = new URL('/assets/usiva-social.svg', siteRoot);
+const guideType = String(frontmatter?.guideType ?? 'planning guide').replaceAll('-', ' ');
+const reviewedOn = String(frontmatter?.reviewedOn ?? '2026-08-22');
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  dateModified: reviewedOn,
+  author: { '@type': 'Organization', name: 'USIVA', url: siteRoot.href },
+  publisher: { '@type': 'Organization', name: 'USIVA', url: siteRoot.href },
+  mainEntityOfPage: canonicalUrl.href,
+  image: socialImageUrl.href,
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#10263d" />
+    <link rel="canonical" href={canonicalUrl.href} />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="icon" href="/assets/usiva-social.svg" type="image/svg+xml" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="USIVA" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl.href} />
+    <meta property="og:image" content={socialImageUrl.href} />
+    <meta property="og:image:alt" content="USIVA — visa-readiness and compliance planning" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl.href} />
+    <meta name="twitter:image:alt" content="USIVA — visa-readiness and compliance planning" />
+    <title>{title}</title>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)}></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader
+      activePath={route}
+      topbarMessage="Public planning guidance; verify current rules with official sources."
+      topbarLink={{ label: 'Read the USIVA boundary', href: '/about.html' }}
+    />
+    <main id="main" class="guide-main">
+      <div class="guide-shell">
+        <header class="guide-header">
+          <p class="eyebrow">USIVA guidance · {guideType}</p>
+          <p class="guide-header__meta">Reviewed {reviewedOn} · informational planning content</p>
+        </header>
+        <article class="guide-document">
+          <slot />
+        </article>
+      </div>
+    </main>
+    <SiteFooter />
+  </body>
+</html>
+
+<style>
+  .guide-main {
+    background: var(--color-paper);
+    padding-block: clamp(3.5rem, 8vw, 7rem) var(--space-5);
+  }
+
+  .guide-shell {
+    margin-inline: auto;
+    max-width: 78rem;
+    padding-inline: var(--gutter);
+  }
+
+  .guide-header {
+    border-bottom: 1px solid var(--color-line);
+    margin-inline: auto;
+    max-width: 52rem;
+    padding-block-end: var(--space-2);
+  }
+
+  .guide-header__meta {
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    margin: 0;
+  }
+
+  .guide-document {
+    color: var(--color-ink);
+    margin-inline: auto;
+    max-width: 52rem;
+  }
+
+  .guide-document :global(h1) {
+    color: var(--color-navy-deep);
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 5.3rem);
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+    margin-block: var(--space-3) var(--space-2);
+    max-width: 16ch;
+  }
+
+  .guide-document :global(h2) {
+    color: var(--color-navy);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin-block: var(--space-4) var(--space-1);
+  }
+
+  .guide-document :global(h3) {
+    color: var(--color-navy);
+    font-size: var(--step-1);
+    margin-block: var(--space-3) var(--space-1);
+  }
+
+  .guide-document :global(p),
+  .guide-document :global(li) {
+    font-size: var(--step-0);
+    line-height: 1.75;
+  }
+
+  .guide-document :global(p) {
+    margin-block: 0 var(--space-1);
+  }
+
+  .guide-document :global(ul),
+  .guide-document :global(ol) {
+    margin-block: 0 var(--space-2);
+    padding-inline-start: 1.35rem;
+  }
+
+  .guide-document :global(li + li) {
+    margin-block-start: 0.6rem;
+  }
+
+  .guide-document :global(a) {
+    color: var(--color-accent-dark);
+    font-weight: 750;
+    text-decoration-thickness: 0.12em;
+    text-underline-offset: 0.18em;
+  }
+
+  .guide-document :global(blockquote) {
+    background: #e8f0f1;
+    border-inline-start: 0.35rem solid var(--color-gold);
+    margin: var(--space-3) 0;
+    padding: var(--space-2);
+  }
+
+  .guide-document :global(blockquote p:last-child) {
+    margin-block-end: 0;
+  }
+
+  .guide-document :global(table) {
+    border-collapse: collapse;
+    display: block;
+    margin-block: var(--space-2);
+    max-width: 100%;
+    overflow-x: auto;
+    width: max-content;
+  }
+
+  .guide-document :global(th),
+  .guide-document :global(td) {
+    border: 1px solid var(--color-line);
+    padding: 0.7rem 0.85rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .guide-document :global(th) {
+    background: var(--color-navy-deep);
+    color: var(--color-paper);
+  }
+
+  .guide-document :global(code) {
+    background: #e8f0f1;
+    border-radius: 0.25rem;
+    padding: 0.1em 0.28em;
+  }
+
+  .guide-document :global(hr) {
+    border: 0;
+    border-top: 1px solid var(--color-line);
+    margin-block: var(--space-4);
+  }
+
+  @media (max-width: 620px) {
+    .guide-document :global(h1) {
+      font-size: clamp(2.35rem, 13vw, 3.5rem);
+    }
+  }
+</style>

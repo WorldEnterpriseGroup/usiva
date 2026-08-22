@@ -1,0 +1,68 @@
+---
+interface EvidenceItem {
+  title: string;
+  text: string;
+  marker: string;
+}
+
+interface Props {
+  items: EvidenceItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="evidence-grid">
+  {items.map((item, index) => (
+    <li>
+      <article>
+        <span class="evidence-grid__marker">{item.marker || String(index + 1).padStart(2, '0')}</span>
+        <h3>{item.title}</h3>
+        <p>{item.text}</p>
+      </article>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .evidence-grid {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    list-style: none;
+  }
+
+  .evidence-grid li {
+    background: var(--color-line);
+  }
+
+  .evidence-grid article {
+    background: var(--color-paper);
+    height: 100%;
+    padding: clamp(1.25rem, 2.5vw, 2.2rem);
+  }
+
+  .evidence-grid__marker {
+    color: var(--color-accent);
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    margin-block-end: var(--space-3);
+  }
+
+  .evidence-grid h3 {
+    font-size: var(--step-1);
+    margin-block-end: 0.7rem;
+  }
+
+  .evidence-grid p {
+    font-size: var(--step--1);
+  }
+
+  @media (max-width: 820px) {
+    .evidence-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

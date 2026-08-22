@@ -1,0 +1,43 @@
+---
+import type { Action } from './types';
+
+interface Props {
+  actions: Action[];
+}
+
+const { actions } = Astro.props;
+---
+
+<nav class="action-links" aria-label="Next actions">
+  <ul>
+    {actions.map((action) => (
+      <li>
+        <a class:list={['button', `button--${action.tone}`]} href={action.href} data-external={action.external ? true : undefined}>
+          {action.label}
+          {action.external && <span aria-hidden="true">↗</span>}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .action-links {
+    margin-block-start: var(--space-3);
+  }
+
+  .action-links ul {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+  }
+
+  @media (max-width: 520px) {
+    .action-links li,
+    .action-links .button {
+      width: 100%;
+    }
+  }
+</style>

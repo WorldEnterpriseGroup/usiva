@@ -1,0 +1,109 @@
+name: Publish public GitHub Pages artifact
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-pages-artifact
+  cancel-in-progress: false
+
+jobs:
+  build-and-publish:
+    # Manual runs are allowed only when started from main. Pushes are already
+    # limited to main above, so another branch cannot publish publicly.
+    if: github.event_name == 'push' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      CI: true
+      TZ: UTC
+    steps:
+      - name: Checkout main source
+        # actions/checkout v4.2.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Refuse non-canonical repository
+        shell: bash
+        run: test "${GITHUB_REPOSITORY,,}" = "us-council/usiva"
+
+      - name: Verify Astro source contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f package.json
+          test -f pnpm-lock.yaml
+
+      - name: Set up Node.js
+        # actions/setup-node v4.4.0
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.13.0'
+
+      - name: Set up locked pnpm
+        shell: bash
+        run: |
+          set -euo pipefail
+          corepack enable
+          corepack install --global pnpm@11.22.0
+          test "$(pnpm --version)" = "11.22.0"
+
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile --config.allowBuilds.esbuild=true
+
+      - name: Build Astro static output
+        run: pnpm run build
+
+      - name: Run release quality gates
+        run: |
+          pnpm run check
+          pnpm test
+          pnpm run audit
+          pnpm audit --prod
+
+      - name: Validate and seal public artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -d dist
+          test -s dist/index.html
+          test -d dist/assets
+          if [ -d dist/_astro ] || find dist -type f \
+            -path '*/_astro/*' -print -quit | grep -q .; then
+            echo 'Astro assets must use the non-underscore assets directory' >&2
+            exit 1
+          fi
+          printf '%s\n' 'usiva.org' > dist/CNAME
+          : > dist/.nojekyll
+          test "$(cat dist/CNAME)" = "usiva.org"
+          test ! -s dist/.nojekyll
+
+      - name: Publish only dist to gh-pages
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          artifact_dir="$(mktemp -d)"
+          cp -a dist/. "$artifact_dir/"
+          cd "$artifact_dir"
+          git init --initial-branch=gh-pages
+          git config user.name 'github-actions[bot]'
+          git config user.email \
+            '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all
+          git commit -m "Publish Astro build ${GITHUB_SHA}"
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          git config \
+            'http.https://github.com/.extraheader' \
+            "AUTHORIZATION: bearer ${GITHUB_TOKEN}"
+          git push --force origin HEAD:gh-pages
