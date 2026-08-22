@@ -53,22 +53,20 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          corepack enable
-          corepack install --global pnpm@11.22.0
-          test "$(pnpm --version)" = "11.22.0"
+          test "$(corepack pnpm --version)" = "11.22.0"
 
       - name: Install locked dependencies
-        run: pnpm install --frozen-lockfile --config.allowBuilds.esbuild=true
+        run: corepack pnpm install --frozen-lockfile --config.allowBuilds.esbuild=true
 
       - name: Build Astro static output
-        run: pnpm run build
+        run: corepack pnpm run build
 
       - name: Run release quality gates
         run: |
-          pnpm run check
-          pnpm test
-          pnpm run audit
-          pnpm audit --prod
+          corepack pnpm run check
+          corepack pnpm test
+          corepack pnpm run audit
+          corepack pnpm audit --prod
 
       - name: Validate and seal public artifact
         shell: bash

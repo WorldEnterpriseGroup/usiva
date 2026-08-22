@@ -18,14 +18,13 @@ deploy-demo-pages:
   script:
     - test -f package.json
     - test -f pnpm-lock.yaml
-    - corepack enable
-    - corepack install --global pnpm@11.22.0
-    - pnpm install --frozen-lockfile --config.allowBuilds.esbuild=true
-    - pnpm run build
-    - pnpm run check
-    - pnpm test
-    - pnpm run audit
-    - pnpm audit --prod
+    - test "$(corepack pnpm --version)" = "11.22.0"
+    - corepack pnpm install --frozen-lockfile --config.allowBuilds.esbuild=true
+    - corepack pnpm run build
+    - corepack pnpm run check
+    - corepack pnpm test
+    - corepack pnpm run audit
+    - corepack pnpm audit --prod
     - test -d dist
     - test -s dist/index.html
     - test -d dist/assets

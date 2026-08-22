@@ -21,13 +21,12 @@ See the [deployment runbook](docs/deployment/README.md) for the exact artifact c
 Use Node.js 22.13.0, pnpm 11.22.0, and the committed pnpm lockfile. From a clean checkout:
 
 ```bash
-corepack enable
-corepack install --global pnpm@11.22.0
-pnpm install --frozen-lockfile --config.allowBuilds.esbuild=true
-pnpm run dev
-pnpm run check
-pnpm run build
-pnpm run preview
+corepack pnpm --version
+corepack pnpm install --frozen-lockfile --config.allowBuilds.esbuild=true
+corepack pnpm run dev
+corepack pnpm run check
+corepack pnpm run build
+corepack pnpm run preview
 ```
 
 `pnpm run build` must produce a static `dist/` directory. Before merging deployment changes, confirm that `dist/index.html` exists, `dist/assets/` exists, and `dist/_astro/` does not. Do not run an unfrozen install for routine setup because it can rewrite the lockfile.
