@@ -103,8 +103,6 @@ jobs:
             '41898282+github-actions[bot]@users.noreply.github.com'
           git add --all
           git commit -m "Publish Astro build ${GITHUB_SHA}"
-          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
-          git config \
-            'http.https://github.com/.extraheader' \
-            "AUTHORIZATION: bearer ${GITHUB_TOKEN}"
+          git remote add origin \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git push --force origin HEAD:gh-pages
