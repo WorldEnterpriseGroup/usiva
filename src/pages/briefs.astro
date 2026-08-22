@@ -26,7 +26,7 @@ const representativeSources = briefSources.slice(0, 8);
       <div class="shell-container briefs-hero__grid">
         <div class="briefs-hero__copy">
           <p class="eyebrow">USIVA research desk / 2026</p>
-          <h1 id="briefs-heading">The question before the form.</h1>
+          <h1 id="briefs-heading">Seven source-led briefs for visa planning.</h1>
           <p class="briefs-hero__dek">
             Full, source-led briefs for the moments when an immigration question is still being named:
             purpose, route, agency, evidence, work, status, and data.
@@ -58,9 +58,9 @@ const representativeSources = briefSources.slice(0, 8);
         </div>
         <div class="briefs-intro__copy">
           <p>
-            These briefs explain how to frame a question and where to hand it off. They do not turn public
-            information into a personal determination. Every brief names the official source that supports its
-            orientation and keeps the last-checked date visible.
+            These briefs explain how to frame a question and where to hand it off. Each turns public information
+            into a documented orientation path, names the official source that supports it, and keeps the last-checked
+            date visible.
           </p>
           <p>
             Read the article that matches the decision in front of you, record the facts that make your situation
@@ -117,14 +117,14 @@ const representativeSources = briefSources.slice(0, 8);
           <h2 id="protocol-heading">Read broadly. Decide narrowly.</h2>
           <p>
             A live official page can change after a brief is published. The date on this desk tells you when the
-            source trail was last checked; it is not a promise that a rule, form, fee, processing estimate, or local
-            instruction will remain unchanged.
+            source trail was last checked; the live source controls current rules, forms, fees, processing estimates,
+            and local instructions.
           </p>
         </div>
         <ol class="source-protocol__steps">
           <li><span>01</span><div><strong>Name the decision.</strong><p>Classification, route, agency, evidence, employment, status, or research method.</p></div></li>
-          <li><span>02</span><div><strong>Open the owner’s source.</strong><p>Use the official page linked in the article, not a copied summary or a search snippet.</p></div></li>
-          <li><span>03</span><div><strong>Record the date and fit.</strong><p>Note the last checked date, the source’s scope, and the facts it does not answer.</p></div></li>
+          <li><span>02</span><div><strong>Open the owner’s source.</strong><p>Use the official page linked in the article as the current source for the question.</p></div></li>
+          <li><span>03</span><div><strong>Record the date and fit.</strong><p>Note the last checked date, the source’s scope, and the questions it leaves for another authority.</p></div></li>
           <li><span>04</span><div><strong>Verify before acting.</strong><p>Ask the relevant agency, school, sponsor, employer, or qualified attorney about current requirements.</p></div></li>
         </ol>
       </div>
@@ -181,7 +181,11 @@ const representativeSources = briefSources.slice(0, 8);
   .briefs-hero {
     background: var(--color-navy-deep);
     color: var(--color-paper);
-    padding-block: clamp(4rem, 10vw, 9rem) var(--space-5);
+    padding-block: clamp(2.75rem, 5vw, 5rem) var(--space-4);
+  }
+
+  .briefs-hero .eyebrow {
+    color: var(--color-paper);
   }
 
   .briefs-hero__grid {
@@ -197,14 +201,14 @@ const representativeSources = briefSources.slice(0, 8);
 
   .briefs-hero h1 {
     color: var(--color-paper);
-    font-size: clamp(3.7rem, 10vw, 8.8rem);
+    font-size: clamp(2.8rem, 7vw, 6rem);
     letter-spacing: -0.07em;
     line-height: 0.9;
-    max-width: 9ch;
+    max-width: 13ch;
   }
 
   .briefs-hero__dek {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step-1);
     margin-block: var(--space-3) 0;
     max-width: 42ch;
@@ -261,7 +265,7 @@ const representativeSources = briefSources.slice(0, 8);
   }
 
   .briefs-hero__ledger dt {
-    color: #a9bdc7;
+    color: var(--color-on-dark-muted);
   }
 
   .briefs-hero__ledger dd {
@@ -362,7 +366,7 @@ const representativeSources = briefSources.slice(0, 8);
 
   .brief-index > li:first-child .brief-card__number,
   .brief-index > li:first-child .brief-card__label {
-    color: var(--color-highlight);
+    color: var(--color-paper);
   }
 
   .brief-card__label {
@@ -432,6 +436,10 @@ const representativeSources = briefSources.slice(0, 8);
     text-transform: uppercase;
   }
 
+  .brief-index > li:first-child .brief-card__facts dt {
+    color: var(--color-on-dark-muted);
+  }
+
   .brief-card__facts dd {
     color: var(--color-ink);
   }
@@ -448,7 +456,7 @@ const representativeSources = briefSources.slice(0, 8);
   }
 
   .brief-index > li:first-child .brief-card__link {
-    color: var(--color-highlight);
+    color: var(--color-paper);
   }
 
   .brief-card__link span {
@@ -477,7 +485,7 @@ const representativeSources = briefSources.slice(0, 8);
   }
 
   .source-protocol__lead > p:last-child {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     max-width: 48ch;
   }
 
@@ -495,7 +503,7 @@ const representativeSources = briefSources.slice(0, 8);
   }
 
   .source-protocol__steps li > span {
-    color: var(--color-highlight);
+    color: var(--color-on-dark-muted);
     font-family: var(--font-mono);
   }
 
@@ -506,7 +514,7 @@ const representativeSources = briefSources.slice(0, 8);
   }
 
   .source-protocol__steps p {
-    color: #c8d5dc;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
   }
 
@@ -572,7 +580,7 @@ const representativeSources = briefSources.slice(0, 8);
   }
 
   .briefs-boundary p {
-    color: #fff4f0;
+    color: var(--color-on-dark-muted);
     max-width: 65ch;
   }
 

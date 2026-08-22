@@ -1,66 +1,38 @@
 ---
 interface Props {
   tone?: 'default' | 'inverse';
+  alt?: string;
 }
 
-const { tone = 'default' } = Astro.props;
+const { tone = 'default', alt = 'USIVA' } = Astro.props;
+const logoSource = tone === 'inverse' ? '/assets/usiva_dark.svg' : '/assets/usiva.svg';
 ---
 
 <span class:list={['brand-mark', `brand-mark--${tone}`]}>
-  <span class="brand-mark__seal" aria-hidden="true">US</span>
-  <span class="brand-mark__name">USIVA</span>
+  <img class="brand-mark__logo" src={logoSource} alt={alt} width="219" height="72" decoding="async" />
 </span>
 
 <style>
   .brand-mark {
     align-items: center;
     display: inline-flex;
-    gap: 0.75rem;
-    min-width: 10.8rem;
-  }
-
-  .brand-mark__seal {
-    align-items: center;
-    border: 2px solid var(--color-gold);
-    border-radius: 50%;
-    box-shadow: inset 0 0 0 0.2rem var(--color-paper), inset 0 0 0 0.28rem var(--color-gold);
-    display: inline-flex;
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    font-weight: 700;
-    height: 3.1rem;
-    justify-content: center;
-    width: 3.1rem;
-  }
-
-  .brand-mark__name {
-    font-family: var(--font-display);
-    font-size: 1.65rem;
-    font-weight: 700;
-    letter-spacing: -0.04em;
     line-height: 1;
+    max-inline-size: 100%;
   }
 
-  .brand-mark--default {
-    color: var(--color-navy);
+  .brand-mark__logo {
+    block-size: auto;
+    inline-size: min(11.5rem, 36vw);
+    max-inline-size: 100%;
   }
 
   .brand-mark--inverse {
-    color: var(--color-paper);
-  }
-
-  .brand-mark--inverse .brand-mark__seal {
-    box-shadow: inset 0 0 0 0.2rem var(--color-navy-deep), inset 0 0 0 0.28rem var(--color-gold);
+    color: var(--color-on-dark);
   }
 
   @media (max-width: 500px) {
-    .brand-mark__seal {
-      height: 2.7rem;
-      width: 2.7rem;
-    }
-
-    .brand-mark__name {
-      font-size: 1.45rem;
+    .brand-mark__logo {
+      inline-size: min(9.5rem, 42vw);
     }
   }
 </style>

@@ -9,7 +9,7 @@ import {
 import SiteLayout from '../layouts/SiteLayout.astro';
 
 const title = 'Official Immigration Tools | USIVA';
-const description = 'A source-led directory for USCIS case tools, myUSCIS, processing times, State Department visa resources, and an honest static handoff for future USCIS API work.';
+const description = 'A source-led directory for USCIS case tools, myUSCIS, processing times, State Department visa resources, and the documented USCIS API integration contract.';
 const canonical = 'https://usiva.org/official-tools.html';
 
 const toolGroups = officialToolGroups.map((group) => ({
@@ -64,7 +64,7 @@ const employers = getOfficialResource('e-verify-employers');
           <p class="eyebrow">The source ledger</p>
           <h2 id="directory-title">Start with the question, then open the official tool.</h2>
           <p>
-            These links are grouped by reader job. A link can orient a plan; it cannot decide a personal case. Live pages, form editions, and agency guidance can change after this page is published.
+            These links are grouped by reader job. Use each official tool for the decision it owns. Live pages, form editions, and agency guidance can change after this page is published.
           </p>
         </header>
 
@@ -101,11 +101,11 @@ const employers = getOfficialResource('e-verify-employers');
       <div class="shell-container official-tools-boundary__grid">
         <div>
           <p class="eyebrow">A planning boundary</p>
-          <h2 id="boundary-title">Organize the question. Do not mistake that for representation.</h2>
+          <h2 id="boundary-title">Organize the question, then use the responsible authority.</h2>
         </div>
         <div class="official-tools-boundary__copy">
           <p>
-            Planning and document organization can help someone collect a notice, date, source, and unresolved question for a better handoff. They do not create an attorney-client relationship, provide legal representation, or determine eligibility.
+            Planning and document organization collect a notice, date, source, and unresolved question for a better handoff. A verified relationship with qualified counsel supplies legal representation; the responsible authority determines eligibility.
           </p>
           <p>{planningBoundary}</p>
           <nav class="official-tools-next" aria-label="Related USIVA routes">
@@ -148,13 +148,17 @@ const employers = getOfficialResource('e-verify-employers');
     display: grid;
     gap: clamp(2rem, 7vw, 7rem);
     grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
-    min-height: min(45rem, calc(100vh - 8.5rem));
-    padding-block: var(--space-5) calc(var(--space-5) + 1rem);
+    min-height: min(37rem, calc(100vh - 8.5rem));
+    padding-block: clamp(2.75rem, 5vw, 5rem) clamp(2.5rem, 4vw, 4rem);
   }
 
   .official-tools-hero__copy {
     max-width: 58rem;
     padding-block-end: var(--space-2);
+  }
+
+  .official-tools-hero .eyebrow {
+    color: var(--color-paper);
   }
 
   .official-tools-hero h1 {
@@ -164,7 +168,7 @@ const employers = getOfficialResource('e-verify-employers');
   }
 
   .official-tools-hero__lede {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.35rem);
     line-height: 1.55;
     margin-block-start: var(--space-3);
@@ -180,7 +184,7 @@ const employers = getOfficialResource('e-verify-employers');
   }
 
   .official-tools-hero .text-link {
-    color: var(--color-highlight);
+    color: var(--color-paper);
     font-size: var(--step--1);
     font-weight: 850;
   }
@@ -291,6 +295,17 @@ const employers = getOfficialResource('e-verify-employers');
 
   .resource-group:nth-child(3) {
     background: var(--color-highlight);
+  }
+
+  .resource-group:nth-child(3) .resource-group__eyebrow,
+  .resource-group:nth-child(3) .resource-list__agency,
+  .resource-group:nth-child(3) .resource-list strong span {
+    color: var(--color-accent-dark);
+  }
+
+  .resource-group:nth-child(3) .resource-group__head > p:last-child,
+  .resource-group:nth-child(3) .resource-list small {
+    color: var(--color-soft);
   }
 
   .resource-group h3 {

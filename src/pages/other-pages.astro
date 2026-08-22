@@ -18,7 +18,7 @@ const canonical = 'https://usiva.org/other-pages.html';
     <div class="shell-container atlas-intro__inner">
       <p class="eyebrow">USIVA / route atlas</p>
       <h1 id="page-title">Find the route that matches your question.</h1>
-      <p class="atlas-intro__lede">Use this index as a decision map, not a wall of links. Start with the question in front of you, then move to the page that can help you frame it.</p>
+      <p class="atlas-intro__lede">Use this index as a decision map. Start with the question in front of you, then move to the page that can help you frame it.</p>
       <nav class="intro-actions" aria-label="Route atlas next steps">
         <a class="button button--primary" href="#atlas">Browse the routes</a>
         <a class="button button--outline" href="/contacts.html">Prepare a question</a>
@@ -44,10 +44,10 @@ const canonical = 'https://usiva.org/other-pages.html';
         <li><a href="/articles.html"><span>07</span><strong>Articles</strong><small>Follow longer explanations with explicit limits and next references.</small><em>I want a deeper read</em><b aria-hidden="true">→</b></a></li>
         <li><a href="/blog.html"><span>08</span><strong>Field notes</strong><small>Follow question-led reading paths about preparation, boundaries, and sources.</small><em>I need orientation</em><b aria-hidden="true">→</b></a></li>
         <li><a href="/tips-faq.html"><span>09</span><strong>Tips &amp; FAQ</strong><small>Check common planning questions and verify-before-you-act prompts.</small><em>I have a quick question</em><b aria-hidden="true">→</b></a></li>
-        <li><a href="/contacts.html"><span>10</span><strong>Question brief</strong><small>Prepare a concise handoff without sending sensitive information through this site.</small><em>I need a next action</em><b aria-hidden="true">→</b></a></li>
+        <li><a href="/contacts.html"><span>10</span><strong>Question brief</strong><small>Prepare a concise handoff and send sensitive information only through the verified official channel.</small><em>I need a next action</em><b aria-hidden="true">→</b></a></li>
         <li><a href="/media-gallery.html"><span>11</span><strong>Media &amp; visual aids</strong><small>Inspect planning artifacts for files, pathways, boundaries, and source trails.</small><em>I learn visually</em><b aria-hidden="true">→</b></a></li>
         <li><a href="/about.html"><span>12</span><strong>About USIVA</strong><small>Understand the service boundary and the relationship to its public context.</small><em>I need the short version</em><b aria-hidden="true">→</b></a></li>
-        <li><a href="/pricing.html"><span>13</span><strong>Scope &amp; fees</strong><small>Read the no-price-list posture and questions to ask before payment.</small><em>I need scope</em><b aria-hidden="true">→</b></a></li>
+        <li><a href="/pricing.html"><span>13</span><strong>Scope &amp; fees</strong><small>Read the scope posture and questions to ask before payment.</small><em>I need scope</em><b aria-hidden="true">→</b></a></li>
       </ul>
     </div>
   </section>
@@ -56,10 +56,10 @@ const canonical = 'https://usiva.org/other-pages.html';
     <div class="shell-container">
       <header>
         <p class="eyebrow">Three starting points</p>
-        <h2 id="start-heading">If you are not sure, begin with the sentence that sounds most like you.</h2>
+        <h2 id="start-heading">Begin with the sentence that sounds most like you.</h2>
       </header>
       <div class="starting-list">
-        <a href="/tips-faq.html"><span>“I am still learning.”</span><strong>Read the basics</strong><small>Use Tips &amp; FAQ to name the first question without making a personal conclusion.</small></a>
+        <a href="/tips-faq.html"><span>“I am still learning.”</span><strong>Read the basics</strong><small>Use Tips &amp; FAQ to name the first question and prepare the source handoff.</small></a>
         <a href="/services.html"><span>“I am preparing.”</span><strong>Build the file</strong><small>Use Services to sort records, timing, authorization, and the next authority to ask.</small></a>
         <a href="/contacts.html"><span>“I need to hand this off.”</span><strong>Write the brief</strong><small>Use Contacts to keep the first message concise and protect sensitive information.</small></a>
       </div>
@@ -89,7 +89,7 @@ const canonical = 'https://usiva.org/other-pages.html';
   }
 
   .atlas-intro__inner {
-    padding-block: var(--space-4);
+    padding-block: clamp(2.5rem, 5vw, 4.5rem);
   }
 
   .atlas-intro h1 {
@@ -178,6 +178,10 @@ const canonical = 'https://usiva.org/other-pages.html';
     color: var(--color-paper);
   }
 
+  .starting-points .eyebrow {
+    color: var(--color-on-dark);
+  }
+
   .starting-list {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     display: grid;
@@ -203,7 +207,7 @@ const canonical = 'https://usiva.org/other-pages.html';
   }
 
   .starting-list span {
-    color: var(--color-highlight);
+    color: var(--color-on-dark);
     display: block;
     font-family: var(--font-display);
     font-size: var(--step-1);
@@ -217,7 +221,7 @@ const canonical = 'https://usiva.org/other-pages.html';
   }
 
   .starting-list small {
-    color: #d2dee3;
+    color: var(--color-on-dark-muted);
     display: block;
     font-size: var(--step--1);
     margin-block-start: 0.35rem;

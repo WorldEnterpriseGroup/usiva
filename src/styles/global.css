@@ -10,7 +10,8 @@
   }
 
   html {
-    min-width: 320px;
+    max-width: 100%;
+    scroll-padding-block-start: var(--chrome-offset);
     scroll-behavior: smooth;
   }
 
@@ -23,7 +24,9 @@
   ul,
   ol,
   figure,
-  blockquote {
+  blockquote,
+  dl,
+  dd {
     margin: 0;
   }
 
@@ -37,11 +40,10 @@
   textarea,
   select {
     font: inherit;
+    max-inline-size: 100%;
   }
 
-  img,
-  svg,
-  video {
+  :where(img, svg, video, canvas, iframe) {
     display: block;
     max-width: 100%;
   }
@@ -49,11 +51,20 @@
   img {
     height: auto;
   }
+
+  :where(pre, table) {
+    max-inline-size: 100%;
+  }
+
+  :where(pre, code, a) {
+    overflow-wrap: anywhere;
+  }
 }
 
 @layer base {
   :root {
     background: var(--color-canvas);
+    color-scheme: light;
   }
 
   body {
@@ -62,18 +73,20 @@
     font-family: var(--font-body);
     font-size: var(--step-0);
     line-height: 1.5;
+    min-width: 0;
+    overflow-wrap: anywhere;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   a {
-    color: inherit;
+    color: var(--color-link);
     text-decoration-thickness: 0.08em;
     text-underline-offset: 0.18em;
   }
 
   a:hover {
-    color: var(--color-accent-dark);
+    color: var(--color-link-hover);
   }
 
   h1,
@@ -119,28 +132,45 @@
   }
 
   ::selection {
-    background: var(--color-highlight);
+    background: var(--color-highlight-surface);
     color: var(--color-ink);
   }
 
   :focus-visible {
-    outline: 0.15rem solid var(--color-focus);
+    outline: 0.2rem solid var(--color-focus);
     outline-offset: 0.2rem;
+    box-shadow: 0 0 0 0.12rem var(--color-paper);
+  }
+
+  button,
+  summary,
+  select,
+  textarea,
+  input:not([type='checkbox']):not([type='radio']) {
+    min-height: 2.75rem;
+  }
+
+  button,
+  summary {
+    cursor: pointer;
   }
 }
 
 @layer composition {
   .shell-container {
     margin-inline: auto;
+    max-inline-size: 100%;
     width: min(var(--measure-wide), calc(100% - var(--gutter) - var(--gutter)));
   }
 
   .skip-link {
     background: var(--color-paper);
+    border: 2px solid var(--color-focus);
     color: var(--color-ink);
     font-weight: 800;
     left: var(--gutter);
-    padding: 0.6rem 0.85rem;
+    min-height: 2.75rem;
+    padding: 0.65rem 0.9rem;
     position: fixed;
     top: -6rem;
     z-index: 100;
@@ -165,6 +195,11 @@
   .section--night {
     background: var(--color-navy);
     color: var(--color-paper);
+    --color-focus: var(--color-focus-on-dark);
+    --section-body-color: var(--color-on-dark-muted);
+    --section-eyebrow-color: var(--color-paper);
+    --section-heading-color: var(--color-paper);
+    --section-rule-color: var(--color-highlight);
   }
 
   .section--night h2,
@@ -173,16 +208,17 @@
   }
 
   .section--night p {
-    color: #d2dee3;
+    color: var(--color-on-dark-muted);
   }
 
   .section--night a:hover {
-    color: var(--color-highlight);
+    color: var(--color-on-dark-link);
   }
 
   .section--signal {
     background: var(--color-accent);
     color: var(--color-paper);
+    --color-focus: var(--color-focus-on-dark);
   }
 
   .section--signal h2,
@@ -208,9 +244,8 @@
   }
 
   .eyebrow--light,
-  .section--night .eyebrow,
-  .hero .eyebrow {
-    color: var(--color-highlight);
+  .section--night .eyebrow {
+    color: var(--color-paper);
   }
 
   .section-rule {
@@ -231,7 +266,7 @@
     justify-content: center;
     letter-spacing: 0.055em;
     line-height: 1.15;
-    min-height: 2.65rem;
+    min-height: 2.75rem;
     padding: 0.65rem 1rem;
     text-align: center;
     text-decoration: none;
@@ -240,22 +275,22 @@
   }
 
   .button--primary {
-    background: var(--color-accent);
-    color: var(--color-paper);
+    background: var(--color-action);
+    color: var(--color-action-foreground);
   }
 
   .button--primary:hover {
-    background: var(--color-accent-dark);
-    color: var(--color-paper);
+    background: var(--color-action-hover);
+    color: var(--color-action-foreground);
   }
 
   .button--gold {
-    background: var(--color-gold);
+    background: var(--color-highlight);
     color: var(--color-navy-deep);
   }
 
   .button--gold:hover {
-    background: #dfbd68;
+    background: var(--color-highlight-surface);
     color: var(--color-navy-deep);
   }
 
@@ -309,6 +344,16 @@
   .flow > * + * {
     margin-block-start: var(--space-2);
   }
+
+  main,
+  section,
+  article,
+  aside,
+  nav,
+  footer,
+  header {
+    min-width: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -319,19 +364,28 @@
   *,
   *::before,
   *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
+    transition-delay: 0s !important;
     transition-duration: 0.01ms !important;
   }
 }
 
 @media (forced-colors: active) {
   :focus-visible {
-    outline: 2px solid CanvasText;
+    box-shadow: none;
+    outline: 2px solid Highlight;
   }
 
   .button,
-  .skip-link {
+  .skip-link,
+  .site-nav__brief {
     border: 1px solid ButtonText;
+  }
+
+  a {
+    color: LinkText;
   }
 }
 

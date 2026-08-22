@@ -7,21 +7,22 @@ interface Props {
 }
 
 const { items, caption } = Astro.props;
+const captionId = `pathway-map-caption-${caption.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'diagram'}`;
 ---
 
-<figure class="pathway-map" aria-labelledby="pathway-caption">
-  <ol>
+<figure class="pathway-map" aria-labelledby={captionId}>
+  <ol aria-label="Pathway steps">
     {items.map((item, index) => (
       <li>
         <span class="pathway-map__index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-        <span>
+        <span class="pathway-map__copy">
           <strong>{item.label}</strong>
           <small>{item.detail}</small>
         </span>
       </li>
     ))}
   </ol>
-  <figcaption id="pathway-caption">{caption}</figcaption>
+  <figcaption id={captionId}>{caption}</figcaption>
 </figure>
 
 <style>
@@ -43,6 +44,7 @@ const { items, caption } = Astro.props;
     display: grid;
     gap: 0.8rem;
     grid-template-columns: 2.2rem 1fr;
+    min-width: 0;
     padding-block: 0.55rem;
   }
 
@@ -59,6 +61,11 @@ const { items, caption } = Astro.props;
   .pathway-map strong,
   .pathway-map small {
     display: block;
+    overflow-wrap: anywhere;
+  }
+
+  .pathway-map__copy {
+    min-width: 0;
   }
 
   .pathway-map strong {
@@ -67,16 +74,27 @@ const { items, caption } = Astro.props;
   }
 
   .pathway-map small {
-    color: #c8d5dc;
+    color: var(--color-on-dark-muted);
     font-size: 0.76rem;
     line-height: 1.35;
     margin-block-start: 0.12rem;
   }
 
   .pathway-map figcaption {
-    color: #c8d5dc;
+    color: var(--color-on-dark-muted);
     font-size: 0.8rem;
     line-height: 1.45;
     margin-block-start: var(--space-1);
+  }
+
+  @media (max-width: 420px) {
+    .pathway-map {
+      padding: 0.7rem;
+    }
+
+    .pathway-map li {
+      gap: 0.6rem;
+      grid-template-columns: 1.8rem minmax(0, 1fr);
+    }
   }
 </style>

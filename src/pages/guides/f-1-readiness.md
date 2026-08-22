@@ -15,31 +15,29 @@ sourceIds:
 mediaIds: []
 ---
 
-# F-1 readiness is a record question, not a promise
+F-1 is one focused study route within a much broader set of U.S. visa categories. This guide helps a reader assemble the school, academic, funding, identity, and activity facts for discussion with the designated school official or responsible agency. Use it as a planning aid for the next official review.
 
-F-1 is one focused study route within a much broader set of U.S. visa categories. This guide helps a reader assemble the school, academic, funding, identity, and activity facts that should be discussed with the responsible school official or agency. It is a planning aid, not a prediction of an individual result.
-
-> **USIVA boundary.** USIVA is not a law firm. This page is informational planning content; it does not provide legal advice or representation, determine eligibility, act as a filing service, or guarantee admission, funding, visa issuance, work authorization, or government approval. Rules, forms, fees, and local instructions change. Verify the current official guidance before acting.
+> **USIVA boundary.** USIVA provides informational visa and immigration planning content. This page organizes school, academic, funding, identity, and activity records for review; legal advice, representation, eligibility, filing, admission, funding, visa issuance, work authorization, and government approval belong to the responsible school, agency, consular post, or qualified counsel. Verify current official guidance before acting.
 
 ## Start with the public sequence
 
 The [U.S. Department of State Student Visa page](https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html) gives the public orientation: a student first works with an eligible school, receives the school’s student record and Form I-20 when issued, and then follows the visa process described by the Department of State. The [DHS School Search](https://studyinthestates.dhs.gov/school-search) is a useful check on the institution.
 
-That sequence is a map, not a universal evidence list. The school’s instructions, the responsible consular post, and the person’s history can change which question needs an answer first.
+That sequence is a map for the first handoff. The school’s instructions, the responsible consular post, and the person’s history can change which question needs an answer first.
 
 ## Four records to align
 
 ### School record
 
-Keep the admission record, institution and course-of-study name, campus, expected start date, Form I-20 when issued, SEVIS information, and the DSO’s current contact instructions together. A research idea or introduction is not a substitute for the school record that governs the student pathway.
+Keep the admission record, institution and course-of-study name, campus, expected start date, Form I-20 when issued, SEVIS information, and the DSO’s current contact instructions together. The school record governs the student pathway; a research idea or introduction supplies useful context for that record.
 
 ### Academic record
 
-Index transcripts, diplomas or degrees, requested language or test records, curriculum information, and a concise explanation of the proposed field. Compare names, dates, degree levels, and institutions across records. The point is to find an inconsistency early, not to memorize a script.
+Index transcripts, diplomas or degrees, requested language or test records, curriculum information, and a concise explanation of the proposed field. Compare names, dates, degree levels, and institutions across records. The point is to find an inconsistency early and carry clear facts into the official conversation.
 
 ### Funding record
 
-Separate awarded support from an estimate or possibility. For each assistantship, tuition treatment, stipend, sponsor contribution, or bank record, note the issuer, date, currency, covered period, and what the amount does and does not cover. Ask the school or consular post which evidence it currently wants.
+Separate awarded support from an estimate or possibility. For each assistantship, tuition treatment, stipend, sponsor contribution, or bank record, note the issuer, date, currency, covered period, and the conditions attached to the amount. Ask the school or consular post which evidence it currently wants.
 
 ### Activity record
 
@@ -62,13 +60,13 @@ Give each item four short notes:
 - **Source:** who issued it and where the current version can be checked.
 - **Date:** issue date and the date you last verified the source.
 - **Owner:** who is responsible for the next answer.
-- **Limit:** what the item supports, and what it cannot establish by itself.
+- **Limit:** what the item supports, and which question requires another source.
 
-Store the index securely. Do not send passport scans, financial records, immigration identifiers, or employer-sensitive material through an unapproved channel.
+Store the index securely. Submit passport scans, financial records, immigration identifiers, and employer-sensitive material only through an approved channel.
 
 ## Know when to hand the question off
 
-Stop at orientation and seek an individualized answer when the record includes a prior refusal, status violation, unauthorized work, complicated travel or immigration history, criminal or civil concerns, a change-of-status question, dependents, conflicting identity documents, or an activity outside the school’s ordinary instructions. A general guide cannot weigh those facts.
+Use the responsible authority or qualified counsel for an individualized answer when the record includes a prior refusal, status violation, unauthorized work, complicated travel or immigration history, criminal or civil concerns, a change-of-status question, dependents, conflicting identity documents, or an activity outside the school’s ordinary instructions. A general guide supplies the facts for that handoff.
 
 The [DHS Maintain Your Status resource](https://studyinthestates.dhs.gov/students/maintain-your-status) and [ICE employment guidance](https://www.ice.gov/sevis/employment) are public starting points. The DSO, the relevant agency, and qualified immigration counsel remain the owners of case-specific answers.
 

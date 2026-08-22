@@ -55,9 +55,9 @@ const i9Central = getOfficialResource('i-9-central');
       <div class="shell-container">
         <header class="employer-section-heading">
           <p class="eyebrow">Three lanes to keep distinct</p>
-          <h2 id="basics-title">Form I-9, E-Verify, and immigration advice are not interchangeable.</h2>
+          <h2 id="basics-title">Form I-9, E-Verify, and immigration advice serve different jobs.</h2>
           <p>
-            A company can organize a hiring workflow without deciding an individual’s immigration eligibility. Start by identifying which lane the question belongs to and which official source owns the next instruction.
+            A company organizes a hiring workflow by separating the Form I-9 record, E-Verify program steps, and individual immigration questions. Start by identifying which lane the question belongs to and which official source owns the next instruction.
           </p>
         </header>
 
@@ -77,7 +77,7 @@ const i9Central = getOfficialResource('i-9-central');
           <article class="employer-lane employer-lane--night">
             <span class="employer-lane__number">03</span>
             <h3>Case-specific advice is another handoff.</h3>
-            <p>Visa status, sponsorship, prior history, discrimination concerns, and disputed authorization questions can require individualized legal advice or an agency decision. USIVA does not make that determination.</p>
+            <p>Visa status, sponsorship, prior history, discrimination concerns, and disputed authorization questions can require individualized legal advice or an agency decision. Send those questions to the responsible authority or qualified counsel.</p>
             <a href="/contacts.html">Prepare a question brief <span aria-hidden="true">→</span></a>
           </article>
         </div>
@@ -89,13 +89,13 @@ const i9Central = getOfficialResource('i-9-central');
         <header class="employers-sequence__heading">
           <p class="eyebrow">A careful sequence</p>
           <h2 id="sequence-title">Make the workflow visible before it becomes a dispute.</h2>
-          <p>These are planning prompts, not a substitute for the current Form I-9 instructions, E-Verify terms, or legal advice.</p>
+          <p>These prompts accompany the current Form I-9 instructions, E-Verify terms, and qualified legal advice.</p>
         </header>
 
         <ol class="employer-steps">
           <li>
             <span class="employer-steps__number">01</span>
-            <div><h3>Prepare the source file</h3><p>Keep the current Form I-9 edition, instructions, responsible users, hiring-site scope, and internal owner together. Do not copy an old document into a new workflow without checking USCIS updates.</p></div>
+            <div><h3>Prepare the source file</h3><p>Keep the current Form I-9 edition, instructions, responsible users, hiring-site scope, and internal owner together. Check USCIS updates before moving the materials into a new workflow.</p></div>
           </li>
           <li>
             <span class="employer-steps__number">02</span>
@@ -107,12 +107,12 @@ const i9Central = getOfficialResource('i-9-central');
           </li>
           <li>
             <span class="employer-steps__number">04</span>
-            <div><h3>Handle a mismatch with notice and patience</h3><p>An initial DHS or SSA mismatch is not the same as a final case result. Follow the official Further Action Notice and referral instructions, and do not turn a preliminary result into an eligibility conclusion.</p></div>
+            <div><h3>Handle a mismatch with notice and patience</h3><p>An initial DHS or SSA mismatch carries a different status from a final case result. Follow the official Further Action Notice and referral instructions, and keep a preliminary result within its defined process.</p></div>
           </li>
         </ol>
 
         <div class="employers-sequence__callout">
-          <strong>Keep the rule simple:</strong> use the same process consistently, do not demand a particular identity or work-authorization document, and check the official anti-discrimination guidance before changing a workflow.
+          <strong>Keep the rule simple:</strong> use the same process consistently, request documents through the official choice, and check the official anti-discrimination guidance before changing a workflow.
         </div>
       </div>
     </section>
@@ -124,7 +124,7 @@ const i9Central = getOfficialResource('i-9-central');
             <p class="eyebrow">The employer shelf</p>
             <h2 id="resources-title">Bookmark the pages that change the workflow.</h2>
           </div>
-          <p>Use these official resources for implementation, current forms, enrollment, case handling, and rights. A source link is a handoff, not a legal conclusion.</p>
+          <p>Use these official resources for implementation, current forms, enrollment, case handling, and rights. A source link starts the handoff to the responsible authority.</p>
         </header>
 
         <ul class="employer-resource-list">
@@ -145,11 +145,11 @@ const i9Central = getOfficialResource('i-9-central');
     <section class="section section--mist employer-boundary" aria-labelledby="employer-boundary-title">
       <div class="shell-container employer-boundary__grid">
         <div>
-          <p class="eyebrow">Where USIVA stops</p>
-          <h2 id="employer-boundary-title">Planning can make a handoff clearer. It cannot practice law.</h2>
+          <p class="eyebrow">USIVA’s planning role</p>
+          <h2 id="employer-boundary-title">Planning makes the employer handoff clearer.</h2>
         </div>
         <div>
-          <p class="employer-boundary__lead">USIVA can help organize a document list, timeline, source trail, and question brief. It is not a law firm, does not provide legal advice or legal representation, and does not determine whether a worker, employer, or visa pathway is eligible.</p>
+          <p class="employer-boundary__lead">USIVA organizes a document list, timeline, source trail, and question brief. Legal advice and representation come from qualified counsel; eligibility questions belong to the worker’s responsible agency, school, sponsor, employer representative, or consular authority.</p>
           <p>{planningBoundary}</p>
           <nav class="employer-next" aria-label="Employer next steps">
             <a href="/official-tools.html">Official tools directory <span aria-hidden="true">→</span></a>
@@ -178,8 +178,8 @@ const i9Central = getOfficialResource('i-9-central');
     display: grid;
     gap: clamp(2rem, 8vw, 8rem);
     grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
-    min-height: min(44rem, calc(100vh - 8.5rem));
-    padding-block: var(--space-5) calc(var(--space-5) + 0.7rem);
+    min-height: min(37rem, calc(100vh - 8.5rem));
+    padding-block: clamp(2.75rem, 5vw, 5rem) clamp(2.5rem, 4vw, 4rem);
   }
 
   .employers-hero__copy {
@@ -315,7 +315,7 @@ const i9Central = getOfficialResource('i-9-central');
 
   .employer-lane--night .employer-lane__number,
   .employer-lane--night a {
-    color: var(--color-highlight);
+    color: var(--color-paper);
   }
 
   .employer-lane__number {
@@ -340,6 +340,10 @@ const i9Central = getOfficialResource('i-9-central');
     margin-block-start: var(--space-1);
   }
 
+  .employer-lane.employer-lane--night a {
+    color: var(--color-paper);
+  }
+
   .employers-sequence {
     background: var(--color-navy-deep);
     color: var(--color-paper);
@@ -354,8 +358,12 @@ const i9Central = getOfficialResource('i-9-central');
     max-width: 54rem;
   }
 
+  .employers-sequence__heading .eyebrow {
+    color: var(--color-highlight);
+  }
+
   .employers-sequence__heading > p:last-child {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step-0);
   }
 
@@ -377,7 +385,7 @@ const i9Central = getOfficialResource('i-9-central');
   }
 
   .employer-steps__number {
-    color: var(--color-gold);
+    color: var(--color-highlight);
     font-family: var(--font-mono);
     font-size: var(--step--1);
   }
@@ -388,7 +396,7 @@ const i9Central = getOfficialResource('i-9-central');
   }
 
   .employer-steps p {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     margin: 0;
     max-width: 68ch;
@@ -396,7 +404,7 @@ const i9Central = getOfficialResource('i-9-central');
 
   .employers-sequence__callout {
     border-left: 3px solid var(--color-gold);
-    color: #ecf2f3;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     margin-block-start: var(--space-3);
     max-width: 62rem;

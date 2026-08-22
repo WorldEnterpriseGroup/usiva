@@ -49,8 +49,8 @@ const citationsFor = (brief: (typeof immigrationBriefs)[number], sourceIds: read
           <p class="articles-hero__note-label">Reading contract</p>
           <p class="articles-hero__note-title">Orient first. Verify before action.</p>
           <p>
-            These are static editorial documents. They do not collect identifiers, predict outcomes, or replace a
-            current agency, school, sponsor, employer, or attorney instruction.
+            These are static editorial documents for public reading. Each provides a thesis, source trail, caveat,
+            and handoff to the current agency, school, sponsor, employer, or attorney instruction.
           </p>
           <a class="button button--gold" href="#purpose-of-travel-and-classification">Open brief 01</a>
         </aside>
@@ -185,7 +185,7 @@ const citationsFor = (brief: (typeof immigrationBriefs)[number], sourceIds: read
                   <div class="article-sources__header">
                     <p class="eyebrow">Official source rail</p>
                     <h3 id={`${brief.slug}-sources-heading`}>Read the record behind the brief.</h3>
-                    <p>Links are provided for verification, not endorsement. Reopen the live source before acting.</p>
+                    <p>Links support verification; reopen the live source before acting.</p>
                   </div>
                   <ol>
                     {brief.sourceIds.map((sourceId, index) => {
@@ -216,7 +216,7 @@ const citationsFor = (brief: (typeof immigrationBriefs)[number], sourceIds: read
       <div class="shell-container articles-boundary__grid">
         <div>
           <p class="eyebrow">A clear limit</p>
-          <h2 id="articles-boundary-heading">The source trail does not become legal advice.</h2>
+          <h2 id="articles-boundary-heading">The source trail points to the responsible authority.</h2>
         </div>
         <div>
           <p>{editorialBoundary}</p>
@@ -236,7 +236,11 @@ const citationsFor = (brief: (typeof immigrationBriefs)[number], sourceIds: read
   .articles-hero {
     background: var(--color-navy-deep);
     color: var(--color-paper);
-    padding-block: clamp(4rem, 9vw, 8rem) var(--space-4);
+    padding-block: clamp(2.75rem, 5vw, 5rem) var(--space-4);
+  }
+
+  .articles-hero .eyebrow {
+    color: var(--color-paper);
   }
 
   .articles-hero__grid {
@@ -248,14 +252,14 @@ const citationsFor = (brief: (typeof immigrationBriefs)[number], sourceIds: read
 
   .articles-hero h1 {
     color: var(--color-paper);
-    font-size: clamp(3.1rem, 8vw, 7rem);
+    font-size: clamp(2.8rem, 6vw, 5.7rem);
     letter-spacing: -0.065em;
     line-height: 0.92;
-    max-width: 12ch;
+    max-width: 14ch;
   }
 
   .articles-hero__dek {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step-1);
     margin-block-start: var(--space-3);
     max-width: 55ch;
@@ -286,7 +290,7 @@ const citationsFor = (brief: (typeof immigrationBriefs)[number], sourceIds: read
   }
 
   .articles-hero__note > p:not(.articles-hero__note-label):not(.articles-hero__note-title) {
-    color: #c8d5dc;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     margin-block-end: var(--space-2);
   }
@@ -643,7 +647,7 @@ const citationsFor = (brief: (typeof immigrationBriefs)[number], sourceIds: read
   }
 
   .article-note {
-    background: #fff8e8;
+    background: var(--color-highlight-surface);
     border-inline-start: 0.3rem solid var(--color-gold);
     color: var(--color-ink);
     font-size: var(--step--1);
@@ -735,7 +739,7 @@ const citationsFor = (brief: (typeof immigrationBriefs)[number], sourceIds: read
   }
 
   .article-sources__header > p:last-child {
-    color: #c8d5dc;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
   }
 
@@ -773,7 +777,7 @@ const citationsFor = (brief: (typeof immigrationBriefs)[number], sourceIds: read
   .article-sources p,
   .article-sources small,
   .article-sources code {
-    color: #c8d5dc;
+    color: var(--color-on-dark-muted);
     display: block;
     font-size: 0.78rem;
     line-height: 1.5;
@@ -815,7 +819,7 @@ const citationsFor = (brief: (typeof immigrationBriefs)[number], sourceIds: read
   }
 
   .articles-boundary p {
-    color: #fff4f0;
+    color: var(--color-on-dark-muted);
     max-width: 66ch;
   }
 

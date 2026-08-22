@@ -20,7 +20,7 @@ const canonical = 'https://usiva.org/tips-faq.html';
         <div>
           <p class="eyebrow">USIVA / tips and FAQ</p>
           <h1>Questions worth asking before you act.</h1>
-          <p class="faq-hero__lede">Use these answers to frame a visa or immigration question, identify the source that owns the next answer, and recognize when general information is not enough.</p>
+          <p class="faq-hero__lede">Use these answers to frame a visa or immigration question, identify the source that owns the next answer, and recognize when an official or professional review adds context.</p>
           <nav class="faq-actions" aria-label="FAQ actions">
             <a class="button button--primary" href="#questions">Read the questions</a>
             <a class="button button--outline" href="/visa-categories.html">Browse visa categories</a>
@@ -28,7 +28,7 @@ const canonical = 'https://usiva.org/tips-faq.html';
         </div>
         <aside class="faq-brief" aria-label="The USIVA planning posture">
           <span>Ask · verify · hand off</span>
-          <strong>A complete file is not a government decision.</strong>
+          <strong>A complete file prepares a government conversation.</strong>
           <p>Organization makes a conversation clearer. The responsible agency, school, sponsor, employer, consulate, or qualified counsel controls the answer.</p>
         </aside>
       </div>
@@ -39,7 +39,7 @@ const canonical = 'https://usiva.org/tips-faq.html';
         <header class="faq-intro">
           <p class="eyebrow">Common questions</p>
           <h2 id="faq-heading">Start with the answer, then open the source.</h2>
-          <p>These responses describe a planning posture. They are not legal advice, a government decision, or a promise that any category or status is available.</p>
+          <p>These responses describe a planning posture. Current legal advice, government decisions, and category or status availability come from the responsible authority.</p>
           <nav class="faq-jumps" aria-label="FAQ sections">
             <a href="#readiness">Records</a>
             <a href="#authorization">Authorization</a>
@@ -53,8 +53,8 @@ const canonical = 'https://usiva.org/tips-faq.html';
             <p id="readiness">A private working set of identity, academic, funding, travel, prior-visa, family, employment, or program records relevant to the decision in front of you. Mark what is known, missing, dated, and still awaiting verification.</p>
           </details>
           <details>
-            <summary>Does a complete file mean I am eligible?</summary>
-            <p>No. A well-organized file can make a handoff clearer, but it cannot determine eligibility, admissibility, work authorization, visa issuance, or government approval.</p>
+            <summary>What does a complete file establish?</summary>
+            <p>A well-organized file makes a handoff clearer. The responsible authority determines eligibility, admissibility, work authorization, visa issuance, and government approval from the full record.</p>
           </details>
           <details>
             <summary>Who should answer a university or status question?</summary>
@@ -62,27 +62,27 @@ const canonical = 'https://usiva.org/tips-faq.html';
           </details>
           <details>
             <summary>Are study, research, training, travel, and employment the same activity?</summary>
-            <p id="authorization">No. They may involve different permissions, documents, and timing. Describe the actual activity, who directs it, whether compensation is involved, and whether written authorization is required before it begins.</p>
+            <p id="authorization">They involve different permissions, documents, and timing. Describe the actual activity, who directs it, whether compensation is involved, and whether written authorization is required before it begins.</p>
           </details>
           <details>
             <summary>Can I begin work while I wait for an answer?</summary>
-            <p>Do not assume that submitting a form, receiving an invitation, or being interested in a role authorizes activity. Ask the responsible school, sponsor, government source, employer, or attorney before beginning anything that may be training, research, or employment.</p>
+            <p>Confirm with the responsible school, sponsor, government source, employer, or attorney before beginning anything that may be training, research, or employment. A submitted form, invitation, or role interest becomes useful context for that review.</p>
           </details>
           <details>
-            <summary>Does USIVA issue a visa or guarantee an outcome?</summary>
-            <p>No. USIVA is not a law firm and does not provide legal representation, file applications, decide eligibility, or guarantee admission, employment, funding, visa issuance, work authorization, or government approval.</p>
+            <summary>What does USIVA provide?</summary>
+            <p>USIVA provides visa and immigration planning, document organization, official-source navigation, and responsible handoff prompts. Legal representation, filings, eligibility, admission, employment, funding, visa issuance, work authorization, and government approval belong to the responsible authority or qualified counsel.</p>
           </details>
           <details>
             <summary>Why do sources and dates matter?</summary>
-            <p>Rules, fees, school instructions, sponsor requirements, and program details can change. A source that applies to one status, institution, location, or date may not answer another question. Save the source and the date you checked it.</p>
+            <p>Rules, fees, school instructions, sponsor requirements, and program details can change. A source serves its defined status, institution, location, and date; compare it with your facts. Save the source and the date you checked it.</p>
           </details>
           <details>
-            <summary>When is general content not enough?</summary>
-            <p id="escalate">When the answer depends on a prior refusal, status concern, criminal or immigration history, a complex work arrangement, a change of status, or another personal fact a public page cannot evaluate. Prepare the facts and use the responsible authority, including licensed counsel when appropriate.</p>
+            <summary>When does a question need an official or professional review?</summary>
+            <p id="escalate">General content points to the responsible authority when the answer depends on a prior refusal, status concern, criminal or immigration history, a complex work arrangement, a change of status, or another personal fact. Prepare the facts and use that authority, including licensed counsel when appropriate.</p>
           </details>
           <details>
             <summary>Should I send sensitive documents through this site?</summary>
-            <p>No. Do not submit passwords, passport numbers, receipt numbers, identity documents, or private case records through this static site. Use the verified channel requested by the responsible agency, school, employer, sponsor, or counsel.</p>
+            <p>Submit passwords, passport numbers, receipt numbers, identity documents, and private case records only through the verified channel requested by the responsible agency, school, employer, sponsor, or counsel.</p>
           </details>
         </div>
       </div>
@@ -115,12 +115,16 @@ const canonical = 'https://usiva.org/tips-faq.html';
     color: var(--color-paper);
   }
 
+  .faq-hero .eyebrow {
+    color: var(--color-paper);
+  }
+
   .faq-hero__inner {
     align-items: end;
     display: grid;
     gap: var(--space-4);
     grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.72fr);
-    padding-block: var(--space-5);
+    padding-block: clamp(2.75rem, 5vw, 5rem);
   }
 
   .faq-hero h1 {
@@ -130,7 +134,7 @@ const canonical = 'https://usiva.org/tips-faq.html';
   }
 
   .faq-hero__lede {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step-1);
     line-height: 1.5;
     margin-block-start: var(--space-2);
@@ -145,13 +149,13 @@ const canonical = 'https://usiva.org/tips-faq.html';
   }
 
   .faq-brief {
-    border-top: 0.3rem solid var(--color-gold);
+    border-top: 0.3rem solid var(--color-highlight);
     background: var(--color-navy);
     padding: var(--space-3);
   }
 
   .faq-brief > span {
-    color: var(--color-highlight);
+    color: var(--color-paper);
     font-family: var(--font-mono);
     font-size: var(--step--2);
     letter-spacing: 0.1em;
@@ -167,7 +171,7 @@ const canonical = 'https://usiva.org/tips-faq.html';
   }
 
   .faq-brief p {
-    color: #c8d5dc;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     margin: 0;
   }
@@ -262,12 +266,12 @@ const canonical = 'https://usiva.org/tips-faq.html';
 
   .faq-notice {
     background: var(--color-navy);
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     padding-block: var(--space-2);
   }
 
   .faq-notice strong {
-    color: var(--color-highlight);
+    color: var(--color-paper);
   }
 
   @media (max-width: 760px) {

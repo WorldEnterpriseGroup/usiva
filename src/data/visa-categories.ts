@@ -260,7 +260,7 @@ const visaSources = {
 export const officialVisaSources = visaSources;
 
 export const informationalScopeNote =
-  'This is general planning information, not a legal conclusion or prediction. It does not determine eligibility, status, work authorization, admissibility, visa issuance, or timing; verify current rules and case-specific facts with the relevant U.S. government authority, school, sponsor, employer, or qualified immigration counsel.';
+  'USIVA provides general planning information for organizing purpose, source, and next steps. The relevant U.S. government authority, school, sponsor, employer, or qualified immigration counsel determines eligibility, status, work authorization, admissibility, visa issuance, and timing from current rules and case-specific facts.';
 
 const topicSets = {
   officialTravel: [
@@ -311,7 +311,7 @@ const topicSets = {
   temporaryWorker: [
     'Identify the petitioning employer or organization, proposed role, worksite, and intended dates.',
     'Track the petition, labor-certification, consultation, or approval document that the official process requires.',
-    'Do not begin a new role, location, or activity based only on a general category description; verify the controlling record.',
+    'Verify the controlling record before beginning a new role, location, or activity; a general category description supplies orientation.',
   ],
   derivative: [
     'Identify the principal category, relationship, and the dates or records that connect the derivative traveler to it.',
@@ -324,7 +324,7 @@ const topicSets = {
     'Use the official instructions for the responsible embassy, consulate, USCIS office, or National Visa Center.',
   ],
   humanitarian: [
-    'Write down the relevant incident, dates, agencies, and safe contact method without sharing sensitive details on a public page.',
+    'Write down the relevant incident, dates, agencies, and a safe contact method. Share sensitive details only through the responsible authority’s verified channel.',
     'Identify the certification, petition, law-enforcement, medical, or protection records the official process may reference.',
     'Use a qualified advocate or attorney for case-specific safety, confidentiality, and filing questions.',
   ],
@@ -361,12 +361,12 @@ const topicSets = {
   diversity: [
     'Use only the official Diversity Visa instructions and Entrant Status Check for a current program year.',
     'Record the confirmation number, household changes, deadlines, and DS-260 or interview milestones in a secure place.',
-    'Do not treat selection as a visa issuance; follow the official process and current deadline notices.',
+    'Treat selection as a program step; visa issuance follows the official process and current deadline notices.',
   ],
   returningResident: [
     'Document the prior permanent-resident record, travel dates, intended return, and circumstances affecting the time abroad.',
     'Gather the official forms and evidence listed by the responsible embassy or consulate.',
-    'Do not make non-refundable travel decisions until the official process provides a current result.',
+    'Make non-refundable travel decisions after the official process provides a current result.',
   ],
 } as const;
 
@@ -476,7 +476,7 @@ const nonimmigrantFamilyDefinitions: readonly FamilyDefinition[] = [
     track: 'nonimmigrant',
     summary: 'Temporary business and visitor travel, including the Mexico Border Crossing Card.',
     audience: 'Visitors, business travelers, and Mexican travelers researching short-term visitor documentation.',
-    purpose: 'Temporary business, tourism, medical treatment, or related visitor travel that is not a permanent move.',
+    purpose: 'Temporary business, tourism, medical treatment, or related visitor travel for a defined trip.',
     source: 'visitor',
     categories: [
       { code: 'B-1', title: 'Business visitor', planningTopics: topicSets.visitor },
@@ -823,18 +823,18 @@ const nonimmigrantFamilyDefinitions: readonly FamilyDefinition[] = [
     code: 'Other',
     title: 'Other official temporary pathways',
     track: 'nonimmigrant',
-    summary: 'Additional official State Department directory entries that do not fit the A–V family index.',
+    summary: 'Additional official State Department directory entries outside the A–V family index.',
     audience: 'Travelers and employers researching a special territorial worker route or visa-waiver travel.',
-    purpose: 'A special CNMI transitional-worker route or a visa-waiver travel pathway that is not itself a visa.',
+    purpose: 'A special CNMI transitional-worker route or a visa-waiver travel pathway.',
     source: 'directory',
     categories: [
       { code: 'CW-1', title: 'CNMI-only transitional worker', planningTopics: topicSets.other, source: 'uscisCW' },
       {
         code: 'VWP',
-        title: 'Visa Waiver Program travel reference (not a visa category)',
+        title: 'Visa Waiver Program travel reference',
         planningTopics: topicSets.other,
         scopeNote:
-          'This entry describes a visa-waiver travel program, not a visa classification. It is general orientation only and does not determine whether a traveler may use the program, enter the United States, or avoid another visa category; verify current requirements with the official State Department and ESTA resources.',
+          'This entry describes a visa-waiver travel program. It is general orientation; the official State Department and ESTA resources determine whether a traveler may use the program, enter the United States, or select another visa category.',
       },
     ],
   },

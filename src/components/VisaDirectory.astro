@@ -100,7 +100,13 @@ const groups = families
     display: grid;
     gap: var(--space-3);
     grid-template-columns: minmax(0, 1fr) minmax(10rem, 0.28fr);
+    min-width: 0;
     padding-block-end: var(--space-3);
+  }
+
+  .directory-intro > div,
+  .directory-intro__count {
+    min-width: 0;
   }
 
   .directory-intro h2 {
@@ -171,6 +177,8 @@ const groups = families
     border: 1px solid transparent;
     display: inline-flex;
     gap: 0.35rem;
+    min-height: 2.75rem;
+    min-width: 0;
     padding: 0.45rem 0.65rem;
     text-decoration: none;
   }
@@ -212,7 +220,14 @@ const groups = families
     display: grid;
     gap: 0.35rem 1.5rem;
     grid-template-columns: minmax(0, 1fr) auto;
+    min-width: 0;
     padding: var(--space-2) var(--space-3);
+  }
+
+  .family-group__header > div,
+  .family-group__header > p,
+  .family-group__link {
+    min-width: 0;
   }
 
   .family-group__header h3 {
@@ -222,7 +237,7 @@ const groups = families
   }
 
   .family-group__header p:last-child {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     grid-column: 1 / -1;
     margin: 0;
@@ -241,10 +256,14 @@ const groups = families
 
   .family-group__link {
     align-self: center;
+    align-items: center;
     border-bottom: 1px solid var(--color-highlight);
     color: var(--color-highlight);
+    display: inline-flex;
     font-size: var(--step--1);
     font-weight: 800;
+    min-height: 2.75rem;
+    overflow-wrap: anywhere;
     text-decoration: none;
   }
 
@@ -268,15 +287,15 @@ const groups = families
     gap: 0.8rem 1rem;
     grid-template-columns: 2rem minmax(5.5rem, 0.2fr) minmax(0, 1fr) 1.5rem;
     min-height: 4.7rem;
+    min-width: 0;
     padding: 0.85rem var(--space-3);
     text-decoration: none;
-    transition: background-color 180ms ease, padding-inline 180ms ease;
+    transition: background-color 180ms ease, color 180ms ease;
   }
 
   .category-row:hover {
     background: var(--color-mist);
     color: var(--color-ink);
-    padding-inline: calc(var(--space-3) + 0.25rem);
   }
 
   .category-row__number {
@@ -296,6 +315,7 @@ const groups = families
   .category-row__copy {
     display: grid;
     gap: 0.18rem;
+    min-width: 0;
   }
 
   .category-row__copy strong {
@@ -304,12 +324,14 @@ const groups = families
     font-size: 1.22rem;
     font-weight: 600;
     line-height: 1.14;
+    overflow-wrap: anywhere;
   }
 
   .category-row__copy small {
     color: var(--color-muted);
     font-size: var(--step--1);
     line-height: 1.45;
+    overflow-wrap: anywhere;
   }
 
   .category-row__arrow {
@@ -357,7 +379,7 @@ const groups = families
     }
 
     .category-row:hover {
-      padding-inline: 1rem;
+      padding-inline: 0.8rem;
     }
 
     .category-row__copy strong {
@@ -366,7 +388,8 @@ const groups = families
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .category-row {
+    .category-row,
+    .family-index a {
       transition: none;
     }
   }

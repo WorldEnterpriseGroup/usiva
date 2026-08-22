@@ -1,24 +1,23 @@
 # Browser acceptance record
 
-This record captures the browser-level acceptance performed for the aggressive Astro 7 cutover on 2026-08-22. The release owner is the USIVA repository integration owner.
+This record captures the integrated USIVA Astro redesign review performed on 2026-08-22. It covers the fresh static output after the compact-header, identity, color, accessibility, and editorial changes.
 
 ## Production output checked
 
 - Static output: `dist/` from the locked Astro 7.2.4 build.
-- Browser: Chromium 145 through Playwright 1.58.0.
-- Accessibility: axe-core 4.13.0 with the WCAG 2 A and AA rule sets.
-- Viewports: 390 × 844 and 1440 × 844.
-- Routes: the public route sample plus generated visa families/categories; the static build currently emits 163 HTML routes.
+- Browser: Chromium-compatible system browser driven through Playwright.
+- Viewports: 390 × 844 and 1440 × 900; a 320px narrow-width sample was also checked.
+- Routes: every emitted HTML route — 163 total, including 162 indexable routes and `/404.html`.
 
 ## Acceptance results
 
 - Every route returned HTTP 200 from a local static server.
-- Every route had exactly one `main` landmark and one `h1`.
-- The custom `/404.html` route also returned successfully and passed the same landmark, overflow, console, and axe checks.
-- No console errors or failed local asset requests were observed.
-- No horizontal overflow was observed at either viewport.
-- axe reported no WCAG 2 A or AA violations on any route.
+- Every route had exactly one `main` landmark and one `h1`, with a working skip-link target.
+- No page or console errors appeared in the normal mobile and desktop sweep.
+- No horizontal overflow appeared at 390px or 1440px; the 320px sample also remained within the viewport.
+- The restored SVG identity rendered in the shared header and footer.
+- Family index routes were rechecked after reducing their heading scale and top spacing; their first useful content now enters the initial desktop viewport.
 - The strict rendered-output audit passed with zero errors and zero warnings.
-- The home, visa-category, service, FAQ, media-gallery, and employer routes were visually inspected at desktop and mobile widths. Generated project photography, captions, compact headings, mega-menu shell, route cards, and official-source rails remain legible.
+- `pnpm check`, `pnpm test`, and `pnpm build` passed; the build emitted all 163 routes.
 
-This is a release evidence record, not a runtime dependency. The source and production gates run in both deployment jobs; repeat this browser acceptance after a material layout, component, or accessibility change.
+This record documents browser and static-output checks. An executable axe-core harness is not configured in this repository, so no axe result is claimed here; add the automated assistive-technology pass before treating this as a complete WCAG release gate.

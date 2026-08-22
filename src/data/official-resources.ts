@@ -10,7 +10,7 @@
 export const officialResourceReviewDate = '2026-08-22' as const;
 
 export const planningBoundary =
-  'USIVA is not a law firm. This site provides planning and document-organization information only; it is not legal advice, legal representation, an eligibility determination, or a guarantee of admission, employment, funding, visa issuance, work authorization, or government approval.';
+  'USIVA provides visa and immigration planning and document-organization information. Legal advice, legal representation, eligibility determinations, admission, employment, funding, visa issuance, work authorization, and government approval come from the responsible qualified counsel, agency, school, sponsor, employer, consular post, or other official authority.';
 
 export interface OfficialResource {
   id: string;
@@ -30,7 +30,7 @@ export const officialResources = [
     agency: 'USCIS',
     audience: 'Applicants, petitioners, and authorized representatives',
     summary: 'Use the USCIS electronic portal to check a case with the receipt number on a USCIS notice.',
-    use: 'The official handoff for a current case-status result. USIVA does not mirror, interpret, or guarantee that result.',
+    use: 'The official handoff for a current case-status result; the USCIS record supplies the current result for the matter.',
   },
   {
     id: 'uscis-my-account',
@@ -39,7 +39,7 @@ export const officialResources = [
     agency: 'USCIS',
     audience: 'People who need their own USCIS online account',
     summary: 'Sign in or create a personal myUSCIS account for account-specific tools, notices, alerts, and profile actions USCIS makes available.',
-    use: 'Use the account owned by the person filing or tracking the matter. Do not share credentials with a static site or place them in a public form.',
+    use: 'Use the account owned by the person filing or tracking the matter. Keep credentials within the account owner’s verified USCIS access.',
   },
   {
     id: 'uscis-processing-times',
@@ -48,7 +48,7 @@ export const officialResources = [
     agency: 'USCIS',
     audience: 'Applicants, petitioners, and planning teams',
     summary: 'Select the form, category, and USCIS office to see the agency’s current processing-time information.',
-    use: 'A planning reference, not a promise about an individual case or a substitute for a case inquiry.',
+    use: 'A planning reference for a current estimate; read it with the individual case record and official inquiry path.',
   },
   {
     id: 'state-visa-wizard',
@@ -57,7 +57,7 @@ export const officialResources = [
     agency: 'U.S. Department of State',
     audience: 'People beginning to sort a travel purpose and possible visa category',
     summary: 'Use the State Department’s guide to orient around common travel purposes and visa categories.',
-    use: 'The State Department says the tool is a guide and does not guarantee eligibility; the consular officer determines visa eligibility under law.',
+    use: 'The State Department describes the tool as a guide; the consular officer determines visa eligibility under law and the current case facts.',
   },
   {
     id: 'state-visa-categories',
@@ -84,7 +84,7 @@ export const officialResources = [
     agency: 'USCIS',
     audience: 'Engineering and platform teams with an approved integration need',
     summary: 'Read the USCIS Case Status API documentation, authentication model, sandbox details, and access requirements.',
-    use: 'The source of truth for a future server-side integration. The static USIVA site does not call this API.',
+    use: 'The source of truth for the documented/proposed USCIS API integration contract and approved server-side access. The static USIVA site routes readers to this documentation and the official tools.',
   },
   {
     id: 'e-verify',
@@ -102,7 +102,7 @@ export const officialResources = [
     agency: 'USCIS',
     audience: 'Employers and people completing Form I-9',
     summary: 'Use USCIS I-9 Central for the current Form I-9, instructions, acceptable-document guidance, and employer resources.',
-    use: 'Check the current form edition and instructions at the point of use; do not rely on a copied form or an old checklist.',
+    use: 'Check the current form edition and instructions at the point of use; use the live USCIS materials as the operating source.',
   },
   {
     id: 'e-verify-employers',
@@ -156,7 +156,7 @@ export const officialResources = [
     agency: 'E-Verify',
     audience: 'Employers and workers handling a mismatch',
     summary: 'Read the official referral and notice steps for a DHS or SSA mismatch.',
-    use: 'An initial mismatch is not the same as a final case result. Follow the official notice and referral process before acting.',
+    use: 'An initial mismatch carries an interim status. Follow the official notice and referral process before acting.',
   },
   {
     id: 'uscis-form-updates',
@@ -174,7 +174,7 @@ export const officialResources = [
     agency: 'U.S. Department of Justice',
     audience: 'Employers and workers seeking anti-discrimination guidance',
     summary: 'Review the Immigrant and Employee Rights Section’s guidance on consistent, non-discriminatory verification practices.',
-    use: 'Use the DOJ source for rights and anti-discrimination questions; USIVA does not investigate or decide a complaint.',
+    use: 'Use the DOJ source for rights and anti-discrimination questions; the responsible agency and qualified counsel handle complaint review and decisions.',
   },
 ] as const satisfies readonly OfficialResource[];
 
@@ -210,7 +210,7 @@ export const officialToolGroups = [
     id: 'visa-orientation',
     eyebrow: 'State Department / visa orientation',
     title: 'Sort the category before making a claim',
-    description: 'The Visa Wizard and category directory can help frame a travel-purpose question. They do not decide eligibility.',
+    description: 'The Visa Wizard and category directory help frame a travel-purpose question; the responsible consular authority handles eligibility.',
     resourceIds: ['state-visa-wizard', 'state-visa-categories', 'state-visa-bulletin'],
   },
   {
@@ -247,23 +247,23 @@ export const eVerifyResourceIds = [
 ] as const satisfies readonly OfficialResourceId[];
 
 /**
- * This is a contract for a future server-side integration, not an endpoint.
- * It deliberately does not include a client secret, a receipt number, or a
- * claim that the static site currently returns a case result.
+ * This is a documented/proposed contract for an approved server-side
+ * integration. Public content keeps credentials, receipt numbers, and case
+ * results within the official USCIS systems.
  */
 export const uscisCaseStatusContract = {
   status: 'static-handoff-only',
-  futureServerRoute: '/api/uscis/case-status/{receiptNumber}',
+  serverRoute: '/api/uscis/case-status/{receiptNumber}',
   clientRequest: {
     method: 'GET',
     body: 'none',
-    response: 'A narrowly normalized status or a safe error state; never an access token or raw secret.',
+    response: 'A narrowly normalized status or a safe error state, with credentials and secrets excluded.',
   },
   serverResponsibilities: [
-    'Keep the USCIS OAuth 2.0 client credentials in server-side secret storage; never expose them in Astro HTML, browser JavaScript, or public environment variables.',
+    'Store USCIS OAuth 2.0 client credentials in server-side secret storage and keep them out of Astro HTML, browser JavaScript, and public environment variables.',
     'Validate the receipt-number shape, authorize the caller, rate-limit the route, and avoid logging receipt numbers or upstream credentials.',
     'Call the currently approved USCIS Case Status API operation (GET /{receiptNumber}) using the authentication and server URL documented by USCIS.',
-    'Avoid shared caching for a response that contains case-specific or personal information, and provide a clear upstream error and retry state.',
+    'Use private handling for case-specific or personal responses, with a clear upstream error and retry state.',
   ],
   upstream: {
     documentation: 'https://developer.uscis.gov/api/case-status',
@@ -272,10 +272,10 @@ export const uscisCaseStatusContract = {
     sandboxBaseUrl: 'https://api-int.uscis.gov/case-status',
   },
   staticPageBehavior: [
-    'No receipt-number input is rendered on the static page.',
-    'No user receipt number is proxied through a USIVA endpoint.',
-    'No USCIS API request is made from the browser or build.',
-    'No live case status is returned, inferred, or represented as a USIVA result.',
+    'The static page routes receipt-number questions to USCIS Case Status Online, myUSCIS, and the official processing tools.',
+    'Receipt numbers remain within USCIS systems; the public site provides the verified official handoff.',
+    'The documented contract specifies server-side USCIS API request handling; the static build provides official links.',
+    'USCIS Case Status Online and myUSCIS return live case information through their official systems.',
     'Readers are handed to USCIS Case Status Online, myUSCIS, processing times, or the official API documentation.',
   ],
 } as const;

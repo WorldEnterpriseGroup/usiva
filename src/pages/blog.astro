@@ -28,7 +28,7 @@ const canonical = 'https://usiva.org/blog.html';
       <aside class="desk-note" aria-labelledby="desk-note-heading">
         <p class="eyebrow">Reading posture</p>
         <h2 id="desk-note-heading">Read broadly. Decide narrowly.</h2>
-        <p>Field notes organize questions; they do not determine eligibility, authorize an activity, or replace a controlling source.</p>
+        <p>Field notes organize questions and point to the agency, school, sponsor, employer, or counsel that controls the next answer.</p>
       </aside>
     </div>
   </section>
@@ -39,7 +39,7 @@ const canonical = 'https://usiva.org/blog.html';
       <div class="desk-copy flow">
         <p class="eyebrow">What belongs here</p>
         <h2 id="intro-heading">Planning content with a source trail.</h2>
-        <p>USIVA field notes are not case studies, client testimonials, or predictions. They are short ways into questions about documentation, timing, status, work authorization, school coordination, and the point at which individualized advice becomes the responsible next step.</p>
+        <p>USIVA field notes are short ways into questions about documentation, timing, status, work authorization, school coordination, and the point at which individualized advice becomes the responsible next step. Each note keeps its public planning role and source trail visible.</p>
         <p>Read them as orientation. Then verify the current instruction with the school, sponsor, employer, government source, or licensed attorney that controls your situation.</p>
       </div>
     </div>
@@ -65,7 +65,7 @@ const canonical = 'https://usiva.org/blog.html';
       <header>
         <p class="eyebrow">Desk index</p>
         <h2 id="dispatch-heading">Questions worth carrying forward.</h2>
-        <p>Use these as prompts for your own file. They are deliberately written without a date, outcome, or invented case.</p>
+        <p>Use these as prompts for your own file. Each note stays anchored to its stage, source, and question.</p>
         <a class="text-link" href="/other-pages.html">See every route in the atlas <span aria-hidden="true">→</span></a>
       </header>
       <ul class="dispatch-list">
@@ -81,12 +81,12 @@ const canonical = 'https://usiva.org/blog.html';
     <div class="shell-container protocol-grid">
       <header>
         <p class="eyebrow eyebrow--light">The source protocol</p>
-        <h2 id="protocol-heading">Use a public source to begin — not to skip the responsible authority.</h2>
+          <h2 id="protocol-heading">Use a public source to begin, then confirm with the responsible authority.</h2>
       </header>
       <ol>
         <li><span>01</span><div><strong>Find the primary source.</strong><p>Government pages, school instructions, employer guidance, and sponsor materials may be more current than a summary.</p></div></li>
-        <li><span>02</span><div><strong>Check the date and fit.</strong><p>A rule for one status, program, location, or activity may not answer another.</p></div></li>
-        <li><span>03</span><div><strong>Escalate the personal facts.</strong><p>General content cannot resolve a prior refusal, status concern, or individualized legal question.</p></div></li>
+        <li><span>02</span><div><strong>Check the date and fit.</strong><p>A rule for one status, program, location, or activity serves its defined scope; compare the source to your facts.</p></div></li>
+        <li><span>03</span><div><strong>Escalate the personal facts.</strong><p>General content points to the responsible authority for a prior refusal, status concern, or individualized legal question.</p></div></li>
       </ol>
     </div>
   </section>
@@ -118,7 +118,7 @@ const canonical = 'https://usiva.org/blog.html';
     display: grid;
     gap: var(--space-4);
     grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.7fr);
-    padding-block: var(--space-4);
+    padding-block: clamp(2.5rem, 5vw, 4.5rem);
   }
 
   .notes-intro h1 {
@@ -296,7 +296,7 @@ const canonical = 'https://usiva.org/blog.html';
   }
 
   .protocol-grid > ol li {
-    color: #d2dee3;
+    color: var(--color-on-dark-muted);
     display: grid;
     gap: var(--space-2);
     grid-template-columns: 2.2rem minmax(0, 1fr);
@@ -308,13 +308,13 @@ const canonical = 'https://usiva.org/blog.html';
   }
 
   .protocol-grid > ol li p {
-    color: #d2dee3;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     margin: 0.25rem 0 0;
   }
 
   .protocol-grid > ol li > span {
-    color: var(--color-highlight);
+    color: var(--color-paper);
   }
 
   .notes-next {

@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getMediaAsset } from '../data/media-manifest';
 
 const title = 'Services | USIVA Visa-Readiness Planning';
-const description = 'Organize U.S. visa documentation, timing, source checks, and responsible handoffs without a promise of an immigration outcome.';
+const description = 'Organize U.S. visa and immigration planning records, timing, official-source checks, and responsible handoffs for the next decision.';
 const canonical = 'https://usiva.org/services.html';
 const workPhoto = getMediaAsset('employment-engineering');
 ---
@@ -21,7 +21,8 @@ const workPhoto = getMediaAsset('employment-engineering');
       <div class="services-intro__copy">
         <p class="eyebrow">USIVA / services</p>
         <h1 id="page-title">Make the next immigration question visible before it becomes urgent.</h1>
-        <p class="services-intro__lede">USIVA is a visa-readiness and compliance-planning companion for individuals, families, employers, and organizations working through temporary or permanent immigration questions. The work starts with a clear file, a named decision, and the right person to verify it.</p>
+        <p class="services-intro__lede">USIVA is a visa and immigration planning companion for individuals, families, employers, and organizations working through nonimmigrant or immigrant questions. The work starts with a clear file, a named decision, and the right official source to verify it.</p>
+        <p><strong>Planning inputs:</strong> stage · activity · date · source owner.</p>
         <nav class="intro-actions" aria-label="Services next steps">
           <a class="button button--primary" href="/contacts.html">Prepare a question</a>
           <a class="button button--outline" href="/visa.html">Browse visa routes</a>
@@ -48,7 +49,7 @@ const workPhoto = getMediaAsset('employment-engineering');
       <header class="section-heading">
         <p class="eyebrow">Choose the question first</p>
         <h2 id="lane-heading">Different stages need different planning conversations.</h2>
-        <p>These lanes describe what to organize and verify. They are not promises of eligibility, approval, representation, or employment.</p>
+        <p>These lanes focus on what to organize and verify. Current eligibility, approval, representation, and employment decisions come from the responsible authority.</p>
       </header>
 
       <div class="table-wrap">
@@ -100,7 +101,7 @@ const workPhoto = getMediaAsset('employment-engineering');
     <div class="shell-container services-guardrail__grid">
       <div>
         <p class="eyebrow eyebrow--light">The line that matters</p>
-        <h2 id="guardrail-heading">Good planning never outruns authorization.</h2>
+        <h2 id="guardrail-heading">Good planning keeps authorization in the lead.</h2>
         <p>USIVA can help a reader frame the question. The university, designated school official, sponsor, employer, government agency, or licensed immigration attorney must provide the answer that controls the individual case.</p>
       </div>
       <div class="guardrail-list">
@@ -115,8 +116,8 @@ const workPhoto = getMediaAsset('employment-engineering');
     <div class="shell-container">
       <header>
         <p class="eyebrow">A useful next step</p>
-        <h2 id="next-heading">Bring one decision, not your entire life story.</h2>
-        <p>Start with your current stage, the activity or filing you are considering, the date that matters, and the document or instruction you cannot interpret.</p>
+        <h2 id="next-heading">Bring the decision in front of you.</h2>
+        <p>Start with your current stage, the activity or filing you are considering, the date that matters, and the document or instruction that needs the responsible authority’s interpretation.</p>
       </header>
       <ul class="next-reference-list">
         <li><a href="/briefs.html"><strong>Read a research brief</strong><span>See source-led explanations of planning questions.</span></a></li>
@@ -139,7 +140,7 @@ const workPhoto = getMediaAsset('employment-engineering');
     display: grid;
     gap: var(--space-4);
     grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.78fr);
-    padding-block: var(--space-4);
+    padding-block: clamp(2.5rem, 5vw, 4.5rem);
   }
 
   .services-intro__copy {
@@ -315,7 +316,7 @@ const workPhoto = getMediaAsset('employment-engineering');
   }
 
   .services-guardrail__grid > div:first-child > p:last-child {
-    color: #d2dee3;
+    color: var(--color-on-dark-muted);
   }
 
   .guardrail-list {
@@ -324,7 +325,7 @@ const workPhoto = getMediaAsset('employment-engineering');
 
   .guardrail-list p {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    color: #d2dee3;
+    color: var(--color-on-dark-muted);
     display: grid;
     gap: 0.25rem 1rem;
     grid-template-columns: 2rem minmax(0, 1fr);
@@ -333,7 +334,7 @@ const workPhoto = getMediaAsset('employment-engineering');
   }
 
   .guardrail-list span {
-    color: var(--color-highlight);
+    color: var(--color-paper);
     font-family: var(--font-mono);
     font-size: var(--step--1);
   }

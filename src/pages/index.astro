@@ -83,7 +83,7 @@ const employerActions: Action[] = [
 ---
 
 <BaseLayout
-  title="USIVA | A Clearer Way Through U.S. Visa Decisions"
+  title="USIVA | Visa and Immigration Planning"
   description="USIVA helps individuals, families, students, professionals, researchers, and employers organize U.S. visa questions, evidence, timing, and responsible handoffs."
   activePath="/"
   topbarMessage="Visa planning for individuals, families, employers, and the decisions between them."
@@ -94,8 +94,8 @@ const employerActions: Action[] = [
     <div class="shell-container home-hero__inner">
       <div class="home-hero__copy">
         <p class="eyebrow">U.S. Immigration and Visa Association</p>
-        <h1 id="home-title">One steady place for every visa journey.</h1>
-        <p class="home-hero__lede">USIVA helps people and companies turn a high-stakes immigration question into an organized next step: the evidence to gather, the timing to check, the authority to ask, and the boundary not to cross.</p>
+        <h1 id="home-title">USIVA organizes the next visa question.</h1>
+        <p class="home-hero__lede">USIVA is a public visa and immigration planning companion for people and companies. It organizes evidence, timing, official sources, and the responsible handoff for the next decision.</p>
         <ActionLinks actions={heroActions} />
         <p class="home-hero__source">Begin with the <a href="https://travel.state.gov/content/travel/en/us-visas.html">U.S. Department of State visa overview <span aria-hidden="true">↗</span></a>.</p>
       </div>
@@ -106,6 +106,7 @@ const employerActions: Action[] = [
           alt="Two people review a document together at a library table."
           width="1536"
           height="1024"
+          sizes="(min-width: 1100px) 42vw, (min-width: 700px) 48vw, 100vw"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -117,7 +118,7 @@ const employerActions: Action[] = [
     <div class="shell-container home-hero__standard">
       <div>
         <p class="home-hero__standard-label">The USIVA standard</p>
-        <p>Useful orientation without pretending that a public page can decide a private case.</p>
+        <p>Clear orientation keeps a public source connected to the private authority responsible for the answer.</p>
       </div>
       <ol>
         <li>Evidence before assumption</li>
@@ -131,8 +132,8 @@ const employerActions: Action[] = [
     <div class="shell-container">
       <SectionIntro
         eyebrow="Start with the decision"
-        title="Choose the question, not just a visa label."
-        description="Different people arrive with different facts. Use this index to find a useful first route, then move to the school, employer, government agency, sponsor, consulate, or qualified counsel responsible for the actual decision."
+        title="Start with the question behind the visa label."
+        description="Use this index to match study, work, family, residence, employer, or program facts with the school, employer, government agency, sponsor, consulate, or qualified counsel responsible for the decision."
       />
 
       <div class="journey-index">
@@ -159,6 +160,7 @@ const employerActions: Action[] = [
           alt="A suited traveler walks through a bright terminal carrying a portfolio and pulling a suitcase."
           width="1536"
           height="1024"
+          sizes="(min-width: 900px) 44vw, 100vw"
           loading="lazy"
           decoding="async"
         />
@@ -167,9 +169,9 @@ const employerActions: Action[] = [
 
       <div class="trust-layout__copy">
         <SectionIntro
-          eyebrow="A trust space, not a promise machine"
+          eyebrow="A trust space for careful planning"
           title="Make the next step verifiable."
-          description="USIVA is informational planning content. It does not file an application, decide eligibility, replace a lawyer or DSO, or guarantee admission, employment, funding, visa issuance, or government approval."
+          description="USIVA organizes facts, sources, and next steps so the responsible authority can review the question. Current eligibility, filing, and approval decisions remain with the relevant agency, school, employer, sponsor, consulate, or qualified counsel."
         />
         <ol class="trust-steps">
           {trustSteps.map((step, index) => (
@@ -201,6 +203,7 @@ const employerActions: Action[] = [
             alt="A couple sorts a stack of paper records at a kitchen table."
             width="1536"
             height="1024"
+            sizes="(min-width: 900px) 42vw, 100vw"
             loading="lazy"
             decoding="async"
           />
@@ -212,6 +215,7 @@ const employerActions: Action[] = [
             alt="An engineer examines a machined component beside technical drawings in a workshop."
             width="1536"
             height="1024"
+            sizes="(min-width: 900px) 42vw, 100vw"
             loading="lazy"
             decoding="async"
           />
@@ -249,7 +253,7 @@ const employerActions: Action[] = [
       </div>
       <div class="employer-layout__actions">
         <ActionLinks actions={employerActions} />
-        <p class="employer-layout__note">No sensitive documents are needed to begin an orientation question.</p>
+        <p class="employer-layout__note">Begin with a question brief; submit sensitive information only through the verified official channel.</p>
       </div>
     </div>
   </section>
@@ -277,7 +281,7 @@ const employerActions: Action[] = [
     display: grid;
     gap: clamp(2rem, 5vw, 5.5rem);
     grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.88fr);
-    padding-block: clamp(3.75rem, 8vw, 7rem) clamp(3rem, 6vw, 5rem);
+    padding-block: clamp(2.75rem, 5vw, 5rem) clamp(2.5rem, 4vw, 4rem);
   }
 
   .home-hero .eyebrow {
@@ -291,7 +295,7 @@ const employerActions: Action[] = [
   }
 
   .home-hero__lede {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: clamp(1rem, 0.93rem + 0.35vw, 1.2rem);
     line-height: 1.58;
     margin-block-start: var(--space-3);
@@ -299,7 +303,7 @@ const employerActions: Action[] = [
   }
 
   .home-hero__source {
-    color: #b9cbd3;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     margin-block-start: var(--space-2);
   }
@@ -335,7 +339,7 @@ const employerActions: Action[] = [
   .home-hero figcaption,
   .trust-layout__figure figcaption,
   .field-figure figcaption {
-    color: #c8d5dc;
+    color: var(--color-on-dark-muted);
     font-size: 0.78rem;
     line-height: 1.45;
     padding: 0.8rem 0.35rem 0.15rem;
@@ -353,6 +357,10 @@ const employerActions: Action[] = [
     text-transform: uppercase;
   }
 
+  .home-section--night .trust-layout__figure figcaption span {
+    color: var(--color-paper);
+  }
+
   .home-hero__standard {
     align-items: center;
     border-top: 1px solid rgba(214, 225, 229, 0.25);
@@ -363,18 +371,26 @@ const employerActions: Action[] = [
   }
 
   .home-hero__standard p {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
   }
 
   .home-hero__standard-label,
   .source-actions__label,
   .program-note__label {
-    color: var(--color-highlight) !important;
     font-family: var(--font-mono);
     font-size: 0.72rem !important;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+  }
+
+  .home-hero__standard-label {
+    color: var(--color-highlight) !important;
+  }
+
+  .source-actions__label,
+  .program-note__label {
+    color: var(--color-accent-dark) !important;
   }
 
   .home-hero__standard-label {
@@ -411,6 +427,10 @@ const employerActions: Action[] = [
   .home-section--night {
     background: var(--color-navy);
     color: var(--color-paper);
+    --section-body-color: var(--color-on-dark-muted);
+    --section-eyebrow-color: var(--color-paper);
+    --section-heading-color: var(--color-paper);
+    --section-rule-color: var(--color-highlight);
   }
 
   .home-section--night h2,
@@ -420,7 +440,7 @@ const employerActions: Action[] = [
   }
 
   .home-section--night p {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
   }
 
   .home-section .section-intro h2 {
@@ -531,7 +551,7 @@ const employerActions: Action[] = [
   }
 
   .trust-steps li > span {
-    color: var(--color-highlight);
+    color: var(--color-paper);
     font-family: var(--font-mono);
     font-size: var(--step--1);
   }
@@ -570,11 +590,11 @@ const employerActions: Action[] = [
     align-items: start;
     display: grid;
     gap: clamp(1.25rem, 3vw, 2.5rem);
-    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .field-figure--work {
-    margin-block-start: clamp(2rem, 8vw, 6.5rem);
+    margin-block-start: 0;
   }
 
   .field-figure img {
@@ -617,11 +637,11 @@ const employerActions: Action[] = [
   }
 
   .home-section--signal .eyebrow {
-    color: var(--color-highlight);
+    color: var(--color-paper);
   }
 
   .home-section--signal p {
-    color: #fff4e0;
+    color: var(--color-on-dark-muted);
   }
 
   .employer-layout {
@@ -646,7 +666,7 @@ const employerActions: Action[] = [
   }
 
   .employer-layout__note {
-    color: #fff4e0;
+    color: var(--color-on-dark-muted);
     font-size: 0.78rem;
     margin-block-start: 0.85rem;
     max-width: 28ch;

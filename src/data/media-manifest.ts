@@ -40,7 +40,7 @@ export const mediaManifest = [
     caption: 'A careful planning conversation starts by naming the document, date, and question in front of the reader.',
     focalPoint: { x: 0.72, y: 0.46 },
     sourceRightsNote: generatedAssetRightsNote,
-    intendedUse: 'Homepage or service-page opening; establish planning as a document-and-question conversation, not an outcome.',
+    intendedUse: 'Homepage or service-page opening; establish planning as a document-and-question conversation with the responsible authority.',
   },
   {
     id: 'pathways-terminal',
@@ -49,7 +49,7 @@ export const mediaManifest = [
     width: 1536,
     height: 1024,
     alt: 'A traveler in a suit carries a briefcase through a bright terminal with a suitcase.',
-    caption: 'A journey has a sequence. Route planning is an orientation exercise, not a decision about eligibility.',
+    caption: 'A journey has a sequence. Route planning orients the next question for the responsible authority.',
     focalPoint: { x: 0.38, y: 0.43 },
     sourceRightsNote: generatedAssetRightsNote,
     intendedUse: 'Visa-pathway orientation, travel-timing context, or a secondary image beside a route map.',

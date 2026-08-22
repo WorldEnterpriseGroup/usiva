@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getMediaAsset } from '../data/media-manifest';
 
 const title = 'About USIVA | A US Council Planning Companion';
-const description = 'How USIVA helps people and organizations organize U.S. visa questions across temporary and permanent pathways without providing legal representation.';
+const description = 'How USIVA helps people and organizations with visa and immigration planning across temporary and permanent pathways, official sources, and responsible handoffs.';
 const canonical = 'https://usiva.org/about.html';
 const recordsPhoto = getMediaAsset('family-records');
 ---
@@ -20,8 +20,8 @@ const recordsPhoto = getMediaAsset('family-records');
     <div class="shell-container about-intro__grid">
       <div class="about-intro__copy">
         <p class="eyebrow">About / the short version</p>
-        <h1 id="page-title">USIVA is a planning companion, not a decision-maker.</h1>
-        <p class="about-intro__lede">The U.S. Immigration and Visa Association gives individuals, families, employers, and organizations a clearer place to organize records, timing, authorization questions, and source checks across the visa categories that may fit their purpose.</p>
+        <h1 id="page-title">USIVA is a planning companion for organizing the next decision.</h1>
+        <p class="about-intro__lede">USIVA is the US Council’s public visa and immigration planning companion. It gives individuals, families, employers, and organizations a clear place to organize records, timing, authorization questions, and official-source checks across the categories that may fit their purpose.</p>
         <nav class="intro-actions" aria-label="About next steps">
           <a class="button button--primary" href="/services.html">See planning lanes</a>
           <a class="button button--outline" href="/visa-categories.html">Browse visa categories</a>
@@ -51,10 +51,10 @@ const recordsPhoto = getMediaAsset('family-records');
       </div>
       <div class="about-copy flow">
         <p>International planning often holds several timelines at once: academic preparation, funding, travel, school instructions, research opportunities, and the authorization boundaries that apply to each stage. USIVA gives those questions a visible place before deadline pressure makes them harder to separate.</p>
-        <p>The site is intentionally source-aware. It can help a reader name a missing document, prepare a question for a designated school official or sponsor, and recognize when personal facts require licensed immigration counsel. It does not decide eligibility or replace the authority responsible for a case.</p>
+        <p>The site is intentionally source-aware. It helps a reader name a missing document, prepare a question for a designated school official or sponsor, and recognize when personal facts require licensed immigration counsel. The authority responsible for the case owns eligibility and other live decisions.</p>
         <aside class="relationship-note" aria-labelledby="relationship-heading">
           <h3 id="relationship-heading">Where USIVA sits</h3>
-          <p>USIVA is a US Council companion. It can sit beside a university, employer, sponsor, or a connected research-program conversation without becoming that provider or promising its outcome.</p>
+          <p>USIVA is a US Council companion. It works alongside a university, employer, sponsor, or connected research-program conversation while each provider remains responsible for its own instructions and outcomes.</p>
           <a href="https://usfellows.org/international-rd-scholars.html" rel="noreferrer">See the connected research-program reference at US Fellows <span aria-hidden="true">↗</span></a>
         </aside>
       </div>
@@ -66,7 +66,7 @@ const recordsPhoto = getMediaAsset('family-records');
       <header>
         <p class="eyebrow">The editorial standard</p>
         <h2 id="principles-heading">Four habits keep a planning page honest.</h2>
-        <p>These are working principles for public information, not conclusions about a particular person’s case.</p>
+        <p>These are working principles for public information; each person’s case receives its own review by the responsible authority.</p>
       </header>
 
       <ol class="principles-list">
@@ -82,7 +82,7 @@ const recordsPhoto = getMediaAsset('family-records');
     <div class="shell-container about-boundary__grid">
       <div>
         <p class="eyebrow eyebrow--light">Plain language</p>
-        <h2 id="boundary-heading">What USIVA is — and what it is not.</h2>
+        <h2 id="boundary-heading">USIVA’s role in the planning system.</h2>
       </div>
       <div class="boundary-columns">
         <div>
@@ -94,11 +94,11 @@ const recordsPhoto = getMediaAsset('family-records');
           </ul>
         </div>
         <div>
-          <h3>USIVA is not</h3>
+          <h3>Where the decision lives</h3>
           <ul>
-            <li>A law firm, legal representative, or eligibility engine.</li>
-            <li>A substitute for university, sponsor, consular, government, or employer instructions.</li>
-            <li>A guarantee of admission, employment, funding, visa issuance, or government approval.</li>
+            <li>Legal advice and representation come from qualified immigration counsel.</li>
+            <li>Current instructions come from the university, sponsor, consular post, government agency, or employer.</li>
+            <li>Admission, employment, funding, visa issuance, and government approval come from the responsible authority.</li>
           </ul>
         </div>
       </div>
@@ -117,7 +117,7 @@ const recordsPhoto = getMediaAsset('family-records');
         <li><a href="/employers.html"><strong>Employer resources</strong><span>Orient I-9, E-Verify, and employer-side questions before a handoff.</span></a></li>
         <li><a href="/official-tools.html"><strong>Official tools</strong><span>Use government case-status, visa, and employer resources directly.</span></a></li>
         <li><a href="/briefs.html"><strong>Research briefs</strong><span>Read short, source-led notes about planning and compliance questions.</span></a></li>
-        <li><a href="/articles.html"><strong>Articles</strong><span>Follow longer explanations without treating them as personal advice.</span></a></li>
+        <li><a href="/articles.html"><strong>Articles</strong><span>Follow longer explanations as general planning content.</span></a></li>
       </ul>
       <p class="source-note">For current instructions, begin with <a href="https://www.uscis.gov/" rel="noreferrer">USCIS</a>, the <a href="https://travel.state.gov/content/travel/en/us-visas.html" rel="noreferrer">U.S. Department of State</a>, or the school, sponsor, and employer responsible for the matter.</p>
     </div>
@@ -135,7 +135,7 @@ const recordsPhoto = getMediaAsset('family-records');
     display: grid;
     gap: var(--space-4);
     grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.78fr);
-    padding-block: var(--space-4);
+    padding-block: clamp(2.5rem, 5vw, 4.5rem);
   }
 
   .about-intro__copy {
@@ -271,7 +271,7 @@ const recordsPhoto = getMediaAsset('family-records');
   }
 
   .boundary-columns ul {
-    color: #d2dee3;
+    color: var(--color-on-dark-muted);
     padding-inline-start: 1.15rem;
   }
 

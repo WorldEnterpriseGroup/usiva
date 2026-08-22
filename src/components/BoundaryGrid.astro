@@ -11,23 +11,31 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="boundary-grid">
+<ul class="boundary-grid" aria-label="Boundary considerations">
   {items.map((item, index) => (
-    <article>
-      <div class="boundary-grid__heading">
-        <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-        <h3>{item.title}</h3>
-      </div>
-      <p>{item.text}</p>
-    </article>
+    <li>
+      <article>
+        <div class="boundary-grid__heading">
+          <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <h3>{item.title}</h3>
+        </div>
+        <p>{item.text}</p>
+      </article>
+    </li>
   ))}
-</div>
+</ul>
 
 <style>
   .boundary-grid {
     display: grid;
     gap: 0.8rem;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    list-style: none;
+  }
+
+  .boundary-grid li,
+  .boundary-grid article {
+    min-width: 0;
   }
 
   .boundary-grid article {
@@ -51,11 +59,13 @@ const { items } = Astro.props;
 
   .boundary-grid h3 {
     font-size: var(--step-1);
+    overflow-wrap: anywhere;
   }
 
   .boundary-grid p {
     font-size: var(--step--1);
     margin-block-start: 0.8rem;
+    overflow-wrap: anywhere;
   }
 
   @media (max-width: 820px) {

@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Pricing & Scope | USIVA';
-const description = 'A plain-language guide to USIVA scope: no public price list, no payment request on this page, and no promise of an immigration result.';
+const description = 'A plain-language guide to USIVA scope, planning categories, provider terms, and the questions to clarify before payment.';
 const canonical = 'https://usiva.org/pricing.html';
 ---
 
@@ -18,8 +18,8 @@ const canonical = 'https://usiva.org/pricing.html';
     <div class="shell-container scope-intro__grid">
       <div>
         <p class="eyebrow">Pricing / a transparent answer</p>
-        <h1 id="page-title">There is no public price list here.</h1>
-        <p class="scope-intro__lede">USIVA public pages describe visa-readiness and compliance-planning questions. They do not create a fee quote, a service contract, or a promise that a pathway is available.</p>
+        <h1 id="page-title">Start with scope before you discuss price.</h1>
+        <p class="scope-intro__lede">USIVA public pages organize visa and immigration planning questions. A provider’s written scope, deliverables, terms, and current source checks establish the commercial conversation.</p>
         <nav class="intro-actions" aria-label="Scope next steps">
           <a class="button button--primary" href="/contacts.html">Ask for scope</a>
           <a class="button button--outline" href="/services.html">See planning coverage</a>
@@ -38,7 +38,7 @@ const canonical = 'https://usiva.org/pricing.html';
       <header class="section-heading">
         <p class="eyebrow">What this page can establish</p>
         <h2 id="scope-heading">A scope conversation has four useful edges.</h2>
-        <p>The rows below are planning categories, not a menu of guaranteed services or fixed-price packages.</p>
+        <p>The rows below are planning categories for clarifying scope, deliverables, and the responsible decision owner.</p>
       </header>
 
       <div class="table-wrap">
@@ -63,13 +63,13 @@ const canonical = 'https://usiva.org/pricing.html';
       <header>
         <p class="eyebrow">Before any payment</p>
         <h2 id="payment-heading">Ask for the terms in writing.</h2>
-        <p>A careful scope note should identify who is providing the work, what the reader will receive, what is not included, which dates and sources matter, and where individualized legal questions must go.</p>
+        <p>A careful scope note identifies who is providing the work, what the reader will receive, the boundaries of that work, which dates and sources matter, and where individualized legal questions belong.</p>
       </header>
 
       <ol class="payment-list">
-        <li><span>01</span><div><strong>Name the provider.</strong><p>Do not infer a relationship from a logo, a referral, or a public planning page.</p></div></li>
+        <li><span>01</span><div><strong>Name the provider.</strong><p>Confirm the relationship directly with the provider named in the written terms.</p></div></li>
         <li><span>02</span><div><strong>Name the deliverable.</strong><p>Ask whether the work is education, document organization, a consultation, a filing service, or something else.</p></div></li>
-        <li><span>03</span><div><strong>Name the boundary.</strong><p>Confirm what the provider cannot decide and which official instruction controls the next action.</p></div></li>
+        <li><span>03</span><div><strong>Name the boundary.</strong><p>Confirm which questions belong to the provider and which official instruction controls the next action.</p></div></li>
         <li><span>04</span><div><strong>Name the next check.</strong><p>Rules, school instructions, sponsor requirements, and fees can change; ask when the information was last verified.</p></div></li>
       </ol>
     </div>
@@ -79,14 +79,14 @@ const canonical = 'https://usiva.org/pricing.html';
     <div class="shell-container scope-faq__grid">
       <header>
         <p class="eyebrow">Questions worth carrying</p>
-        <h2 id="questions-heading">A price is not the same thing as a result.</h2>
+        <h2 id="questions-heading">A price describes a service; the responsible authority determines the result.</h2>
         <p>Use these prompts to keep a commercial conversation separate from an immigration decision.</p>
       </header>
       <div class="faq-list">
-        <details open><summary>Does a payment guarantee admission or a visa?</summary><p>No. USIVA does not promise admission, employment, funding, visa issuance, or government approval. Any provider should state its own scope without implying control over an outside decision.</p></details>
+        <details open><summary>What does a payment cover?</summary><p>A payment covers the written deliverable and terms agreed with the provider. Admission, employment, funding, visa issuance, and government approval remain decisions of the responsible authority.</p></details>
         <details><summary>Can a planning page tell me whether I qualify?</summary><p>General information can help you identify questions. A personal eligibility analysis belongs with the school, sponsor, government source, or licensed immigration attorney responsible for the matter.</p></details>
-        <details><summary>Why is there no number on this page?</summary><p>There is no published USIVA price list in this public site. A responsible amount, if any, requires a real scope and direct confirmation of the provider and terms.</p></details>
-        <details><summary>What should I do if a claim sounds too certain?</summary><p>Ask for the source, the date checked, the person or institution that controls the decision, and the written terms. Pause before sending money or beginning an activity you do not understand.</p></details>
+        <details><summary>How is a responsible amount established?</summary><p>A responsible amount follows a real scope and direct confirmation of the provider, deliverables, timing, and terms.</p></details>
+        <details><summary>What should I do if a claim sounds too certain?</summary><p>Ask for the source, the date checked, the person or institution that controls the decision, and the written terms. Request an explanation before sending money or beginning an activity; confirm the facts, terms, and authority first.</p></details>
       </div>
     </div>
   </section>
@@ -96,7 +96,7 @@ const canonical = 'https://usiva.org/pricing.html';
       <header>
         <p class="eyebrow">Low-risk next steps</p>
         <h2 id="next-heading">Start with the question you need priced or verified.</h2>
-        <p>No payment is requested on this page. Prepare a short brief, then confirm the right destination.</p>
+        <p>Prepare a short brief, then confirm the right destination and written terms before payment.</p>
       </header>
       <ul class="next-links">
         <li><a href="/visa-categories.html"><strong>Review visa categories</strong><span>Orient the route before discussing scope.</span></a></li>
@@ -119,7 +119,7 @@ const canonical = 'https://usiva.org/pricing.html';
     display: grid;
     gap: var(--space-4);
     grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
-    padding-block: var(--space-4);
+    padding-block: clamp(2.5rem, 5vw, 4.5rem);
   }
 
   .scope-intro h1,
@@ -132,11 +132,11 @@ const canonical = 'https://usiva.org/pricing.html';
   }
 
   .scope-intro .eyebrow {
-    color: var(--color-highlight);
+    color: var(--color-paper);
   }
 
   .scope-intro__lede {
-    color: #d2dee3;
+    color: var(--color-on-dark-muted);
     font-size: var(--step-1);
     margin-block-start: var(--space-2);
     max-width: 58ch;
@@ -165,7 +165,7 @@ const canonical = 'https://usiva.org/pricing.html';
   }
 
   .scope-note p:last-child {
-    color: #d2dee3;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     margin: 0;
   }

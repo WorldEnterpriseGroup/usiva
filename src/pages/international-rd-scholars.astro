@@ -17,9 +17,9 @@ const scopeItems = [
 ];
 
 const limits = [
-  'This page is not the program application, an admissions route, or a funding or employment promise.',
-  'It does not decide eligibility, provide individualized legal advice, file applications, or collect personal documents.',
-  'School, DSO, sponsor, employer, consular, agency, and qualified-counsel instructions control when they differ.',
+  'US Fellows, the school, and the employer own program applications, admissions, funding, and employment decisions.',
+  'USIVA organizes eligibility questions, official-source handoffs, and records for review by the responsible authority or qualified counsel.',
+  'School, DSO, sponsor, employer, consular, agency, and qualified-counsel instructions control the live question.',
 ];
 
 const stages = [
@@ -85,7 +85,7 @@ const finalActions: Action[] = [
       <div class="rd-hero__copy">
         <p class="eyebrow">One program / USIVA companion</p>
         <h1 id="rd-title">International R&amp;D Scholars, with a clear visa-readiness scope.</h1>
-        <p class="rd-hero__lede">This page is for people considering the US Fellows International R&amp;D Scholars Program. It covers the planning questions around F-1 study, university coordination, authorized practical training, and responsible handoffs. It is not the program page and it is not legal advice.</p>
+        <p class="rd-hero__lede">USIVA’s companion page serves people considering the US Fellows International R&amp;D Scholars Program. It covers F-1 study, university coordination, authorized practical training, and responsible handoffs; program applications and individualized legal advice belong to the responsible program, school, agency, or qualified counsel.</p>
         <ActionLinks actions={heroActions} />
       </div>
 
@@ -95,11 +95,12 @@ const finalActions: Action[] = [
           alt="Hands turn a blank page beside a calendar, notebook, ruler, and folder on a dark desk."
           width="1448"
           height="1086"
+          sizes="(min-width: 1100px) 40vw, (min-width: 700px) 48vw, 100vw"
           loading="eager"
           fetchpriority="high"
           decoding="async"
         />
-        <figcaption><span>Evidence / 01</span> A readiness file is a way to make the next question visible, not proof that an outcome is available.</figcaption>
+        <figcaption><span>Evidence / 01</span> A readiness file makes the next question visible; the responsible authority evaluates the outcome.</figcaption>
       </figure>
     </div>
   </section>
@@ -120,7 +121,7 @@ const finalActions: Action[] = [
           </ul>
         </article>
         <article class="scope-panel scope-panel--out">
-          <p class="scope-panel__label">This page does not</p>
+          <p class="scope-panel__label">Decision owners</p>
           <ul>
             {limits.map((item) => <li>{item}</li>)}
           </ul>
@@ -134,7 +135,7 @@ const finalActions: Action[] = [
       <SectionIntro
         eyebrow="Four moments to verify"
         title="The question changes as the scholar moves."
-        description="Use the sequence as a conversation map. Do not treat it as a personal eligibility checklist or a substitute for current school and government instructions."
+        description="Use the sequence as a conversation map, then compare each stage with current school and government instructions."
       />
 
       <ol class="rd-sequence">
@@ -153,8 +154,8 @@ const finalActions: Action[] = [
     <div class="shell-container rd-boundary-layout">
       <div class="rd-boundary-copy">
         <p class="eyebrow">A hard boundary</p>
-        <h2>Research exposure is not work authorization.</h2>
-        <p>The program may create research or partner conversations. That exposure does not itself authorize employment, compensation, or training. Review the activity with the school, DSO, sponsor, employer, and appropriate counsel before it begins.</p>
+        <h2>Research exposure and work authorization follow separate reviews.</h2>
+        <p>The program may create research or partner conversations. The school, DSO, sponsor, employer, and appropriate counsel review whether employment, compensation, or training is authorized before the activity begins.</p>
       </div>
 
       <figure class="rd-boundary-figure">
@@ -163,6 +164,7 @@ const finalActions: Action[] = [
           alt="A researcher in a white coat works at a microscope in a laboratory."
           width="1536"
           height="1024"
+          sizes="(min-width: 900px) 46vw, 100vw"
           loading="lazy"
           decoding="async"
         />
@@ -207,7 +209,7 @@ const finalActions: Action[] = [
       <div>
         <p class="eyebrow">Two clean handoffs</p>
         <h2 id="next-title">Use US Fellows for program context. Use USIVA for the visa-readiness question.</h2>
-        <p>Keep the research file and the immigration question connected, but do not make one page stand in for the other.</p>
+        <p>Keep the research file and the immigration question connected, with each page serving its own purpose and handoff.</p>
       </div>
       <ActionLinks actions={finalActions} />
     </div>
@@ -225,13 +227,13 @@ const finalActions: Action[] = [
     display: grid;
     gap: clamp(2rem, 5vw, 5.5rem);
     grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
-    padding-block: clamp(3.5rem, 7vw, 6.5rem);
+    padding-block: clamp(2.75rem, 5vw, 5rem);
   }
 
   .rd-hero .eyebrow,
   .rd-boundary-copy .eyebrow,
   .rd-next .eyebrow {
-    color: var(--color-highlight);
+    color: var(--color-paper);
   }
 
   .rd-hero h1 {
@@ -241,7 +243,7 @@ const finalActions: Action[] = [
   }
 
   .rd-hero__lede {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: clamp(1rem, 0.94rem + 0.25vw, 1.15rem);
     line-height: 1.58;
     margin-block-start: var(--space-3);
@@ -272,7 +274,7 @@ const finalActions: Action[] = [
 
   .rd-hero figcaption,
   .rd-boundary-figure figcaption {
-    color: #c8d5dc;
+    color: var(--color-on-dark-muted);
     font-size: 0.78rem;
     line-height: 1.45;
     padding: 0.8rem 0.35rem 0.15rem;
@@ -287,6 +289,10 @@ const finalActions: Action[] = [
     letter-spacing: 0.08em;
     margin-block-end: 0.2rem;
     text-transform: uppercase;
+  }
+
+  .rd-boundary-figure figcaption span {
+    color: var(--color-on-dark);
   }
 
   .rd-section {
@@ -315,7 +321,7 @@ const finalActions: Action[] = [
 
   .rd-section--night p,
   .rd-next p {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
   }
 
   .rd-section .section-intro h2 {
@@ -345,7 +351,7 @@ const finalActions: Action[] = [
   }
 
   .scope-panel--out {
-    background: #f6eee7;
+    background: var(--color-error-surface);
     border-top: 3px solid var(--color-accent);
   }
 
@@ -468,7 +474,7 @@ const finalActions: Action[] = [
   }
 
   .work-boundaries article > span {
-    color: var(--color-highlight);
+    color: var(--color-on-dark);
     font-family: var(--font-mono);
     font-size: 0.72rem;
   }

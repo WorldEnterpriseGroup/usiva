@@ -20,8 +20,8 @@ const deskPhoto = getMediaAsset('evidence-desk');
     <div class="shell-container gallery-intro__grid">
       <div>
         <p class="eyebrow">Media / planning artifacts</p>
-        <h1 id="page-title">A gallery for the work before approval.</h1>
-        <p class="gallery-intro__lede">USIVA uses simple visual aids to make a readiness file, pathway sequence, authorization boundary, or source trail easier to inspect. These are planning prompts, not government forms, client stories, metrics, or proof of an outcome.</p>
+        <h1 id="page-title">Four visual aids for visa and immigration planning.</h1>
+        <p class="gallery-intro__lede">USIVA uses simple visual aids to make a readiness file, pathway sequence, authorization boundary, or source trail easier to inspect. Each artifact points to a planning action and the official source that owns the live answer.</p>
         <nav class="intro-actions" aria-label="Media gallery next steps">
           <a class="button button--primary" href="#gallery">Enter the gallery</a>
           <a class="button button--outline" href="/services.html">Use the planning map</a>
@@ -47,8 +47,8 @@ const deskPhoto = getMediaAsset('evidence-desk');
       <p class="folio">FIELD STUDY<br /><span>01</span></p>
       <div class="flow">
         <p class="eyebrow">Why visual aids</p>
-        <h2 id="context-heading">A picture can organize a conversation without pretending to decide it.</h2>
-        <p>There is no public case-study media archive on this site. The gallery is a small set of reusable planning metaphors: a file you can sort, a path you can sequence, a boundary you can name, and a source trail you can revisit.</p>
+        <h2 id="context-heading">A picture helps organize the next question.</h2>
+        <p>This gallery presents a small set of reusable planning metaphors: a file you can sort, a path you can sequence, a boundary you can name, and a source trail you can revisit.</p>
         <p>Use the captions. They describe the role and the limit of each artifact.</p>
       </div>
     </div>
@@ -71,12 +71,12 @@ const deskPhoto = getMediaAsset('evidence-desk');
             <div class="artifact-tags"><span>IDENTITY</span><span>ACADEMIC</span><span>FUNDING</span></div>
             <small>CHECK · DATE · ASK</small>
           </div>
-          <figcaption><strong>01 / The readiness file</strong><span>Sort records by the decision they support. This drawing does not define a required document list; the relevant school, sponsor, or authority does.</span></figcaption>
+          <figcaption><strong>01 / The readiness file</strong><span>Sort records by the decision they support, then confirm the required list with the relevant school, sponsor, or authority.</span></figcaption>
         </figure>
 
         <figure class="artifact-card">
           <div class="artifact artifact-path" role="img" aria-label="A three-step pathway from prepare to verify to hand off">
-            <span class="artifact-label">PATHWAY · NOT A GUARANTEE</span>
+            <span class="artifact-label">PATHWAY · PLANNING PROMPT</span>
             <div class="path-steps"><strong>PREPARE</strong><i aria-hidden="true"></i><strong>VERIFY</strong><i aria-hidden="true"></i><strong>HAND OFF</strong></div>
             <div class="path-foot"><span>file</span><span>source</span><span>owner</span></div>
           </div>
@@ -91,7 +91,7 @@ const deskPhoto = getMediaAsset('evidence-desk');
             <div class="boundary-row"><strong>WORK</strong><span></span></div>
             <b class="ask-marker">ASK<br />FIRST</b>
           </div>
-          <figcaption><strong>03 / The authorization boundary</strong><span>Separate activities before assuming they share a permission. This is a visual prompt, not a determination that any activity is authorized.</span></figcaption>
+          <figcaption><strong>03 / The authorization boundary</strong><span>Separate activities and ask the responsible authority to verify the permission before an activity begins.</span></figcaption>
         </figure>
 
         <figure class="artifact-card">
@@ -113,9 +113,9 @@ const deskPhoto = getMediaAsset('evidence-desk');
         <h2 id="reading-heading">Notice what the artifacts refuse to claim.</h2>
       </header>
       <ol>
-        <li><span>01</span><p><strong>No invented evidence.</strong> There are no client logos, outcomes, testimonials, or pseudo-metrics here.</p></li>
-        <li><span>02</span><p><strong>No substitute for a source.</strong> The drawings organize questions; they do not replace current official or program instructions.</p></li>
-        <li><span>03</span><p><strong>No shortcut around a handoff.</strong> When facts become personal, the next step is a responsible authority or licensed counsel.</p></li>
+        <li><span>01</span><p><strong>Evidence stays sourced.</strong> The artifacts organize records, questions, and source ownership for a careful review.</p></li>
+        <li><span>02</span><p><strong>Sources stay primary.</strong> The drawings point readers to current official or program instructions.</p></li>
+        <li><span>03</span><p><strong>Handoffs stay clear.</strong> When facts become personal, the next step is a responsible authority or licensed counsel.</p></li>
       </ol>
     </div>
   </section>
@@ -148,7 +148,7 @@ const deskPhoto = getMediaAsset('evidence-desk');
     display: grid;
     gap: var(--space-4);
     grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.78fr);
-    padding-block: var(--space-4);
+    padding-block: clamp(2.5rem, 5vw, 4.5rem);
   }
 
   .gallery-intro h1 {
@@ -252,8 +252,8 @@ const deskPhoto = getMediaAsset('evidence-desk');
   }
 
   .artifact-file {
-    background: #f2eee6;
-    border: 1px solid #b9ac91;
+    background: var(--color-highlight-surface);
+    border: 1px solid var(--color-gold);
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
@@ -316,8 +316,8 @@ const deskPhoto = getMediaAsset('evidence-desk');
   }
 
   .artifact-path {
-    background: #e7efed;
-    border: 1px solid #9db9b0;
+    background: var(--color-success-surface);
+    border: 1px solid var(--color-success);
     display: grid;
     gap: var(--space-3);
   }
@@ -355,7 +355,7 @@ const deskPhoto = getMediaAsset('evidence-desk');
   }
 
   .path-foot {
-    border-top: 1px solid #9db9b0;
+    border-top: 1px solid var(--color-success);
     color: var(--color-muted);
     display: flex;
     justify-content: space-between;
@@ -363,8 +363,8 @@ const deskPhoto = getMediaAsset('evidence-desk');
   }
 
   .artifact-boundary {
-    background: #e9eff1;
-    border: 1px solid #a3b4bc;
+    background: var(--color-mist);
+    border: 1px solid var(--color-line-dark);
     display: grid;
     gap: var(--space-2);
   }
@@ -383,7 +383,7 @@ const deskPhoto = getMediaAsset('evidence-desk');
 
   .boundary-row span {
     background: linear-gradient(90deg, var(--color-gold) 0 42%, transparent 42%);
-    border-block: 1px solid #9aabb3;
+    border-block: 1px solid var(--color-line-dark);
     display: block;
     height: 0.7rem;
   }
@@ -407,8 +407,8 @@ const deskPhoto = getMediaAsset('evidence-desk');
   }
 
   .artifact-source {
-    background: #f1e8e5;
-    border: 1px solid #b9928a;
+    background: var(--color-error-surface);
+    border: 1px solid var(--color-error);
     display: grid;
     gap: var(--space-2);
   }
@@ -433,6 +433,7 @@ const deskPhoto = getMediaAsset('evidence-desk');
 
   .source-stack strong:nth-of-type(3) {
     background: var(--color-gold);
+    color: var(--color-paper);
     margin-inline-start: 2rem;
   }
 
@@ -479,13 +480,13 @@ const deskPhoto = getMediaAsset('evidence-desk');
   }
 
   .gallery-reading li > span {
-    color: var(--color-highlight);
+    color: var(--color-paper);
     font-family: var(--font-mono);
     font-size: var(--step--1);
   }
 
   .gallery-reading p {
-    color: #d2dee3;
+    color: var(--color-on-dark-muted);
     margin: 0;
   }
 

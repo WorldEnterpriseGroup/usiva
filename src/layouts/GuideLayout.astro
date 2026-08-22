@@ -13,7 +13,6 @@ const socialImageUrl = new URL('/assets/usiva-social.svg', siteRoot);
 const guideType = String(frontmatter?.guideType ?? 'planning guide').replaceAll('-', ' ');
 const reviewedOn = String(frontmatter?.reviewedOn ?? '2026-08-22');
 const directoryUrl = '/visa-categories.html';
-const officialDirectoryUrl = 'https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html';
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -31,10 +30,13 @@ const structuredData = {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="author" content="USIVA" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#10263d" />
+    <meta name="theme-color" content="#162e51" />
+    <meta name="color-scheme" content="light" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="canonical" href={canonicalUrl.href} />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <link rel="icon" href="/assets/usiva-social.svg" type="image/svg+xml" />
@@ -54,13 +56,13 @@ const structuredData = {
     <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)}></script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <SiteHeader
       activePath={route}
       topbarMessage="Focused visa guidance; verify current rules with official sources."
-      topbarLink={{ label: 'Read the USIVA boundary', href: '/about.html' }}
+      topbarLink={{ label: 'See how USIVA supports planning', href: '/about.html' }}
     />
-    <main id="main" class="guide-main">
+    <main id="main-content" class="guide-main" tabindex="-1">
       <div class="guide-shell">
         <header class="guide-header">
           <nav class="guide-header__trail" aria-label="Guide context">
@@ -72,8 +74,9 @@ const structuredData = {
             <p class="eyebrow">USIVA guidance · {guideType}</p>
             <p class="guide-header__meta">Reviewed {reviewedOn} · informational planning content</p>
           </div>
+          <h1>{title}</h1>
           <p class="guide-header__scope">
-            One focused guide inside USIVA’s broader <a href={directoryUrl}>all-visa directory</a>. The official category record is maintained by the <a href={officialDirectoryUrl} rel="noreferrer">U.S. Department of State</a>. Use this page to organize a question and prepare an official handoff, not to decide eligibility or follow a universal filing checklist.
+            Organize a question here, then verify current instructions with the responsible authority and qualified immigration counsel.
           </p>
         </header>
         <article class="guide-document">
@@ -88,7 +91,7 @@ const structuredData = {
 <style>
   .guide-main {
     background: var(--color-paper);
-    padding-block: clamp(2.5rem, 5vw, 4.5rem) var(--space-5);
+    padding-block: clamp(2rem, 4vw, 3.25rem) var(--space-5);
   }
 
   .guide-shell {
@@ -154,13 +157,14 @@ const structuredData = {
     max-width: 62rem;
   }
 
+  .guide-header h1,
   .guide-document :global(h1) {
     color: var(--color-navy-deep);
     font-family: var(--font-display);
-    font-size: clamp(2.35rem, 5vw, 4.25rem);
+    font-size: clamp(1.95rem, 4vw, 3.2rem);
     letter-spacing: -0.055em;
-    line-height: 1;
-    margin-block: var(--space-3) var(--space-2);
+    line-height: 1.02;
+    margin-block: var(--space-2) var(--space-2);
     max-width: 19ch;
   }
 
@@ -242,7 +246,7 @@ const structuredData = {
   }
 
   .guide-document :global(code) {
-    background: #e8f0f1;
+    background: var(--color-mist);
     border-radius: 0.25rem;
     padding: 0.1em 0.28em;
   }
@@ -262,8 +266,9 @@ const structuredData = {
       margin-block-start: 0.35rem;
     }
 
+    .guide-header h1,
     .guide-document :global(h1) {
-      font-size: clamp(2.2rem, 12vw, 3.35rem);
+      font-size: clamp(1.95rem, 9vw, 3.2rem);
     }
   }
 </style>

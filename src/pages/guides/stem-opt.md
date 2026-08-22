@@ -16,11 +16,9 @@ sourceIds:
 mediaIds: []
 ---
 
-# STEM OPT planning is a training relationship to document
+STEM OPT is a focused extension question within USIVA’s broader all-visa directory. The planning record has to connect the qualifying degree, the employer, the work-based training, and the reporting process. A useful record describes those facts with specific duties, supervision, and learning activities.
 
-STEM OPT is a focused extension question within USIVA’s broader all-visa directory. The planning record has to connect the qualifying degree, the employer, the work-based training, and the reporting process. A technology-sounding title or a general promise of mentorship is not enough to establish those facts.
-
-> **USIVA boundary.** USIVA is not a law firm. This page is informational planning content; it does not provide legal advice or representation, decide eligibility, act as a filing service, or guarantee work authorization, employment, or government approval. Rules, forms, fees, and school or employer instructions change. Verify the current official guidance before acting.
+> **USIVA boundary.** USIVA provides informational visa and immigration planning content. This page organizes degree, employer, training-plan, supervision, reporting, and source questions; legal advice, eligibility, filing, work authorization, employment, and government decisions belong to the school, employer, agency, or qualified counsel responsible for the matter. Verify current official guidance before acting.
 
 ## Start with the official sources
 
@@ -38,7 +36,7 @@ Record the employer’s legal identity, E-Verify information, worksite, supervis
 
 ### Training plan
 
-Describe the knowledge to be applied, skills to be developed, learning activities, supervision, resources, evaluation points, and relationship to the qualifying degree. A copied job description does not explain a training relationship.
+Describe the knowledge to be applied, skills to be developed, learning activities, supervision, resources, evaluation points, and relationship to the qualifying degree. A copied job description supplies context; the training relationship needs its own description.
 
 ### Reporting record
 
@@ -54,30 +52,30 @@ Assign owners for evaluations, material changes, contact updates, end of employm
 | What is the training relationship? | Copy of the current signed plan and evaluation dates | Goals, learning activities, resources, supervision, and evaluations | DSO and current Form I-983 resources |
 | What changes need attention? | Personal calendar and dated change log | Prompt notice of material changes or end of employment | DSO and current STEM OPT Hub |
 
-An empty cell is a question to resolve, not permission to guess or sign.
+An empty cell identifies a question to resolve before a signature or next step.
 
-## Describe learning, not a slogan
+## Describe learning with specific facts
 
 The [Form I-983 Overview](https://studyinthestates.dhs.gov/form-i-983-overview) describes a plan completed by the student and employer that connects practical training to the qualifying STEM degree and records goals, supervision, and evaluation. For a useful review note, identify:
 
-- the technical or research knowledge the student will use;
+- the technical or research knowledge applied by the student;
 - the techniques or skills the student is expected to develop;
 - who supervises the work and how feedback occurs;
 - where the work is performed and what resources support it;
 - when evaluations are expected; and
-- how a material change will be reported and reviewed.
+- how a material change gets reported and reviewed.
 
-If the facts do not support the description, stop and ask the DSO or qualified counsel for an individualized answer. Do not manufacture detail to make a role appear to fit.
+When the facts leave the description open, stop and ask the DSO or qualified counsel for an individualized answer. Record the actual duties and training relationship rather than adding unsupported detail.
 
 ## Keep a change log
 
 Ask the DSO whether a revised plan, updated record, or other step is required after a new employer, change in employer identity or ownership, new worksite, material change in duties or compensation, substantial change in hours, new supervisor, break in employment, or change in the degree or status record. Remote work also needs a precise description of location, direction, and supervision.
 
-The current STEM OPT Hub, Form I-983 resources, and school instructions control the response. This guide does not reproduce a filing sequence, form-completion instruction, deadline, or eligibility determination.
+The current STEM OPT Hub, Form I-983 resources, and school instructions control the response. This guide organizes the records for the official filing, form-completion, deadline, and eligibility review.
 
-## Build an evidence packet without overclaiming
+## Build an evidence packet that stays traceable
 
-Use [Evidence & checklists](/guides/evidence-checklists.html) to index the current degree record, CIP information, EAD and F-1/OPT records, employer facts, role description, degree-relationship note, training plan, supervision and evaluation contacts, and change log. Verify every item against the live official source and the DSO before relying on it. A planning packet is not a universal filing packet.
+Use [Evidence & checklists](/guides/evidence-checklists.html) to index the current degree record, CIP information, EAD and F-1/OPT records, employer facts, role description, degree-relationship note, training plan, supervision and evaluation contacts, and change log. Verify every item against the live official source and the DSO before relying on it. Carry the resulting index into the responsible filing review.
 
 ## Continue through the focused guide set
 

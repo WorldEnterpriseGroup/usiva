@@ -12,7 +12,7 @@ interface Props {
 const { steps } = Astro.props;
 ---
 
-<ol class="step-timeline">
+<ol class="step-timeline" aria-label="Timeline steps">
   {steps.map((step, index) => (
     <li>
       <div class="step-timeline__stage">
@@ -36,7 +36,8 @@ const { steps } = Astro.props;
     border-bottom: 1px solid var(--color-line);
     display: grid;
     gap: var(--space-2);
-    grid-template-columns: minmax(8rem, 0.6fr) minmax(12rem, 0.9fr) 1.4fr;
+    grid-template-columns: minmax(8rem, 0.6fr) minmax(12rem, 0.9fr) minmax(0, 1.4fr);
+    min-width: 0;
     padding-block: var(--space-3);
   }
 
@@ -48,6 +49,7 @@ const { steps } = Astro.props;
     font-weight: 850;
     gap: 0.4rem;
     letter-spacing: 0.07em;
+    overflow-wrap: anywhere;
     text-transform: uppercase;
   }
 
@@ -60,15 +62,17 @@ const { steps } = Astro.props;
 
   .step-timeline h3 {
     font-size: var(--step-1);
+    overflow-wrap: anywhere;
   }
 
   .step-timeline p {
     font-size: var(--step--1);
+    overflow-wrap: anywhere;
   }
 
   @media (max-width: 760px) {
     .step-timeline li {
-      grid-template-columns: 5.5rem 1fr;
+      grid-template-columns: minmax(5.5rem, 0.4fr) minmax(0, 1fr);
     }
 
     .step-timeline p {

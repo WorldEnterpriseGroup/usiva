@@ -11,11 +11,14 @@ interface Props {
 const { sources } = Astro.props;
 ---
 
-<ul class="source-list">
+<ul class="source-list" aria-label="Sources">
   {sources.map((source, index) => (
     <li>
       <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-      <a href={source.href}>{source.label}<span aria-hidden="true">↗</span></a>
+      <a href={source.href}>
+        <span class="source-list__label">{source.label}</span>
+        <span class="source-list__external" aria-hidden="true">↗</span>
+      </a>
     </li>
   ))}
 </ul>
@@ -32,7 +35,7 @@ const { sources } = Astro.props;
     display: grid;
     gap: 1rem;
     grid-template-columns: 2rem 1fr;
-    padding-block: 0.95rem;
+    min-width: 0;
   }
 
   .source-list li > span {
@@ -42,11 +45,23 @@ const { sources } = Astro.props;
   }
 
   .source-list a {
+    align-items: center;
     color: var(--color-ink);
+    display: flex;
     font-weight: 800;
+    gap: 0.4rem;
+    min-height: 2.75rem;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    padding-block: 0.55rem;
   }
 
-  .source-list a span {
+  .source-list__label {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .source-list__external {
     color: var(--color-accent);
     display: inline-block;
     margin-inline-start: 0.4rem;

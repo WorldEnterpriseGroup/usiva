@@ -2,48 +2,72 @@
   :root {
     color-scheme: light;
 
-    --color-canvas: #f2f4f5;
+    /* USWDS-inspired semantic palette: surfaces, content, actions, and states. */
+    --color-canvas: #f5f5f5;
     --color-paper: #ffffff;
-    --color-ink: #17242d;
-    --color-muted: #4c5b64;
-    --color-soft: #687780;
-    --color-navy: #0d2a43;
-    --color-navy-deep: #071b2d;
-    --color-navy-soft: #1a405b;
-    --color-accent: #a43e3a;
-    --color-accent-dark: #7d2d2b;
-    --color-gold: #b88b43;
-    --color-teal: #146966;
-    --color-line: #d5dde0;
-    --color-line-dark: #7d8c95;
-    --color-mist: #e8eef0;
-    --color-highlight: #f0dfb2;
-    --color-focus: #e7a92f;
+    --color-ink: #1b1b1b;
+    --color-muted: #565c65;
+    --color-soft: #3d4551;
+    --color-navy: #005ea8;
+    --color-navy-deep: #162e51;
+    --color-navy-soft: #1a4480;
+    --color-link: #005ea8;
+    --color-link-hover: #1a4480;
+    --color-link-visited: #54278f;
+    --color-accent: #b50909;
+    --color-accent-dark: #8b1a1a;
+    --color-action: #b50909;
+    --color-action-hover: #8b1a1a;
+    --color-action-foreground: #ffffff;
+    --color-gold: #936f00;
+    --color-teal: #0f5c5c;
+    --color-line: #b4b9be;
+    --color-line-dark: #6b7280;
+    --color-mist: #e7edf3;
+    --color-highlight: #ffbe2e;
+    --color-highlight-surface: #fff3c4;
+    --color-focus: #005ea8;
+    --color-focus-on-dark: #ffbe2e;
+    --color-on-dark: #ffffff;
+    --color-on-dark-muted: #e6edf3;
+    --color-on-dark-link: #ffbe2e;
+    --color-success: #237a3b;
+    --color-success-surface: #e7f4e8;
+    --color-warning: #936f00;
+    --color-warning-surface: #fff3c4;
+    --color-error: #b50909;
+    --color-error-surface: #fce8e6;
+    --color-info: #005ea8;
+    --color-info-surface: #e1f3f8;
+    --color-disabled: #d6d9dd;
+    --color-disabled-foreground: #565c65;
+    --color-theme: #162e51;
 
     --font-display: 'Arial Narrow', 'Roboto Condensed', 'Helvetica Neue', Arial, sans-serif;
     --font-body: Inter, 'Helvetica Neue', Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
 
     --step--2: clamp(0.68rem, 0.66rem + 0.04vw, 0.74rem);
-    --step--1: clamp(0.76rem, 0.73rem + 0.08vw, 0.86rem);
-    --step-0: clamp(0.92rem, 0.89rem + 0.12vw, 1rem);
+    --step--1: clamp(0.76rem, 0.73rem + 0.08vw, 0.84rem);
+    --step-0: clamp(0.94rem, 0.9rem + 0.12vw, 1rem);
     --step-1: clamp(1.15rem, 1.08rem + 0.32vw, 1.4rem);
     --step-2: clamp(1.42rem, 1.25rem + 0.72vw, 2rem);
-    --step-3: clamp(1.85rem, 1.5rem + 1.45vw, 3rem);
-    --step-4: clamp(2.35rem, 1.85rem + 2.2vw, 4.3rem);
+    --step-3: clamp(1.85rem, 1.5rem + 1.25vw, 2.85rem);
+    --step-4: clamp(2.35rem, 1.85rem + 1.9vw, 3.7rem);
 
     --space-1: clamp(0.45rem, 0.4rem + 0.16vw, 0.64rem);
     --space-2: clamp(0.78rem, 0.64rem + 0.42vw, 1.12rem);
     --space-3: clamp(1.2rem, 0.95rem + 0.8vw, 1.9rem);
-    --space-4: clamp(2rem, 1.4rem + 2.2vw, 3.75rem);
-    --space-5: clamp(3.2rem, 2rem + 4vw, 6.5rem);
+    --space-4: clamp(2rem, 1.4rem + 1.8vw, 3.25rem);
+    --space-5: clamp(3rem, 2rem + 3vw, 5rem);
 
     --gutter: clamp(1rem, 2.8vw, 2.75rem);
     --measure-reading: 70ch;
     --measure-wide: 90rem;
+    --chrome-offset: 7rem;
     --radius-s: 0.15rem;
     --radius-m: 0.35rem;
-    --shadow-soft: 0 0.75rem 2rem rgba(7, 27, 45, 0.1);
-    --shadow-deep: 0 1.25rem 3rem rgba(7, 27, 45, 0.18);
+    --shadow-soft: 0 0.75rem 2rem rgb(22 46 81 / 10%);
+    --shadow-deep: 0 1.25rem 3rem rgb(22 46 81 / 18%);
   }
 }

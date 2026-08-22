@@ -58,6 +58,16 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
           <p class="record-card__code">{category.code}</p>
           <dl>
             <div>
+              <dt>Official source</dt>
+              <dd>
+                <a class="record-card__source-link" href={category.officialSourceUrl} target="_blank" rel="noopener noreferrer">
+                  {category.officialSourceLabel}
+                  <span class="visually-hidden"> ({category.officialSourceAgency}; opens in a new tab)</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </dd>
+            </div>
+            <div>
               <dt>Audience</dt>
               <dd>{category.audience}</dd>
             </div>
@@ -75,7 +85,7 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
             <header class="section-heading">
               <p class="eyebrow">Planning brief</p>
               <h2 id="planning-heading">Questions to carry into an official conversation</h2>
-              <p>Use these prompts to make the next conversation more specific. They are planning topics, not a checklist that predicts an outcome.</p>
+              <p>Use these prompts to make the next conversation more specific. They organize the topics for an official review; the responsible authority determines the result.</p>
             </header>
 
             <ol class="topic-list">
@@ -97,7 +107,7 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
               <p><strong>{category.officialSourceAgency}</strong> · {category.officialSourceLabel}</p>
               <p>Checked {category.officialSourceCheckedOn}. Government pages and post-specific instructions can change; save the current source you used.</p>
               <a class="source-link" href={category.officialSourceUrl} target="_blank" rel="noopener noreferrer">
-                Open official source <span aria-hidden="true">↗</span>
+                Open official source <span class="visually-hidden"> (opens in a new tab)</span><span aria-hidden="true">↗</span>
               </a>
             </div>
           </section>
@@ -105,7 +115,7 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
 
         <aside class="boundary-panel" aria-labelledby="boundary-heading">
           <p class="eyebrow">Keep the boundary visible</p>
-          <h2 id="boundary-heading">What this page cannot decide</h2>
+          <h2 id="boundary-heading">Questions reserved for the responsible authority</h2>
           <p>{category.scopeNote}</p>
           <p class="boundary-panel__prompt">If the answer turns on personal facts, ask the authority responsible for the record or consult qualified immigration counsel.</p>
         </aside>
@@ -115,15 +125,15 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
         <div class="related-section__intro">
           <p class="eyebrow">Stay in the family</p>
           <h2 id="related-heading">Related {category.family} routes</h2>
-          <p>Compare nearby records without assuming that a neighboring code answers the same question.</p>
+          <p>Compare nearby records and confirm each code against its own official source.</p>
         </div>
         <ul class="related-list">
           {related.map((item) => (
             <li>
               <a href={categoryPath(item)}>
-                <span>{item.code}</span>
+                <span class="related-list__code">{item.code}</span>
                 <strong>{item.title}</strong>
-                <b aria-hidden="true">→</b>
+                <span class="related-list__arrow" aria-hidden="true">→</span>
               </a>
             </li>
           ))}
@@ -155,8 +165,11 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
   }
 
   .breadcrumbs a {
+    align-items: center;
     color: var(--color-accent-dark);
+    display: inline-flex;
     font-weight: 800;
+    min-height: 2.75rem;
   }
 
   .breadcrumbs span:last-child {
@@ -169,10 +182,15 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
     background: var(--color-mist);
     border-block: 1px solid var(--color-line);
     display: grid;
-    gap: clamp(2rem, 5vw, 4.5rem);
+    gap: clamp(1.5rem, 3.5vw, 3rem);
     grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
     margin-inline: calc(var(--gutter) * -1);
-    padding: clamp(3rem, 6vw, 5rem) var(--gutter) clamp(2.5rem, 5vw, 4rem);
+    padding: clamp(2rem, 4vw, 3.5rem) var(--gutter) clamp(1.75rem, 3.5vw, 3rem);
+  }
+
+  .route-hero__copy,
+  .record-card {
+    min-width: 0;
   }
 
   .route-hero__copy {
@@ -181,10 +199,11 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
 
   .route-hero h1 {
     color: var(--color-navy-deep);
-    font-size: clamp(2.35rem, 5vw, 4.45rem);
+    font-size: clamp(2.05rem, 4.2vw, 3.7rem);
     letter-spacing: -0.045em;
     line-height: 0.96;
     max-width: 16ch;
+    overflow-wrap: anywhere;
   }
 
   .route-hero h1 span {
@@ -285,6 +304,16 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
     padding-block: 0.8rem;
   }
 
+  .record-card a {
+    align-items: center;
+    color: var(--color-highlight);
+    display: inline-flex;
+    gap: 0.3rem;
+    min-height: 2.75rem;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
   .record-card dt {
     color: var(--color-highlight);
     font-size: 0.72rem;
@@ -294,7 +323,7 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
   }
 
   .record-card dd {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     margin: 0;
   }
@@ -304,6 +333,7 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
     display: grid;
     gap: clamp(2rem, 5vw, 5rem);
     grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+    min-width: 0;
     padding-block: var(--space-5);
   }
 
@@ -380,9 +410,14 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
   }
 
   .source-link {
+    align-items: center;
     color: var(--color-accent-dark);
+    display: inline-flex;
     font-size: var(--step--1);
     font-weight: 850;
+    min-height: 2.75rem;
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
   .boundary-panel {
@@ -398,12 +433,12 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
   }
 
   .boundary-panel p {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step-0);
   }
 
   .boundary-panel .eyebrow {
-    color: var(--color-highlight);
+    color: var(--color-paper);
   }
 
   .boundary-panel__prompt {
@@ -441,17 +476,18 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
     display: grid;
     gap: 0.8rem;
     grid-template-columns: minmax(4rem, 0.3fr) minmax(0, 1fr) 1rem;
+    min-width: 0;
     padding: 0.9rem 0;
     text-decoration: none;
+    transition: background-color 180ms ease, color 180ms ease;
   }
 
   .related-list a:hover {
     background: var(--color-mist);
     color: var(--color-ink);
-    padding-inline: 0.7rem;
   }
 
-  .related-list span {
+  .related-list__code {
     color: var(--color-accent-dark);
     font-family: var(--font-mono);
     font-size: var(--step--1);
@@ -465,7 +501,7 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
     font-weight: 600;
   }
 
-  .related-list b {
+  .related-list__arrow {
     color: var(--color-accent);
     justify-self: end;
   }
@@ -516,6 +552,12 @@ const description = `${category.code} ${trackLabel.toLowerCase()} route: ${categ
 
     .related-list a {
       grid-template-columns: 4rem minmax(0, 1fr) 1rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .related-list a {
+      transition: none;
     }
   }
 </style>

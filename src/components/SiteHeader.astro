@@ -35,6 +35,7 @@ const isCurrent = (href: string) => {
   if (href.startsWith('http://') || href.startsWith('https://')) return false;
   return normalizePath(href) === currentPath;
 };
+const topbarLabel = /boundary/i.test(topbarLink.label) ? 'See how USIVA supports planning' : topbarLink.label;
 
 const primaryLinks: HeaderLink[] = [
   { label: 'Services', href: '/services.html' },
@@ -191,7 +192,7 @@ const isPathwayActive = pathwayGroups.some((group) => group.links.some((link) =>
       data-external={topbarLink.external ? 'true' : undefined}
       rel={topbarLink.external ? 'noreferrer' : undefined}
     >
-      {topbarLink.label}
+      {topbarLabel}
       {topbarLink.external && <span aria-hidden="true">↗</span>}
     </a>
   </div>
@@ -259,7 +260,7 @@ const isPathwayActive = pathwayGroups.some((group) => group.links.some((link) =>
                   <a href="https://usfellows.org/international-rd-scholars.html" rel="noreferrer">
                     International R&amp;D Scholars at US Fellows <span aria-hidden="true">↗</span>
                   </a>
-                  <span>US Fellows remains a connected program and partner reference, not a USIVA navigation section.</span>
+                  <span>US Fellows is a connected program and partner reference; USIVA navigation focuses on the routes and resources listed here.</span>
                 </p>
               </div>
             </div>
@@ -313,10 +314,11 @@ const isPathwayActive = pathwayGroups.some((group) => group.links.some((link) =>
 <style>
   .topbar {
     background: var(--color-navy-deep);
-    border-bottom: 1px solid rgba(238, 223, 178, 0.18);
-    color: #d7e2e7;
+    border-bottom: 1px solid rgb(230 237 243 / 24%);
+    color: var(--color-on-dark-muted);
     font-size: var(--step--2);
     letter-spacing: 0.025em;
+    --color-focus: var(--color-focus-on-dark);
   }
 
   .topbar__inner {
@@ -336,14 +338,14 @@ const isPathwayActive = pathwayGroups.some((group) => group.links.some((link) =>
   }
 
   .topbar__link {
-    color: var(--color-highlight);
+    color: var(--color-on-dark-link);
     flex: 0 0 auto;
     font-weight: 700;
     text-decoration: none;
   }
 
   .topbar__link:hover {
-    color: var(--color-paper);
+    color: var(--color-on-dark);
   }
 
   .topbar__link span {
@@ -352,7 +354,7 @@ const isPathwayActive = pathwayGroups.some((group) => group.links.some((link) =>
   }
 
   .site-header {
-    background: rgba(255, 255, 255, 0.98);
+    background: var(--color-paper);
     border-bottom: 1px solid var(--color-line);
     position: sticky;
     top: 0;
@@ -399,8 +401,8 @@ const isPathwayActive = pathwayGroups.some((group) => group.links.some((link) =>
     justify-content: center;
     letter-spacing: 0.01em;
     line-height: 1.2;
-    min-height: 2.35rem;
-    padding: 0.5rem 0.58rem;
+    min-height: 2.75rem;
+    padding: 0.55rem 0.62rem;
     text-decoration: none;
   }
 
@@ -412,15 +414,15 @@ const isPathwayActive = pathwayGroups.some((group) => group.links.some((link) =>
   }
 
   .site-nav__brief {
-    border: 1px solid var(--color-accent);
-    color: var(--color-accent-dark);
+    border: 1px solid var(--color-action);
+    color: var(--color-action);
     margin-inline-start: 0.35rem;
     padding-inline: 0.78rem;
   }
 
   .site-nav__brief:hover {
-    background: var(--color-accent);
-    color: var(--color-paper);
+    background: var(--color-action);
+    color: var(--color-action-foreground);
   }
 
   .site-nav__brief-label--short {
@@ -458,9 +460,11 @@ const isPathwayActive = pathwayGroups.some((group) => group.links.some((link) =>
 
   .nav-mega__panel {
     background: var(--color-paper);
-    border-bottom: 2px solid var(--color-navy);
+    border-bottom: 2px solid var(--color-navy-deep);
     box-shadow: var(--shadow-soft);
     left: 0;
+    max-block-size: min(70vh, 34rem);
+    overflow-y: auto;
     padding-block: 1.3rem 1.1rem;
     position: absolute;
     right: 0;
@@ -501,12 +505,13 @@ const isPathwayActive = pathwayGroups.some((group) => group.links.some((link) =>
   .nav-mega__link {
     border-block: 1px solid transparent;
     display: block;
-    padding-block: 0.18rem;
+    min-height: 2.75rem;
+    padding-block: 0.5rem;
     text-decoration: none;
   }
 
   .nav-mega__link strong {
-    color: var(--color-ink);
+    color: var(--color-link);
     display: block;
     font-size: var(--step--1);
     font-weight: 700;
@@ -528,11 +533,11 @@ const isPathwayActive = pathwayGroups.some((group) => group.links.some((link) =>
 
   .nav-mega__link:hover strong,
   .nav-mega__link[aria-current='page'] strong {
-    color: var(--color-accent-dark);
+    color: var(--color-link-hover);
   }
 
   .nav-mega__external {
-    color: var(--color-accent);
+    color: var(--color-action);
     font-size: 0.8em;
     margin-inline-start: 0.28rem;
   }
@@ -558,13 +563,13 @@ const isPathwayActive = pathwayGroups.some((group) => group.links.some((link) =>
   }
 
   .nav-mega__partner a {
-    color: var(--color-ink);
+    color: var(--color-link);
     font-weight: 700;
     text-decoration: none;
   }
 
   .nav-mega__partner a:hover {
-    color: var(--color-accent-dark);
+    color: var(--color-link-hover);
   }
 
   .nav-mega__mobile-links {
@@ -626,8 +631,7 @@ const isPathwayActive = pathwayGroups.some((group) => group.links.some((link) =>
     }
 
     .nav-mega__panel {
-      max-height: calc(100dvh - 6rem);
-      overflow-y: auto;
+      max-block-size: calc(100dvh - 6rem);
       padding-block: 1rem;
     }
 

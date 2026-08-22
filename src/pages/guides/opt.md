@@ -15,11 +15,9 @@ sourceIds:
 mediaIds: []
 ---
 
-# OPT planning starts with the degree relationship
+Optional Practical Training (OPT) is one focused work-authorization question within USIVA’s broader all-visa directory. The useful planning task is to place the course of study, the actual role, the authorization record, and the reporting process beside one another. This page organizes that question for review; job placement and filing actions belong to the relevant provider, school, agency, or employer process.
 
-Optional Practical Training (OPT) is one focused work-authorization question within USIVA’s broader all-visa directory. The useful planning task is to place the course of study, the actual role, the authorization record, and the reporting process beside one another. This page only organizes that question for review; it is not a job-finding service or a filing service.
-
-> **USIVA boundary.** USIVA is not a law firm. This page is informational planning content; it does not provide legal advice or representation, decide eligibility, act as a filing service, or guarantee employment, work authorization, visa issuance, or a government decision. Rules, forms, fees, and school instructions change. Verify the current official guidance before acting.
+> **USIVA boundary.** USIVA provides informational visa and immigration planning content. This page organizes course, role, authorization, reporting, and source questions; legal advice, eligibility, filing, employment, work authorization, visa issuance, and government decisions belong to the responsible school, agency, employer, or qualified counsel. Verify current official guidance before acting.
 
 ## Begin with the official handoff
 
@@ -29,15 +27,15 @@ The [USCIS OPT page](https://www.uscis.gov/working-in-the-united-states/students
 
 ### Course of study
 
-Record the degree, level, field, completion point, and the wording the school uses in the student record. Do not substitute a résumé label or a broad subject area for the school’s record.
+Record the degree, level, field, completion point, and the wording the school uses in the student record. Use the school’s record as the source for the degree relationship, with a résumé label or broad subject area as supporting context.
 
 ### Proposed role
 
-Describe the duties, tools, outputs, location, hours, supervisor, compensation, and directing organization. A title such as “researcher,” “analyst,” or “engineer” does not establish the relationship by itself.
+Describe the duties, tools, outputs, location, hours, supervisor, compensation, and directing organization. A title such as “researcher,” “analyst,” or “engineer” supplies a label; the actual duties establish the relationship for review.
 
 ### Authorization record
 
-Keep the DSO’s dated guidance, any relevant Form I-20 record, the employment authorization record when issued, and the dates that govern when activity may begin or end. Do not calculate a personal filing or start date from an old article.
+Keep the DSO’s dated guidance, any relevant Form I-20 record, the employment authorization record when issued, and the dates that govern when activity may begin or end. Use current USCIS and school instructions for any personal filing or start-date calculation.
 
 ### Reporting record
 
@@ -51,21 +49,21 @@ Write down who receives notice of a change, which changes must be reported, and 
 | What academic date controls the discussion? | Program-end information, academic calendar, degree record, and school instructions | DSO |
 | What must exist before work begins? | Current USCIS instructions, DSO recommendation or endorsement record, and authorization document when issued | DSO and USCIS |
 | Who actually directs the work? | Legal employer or host, worksite, supervisor, hours, compensation, and any staffing or partner arrangement | DSO and employer representative |
-| How will a change be handled? | School reporting instructions, contact details, and a personal change log | DSO |
+| How is a change handled? | School reporting instructions, contact details, and a personal change log | DSO |
 
-If a field is blank, it is an unresolved question. It is not permission to infer that a role is authorized.
+If a field is blank, it is an unresolved question. Authorization comes from the responsible school or agency’s current review.
 
 ## Log changes before acting
 
-Ask for a fresh review when the employer, worksite, duties, hours, compensation, supervisor, study record, transfer, travel plan, or authorization dates change. A partner organization or staffing company may control facts that are not visible in a brand name. Record who directs the work and where it actually occurs, including a remote or partner site.
+Ask for a fresh review when the employer, worksite, duties, hours, compensation, supervisor, study record, transfer, travel plan, or authorization dates change. A partner organization or staffing company may control facts beyond a brand name. Record who directs the work and where it actually occurs, including a remote or partner site.
 
-Treat “unpaid,” “volunteer,” “fellowship,” “contract,” and “research” as descriptions to test, not as automatic answers. The activity’s real duties and control matter more than its label.
+Treat “unpaid,” “volunteer,” “fellowship,” “contract,” and “research” as descriptions to verify; the activity’s real duties and control carry the decision.
 
 ## Know when this guide stops
 
-Hand the question to the DSO or qualified counsel when the role is not clearly related to the recorded field, work might start before the current authorization permits it, the document is pending or inconsistent, a study or status change affects the plan, or a prior refusal, status violation, travel issue, dependent, or personal deadline could change the analysis. These are escalation signals, not conclusions about eligibility.
+Hand the question to the DSO or qualified counsel when the role’s relationship to the recorded field needs review, work might start before the current authorization permits it, the document is pending or inconsistent, a study or status change affects the plan, or a prior refusal, status violation, travel issue, dependent, or personal deadline could change the analysis. These are escalation signals for an authority’s eligibility review.
 
-The [current Form I-765 Instructions](https://www.uscis.gov/sites/default/files/document/forms/i-765instr.pdf) and USCIS’s live OPT page control form and filing details. This guide intentionally does not reproduce a filing sequence, fee, deadline, unemployment calculation, or travel answer.
+The [current Form I-765 Instructions](https://www.uscis.gov/sites/default/files/document/forms/i-765instr.pdf) and USCIS’s live OPT page control form and filing details. This guide organizes the records and questions to carry into that official filing review.
 
 ## Continue through the focused guide set
 

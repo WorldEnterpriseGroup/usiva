@@ -15,7 +15,8 @@ interface Props {
 const { firstLabel, secondLabel, rows, caption } = Astro.props;
 ---
 
-<div class="comparison-wrap">
+<div class="comparison-wrap" role="region" aria-label={`Comparison table: ${caption}`} tabindex="0">
+  <p class="comparison-hint">Scroll horizontally to compare all columns.</p>
   <table>
     <caption>{caption}</caption>
     <thead>
@@ -40,13 +41,29 @@ const { firstLabel, secondLabel, rows, caption } = Astro.props;
 <style>
   .comparison-wrap {
     border: 1px solid var(--color-line);
+    max-width: 100%;
     overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+
+  .comparison-wrap:focus-visible {
+    outline: 0.15rem solid var(--color-focus);
+    outline-offset: 0.2rem;
+  }
+
+  .comparison-hint {
+    color: var(--color-muted);
+    display: none;
+    font-size: var(--step--1);
+    margin: 0;
+    padding: 0.65rem 1rem;
   }
 
   .comparison-wrap table {
     background: var(--color-paper);
     border-collapse: collapse;
     min-width: 48rem;
+    table-layout: fixed;
     width: 100%;
   }
 
@@ -65,6 +82,7 @@ const { firstLabel, secondLabel, rows, caption } = Astro.props;
     padding: 1rem;
     text-align: left;
     vertical-align: top;
+    overflow-wrap: anywhere;
   }
 
   .comparison-wrap thead th {
@@ -91,5 +109,11 @@ const { firstLabel, secondLabel, rows, caption } = Astro.props;
   .comparison-wrap tr:last-child th,
   .comparison-wrap tr:last-child td {
     border-bottom: 0;
+  }
+
+  @media (max-width: 60rem) {
+    .comparison-hint {
+      display: block;
+    }
   }
 </style>

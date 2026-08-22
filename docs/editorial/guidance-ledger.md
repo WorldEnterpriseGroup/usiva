@@ -1,6 +1,6 @@
 # USIVA content and source ledger
 
-This is the editorial contract for the current USIVA site. It describes public orientation content; it is not a government approval, an eligibility engine, or a legal-service record.
+This is the editorial contract for the current USIVA site. It describes public visa and immigration planning content, with the responsible authority retaining the government, eligibility, and legal-service decisions.
 
 **Review date:** 2026-08-22
 **Cutover mode:** aggressive
@@ -8,7 +8,7 @@ This is the editorial contract for the current USIVA site. It describes public o
 
 ## Public boundary
 
-USIVA is not a law firm. The site provides informational planning, document organization, source navigation, employer-process orientation, and responsible handoff prompts. It does not provide legal advice or representation, decide eligibility, submit applications, collect passwords or case records, or guarantee admission, employment, funding, work authorization, visa issuance, or government approval.
+USIVA provides informational visa and immigration planning, document organization, source navigation, employer-process orientation, and responsible handoff prompts. Legal advice, representation, eligibility, filings, case records, admission, employment, funding, work authorization, visa issuance, and government approval belong to the responsible qualified counsel, agency, school, sponsor, employer, consular post, or other official authority.
 
 Current USCIS, Department of State, DHS, school, sponsor, employer, consular, and qualified-counsel instructions control whenever they differ from a USIVA page.
 
@@ -24,7 +24,7 @@ Current USCIS, Department of State, DHS, school, sponsor, employer, consular, an
 | `/briefs.html` and `/articles.html` | [`src/data/briefs.ts`](../../src/data/briefs.ts) | Publish source-led explanations with a review date and visible limitations. |
 | `/guides/*.html` | Focused F-1/OPT/STEM/evidence guides | Keep the useful student/work-planning material as a contained subset of the all-category site. |
 
-The current build materializes 106 typed visa category records, 33 family indexes, and 163 HTML routes. The generated sitemap is emitted by [`src/pages/sitemap.xml.ts`](../../src/pages/sitemap.xml.ts) from the same typed route model so new categories cannot silently fall out of sitemap coverage.
+The current build materializes 106 typed visa category records, 33 family indexes, and 163 HTML routes. The generated sitemap is emitted by [`src/pages/sitemap.xml.ts`](../../src/pages/sitemap.xml.ts) from the same typed route model so new categories stay in sitemap coverage.
 
 ## Official-source policy
 
@@ -40,15 +40,15 @@ Every category record carries an official source, review date, official next ste
 - [DHS Office of Homeland Security Statistics Yearbook](https://ohss.dhs.gov/topics/immigration/yearbook)
 - [Data.gov](https://data.gov/)
 
-The site does not copy live visa-bulletin dates, processing estimates, case results, or private datasets into static content. Source-led articles explain how to read official publications and send readers back to the live authority.
+Live visa-bulletin dates, processing estimates, case results, and private datasets remain with their owners. Source-led articles explain how to read official publications and send readers back to the live authority.
 
 ## USCIS API boundary
 
-The static site includes an API-ready contract and official handoffs in [`src/components/USCISStatusPanel.astro`](../../src/components/USCISStatusPanel.astro). The Case Status API uses OAuth 2.0 client credentials and approved access; keys must stay server-side. This repository contains no client secret, receipt-number input, proxy endpoint, or fake live result. A future backend may implement the documented contract only after USCIS access, privacy, authorization, rate limiting, and secure secret storage are in place.
+The static site includes a documented/proposed USCIS API integration contract and official handoffs in [`src/components/USCISStatusPanel.astro`](../../src/components/USCISStatusPanel.astro). The Case Status API uses OAuth 2.0 client credentials and approved access; keys stay server-side. This repository stores public handoff documentation and no client secret or case record. The contract defines the access, privacy, authorization, rate-limiting, and secure-secret requirements for an approved server-side implementation.
 
 ## Media policy
 
-Project photography is documented in [`src/data/media-manifest.ts`](../../src/data/media-manifest.ts). The six current images were generated for this project on 2026-08-22, reviewed for readable text/logos/PII, assigned accurate alt text and dimensions, and used only where the image clarifies a planning context. The old repository’s stock archive is not a production input because its provenance and licensing trail is incomplete.
+Project photography is documented in [`src/data/media-manifest.ts`](../../src/data/media-manifest.ts). The six current images were generated for this project on 2026-08-22, reviewed for readable text/logos/PII, assigned accurate alt text and dimensions, and used where the image clarifies a planning context. Production media uses this documented set; the old repository’s stock archive remains excluded because its provenance and licensing trail is incomplete.
 
 ## Editorial QA
 
@@ -56,7 +56,7 @@ Before publishing a material content change:
 
 - keep one primary `h1`, useful headings, descriptive link labels, and a visible planning boundary;
 - link time-sensitive claims to the official source that owns them and preserve the review date;
-- do not infer personal eligibility, work authorization, admissibility, approval, or timing from a checklist or aggregate statistic;
-- do not ask users to submit passwords, receipt numbers, identity documents, or private case records through this static site;
+- treat checklists and aggregate statistics as planning aids, then verify personal eligibility, work authorization, admissibility, approval, and timing with the responsible authority;
+- direct passwords, receipt numbers, identity documents, and private case records to a verified official channel requested by the responsible agency, school, employer, sponsor, or counsel;
 - keep US Fellows as a contained program reference rather than the USIVA identity; and
 - run `pnpm run check`, `pnpm run build`, `pnpm run audit`, and `pnpm test`, then inspect representative desktop/mobile routes.

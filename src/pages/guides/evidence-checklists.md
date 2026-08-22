@@ -18,11 +18,9 @@ sourceIds:
 mediaIds: []
 ---
 
-# Evidence planning makes the question traceable
+This cross-stage guide is one focused evidence set inside USIVA’s broader all-visa directory. It helps a reader record where a fact came from, when it was checked, who owns the next answer, and what remains uncertain across F-1 readiness, OPT, and STEM OPT conversations. Use it as a traceable planning index and take the current filing record from the responsible authority.
 
-This cross-stage guide is one focused evidence set inside USIVA’s broader all-visa directory. It helps a reader record where a fact came from, when it was checked, who owns the next answer, and what remains uncertain across F-1 readiness, OPT, and STEM OPT conversations. It is not a universal document list or a filing packet.
-
-> **USIVA boundary.** USIVA is not a law firm. This page is informational planning content; it does not provide legal advice or representation, decide eligibility, act as a filing service, or guarantee admission, funding, visa issuance, work authorization, or government approval. Official agencies, schools, employers, sponsors, consular posts, and qualified immigration counsel may require different records. Verify the current instructions before acting.
+> **USIVA boundary.** USIVA provides informational visa and immigration planning content. This page organizes records, sources, dates, owners, and handoffs; legal advice, representation, eligibility, filing, admission, funding, visa issuance, work authorization, and government approval belong to official agencies, schools, employers, sponsors, consular posts, and qualified immigration counsel. Verify current instructions before acting.
 
 ## Give every item five labels
 
@@ -32,7 +30,7 @@ For each document, statement, or unresolved fact, add these fields to a private 
 2. **Source:** identify the issuing school, agency, employer, sponsor, or person.
 3. **Checked:** record the issue date and the date you last verified the current version.
 4. **Owner:** name the person or institution responsible for the next answer.
-5. **Question:** state what the item supports, what it does not support, and what must be confirmed next.
+5. **Question:** state what the item supports, which questions require another source, and what must be confirmed next.
 
 These labels keep a projected stipend separate from an award, a job title separate from actual duties, and an old web page separate from current instructions.
 
@@ -55,7 +53,7 @@ These labels keep a projected stipend separate from an award, a job title separa
 ### Funding and support
 
 - □ Identify each assistantship, fellowship, tuition waiver, stipend, sponsor contribution, or bank record by issuer and covered period.
-- □ Add a currency, date, purpose, and explanation of what each amount does and does not cover.
+- □ Add a currency, date, purpose, and explanation of the period and conditions each amount covers.
 - □ Separate projected support from support already awarded or documented.
 - □ Store the school or consular post’s current evidence instructions beside the funding item.
 
@@ -73,18 +71,18 @@ These labels keep a projected stipend separate from an award, a job title separa
 | Question | Best first owner | What this guide can organize |
 | --- | --- | --- |
 | Is the school or course of study the right record? | School admissions office or DSO | The public source, exact record name, and unresolved question |
-| Could personal history change the analysis? | Qualified immigration counsel or relevant agency | The fact pattern and the reason to escalate; not the answer |
+| Could personal history change the analysis? | Qualified immigration counsel or relevant agency | The fact pattern and the reason to escalate; the authority’s answer |
 | Does a role qualify as authorized activity? | DSO, employer representative, and counsel when needed | Actual duties, control, location, hours, pay, and supporting records |
 | Which form, fee, date, or evidence instruction is current? | USCIS, DSO, consulate, or other responsible agency | Official URL, retrieval date, and version note |
 | Does a STEM role match the training relationship? | Student, employer, DSO, and current DHS instructions | Degree, duty, supervision, evaluation, and change records |
 
-The [U.S. Department of State Student Visa page](https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html) explains that additional documentation may be requested and that a visa does not guarantee admission at the port of entry. The index therefore records ownership and uncertainty instead of promising an outcome.
+The [U.S. Department of State Student Visa page](https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html) explains that additional documentation may be requested and that admission at the port of entry remains a CBP decision. The index therefore records ownership and uncertainty for the responsible authority’s review.
 
 ## Protect the index
 
-Keep the index and personal documents private. Do not put passport scans, immigration identifiers, financial records, or employer-sensitive material in a public issue, shared spreadsheet, or unapproved upload. Use the secure channel specified by the school, agency, employer, or counsel.
+Keep the index and personal documents private. Submit passport scans, immigration identifiers, financial records, and employer-sensitive material only through the secure channel specified by the school, agency, employer, or counsel.
 
-When a rule or form changes, preserve the history: note the old source, new source, date of change, and person who confirmed the new instruction. If a source cannot be verified, mark the item open and hand it off rather than silently replacing it.
+When a rule or form changes, preserve the history: note the old source, new source, date of change, and person who confirmed the new instruction. When a source remains unverified, mark the item open and hand it off for confirmation.
 
 ## Use the escalation boundary
 

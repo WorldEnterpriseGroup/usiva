@@ -30,9 +30,9 @@ const i9Central = getOfficialResource('i-9-central');
       <div class="shell-container e-verify-hero__grid">
         <div class="e-verify-hero__copy">
           <p class="eyebrow">USIVA / E-Verify</p>
-          <h1>E-Verify is a participation workflow, not a shortcut around Form I-9.</h1>
+          <h1>E-Verify coordinates with Form I-9 through a defined employer workflow.</h1>
           <p class="e-verify-hero__lede">
-            For a company, the useful starting point is sequence: understand the current Form I-9 process, confirm whether E-Verify participation applies, then follow the official enrollment and case rules without turning a preliminary result into an immigration conclusion.
+            For a company, start with sequence: understand the current Form I-9 process, confirm whether E-Verify participation applies, then follow the official enrollment and case rules while keeping each result tied to its program status and notice.
           </p>
           <div class="e-verify-hero__actions">
             <a class="button button--gold" href={employers.href}>Open E-Verify employer hub <span aria-hidden="true">↗</span></a>
@@ -56,9 +56,9 @@ const i9Central = getOfficialResource('i-9-central');
       <div class="shell-container">
         <header class="e-verify-section-heading">
           <p class="eyebrow">Keep the records distinct</p>
-          <h2 id="comparison-title">Form I-9 and E-Verify meet in a workflow, not in the same legal question.</h2>
+          <h2 id="comparison-title">Form I-9 and E-Verify meet in one workflow, with distinct legal questions.</h2>
           <p>
-            Form I-9 and E-Verify are related, but they are not interchangeable. The official agencies publish the operating rules; this table is a plain-language orientation only.
+            Form I-9 and E-Verify serve related, distinct roles. The official agencies publish the operating rules; this table provides a plain-language orientation.
           </p>
         </header>
 
@@ -90,16 +90,16 @@ const i9Central = getOfficialResource('i-9-central');
                 <td>Whether the electronic case receives a current E-Verify result under the program’s records and rules.</td>
               </tr>
               <tr>
-                <th scope="row">What if information does not match?</th>
+                <th scope="row">When information differs</th>
                 <td>Follow the current Form I-9 instructions and correct errors through the permitted process.</td>
-                <td>Follow the official notice and referral process. An initial mismatch is not the same as a final case result.</td>
+                <td>Follow the official notice and referral process. An initial mismatch carries a different status from a final case result.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div class="comparison-footnote">
-          <strong>Important distinction:</strong> E-Verify is not a visa-category finder, immigration-eligibility opinion, or replacement for the Form I-9 process. It does not turn USIVA into an employer’s counsel or compliance officer.
+          <strong>Important distinction:</strong> E-Verify is an employer program for Form I-9 information; Form I-9 remains its own record. USIVA supplies orientation and official-source links, while counsel and compliance owners manage their professional responsibilities.
         </div>
       </div>
     </section>
@@ -109,7 +109,7 @@ const i9Central = getOfficialResource('i-9-central');
         <header class="e-verify-section-heading e-verify-section-heading--dark">
           <p class="eyebrow">A company-level sequence</p>
           <h2 id="sequence-title">Treat each result as a step with an owner.</h2>
-          <p>Use the official E-Verify pages and terms for the details. This sequence is a planning map, not an instruction to create a case on this site.</p>
+          <p>Use the official E-Verify pages and terms for the details. This sequence is a planning map for the official employer process.</p>
         </header>
 
         <ol class="e-verify-steps">
@@ -123,7 +123,7 @@ const i9Central = getOfficialResource('i-9-central');
           </li>
           <li>
             <span class="e-verify-steps__number">03</span>
-            <div><h3>Use the official enrollment or access path.</h3><p>Start from E-Verify’s employer hub and enrollment process. Do not submit company or worker information to USIVA.</p></div>
+            <div><h3>Use the official enrollment or access path.</h3><p>Start from E-Verify’s employer hub and enrollment process. Submit company and worker information through the verified official system.</p></div>
           </li>
           <li>
             <span class="e-verify-steps__number">04</span>
@@ -164,11 +164,11 @@ const i9Central = getOfficialResource('i-9-central');
     <section class="section section--mist e-verify-boundary" aria-labelledby="boundary-title">
       <div class="shell-container e-verify-boundary__grid">
         <div>
-          <p class="eyebrow">No case intake here</p>
-          <h2 id="boundary-title">A static orientation page should leave sensitive work at the official source.</h2>
+          <p class="eyebrow">Official-process handoff</p>
+          <h2 id="boundary-title">Keep sensitive work at the official source.</h2>
         </div>
         <div>
-          <p class="e-verify-boundary__lead">This page does not enroll a company, create an E-Verify case, check a worker, accept Form I-9 data, store worker documents, or decide employment eligibility.</p>
+          <p class="e-verify-boundary__lead">Use the official E-Verify and USCIS systems to enroll a company, create a case, check a worker, submit Form I-9 data, and store worker documents. USIVA provides the planning map and links; the responsible systems and authorities determine employment eligibility.</p>
           <p>{planningBoundary}</p>
           <nav class="e-verify-next" aria-label="E-Verify next steps">
             <a href={employers.href}>Employer resources <span aria-hidden="true">→</span></a>
@@ -181,7 +181,7 @@ const i9Central = getOfficialResource('i-9-central');
     </section>
 
     <section class="e-verify-notice" aria-label="Important notice">
-      <div class="shell-container"><strong>Important:</strong> Use current E-Verify and USCIS instructions, terms, and notices for the company’s facts. USIVA’s planning and document-organization content is not legal advice or legal representation.</div>
+      <div class="shell-container"><strong>Important:</strong> Use current E-Verify and USCIS instructions, terms, and notices for the company’s facts. USIVA provides planning and document organization; qualified counsel provides individualized legal advice and representation.</div>
     </section>
   </div>
 </SiteLayout>
@@ -192,6 +192,10 @@ const i9Central = getOfficialResource('i-9-central');
     color: var(--color-paper);
     overflow: hidden;
     position: relative;
+  }
+
+  .e-verify-hero .eyebrow {
+    color: var(--color-paper);
   }
 
   .e-verify-hero::after {
@@ -209,8 +213,8 @@ const i9Central = getOfficialResource('i-9-central');
     display: grid;
     gap: clamp(2rem, 8vw, 8rem);
     grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 0.88fr);
-    min-height: min(44rem, calc(100vh - 8.5rem));
-    padding-block: var(--space-5) calc(var(--space-5) + 1rem);
+    min-height: min(37rem, calc(100vh - 8.5rem));
+    padding-block: clamp(2.75rem, 5vw, 5rem) clamp(2.5rem, 4vw, 4rem);
   }
 
   .e-verify-hero__copy {
@@ -224,7 +228,7 @@ const i9Central = getOfficialResource('i-9-central');
   }
 
   .e-verify-hero__lede {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: clamp(1.05rem, 0.95rem + 0.42vw, 1.35rem);
     line-height: 1.55;
     margin-block-start: var(--space-3);
@@ -240,7 +244,7 @@ const i9Central = getOfficialResource('i-9-central');
   }
 
   .e-verify-hero__actions .text-link {
-    color: var(--color-highlight);
+    color: var(--color-on-dark);
     font-size: var(--step--1);
     font-weight: 850;
   }
@@ -399,8 +403,12 @@ const i9Central = getOfficialResource('i-9-central');
     color: var(--color-paper);
   }
 
+  .e-verify-section-heading--dark .eyebrow {
+    color: var(--color-highlight);
+  }
+
   .e-verify-section-heading--dark > p:last-child {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
   }
 
   .e-verify-steps {
@@ -421,7 +429,7 @@ const i9Central = getOfficialResource('i-9-central');
   }
 
   .e-verify-steps__number {
-    color: var(--color-gold);
+    color: var(--color-highlight);
     font-family: var(--font-mono);
     font-size: var(--step--1);
   }
@@ -432,7 +440,7 @@ const i9Central = getOfficialResource('i-9-central');
   }
 
   .e-verify-steps p {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     margin: 0;
     max-width: 68ch;
@@ -477,6 +485,14 @@ const i9Central = getOfficialResource('i-9-central');
 
   .e-verify-resource:nth-child(3n + 3) {
     background: var(--color-highlight);
+  }
+
+  .e-verify-resource:nth-child(3n + 3) strong span {
+    color: var(--color-accent-dark);
+  }
+
+  .e-verify-resource:nth-child(3n + 3) small {
+    color: var(--color-ink);
   }
 
   .e-verify-resource:hover {

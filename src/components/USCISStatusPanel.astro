@@ -14,21 +14,21 @@ const apiDocs = getOfficialResource('uscis-case-status-api');
   <div class="shell-container">
     <div class="uscis-status-panel__intro">
       <p class="eyebrow">Transparent integration boundary</p>
-      <h2 id="uscis-status-title">A static page cannot look up your case.</h2>
+      <h2 id="uscis-status-title">USCIS case status belongs in the official system.</h2>
       <p>
-        This panel is API-ready documentation, not a live status checker. It does not accept a receipt number, call USCIS, proxy a user receipt number or myUSCIS session, or return case data. Use the official handoffs for the current answer.
+        This panel documents a proposed server-side integration contract. It remains a static planning page: enter a receipt number in USCIS Case Status Online or myUSCIS, and keep account activity in the official portal. Use the official handoffs for the current answer.
       </p>
-      <span class="uscis-status-panel__badge">Static handoff only · no live case data</span>
+      <span class="uscis-status-panel__badge">Static handoff · official portal for live case data</span>
     </div>
 
     <div class="uscis-status-panel__grid">
-      <div class="uscis-status-panel__contract">
-        <p class="uscis-status-panel__label">Future server-side contract</p>
-        <h3>What an approved integration would have to protect.</h3>
+      <section class="uscis-status-panel__contract" aria-labelledby="uscis-contract-title">
+        <p class="uscis-status-panel__label">Proposed server-side contract</p>
+        <h3 id="uscis-contract-title">Protect credentials, requests, and case data in an approved integration.</h3>
         <dl class="contract-list">
           <div>
             <dt>Browser request</dt>
-            <dd><code>{uscisCaseStatusContract.clientRequest.method} {uscisCaseStatusContract.futureServerRoute}</code></dd>
+            <dd><code>{uscisCaseStatusContract.clientRequest.method} {uscisCaseStatusContract.serverRoute}</code></dd>
           </div>
           <div>
             <dt>USCIS operation</dt>
@@ -52,7 +52,7 @@ const apiDocs = getOfficialResource('uscis-case-status-api');
             </li>
           ))}
         </ol>
-      </div>
+      </section>
 
       <aside class="uscis-status-panel__handoffs" aria-labelledby="uscis-handoffs-title">
         <p class="uscis-status-panel__label">Official handoffs</p>
@@ -88,6 +88,10 @@ const apiDocs = getOfficialResource('uscis-case-status-api');
     padding-block: var(--space-5);
   }
 
+  .uscis-status-panel .eyebrow {
+    color: var(--color-paper);
+  }
+
   .uscis-status-panel__intro {
     max-width: 52rem;
   }
@@ -103,7 +107,7 @@ const apiDocs = getOfficialResource('uscis-case-status-api');
   }
 
   .uscis-status-panel__intro > p:not(.eyebrow) {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step-0);
     max-width: 60ch;
   }
@@ -162,15 +166,17 @@ const apiDocs = getOfficialResource('uscis-case-status-api');
   }
 
   .contract-list dt {
-    color: #b9cbd3;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     font-weight: 800;
   }
 
   .contract-list dd {
-    color: #ecf2f3;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     margin: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .contract-list code {
@@ -180,8 +186,14 @@ const apiDocs = getOfficialResource('uscis-case-status-api');
   }
 
   .uscis-status-panel a {
+    align-items: center;
     color: var(--color-highlight);
+    display: inline-flex;
     font-weight: 800;
+    min-height: 2.75rem;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    vertical-align: middle;
   }
 
   .uscis-status-panel a:hover {
@@ -198,6 +210,7 @@ const apiDocs = getOfficialResource('uscis-case-status-api');
     display: grid;
     gap: 1rem;
     grid-template-columns: 2rem minmax(0, 1fr);
+    min-width: 0;
     padding-block: 0.75rem;
   }
 
@@ -206,20 +219,20 @@ const apiDocs = getOfficialResource('uscis-case-status-api');
   }
 
   .contract-steps span {
-    color: var(--color-gold);
+    color: var(--color-highlight);
     font-family: var(--font-mono);
     font-size: var(--step--1);
   }
 
   .contract-steps p {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     margin: 0;
   }
 
   .uscis-status-panel__handoffs {
     background: rgba(255, 255, 255, 0.06);
-    border-top-color: var(--color-gold);
+    border-top-color: var(--color-highlight);
     padding: var(--space-2);
   }
 
@@ -236,7 +249,6 @@ const apiDocs = getOfficialResource('uscis-case-status-api');
   }
 
   .uscis-status-panel__handoffs li a {
-    display: inline-block;
     font-size: var(--step--1);
   }
 
@@ -246,14 +258,14 @@ const apiDocs = getOfficialResource('uscis-case-status-api');
   }
 
   .uscis-status-panel__handoffs li p {
-    color: #b9cbd3;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     margin-block-start: 0.25rem;
   }
 
   .uscis-status-panel__note {
     border-top: 1px solid rgba(214, 225, 229, 0.25);
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step--1);
     margin-block-start: var(--space-2);
     padding-block-start: var(--space-2);
@@ -272,6 +284,17 @@ const apiDocs = getOfficialResource('uscis-case-status-api');
 
     .contract-list dt {
       margin-block-end: 0.25rem;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .uscis-status-panel__badge,
+    .uscis-status-panel__handoffs {
+      border: 1px solid CanvasText;
+    }
+
+    .uscis-status-panel a {
+      text-decoration: underline;
     }
   }
 </style>

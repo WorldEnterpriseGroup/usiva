@@ -14,30 +14,38 @@ interface Props {
 const { panels } = Astro.props;
 ---
 
-<div class="role-map">
+<ul class="role-map" aria-label="Role responsibilities">
   {panels.map((panel) => (
-    <article class:list={['role-map__panel', `role-map__panel--${panel.tone}`]}>
-      <p class="eyebrow">{panel.eyebrow}</p>
-      <h3>{panel.title}</h3>
-      <p>{panel.description}</p>
-      <ul>
-        {panel.items.map((item) => <li>{item}</li>)}
-      </ul>
-    </article>
+    <li>
+      <article class:list={['role-map__panel', `role-map__panel--${panel.tone}`]}>
+        <p class="eyebrow">{panel.eyebrow}</p>
+        <h3>{panel.title}</h3>
+        <p>{panel.description}</p>
+        <ul>
+          {panel.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+    </li>
   ))}
-</div>
+</ul>
 
 <style>
   .role-map {
     display: grid;
     gap: 1.25rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    list-style: none;
+  }
+
+  .role-map > li {
+    min-width: 0;
   }
 
   .role-map__panel {
     background: var(--color-paper);
     border-top: 0.32rem solid var(--color-gold);
     box-shadow: var(--shadow-soft);
+    min-width: 0;
     padding: clamp(1.4rem, 3vw, 2.4rem);
   }
 
@@ -48,6 +56,7 @@ const { panels } = Astro.props;
   .role-map__panel h3 {
     font-size: var(--step-2);
     margin-block-end: 0.65rem;
+    overflow-wrap: anywhere;
   }
 
   .role-map__panel ul {
@@ -72,6 +81,10 @@ const { panels } = Astro.props;
     content: '—';
     left: 0;
     position: absolute;
+  }
+
+  .role-map__panel > p {
+    overflow-wrap: anywhere;
   }
 
   @media (max-width: 720px) {

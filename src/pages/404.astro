@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="Page not found | USIVA"
-  description="This USIVA route is not part of the current public site map. Return to the home page or open the route atlas."
+  title="Route map | USIVA"
+  description="Choose a route from USIVA’s current public map for visa categories, planning questions, official tools, and source-aware reference pages."
   activePath="/404.html"
   canonical="https://usiva.org/404.html"
   noindex={true}
@@ -13,9 +13,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <section class="error-state" aria-labelledby="error-heading">
     <div class="shell-container error-state__inner">
-      <p class="eyebrow">404 · route not found</p>
-      <h1 id="error-heading">This page is not in the current USIVA route map.</h1>
-      <p class="error-state__lede">The public site is organized around visa categories, planning questions, official tools, and source-aware reference pages.</p>
+      <p class="eyebrow">404 · choose a route</p>
+      <h1 id="error-heading">Choose a route from the USIVA map.</h1>
+      <p class="error-state__lede">USIVA organizes visa categories, planning questions, official tools, and source-aware reference pages into a clear public route map.</p>
       <div class="error-state__actions">
         <a class="button button--primary" href="/">Return to USIVA home</a>
         <a class="button button--outline" href="/other-pages.html">Open the route atlas</a>
@@ -57,7 +57,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .error-state__lede {
-    color: #d6e1e5;
+    color: var(--color-on-dark-muted);
     font-size: var(--step-1);
     margin-block-start: var(--space-2);
     max-width: 54ch;
