@@ -2,7 +2,7 @@
 
 USIVA is the US Council visa-readiness and compliance-planning companion to US Fellows. Its content is informational planning content. It does not guarantee admission, employment, funding, visa issuance, or government approval, and it does not replace individualized legal advice.
 
-Source of truth: [US-Council/usiva on GitHub](https://github.com/US-Council/usiva). `main` is the only source branch for the public site. The public site is GitHub Pages at the configured `usiva.org` custom domain; this checkout does not claim that a deployment or DNS change has been completed.
+Source of truth: [US-Council/usiva on GitHub](https://github.com/US-Council/usiva). `main` is the only source branch for the public site. The current public release is live on GitHub Pages at [usiva.org](https://usiva.org/), with the internal preview kept at the GitLab Pages URL documented below.
 
 ## Branch and deployment model
 
@@ -54,4 +54,4 @@ git push https://github.com/US-Council/usiva.git main
 git push https://git.developerdojo.org/US-Council/usiva.git main
 ```
 
-Do not restore legacy files or manually edit `gh-pages`. Configure GitHub Pages to deploy `gh-pages` from the repository root and set its custom domain to `usiva.org`; use the DNS provider targets shown by GitHub for the apex domain and point any `www` CNAME directly to the organization's GitHub Pages host. Keep the internal GitLab Pages URL out of public DNS. See the [deployment runbook](docs/deployment/README.md) for verification steps and the distinction between source configuration, a successful workflow, and a verified live site.
+Do not restore legacy files or manually edit `gh-pages`. GitHub Pages deploys `gh-pages` from the repository root at `usiva.org`; use the DNS provider targets shown by GitHub for the apex domain and point any `www` CNAME directly to the organization's GitHub Pages host. Keep the internal GitLab Pages URL out of public DNS. See the [deployment runbook](docs/deployment/README.md) for the release checks and current deployment model.

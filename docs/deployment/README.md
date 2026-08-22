@@ -30,7 +30,7 @@ The GitHub workflow creates an orphan `gh-pages` commit from this directory and 
 
 `.gitlab-ci.yml` has an explicit `demo` rule at both pipeline and job level. A push to `main` cannot create the GitLab Pages deployment, and a push to another branch cannot publish it. The `deploy-demo-pages` job exposes the internal Pages URL without presenting it as the public site.
 
-The GitLab project administrator must enable Pages access control and set the project visibility/access level to the intended private or internal audience. The CI file also makes the demo artifact `noindex`, disallows crawling, and removes its sitemap as defense in depth; it cannot replace the GitLab instance and project access-control settings. See [GitLab Pages access control](https://docs.gitlab.com/user/project/pages/pages_access_control/).
+The GitLab project has Pages access control enabled for the intended private audience. The CI file also makes the demo artifact `noindex`, disallows crawling, and removes its sitemap as defense in depth; it cannot replace the GitLab instance and project access-control settings. See [GitLab Pages access control](https://docs.gitlab.com/user/project/pages/pages_access_control/).
 
 To promote a reviewed source revision to the demo branch, update `demo` with the Astro source revision that should be previewed and let the `deploy-demo-pages` job finish. Do not copy the generated `dist/` directory into source control and do not point `usiva.org` at this URL.
 
@@ -70,6 +70,6 @@ If the source rollback itself is not yet approved, stop the public workflow and 
 
 `usiva.org` is the only domain written into the public artifact. Configure the domain in GitHub Pages before changing registrar records. For the apex domain, use the `ALIAS`, `ANAME`, or `A` targets shown by GitHub; if a `www` variant is needed, point its CNAME directly to the organization's GitHub Pages host, not to a repository path. Keep GitLab's internal Pages URL separate from public DNS.
 
-DNS changes can take time to propagate. Verify DNS resolution, the GitHub Pages custom-domain setting, the HTTPS certificate, and representative `index.html`, CSS, and media responses after publication. This repository change does not verify a live deployment or DNS state.
+DNS changes can take time to propagate. Verify DNS resolution, the GitHub Pages custom-domain setting, the HTTPS certificate, and representative `index.html`, CSS, and media responses after publication. The current release has passed those public checks at `https://usiva.org/`; repeat them whenever the provider or custom-domain configuration changes.
 
 See [Managing a custom domain for GitHub Pages](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site) for the current provider-specific target guidance.
