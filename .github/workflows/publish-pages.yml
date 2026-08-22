@@ -53,20 +53,23 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$(corepack pnpm --version)" = "11.22.0"
+          pnpm_prefix="${RUNNER_TEMP}/pnpm"
+          npm install --global --prefix "$pnpm_prefix" pnpm@11.22.0
+          echo "$pnpm_prefix/bin" >> "$GITHUB_PATH"
+          test "$("$pnpm_prefix/bin/pnpm" --version)" = "11.22.0"
 
       - name: Install locked dependencies
-        run: corepack pnpm install --frozen-lockfile --config.allowBuilds.esbuild=true
+        run: pnpm install --frozen-lockfile --config.allowBuilds.esbuild=true
 
       - name: Build Astro static output
-        run: corepack pnpm run build
+        run: pnpm run build
 
       - name: Run release quality gates
         run: |
-          corepack pnpm run check
-          corepack pnpm test
-          corepack pnpm run audit
-          corepack pnpm audit --prod
+          pnpm run check
+          pnpm test
+          pnpm run audit
+          pnpm audit --prod
 
       - name: Validate and seal public artifact
         shell: bash

@@ -16,15 +16,20 @@ deploy-demo-pages:
   variables:
     CI: "true"
   script:
-    - test -f package.json
-    - test -f pnpm-lock.yaml
-    - test "$(corepack pnpm --version)" = "11.22.0"
-    - corepack pnpm install --frozen-lockfile --config.allowBuilds.esbuild=true
-    - corepack pnpm run build
-    - corepack pnpm run check
-    - corepack pnpm test
-    - corepack pnpm run audit
-    - corepack pnpm audit --prod
+    - |
+      set -euo pipefail
+      test -f package.json
+      test -f pnpm-lock.yaml
+      pnpm_prefix="$CI_PROJECT_DIR/.pnpm-bin"
+      npm install --global --prefix "$pnpm_prefix" pnpm@11.22.0
+      export PATH="$pnpm_prefix/bin:$PATH"
+      test "$(pnpm --version)" = "11.22.0"
+      pnpm install --frozen-lockfile --config.allowBuilds.esbuild=true
+      pnpm run build
+      pnpm run check
+      pnpm test
+      pnpm run audit
+      pnpm audit --prod
     - test -d dist
     - test -s dist/index.html
     - test -d dist/assets
