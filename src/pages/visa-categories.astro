@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import VisaDirectory from '../components/VisaDirectory.astro';
+import {
+  immigrantCategories,
+  immigrantFamilies,
+  nonimmigrantCategories,
+  nonimmigrantFamilies,
+  visaCatalogReviewDate,
+} from '../data/visa-categories';
+
+const routePath = '/visa-categories.html';
+const title = 'Visa categories | USIVA source-aware directory';
+const description = 'Browse USIVA\'s source-aware directory of nonimmigrant and immigrant visa categories, official links, planning topics, and scope boundaries.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  activePath={routePath}
+  canonical={routePath}
+  topbarMessage="Source-aware visa orientation; verify current instructions with the responsible authority."
+  topbarLink={{ label: 'Read the public boundary', href: '/about.html' }}
+>
+  <article class="catalog-page">
+    <header class="catalog-hero">
+      <div class="catalog-shell">
+        <p class="eyebrow">USIVA / source-aware directory</p>
+        <h1>Every route begins with a category. Every category needs a source.</h1>
+        <p class="catalog-hero__lede">Use the index to move from a broad purpose to a specific code, then open the official State Department or USCIS record that should control the next conversation.</p>
+        <div class="catalog-meta" aria-label="Catalog metadata">
+          <span>Nonimmigrant and immigrant tracks</span>
+          <span>Family indexes included</span>
+          <span>Source ledger checked {visaCatalogReviewDate}</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="catalog-shell catalog-body">
+      <VisaDirectory
+        track="nonimmigrant"
+        categories={nonimmigrantCategories}
+        families={nonimmigrantFamilies}
+        heading="Temporary travel, study, work, and protection"
+        description="The nonimmigrant index covers principal letter families A through V, NATO and TN variants, and additional official State Department directory entries. A route page is orientation, not a determination."
+      />
+
+      <VisaDirectory
+        track="immigrant"
+        categories={immigrantCategories}
+        families={immigrantFamilies}
+        heading="Permanent immigration and family routes"
+        description="The immigrant index groups family, adoption, employment, special immigrant, K, diversity, and returning-resident routes so the next agency handoff is easier to see."
+      />
+    </div>
+
+    <aside class="catalog-boundary" aria-label="Catalog boundary">
+      <div class="catalog-shell">
+        <strong>Planning boundary:</strong> These pages help name a purpose, organize a source trail, and prepare questions. They do not determine eligibility, status, work authorization, admissibility, visa issuance, or timing, and they do not replace individualized advice.
+      </div>
+    </aside>
+  </article>
+</BaseLayout>
+
+<style>
+  .catalog-page {
+    background: var(--color-canvas);
+  }
+
+  .catalog-shell {
+    margin-inline: auto;
+    max-width: var(--measure-wide);
+    padding-inline: var(--gutter);
+  }
+
+  .catalog-hero {
+    background: var(--color-mist);
+    border-bottom: 1px solid var(--color-line);
+    padding-block: clamp(3.5rem, 7vw, 5.5rem) clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .catalog-hero h1 {
+    color: var(--color-navy-deep);
+    font-size: clamp(2.4rem, 5vw, 4.7rem);
+    letter-spacing: -0.045em;
+    line-height: 0.96;
+    max-width: 13ch;
+  }
+
+  .catalog-hero__lede {
+    color: var(--color-ink);
+    font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+    line-height: 1.5;
+    margin-block-start: var(--space-3);
+    max-width: 55ch;
+  }
+
+  .catalog-meta {
+    border-top: 1px solid var(--color-line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1.5rem;
+    margin-block-start: var(--space-3);
+    padding-block-start: var(--space-2);
+  }
+
+  .catalog-meta span {
+    color: var(--color-accent-dark);
+    font-size: var(--step--1);
+    font-weight: 800;
+  }
+
+  .catalog-meta span + span::before {
+    color: var(--color-gold);
+    content: '·';
+    margin-inline-end: 1.5rem;
+  }
+
+  .catalog-body {
+    display: grid;
+    gap: var(--space-4);
+    padding-block: var(--space-4) 0;
+  }
+
+  .catalog-boundary {
+    background: var(--color-highlight);
+    color: var(--color-navy-deep);
+    margin-block-start: var(--space-4);
+    padding-block: 1rem;
+  }
+
+  .catalog-boundary div {
+    font-size: var(--step--1);
+    max-width: var(--measure-reading);
+  }
+
+  @media (max-width: 620px) {
+    .catalog-shell {
+      padding-inline: 1rem;
+    }
+
+    .catalog-meta {
+      display: grid;
+    }
+
+    .catalog-meta span + span::before {
+      display: none;
+    }
+  }
+</style>

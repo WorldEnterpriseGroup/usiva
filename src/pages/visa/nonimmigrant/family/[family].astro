@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import VisaDirectory from '../../../../components/VisaDirectory.astro';
+import {
+  directoryPath,
+  familyPath,
+  nonimmigrantCategories,
+  nonimmigrantFamilies,
+  type VisaCategory,
+  type VisaFamily,
+} from '../../../../data/visa-categories';
+
+interface Props {
+  family: VisaFamily;
+  categories: readonly VisaCategory[];
+}
+
+export function getStaticPaths() {
+  return nonimmigrantFamilies.map((family) => ({
+    params: { family: family.slug },
+    props: {
+      family,
+      categories: nonimmigrantCategories.filter((category) => category.familySlug === family.slug),
+    },
+  }));
+}
+
+const { family, categories } = Astro.props;
+const routePath = familyPath(family);
+const title = `${family.code} nonimmigrant family | USIVA`;
+const description = `Nonimmigrant ${family.code} family: ${family.title}. Official source and category index.`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  activePath={routePath}
+  canonical={routePath}
+  topbarMessage="Source-aware visa orientation; verify current instructions with the responsible authority."
+  topbarLink={{ label: 'Read the public boundary', href: '/about.html' }}
+>
+  <article class="family-page">
+    <header class="family-hero">
+      <div class="family-shell">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="/visa-categories.html">Visa categories</a>
+          <span aria-hidden="true">/</span>
+          <a href={directoryPath('nonimmigrant')}>Nonimmigrant</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">{family.code}</span>
+        </nav>
+        <p class="eyebrow">Nonimmigrant family index</p>
+        <h1><span>{family.code}</span> {family.title}</h1>
+        <p class="family-hero__summary">{family.summary}</p>
+        <a class="source-link" href={family.officialSourceUrl} target="_blank" rel="noopener noreferrer">
+          {family.officialSourceLabel} <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="family-shell family-content">
+      <VisaDirectory
+        track="nonimmigrant"
+        categories={categories}
+        families={[family]}
+        heading={`Codes in the ${family.code} family`}
+        description="Open a category record for its audience, purpose, planning topics, official source, and non-legal scope note."
+        id={`nonimmigrant-${family.slug}-directory`}
+      />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .family-page {
+    background: var(--color-canvas);
+  }
+
+  .family-shell {
+    margin-inline: auto;
+    max-width: var(--measure-wide);
+    padding-inline: var(--gutter);
+  }
+
+  .family-hero {
+    background: var(--color-mist);
+    border-bottom: 1px solid var(--color-line);
+    padding-block: 0 var(--space-4);
+  }
+
+  .breadcrumbs {
+    align-items: center;
+    color: var(--color-muted);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: var(--step--1);
+    gap: 0.45rem;
+    padding-block: var(--space-2) var(--space-4);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-accent-dark);
+    font-weight: 800;
+  }
+
+  .breadcrumbs span:last-child {
+    color: var(--color-navy);
+    font-weight: 800;
+  }
+
+  .family-hero h1 {
+    color: var(--color-navy-deep);
+    font-size: clamp(3rem, 8vw, 7rem);
+    letter-spacing: -0.07em;
+    line-height: 0.92;
+    max-width: 13ch;
+  }
+
+  .family-hero h1 span {
+    color: var(--color-accent);
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.25em;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    margin-block-end: 0.75rem;
+  }
+
+  .family-hero__summary {
+    color: var(--color-ink);
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    margin-block: var(--space-2) var(--space-2);
+    max-width: 58ch;
+  }
+
+  .source-link {
+    color: var(--color-accent-dark);
+    font-size: var(--step--1);
+    font-weight: 850;
+  }
+
+  .family-content {
+    padding-block-start: var(--space-4);
+  }
+
+  @media (max-width: 620px) {
+    .family-shell {
+      padding-inline: 1rem;
+    }
+  }
+</style>

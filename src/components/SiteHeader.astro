@@ -7,6 +7,16 @@ interface HeaderLink {
   external?: boolean;
 }
 
+interface MenuLink extends HeaderLink {
+  description?: string;
+}
+
+interface MenuGroup {
+  id: string;
+  label: string;
+  links: MenuLink[];
+}
+
 interface Props {
   activePath: string;
   topbarMessage: string;
@@ -14,76 +24,299 @@ interface Props {
 }
 
 const { activePath, topbarMessage, topbarLink } = Astro.props;
-const scholarsPath = '/international-rd-scholars.html';
-const isScholarsPage = activePath === scholarsPath;
-const isHomePage = activePath === '/';
 
-const navItems: HeaderLink[] = isScholarsPage
-  ? [
-      { label: 'Home', href: '/' },
-      { label: 'Visa timeline', href: '#timeline' },
-      { label: 'Readiness packet', href: '#readiness' },
-      { label: 'Sources', href: '#sources' },
-      { label: 'Apply through US Fellows', href: 'https://usfellows.org/apply.html', external: true },
-    ]
-  : isHomePage
-  ? [
-      { label: 'R&D Scholars', href: scholarsPath },
-      { label: 'Services', href: '#services' },
-      { label: 'Compliance', href: '#boundaries' },
-      { label: 'US Fellows', href: 'https://usfellows.org/', external: true },
-    ]
-  : [
-      { label: 'Home', href: '/' },
-      { label: 'Services', href: '/services.html' },
-      { label: 'About', href: '/about.html' },
-      { label: 'Guides', href: '/other-pages.html' },
-      { label: 'Contact', href: '/contacts.html' },
-      { label: 'US Fellows', href: 'https://usfellows.org/', external: true },
-    ];
+const normalizePath = (value: string) => {
+  const path = value.split(/[?#]/, 1)[0];
+  return path === '' || path === '/index.html' ? '/' : path;
+};
+
+const currentPath = normalizePath(activePath);
+const isCurrent = (href: string) => {
+  if (href.startsWith('http://') || href.startsWith('https://')) return false;
+  return normalizePath(href) === currentPath;
+};
+
+const primaryLinks: HeaderLink[] = [
+  { label: 'Services', href: '/services.html' },
+  { label: 'Field notes', href: '/blog.html' },
+  { label: 'About', href: '/about.html' },
+];
+
+const pathwayGroups: MenuGroup[] = [
+  {
+    id: 'popular-pathways',
+    label: 'Popular pathways',
+    links: [
+      {
+        label: 'F-1 · student',
+        href: '/visa/nonimmigrant/f-1.html',
+        description: 'Study, school records, and status questions.',
+      },
+      {
+        label: 'H-1B · specialty occupation',
+        href: '/visa/nonimmigrant/h-1b.html',
+        description: 'Employer, role, and worker records.',
+      },
+      {
+        label: 'O-1 · extraordinary ability',
+        href: '/visa/nonimmigrant/o-1.html',
+        description: 'Evidence-led talent pathway orientation.',
+      },
+      {
+        label: 'L-1 · intracompany transfer',
+        href: '/visa/nonimmigrant/l-1a.html',
+        description: 'Company, role, and transfer context.',
+      },
+      {
+        label: 'E-1 / E-2 · treaty',
+        href: '/visa/nonimmigrant/e-2.html',
+        description: 'Trade, investment, and enterprise records.',
+      },
+      {
+        label: 'J-1 · exchange',
+        href: '/visa/nonimmigrant/j-1.html',
+        description: 'Program, sponsor, and participant questions.',
+      },
+      {
+        label: 'B-1 / B-2 · visitor',
+        href: '/visa/nonimmigrant/b-1.html',
+        description: 'Business, tourism, and temporary travel.',
+      },
+      {
+        label: 'Family · immigrant routes',
+        href: '/visa/immigrant/family/f-family.html',
+        description: 'Family preference and permanent routes.',
+      },
+    ],
+  },
+  {
+    id: 'all-categories',
+    label: 'All routes & categories',
+    links: [
+      {
+        label: 'Visa category directory',
+        href: '/visa-categories.html',
+        description: 'Browse the full source-aware category index.',
+      },
+      {
+        label: 'Nonimmigrant routes',
+        href: '/visa/nonimmigrant.html',
+        description: 'Review temporary travel, study, and work routes.',
+      },
+      {
+        label: 'Immigrant routes',
+        href: '/visa/immigrant.html',
+        description: 'Review permanent and family pathways.',
+      },
+      {
+        label: 'Route atlas',
+        href: '/other-pages.html#atlas',
+        description: 'Browse the complete USIVA route map.',
+      },
+    ],
+  },
+  {
+    id: 'employers-briefs',
+    label: 'Employers & briefs',
+    links: [
+      {
+        label: 'Employer resources',
+        href: '/employers.html',
+        description: 'Orient Form I-9, E-Verify, and handoffs.',
+      },
+      {
+        label: 'E-Verify orientation',
+        href: '/e-verify.html',
+        description: 'Separate the case workflow from advice.',
+      },
+      {
+        label: 'Research briefs',
+        href: '/briefs.html',
+        description: 'Read the source-led research desk.',
+      },
+      {
+        label: 'Question brief',
+        href: '/contacts.html#brief-heading',
+        description: 'Prepare a concise, safer handoff.',
+      },
+    ],
+  },
+  {
+    id: 'official-tools',
+    label: 'Official tools',
+    links: [
+      {
+        label: 'Official tools directory',
+        href: '/official-tools.html',
+        description: 'Case status, visa, and employer handoffs.',
+      },
+      {
+        label: 'USCIS / OPT for F-1 students',
+        href: 'https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students',
+        external: true,
+      },
+      {
+        label: 'DHS / working in the United States',
+        href: 'https://studyinthestates.dhs.gov/students/resources/working',
+        external: true,
+      },
+      {
+        label: 'DHS / STEM OPT Hub',
+        href: 'https://studyinthestates.dhs.gov/stem-opt-hub',
+        external: true,
+      },
+      {
+        label: 'State Department / visa categories',
+        href: 'https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html',
+        external: true,
+      },
+    ],
+  },
+];
+
+const mobileLinks: HeaderLink[] = [
+  ...primaryLinks,
+  { label: 'Route atlas', href: '/other-pages.html#atlas' },
+];
+
+const isPathwayActive = pathwayGroups.some((group) => group.links.some((link) => isCurrent(link.href)));
 ---
 
-<div class="topbar">
+<div class="topbar" role="note">
   <div class="shell-container topbar__inner">
-    <span>{topbarMessage}</span>
-    <a href={topbarLink.href} class="topbar__link" data-external={topbarLink.external ? true : undefined}>
+    <span class="topbar__message">{topbarMessage}</span>
+    <a
+      href={topbarLink.href}
+      class="topbar__link"
+      data-external={topbarLink.external ? 'true' : undefined}
+      rel={topbarLink.external ? 'noreferrer' : undefined}
+    >
       {topbarLink.label}
-      <span aria-hidden="true">↗</span>
+      {topbarLink.external && <span aria-hidden="true">↗</span>}
     </a>
   </div>
 </div>
 
 <header class="site-header">
   <div class="shell-container site-header__inner">
-    <a class="site-header__brand" href="/" aria-label="USIVA home">
+    <a class="site-header__brand" href="/" aria-label="USIVA home" aria-current={currentPath === '/' ? 'page' : undefined}>
       <BrandMark />
     </a>
 
     <nav class="site-nav" aria-label="Primary navigation">
-      <ul>
-        {navItems.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              data-external={item.external ? true : undefined}
-              aria-current={item.href === activePath ? 'page' : undefined}
-            >
-              {item.label}
-              {item.external && <span aria-hidden="true">↗</span>}
+      <ul class="site-nav__list">
+        <li class="site-nav__item site-nav__item--mega">
+          <details class:list={['nav-mega', isPathwayActive ? 'nav-mega--active' : undefined]} data-mega-menu>
+            <summary class="nav-mega__summary" aria-controls="visa-pathways-panel" aria-expanded="false">
+              <span class="nav-mega__summary-label">Visa pathways</span>
+            </summary>
+            <div class="nav-mega__panel" id="visa-pathways-panel" aria-label="Visa pathway navigation" role="region">
+              <div class="shell-container nav-mega__inner">
+                <div class="nav-mega__mobile-links" aria-label="More USIVA routes">
+                  <p class="nav-mega__group-label">Explore USIVA</p>
+                  <ul class="nav-mega__list">
+                    {mobileLinks.map((link) => (
+                      <li>
+                        <a
+                          class="nav-mega__link"
+                          href={link.href}
+                          aria-current={isCurrent(link.href) ? 'page' : undefined}
+                        >
+                          <strong>{link.label}</strong>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {pathwayGroups.map((group) => (
+                  <div class="nav-mega__group">
+                    <p class="nav-mega__group-label" id={`nav-group-${group.id}`}>{group.label}</p>
+                    <ul class="nav-mega__list">
+                      {group.links.map((link) => (
+                        <li>
+                          <a
+                            class="nav-mega__link"
+                            href={link.href}
+                            data-external={link.external ? 'true' : undefined}
+                            rel={link.external ? 'noreferrer' : undefined}
+                            aria-current={isCurrent(link.href) ? 'page' : undefined}
+                          >
+                            <strong>
+                              {link.label}
+                              {link.external && <span class="nav-mega__external" aria-hidden="true">↗</span>}
+                            </strong>
+                            {link.description && <small>{link.description}</small>}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+
+                <p class="nav-mega__partner">
+                  <span class="nav-mega__partner-label">Program reference</span>
+                  <a href="https://usfellows.org/international-rd-scholars.html" rel="noreferrer">
+                    International R&amp;D Scholars at US Fellows <span aria-hidden="true">↗</span>
+                  </a>
+                  <span>US Fellows remains a connected program and partner reference, not a USIVA navigation section.</span>
+                </p>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        {primaryLinks.map((link) => (
+          <li class="site-nav__item site-nav__item--secondary">
+            <a class="site-nav__link" href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+              {link.label}
             </a>
           </li>
         ))}
+
+        <li class="site-nav__item">
+          <a class="site-nav__link site-nav__brief" href="/contacts.html#brief-heading" aria-current={isCurrent('/contacts.html') ? 'page' : undefined}>
+            <span class="site-nav__brief-label site-nav__brief-label--full">Start a brief</span>
+            <span class="site-nav__brief-label site-nav__brief-label--short" aria-hidden="true">Brief</span>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 
+<script is:inline>
+  const megaMenu = document.querySelector('[data-mega-menu]');
+
+  if (megaMenu) {
+    const summary = megaMenu.querySelector('summary');
+    const syncExpandedState = () => {
+      summary?.setAttribute('aria-expanded', megaMenu.open ? 'true' : 'false');
+    };
+
+    syncExpandedState();
+    megaMenu.addEventListener('toggle', syncExpandedState);
+    megaMenu.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && megaMenu.open) {
+        megaMenu.open = false;
+        summary?.focus();
+      }
+    });
+    document.addEventListener('click', (event) => {
+      if (megaMenu.open && event.target instanceof Node && !megaMenu.contains(event.target)) {
+        megaMenu.open = false;
+      }
+    });
+  }
+</script>
+
 <style>
   .topbar {
     background: var(--color-navy-deep);
-    color: #d6e1e5;
-    font-size: var(--step--1);
-    letter-spacing: 0.015em;
+    border-bottom: 1px solid rgba(238, 223, 178, 0.18);
+    color: #d7e2e7;
+    font-size: var(--step--2);
+    letter-spacing: 0.025em;
   }
 
   .topbar__inner {
@@ -91,27 +324,39 @@ const navItems: HeaderLink[] = isScholarsPage
     display: flex;
     gap: var(--space-2);
     justify-content: space-between;
-    min-height: 2.65rem;
-    padding-block: 0.45rem;
+    min-height: 2.15rem;
+    padding-block: 0.35rem;
+  }
+
+  .topbar__message {
+    line-height: 1.25;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .topbar__link {
-    color: var(--color-paper);
-    font-weight: 800;
+    color: var(--color-highlight);
+    flex: 0 0 auto;
+    font-weight: 700;
+    text-decoration: none;
   }
 
-  .topbar__link span,
-  .site-nav a span {
+  .topbar__link:hover {
+    color: var(--color-paper);
+  }
+
+  .topbar__link span {
     display: inline-block;
-    margin-inline-start: 0.32rem;
+    margin-inline-start: 0.3rem;
   }
 
   .site-header {
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.98);
     border-bottom: 1px solid var(--color-line);
     position: sticky;
     top: 0;
-    z-index: 20;
+    z-index: 30;
   }
 
   .site-header__inner {
@@ -119,72 +364,301 @@ const navItems: HeaderLink[] = isScholarsPage
     display: flex;
     gap: var(--space-3);
     justify-content: space-between;
-    min-height: 5.8rem;
+    min-height: 4.35rem;
   }
 
   .site-header__brand {
+    color: var(--color-navy);
     flex: 0 0 auto;
     text-decoration: none;
+  }
+
+  .site-header__brand :global(.brand-mark) {
+    min-width: auto;
   }
 
   .site-nav {
     margin-inline-start: auto;
   }
 
-  .site-nav ul {
+  .site-nav__list {
     align-items: center;
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.3rem;
+    gap: 0.12rem;
     justify-content: flex-end;
     list-style: none;
   }
 
-  .site-nav a {
+  .site-nav__link,
+  .nav-mega__summary {
+    align-items: center;
     color: var(--color-ink);
+    display: inline-flex;
     font-size: var(--step--1);
-    font-weight: 800;
+    font-weight: 700;
+    justify-content: center;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    min-height: 2.35rem;
+    padding: 0.5rem 0.58rem;
     text-decoration: none;
   }
 
-  .site-nav a[aria-current='page'] {
-    color: var(--color-accent);
-  }
-
-  .site-nav a:hover {
+  .site-nav__link:hover,
+  .site-nav__link[aria-current='page'],
+  .nav-mega--active > .nav-mega__summary,
+  .nav-mega__summary:hover {
     color: var(--color-accent-dark);
   }
 
-  @media (max-width: 860px) {
+  .site-nav__brief {
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent-dark);
+    margin-inline-start: 0.35rem;
+    padding-inline: 0.78rem;
+  }
+
+  .site-nav__brief:hover {
+    background: var(--color-accent);
+    color: var(--color-paper);
+  }
+
+  .site-nav__brief-label--short {
+    display: none;
+  }
+
+  .nav-mega {
+    position: static;
+  }
+
+  .nav-mega__summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .nav-mega__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav-mega__summary::after {
+    color: var(--color-soft);
+    content: '⌄';
+    font-size: 0.85rem;
+    line-height: 1;
+    margin-inline-start: 0.42rem;
+  }
+
+  .nav-mega[open] > .nav-mega__summary::after {
+    content: '⌃';
+  }
+
+  .nav-mega[open] > .nav-mega__summary {
+    background: var(--color-mist);
+  }
+
+  .nav-mega__panel {
+    background: var(--color-paper);
+    border-bottom: 2px solid var(--color-navy);
+    box-shadow: var(--shadow-soft);
+    left: 0;
+    padding-block: 1.3rem 1.1rem;
+    position: absolute;
+    right: 0;
+    top: 100%;
+  }
+
+  .nav-mega__inner {
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: 1.2fr 1.05fr 1.05fr 1.1fr;
+  }
+
+  .nav-mega__group {
+    min-width: 0;
+  }
+
+  .nav-mega__group + .nav-mega__group {
+    border-inline-start: 1px solid var(--color-line);
+    padding-inline-start: 1.2rem;
+  }
+
+  .nav-mega__group-label {
+    color: var(--color-soft);
+    font-size: var(--step--2);
+    font-weight: 750;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    margin-block-end: 0.65rem;
+    text-transform: uppercase;
+  }
+
+  .nav-mega__list {
+    display: grid;
+    gap: 0.4rem;
+    list-style: none;
+  }
+
+  .nav-mega__link {
+    border-block: 1px solid transparent;
+    display: block;
+    padding-block: 0.18rem;
+    text-decoration: none;
+  }
+
+  .nav-mega__link strong {
+    color: var(--color-ink);
+    display: block;
+    font-size: var(--step--1);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .nav-mega__link small {
+    color: var(--color-muted);
+    display: block;
+    font-size: var(--step--2);
+    line-height: 1.35;
+    margin-block-start: 0.12rem;
+  }
+
+  .nav-mega__link:hover,
+  .nav-mega__link[aria-current='page'] {
+    border-block-color: var(--color-line);
+  }
+
+  .nav-mega__link:hover strong,
+  .nav-mega__link[aria-current='page'] strong {
+    color: var(--color-accent-dark);
+  }
+
+  .nav-mega__external {
+    color: var(--color-accent);
+    font-size: 0.8em;
+    margin-inline-start: 0.28rem;
+  }
+
+  .nav-mega__partner {
+    border-top: 1px solid var(--color-line);
+    color: var(--color-muted);
+    display: grid;
+    font-size: var(--step--2);
+    gap: 0.25rem;
+    grid-column: 1 / -1;
+    margin: 0;
+    max-width: none;
+    padding-block-start: 0.75rem;
+  }
+
+  .nav-mega__partner-label {
+    color: var(--color-soft);
+    font-size: var(--step--2);
+    font-weight: 750;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .nav-mega__partner a {
+    color: var(--color-ink);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .nav-mega__partner a:hover {
+    color: var(--color-accent-dark);
+  }
+
+  .nav-mega__mobile-links {
+    display: none;
+  }
+
+  @media (max-width: 1040px) {
     .site-header__inner {
-      align-items: flex-start;
-      flex-direction: column;
-      padding-block: 1rem;
+      gap: var(--space-2);
     }
 
-    .site-nav {
-      margin-inline-start: 0;
-      width: 100%;
+    .site-nav__item--secondary {
+      display: none;
     }
 
-    .site-nav ul {
-      justify-content: flex-start;
+    .nav-mega__inner {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .nav-mega__mobile-links {
+      display: block;
+      grid-column: 1 / -1;
+    }
+
+    .nav-mega__mobile-links .nav-mega__list {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .nav-mega__mobile-links + .nav-mega__group {
+      border-inline-start: 0;
+      border-top: 1px solid var(--color-line);
+      padding-inline-start: 0;
+      padding-block-start: 1rem;
     }
   }
 
-  @media (max-width: 620px) {
+  @media (max-width: 640px) {
     .topbar__inner {
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 0.2rem;
+      gap: 0.55rem;
     }
 
-    .topbar__link {
-      white-space: normal;
+    .topbar__message {
+      text-overflow: clip;
     }
 
-    .site-nav ul {
-      gap: 0.6rem 1rem;
+    .site-header__inner {
+      min-height: 3.9rem;
+    }
+
+    .site-nav__link,
+    .nav-mega__summary {
+      font-size: var(--step--2);
+      padding-inline: 0.38rem;
+    }
+
+    .site-nav__brief {
+      margin-inline-start: 0.15rem;
+      padding-inline: 0.55rem;
+    }
+
+    .nav-mega__panel {
+      max-height: calc(100dvh - 6rem);
+      overflow-y: auto;
+      padding-block: 1rem;
+    }
+
+    .nav-mega__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-mega__group + .nav-mega__group,
+    .nav-mega__mobile-links + .nav-mega__group {
+      border-inline-start: 0;
+      border-top: 1px solid var(--color-line);
+      padding-block-start: 1rem;
+      padding-inline-start: 0;
+    }
+
+    .nav-mega__mobile-links .nav-mega__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 420px) {
+    .site-nav__brief {
+      display: none;
+    }
+
+    .site-nav__brief-label--full {
+      display: none;
+    }
+
+    .site-nav__brief-label--short {
+      display: inline;
     }
   }
 </style>

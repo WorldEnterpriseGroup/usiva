@@ -1,0 +1,470 @@
+---
+import USCISStatusPanel from '../components/USCISStatusPanel.astro';
+import {
+  getOfficialResource,
+  officialResourceReviewDate,
+  officialToolGroups,
+  planningBoundary,
+} from '../data/official-resources';
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const title = 'Official Immigration Tools | USIVA';
+const description = 'A source-led directory for USCIS case tools, myUSCIS, processing times, State Department visa resources, and an honest static handoff for future USCIS API work.';
+const canonical = 'https://usiva.org/official-tools.html';
+
+const toolGroups = officialToolGroups.map((group) => ({
+  ...group,
+  resources: group.resourceIds.map((resourceId) => getOfficialResource(resourceId)),
+}));
+
+const caseStatus = getOfficialResource('uscis-case-status');
+const visaWizard = getOfficialResource('state-visa-wizard');
+const employers = getOfficialResource('e-verify-employers');
+---
+
+<SiteLayout
+  {title}
+  {description}
+  activePath="/official-tools.html"
+  topbarMessage="Official handoffs for case status, visa orientation, and employer verification."
+  topbarLink={{ label: 'Open USCIS Case Status', href: caseStatus.href, external: true }}
+  {canonical}
+>
+  <div class="official-tools-page">
+    <section class="official-tools-hero" aria-labelledby="page-title">
+      <div class="shell-container official-tools-hero__grid">
+        <div class="official-tools-hero__copy">
+          <p class="eyebrow">USIVA / official tools</p>
+          <h1 id="page-title">Use the source that owns the answer.</h1>
+          <p class="official-tools-hero__lede">
+            When a question turns on a live case, a current processing estimate, a visa category, or an employer program rule, the useful next step is a direct handoff to the agency that maintains it.
+          </p>
+          <div class="official-tools-hero__actions">
+            <a class="button button--gold" href={caseStatus.href}>Check Case Status Online <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#uscis-integration">Read the static API boundary <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+
+        <aside class="tool-index" aria-labelledby="tool-index-title">
+          <p class="tool-index__label">A short route map</p>
+          <h2 id="tool-index-title">Four handoffs, four different jobs.</h2>
+          <ol>
+            <li><a href="#uscis-case-navigation"><span>01</span><strong>USCIS case tools</strong><em>Current status and timing</em></a></li>
+            <li><a href="#visa-orientation"><span>02</span><strong>Visa orientation</strong><em>Purpose and category</em></a></li>
+            <li><a href="#employer-orientation"><span>03</span><strong>Employer resources</strong><em>Form I-9 and E-Verify</em></a></li>
+            <li><a href="#uscis-integration"><span>04</span><strong>API contract</strong><em>Server-side only</em></a></li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--paper official-tools-directory" id="official-directory" aria-labelledby="directory-title">
+      <div class="shell-container">
+        <header class="official-tools-section-heading">
+          <p class="eyebrow">The source ledger</p>
+          <h2 id="directory-title">Start with the question, then open the official tool.</h2>
+          <p>
+            These links are grouped by reader job. A link can orient a plan; it cannot decide a personal case. Live pages, form editions, and agency guidance can change after this page is published.
+          </p>
+        </header>
+
+        <div class="resource-groups">
+          {toolGroups.map((group) => (
+            <article class="resource-group" id={group.id}>
+              <div class="resource-group__head">
+                <p class="resource-group__eyebrow">{group.eyebrow}</p>
+                <h3>{group.title}</h3>
+                <p>{group.description}</p>
+              </div>
+              <ul class="resource-list">
+                {group.resources.map((resource) => (
+                  <li>
+                    <a href={resource.href}>
+                      <span class="resource-list__agency">{resource.agency}</span>
+                      <strong>{resource.label}<span aria-hidden="true">↗</span></strong>
+                      <small>{resource.summary}</small>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <p class="source-note">Source links reviewed {officialResourceReviewDate}. Review the linked agency page again before relying on a current rule, estimate, form, or category.</p>
+      </div>
+    </section>
+
+    <USCISStatusPanel />
+
+    <section class="section section--mist official-tools-boundary" aria-labelledby="boundary-title">
+      <div class="shell-container official-tools-boundary__grid">
+        <div>
+          <p class="eyebrow">A planning boundary</p>
+          <h2 id="boundary-title">Organize the question. Do not mistake that for representation.</h2>
+        </div>
+        <div class="official-tools-boundary__copy">
+          <p>
+            Planning and document organization can help someone collect a notice, date, source, and unresolved question for a better handoff. They do not create an attorney-client relationship, provide legal representation, or determine eligibility.
+          </p>
+          <p>{planningBoundary}</p>
+          <nav class="official-tools-next" aria-label="Related USIVA routes">
+            <a href="/employers.html">Employer orientation <span aria-hidden="true">→</span></a>
+            <a href="/e-verify.html">E-Verify orientation <span aria-hidden="true">→</span></a>
+            <a href={visaWizard.href}>Visa Wizard <span aria-hidden="true">↗</span></a>
+            <a href={employers.href}>E-Verify employer hub <span aria-hidden="true">↗</span></a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="official-tools-notice" aria-label="Important notice">
+      <div class="shell-container"><strong>Important:</strong> USCIS, the State Department, and E-Verify control their own tools and decisions. USIVA provides informational planning content and official-source navigation only.</div>
+    </section>
+  </div>
+</SiteLayout>
+
+<style>
+  .official-tools-hero {
+    background:
+      linear-gradient(115deg, var(--color-navy-deep), var(--color-navy) 62%, var(--color-navy-soft));
+    color: var(--color-paper);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .official-tools-hero::after {
+    background: linear-gradient(90deg, var(--color-accent) 0 33.333%, var(--color-gold) 33.333% 66.666%, var(--color-teal) 66.666%);
+    bottom: 0;
+    content: '';
+    height: 0.32rem;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+
+  .official-tools-hero__grid {
+    align-items: end;
+    display: grid;
+    gap: clamp(2rem, 7vw, 7rem);
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+    min-height: min(45rem, calc(100vh - 8.5rem));
+    padding-block: var(--space-5) calc(var(--space-5) + 1rem);
+  }
+
+  .official-tools-hero__copy {
+    max-width: 58rem;
+    padding-block-end: var(--space-2);
+  }
+
+  .official-tools-hero h1 {
+    color: var(--color-paper);
+    font-size: var(--step-4);
+    max-width: 11ch;
+  }
+
+  .official-tools-hero__lede {
+    color: #d6e1e5;
+    font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.35rem);
+    line-height: 1.55;
+    margin-block-start: var(--space-3);
+    max-width: 49rem;
+  }
+
+  .official-tools-hero__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-block-start: var(--space-3);
+  }
+
+  .official-tools-hero .text-link {
+    color: var(--color-highlight);
+    font-size: var(--step--1);
+    font-weight: 850;
+  }
+
+  .official-tools-hero .text-link:hover {
+    color: var(--color-paper);
+  }
+
+  .tool-index {
+    background: rgba(255, 255, 255, 0.96);
+    border-top: 0.32rem solid var(--color-gold);
+    box-shadow: var(--shadow-deep);
+    color: var(--color-ink);
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .tool-index__label,
+  .resource-group__eyebrow {
+    color: var(--color-accent);
+    font-size: var(--step--1);
+    font-weight: 850;
+    letter-spacing: 0.13em;
+    margin-block-end: var(--space-1);
+    text-transform: uppercase;
+  }
+
+  .tool-index h2 {
+    font-size: var(--step-2);
+    max-width: 13ch;
+  }
+
+  .tool-index ol {
+    list-style: none;
+    margin-block-start: var(--space-2);
+  }
+
+  .tool-index li {
+    border-top: 1px solid var(--color-line);
+  }
+
+  .tool-index a {
+    display: grid;
+    gap: 0.15rem 0.8rem;
+    grid-template-columns: 2rem 1fr;
+    padding-block: 0.8rem;
+    text-decoration: none;
+  }
+
+  .tool-index a:hover {
+    background: var(--color-mist);
+    margin-inline: -0.45rem;
+    padding-inline: 0.45rem;
+  }
+
+  .tool-index a span {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    grid-row: span 2;
+  }
+
+  .tool-index a strong {
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 600;
+  }
+
+  .tool-index a em {
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    font-style: normal;
+  }
+
+  .official-tools-section-heading {
+    max-width: 57rem;
+  }
+
+  .official-tools-section-heading h2 {
+    font-size: var(--step-3);
+    max-width: 16ch;
+  }
+
+  .official-tools-section-heading > p:last-child {
+    font-size: var(--step-0);
+    max-width: 64ch;
+  }
+
+  .resource-groups {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-block-start: var(--space-4);
+  }
+
+  .resource-group {
+    background: var(--color-canvas);
+    border: 1px solid var(--color-line);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: clamp(1rem, 2.3vw, 1.65rem);
+  }
+
+  .resource-group:nth-child(2) {
+    background: var(--color-mist);
+  }
+
+  .resource-group:nth-child(3) {
+    background: var(--color-highlight);
+  }
+
+  .resource-group h3 {
+    font-size: var(--step-1);
+  }
+
+  .resource-group__head > p:last-child {
+    font-size: var(--step--1);
+    margin-block-end: var(--space-2);
+  }
+
+  .resource-list {
+    border-top: 1px solid var(--color-line);
+    list-style: none;
+    margin-block-start: auto;
+  }
+
+  .resource-list li {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .resource-list a {
+    display: block;
+    padding-block: 0.9rem;
+    text-decoration: none;
+  }
+
+  .resource-list a:hover {
+    background: rgba(255, 255, 255, 0.7);
+    margin-inline: -0.45rem;
+    padding-inline: 0.45rem;
+  }
+
+  .resource-list__agency {
+    color: var(--color-accent);
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .resource-list strong {
+    color: var(--color-ink);
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--step-0);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-block: 0.25rem;
+  }
+
+  .resource-list strong span {
+    color: var(--color-accent);
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--step--1);
+    margin-inline-start: 0.35rem;
+  }
+
+  .resource-list small {
+    color: var(--color-muted);
+    display: block;
+    font-size: var(--step--1);
+    line-height: 1.45;
+  }
+
+  .source-note {
+    border-left: 2px solid var(--color-gold);
+    font-size: var(--step--1);
+    margin-block-start: var(--space-3);
+    padding-inline-start: 1rem;
+  }
+
+  .official-tools-boundary__grid {
+    display: grid;
+    gap: clamp(2rem, 8vw, 8rem);
+    grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1.1fr);
+  }
+
+  .official-tools-boundary h2 {
+    font-size: var(--step-3);
+    max-width: 15ch;
+  }
+
+  .official-tools-boundary__copy > p:first-child {
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    line-height: 1.35;
+  }
+
+  .official-tools-boundary__copy > p:nth-child(2) {
+    font-size: var(--step--1);
+  }
+
+  .official-tools-next {
+    border-top: 1px solid var(--color-line);
+    display: grid;
+    gap: 0.7rem 1.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-block-start: var(--space-2);
+    padding-block-start: var(--space-2);
+  }
+
+  .official-tools-next a {
+    color: var(--color-accent-dark);
+    font-size: var(--step--1);
+    font-weight: 850;
+  }
+
+  .official-tools-notice {
+    background: var(--color-highlight);
+    color: var(--color-navy-deep);
+    font-size: var(--step--1);
+    padding-block: 1.1rem;
+  }
+
+  @media (max-width: 920px) {
+    .official-tools-hero__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.78fr);
+    }
+
+    .resource-groups {
+      grid-template-columns: 1fr;
+    }
+
+    .resource-group {
+      display: grid;
+      gap: var(--space-2);
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    }
+
+    .resource-list {
+      margin-block-start: 0;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .official-tools-hero__grid,
+    .official-tools-boundary__grid {
+      display: block;
+      min-height: 0;
+    }
+
+    .official-tools-hero__copy {
+      padding-block-end: 0;
+    }
+
+    .tool-index {
+      margin-block-start: var(--space-4);
+    }
+
+    .resource-group {
+      display: block;
+    }
+
+    .official-tools-boundary__copy {
+      margin-block-start: var(--space-3);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .official-tools-hero__actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .official-tools-hero__actions .button {
+      width: 100%;
+    }
+
+    .official-tools-next {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

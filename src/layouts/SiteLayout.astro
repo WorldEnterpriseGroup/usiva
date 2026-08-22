@@ -28,7 +28,7 @@ const {
   topbarMessage,
   topbarLink,
   canonical,
-  ogImage = '/assets/usiva-social.svg',
+  ogImage = '/assets/photos/usiva-hero-consultation.webp',
   ogType = 'website',
   noindex = false,
 } = Astro.props;
@@ -55,20 +55,25 @@ const structuredData = {
     url: siteRoot.href,
   },
 };
+const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c');
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="author" content="USIVA" />
     <meta name="robots" content={robots} />
-    <meta name="theme-color" content="#10263d" />
+    <meta name="theme-color" content="#0d2a43" />
+    <meta name="color-scheme" content="light" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="canonical" href={canonicalUrl.href} />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <link rel="icon" href="/assets/usiva-social.svg" type="image/svg+xml" />
     <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="USIVA" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -81,12 +86,12 @@ const structuredData = {
     <meta name="twitter:image" content={socialImageUrl.href} />
     <meta name="twitter:image:alt" content="USIVA — visa-readiness and compliance planning" />
     <title>{title}</title>
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)}></script>
+    <script type="application/ld+json" is:inline set:html={structuredDataJson}></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <SiteHeader activePath={activePath} topbarMessage={topbarMessage} topbarLink={topbarLink} />
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <SiteFooter />

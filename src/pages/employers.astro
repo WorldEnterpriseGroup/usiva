@@ -1,0 +1,593 @@
+---
+import {
+  employerResourceIds,
+  getOfficialResource,
+  officialResourceReviewDate,
+  planningBoundary,
+} from '../data/official-resources';
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const title = 'Employer Resources | Form I-9 and E-Verify Orientation | USIVA';
+const description = 'A careful employer orientation to Form I-9, E-Verify participation, official resources, mismatch handoffs, and the line between planning and legal advice.';
+const canonical = 'https://usiva.org/employers.html';
+
+const employerResources = employerResourceIds.map((resourceId) => getOfficialResource(resourceId));
+const eVerifyEmployers = getOfficialResource('e-verify-employers');
+const i9Central = getOfficialResource('i-9-central');
+---
+
+<SiteLayout
+  {title}
+  {description}
+  activePath="/employers.html"
+  topbarMessage="Employer orientation for Form I-9, E-Verify, and careful handoffs."
+  topbarLink={{ label: 'Open E-Verify employer hub', href: eVerifyEmployers.href, external: true }}
+  {canonical}
+>
+  <div class="employers-page">
+    <section class="employers-hero" aria-labelledby="page-title">
+      <div class="shell-container employers-hero__grid">
+        <div class="employers-hero__copy">
+          <p class="eyebrow">USIVA / employers</p>
+          <h1>A clean employer file starts before the first E-Verify case.</h1>
+          <p class="employers-hero__lede">
+            Companies hiring internationally often have three different questions at once: what the Form I-9 process requires, whether E-Verify applies to their operation, and when an individual immigration or work-authorization question needs a qualified professional.
+          </p>
+          <div class="employers-hero__actions">
+            <a class="button button--primary" href="#employer-sequence">See the orientation sequence <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="/e-verify.html">Read E-Verify orientation <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <aside class="employer-slip" aria-labelledby="employer-slip-title">
+          <p class="employer-slip__label">The employer lens</p>
+          <h2 id="employer-slip-title">Separate the record from the decision.</h2>
+          <ol>
+            <li><span>01</span><strong>Record</strong><small>Complete the current Form I-9 process.</small></li>
+            <li><span>02</span><strong>Program</strong><small>Confirm whether and how E-Verify participates.</small></li>
+            <li><span>03</span><strong>Escalate</strong><small>Hand personal or disputed questions to the right authority.</small></li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--paper employer-basics" aria-labelledby="basics-title">
+      <div class="shell-container">
+        <header class="employer-section-heading">
+          <p class="eyebrow">Three lanes to keep distinct</p>
+          <h2 id="basics-title">Form I-9, E-Verify, and immigration advice are not interchangeable.</h2>
+          <p>
+            A company can organize a hiring workflow without deciding an individual’s immigration eligibility. Start by identifying which lane the question belongs to and which official source owns the next instruction.
+          </p>
+        </header>
+
+        <div class="employer-lanes">
+          <article class="employer-lane">
+            <span class="employer-lane__number">01</span>
+            <h3>Form I-9 is the hiring record.</h3>
+            <p>For covered hires, the employer and employee complete the current Form I-9 process to document identity and employment authorization. Use USCIS I-9 Central and the current instructions.</p>
+            <a href={i9Central.href}>Open I-9 Central <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="employer-lane employer-lane--mist">
+            <span class="employer-lane__number">02</span>
+            <h3>E-Verify is a separate program.</h3>
+            <p>E-Verify is an electronic system used by participating employers under program rules. Enrollment, access method, case timing, and coverage obligations must be checked with E-Verify.</p>
+            <a href={eVerifyEmployers.href}>Open the employer hub <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="employer-lane employer-lane--night">
+            <span class="employer-lane__number">03</span>
+            <h3>Case-specific advice is another handoff.</h3>
+            <p>Visa status, sponsorship, prior history, discrimination concerns, and disputed authorization questions can require individualized legal advice or an agency decision. USIVA does not make that determination.</p>
+            <a href="/contacts.html">Prepare a question brief <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="employers-sequence" id="employer-sequence" aria-labelledby="sequence-title">
+      <div class="shell-container">
+        <header class="employers-sequence__heading">
+          <p class="eyebrow">A careful sequence</p>
+          <h2 id="sequence-title">Make the workflow visible before it becomes a dispute.</h2>
+          <p>These are planning prompts, not a substitute for the current Form I-9 instructions, E-Verify terms, or legal advice.</p>
+        </header>
+
+        <ol class="employer-steps">
+          <li>
+            <span class="employer-steps__number">01</span>
+            <div><h3>Prepare the source file</h3><p>Keep the current Form I-9 edition, instructions, responsible users, hiring-site scope, and internal owner together. Do not copy an old document into a new workflow without checking USCIS updates.</p></div>
+          </li>
+          <li>
+            <span class="employer-steps__number">02</span>
+            <div><h3>Confirm the E-Verify posture</h3><p>Decide whether the company is already enrolled, needs enrollment, works through an employer agent, or is considering a technical integration. E-Verify’s access methods carry different responsibilities.</p></div>
+          </li>
+          <li>
+            <span class="employer-steps__number">03</span>
+            <div><h3>Follow the official case workflow</h3><p>When E-Verify applies, create and manage cases only through the official program process and after the Form I-9 step, within the current timing and participation rules.</p></div>
+          </li>
+          <li>
+            <span class="employer-steps__number">04</span>
+            <div><h3>Handle a mismatch with notice and patience</h3><p>An initial DHS or SSA mismatch is not the same as a final case result. Follow the official Further Action Notice and referral instructions, and do not turn a preliminary result into an eligibility conclusion.</p></div>
+          </li>
+        </ol>
+
+        <div class="employers-sequence__callout">
+          <strong>Keep the rule simple:</strong> use the same process consistently, do not demand a particular identity or work-authorization document, and check the official anti-discrimination guidance before changing a workflow.
+        </div>
+      </div>
+    </section>
+
+    <section class="section employer-resources" id="employer-resources" aria-labelledby="resources-title">
+      <div class="shell-container">
+        <header class="employer-section-heading employer-section-heading--split">
+          <div>
+            <p class="eyebrow">The employer shelf</p>
+            <h2 id="resources-title">Bookmark the pages that change the workflow.</h2>
+          </div>
+          <p>Use these official resources for implementation, current forms, enrollment, case handling, and rights. A source link is a handoff, not a legal conclusion.</p>
+        </header>
+
+        <ul class="employer-resource-list">
+          {employerResources.map((resource, index) => (
+            <li>
+              <a href={resource.href}>
+                <span class="employer-resource-list__number">{String(index + 1).padStart(2, '0')}</span>
+                <span class="employer-resource-list__copy"><strong>{resource.label}<span aria-hidden="true">↗</span></strong><small>{resource.summary}</small></span>
+                <span class="employer-resource-list__agency">{resource.agency}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p class="source-note">Source links reviewed {officialResourceReviewDate}. Check the live official page for current editions, dates, terms, and program status.</p>
+      </div>
+    </section>
+
+    <section class="section section--mist employer-boundary" aria-labelledby="employer-boundary-title">
+      <div class="shell-container employer-boundary__grid">
+        <div>
+          <p class="eyebrow">Where USIVA stops</p>
+          <h2 id="employer-boundary-title">Planning can make a handoff clearer. It cannot practice law.</h2>
+        </div>
+        <div>
+          <p class="employer-boundary__lead">USIVA can help organize a document list, timeline, source trail, and question brief. It is not a law firm, does not provide legal advice or legal representation, and does not determine whether a worker, employer, or visa pathway is eligible.</p>
+          <p>{planningBoundary}</p>
+          <nav class="employer-next" aria-label="Employer next steps">
+            <a href="/official-tools.html">Official tools directory <span aria-hidden="true">→</span></a>
+            <a href="/e-verify.html">E-Verify orientation <span aria-hidden="true">→</span></a>
+            <a href={getOfficialResource('doj-i9-e-verify').href}>DOJ IER guidance <span aria-hidden="true">↗</span></a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="employers-notice" aria-label="Important notice">
+      <div class="shell-container"><strong>Important:</strong> E-Verify and Form I-9 requirements depend on the employer’s facts, program participation, and current official instructions. Verify before acting.</div>
+    </section>
+  </div>
+</SiteLayout>
+
+<style>
+  .employers-hero {
+    background: var(--color-mist);
+    border-bottom: 1px solid var(--color-line);
+    overflow: hidden;
+  }
+
+  .employers-hero__grid {
+    align-items: end;
+    display: grid;
+    gap: clamp(2rem, 8vw, 8rem);
+    grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+    min-height: min(44rem, calc(100vh - 8.5rem));
+    padding-block: var(--space-5) calc(var(--space-5) + 0.7rem);
+  }
+
+  .employers-hero__copy {
+    padding-block-end: var(--space-2);
+  }
+
+  .employers-hero h1 {
+    font-size: var(--step-4);
+    max-width: 12ch;
+  }
+
+  .employers-hero__lede {
+    color: var(--color-ink);
+    font-size: clamp(1.05rem, 0.95rem + 0.42vw, 1.35rem);
+    line-height: 1.55;
+    margin-block-start: var(--space-3);
+    max-width: 51rem;
+  }
+
+  .employers-hero__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-block-start: var(--space-3);
+  }
+
+  .employers-hero__actions .text-link {
+    color: var(--color-accent-dark);
+    font-size: var(--step--1);
+    font-weight: 850;
+  }
+
+  .employer-slip {
+    background: var(--color-paper);
+    border-top: 0.32rem solid var(--color-teal);
+    box-shadow: var(--shadow-soft);
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .employer-slip__label,
+  .employer-lane__number,
+  .employer-resource-list__agency {
+    color: var(--color-teal);
+    font-size: var(--step--1);
+    font-weight: 850;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .employer-slip h2 {
+    font-size: var(--step-2);
+    max-width: 12ch;
+  }
+
+  .employer-slip ol {
+    list-style: none;
+    margin-block-start: var(--space-2);
+  }
+
+  .employer-slip li {
+    display: grid;
+    gap: 0.6rem;
+    grid-template-columns: 2rem 1fr;
+    padding-block: 0.8rem;
+  }
+
+  .employer-slip li + li {
+    border-top: 1px solid var(--color-line);
+  }
+
+  .employer-slip li > span {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    grid-row: span 2;
+  }
+
+  .employer-slip strong {
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 600;
+  }
+
+  .employer-slip small {
+    color: var(--color-muted);
+    font-size: var(--step--1);
+  }
+
+  .employer-section-heading {
+    max-width: 58rem;
+  }
+
+  .employer-section-heading h2,
+  .employers-sequence__heading h2,
+  .employer-boundary h2 {
+    font-size: var(--step-3);
+    max-width: 17ch;
+  }
+
+  .employer-section-heading > p:last-child {
+    font-size: var(--step-0);
+    max-width: 63ch;
+  }
+
+  .employer-lanes {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-block-start: var(--space-4);
+  }
+
+  .employer-lane {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    min-height: 22rem;
+    padding: clamp(1.25rem, 2.5vw, 1.8rem);
+  }
+
+  .employer-lane--mist {
+    background: var(--color-mist);
+  }
+
+  .employer-lane--night {
+    background: var(--color-navy);
+  }
+
+  .employer-lane--night h3,
+  .employer-lane--night p {
+    color: var(--color-paper);
+  }
+
+  .employer-lane--night .employer-lane__number,
+  .employer-lane--night a {
+    color: var(--color-highlight);
+  }
+
+  .employer-lane__number {
+    display: block;
+    margin-block-end: clamp(2rem, 6vw, 4.5rem);
+  }
+
+  .employer-lane h3 {
+    font-size: var(--step-1);
+    max-width: 15ch;
+  }
+
+  .employer-lane p {
+    font-size: var(--step--1);
+  }
+
+  .employer-lane a {
+    color: var(--color-accent-dark);
+    display: inline-block;
+    font-size: var(--step--1);
+    font-weight: 850;
+    margin-block-start: var(--space-1);
+  }
+
+  .employers-sequence {
+    background: var(--color-navy-deep);
+    color: var(--color-paper);
+    padding-block: var(--space-5);
+  }
+
+  .employers-sequence h2 {
+    color: var(--color-paper);
+  }
+
+  .employers-sequence__heading {
+    max-width: 54rem;
+  }
+
+  .employers-sequence__heading > p:last-child {
+    color: #d6e1e5;
+    font-size: var(--step-0);
+  }
+
+  .employer-steps {
+    border-top: 1px solid rgba(214, 225, 229, 0.3);
+    list-style: none;
+    margin-block-start: var(--space-4);
+  }
+
+  .employer-steps li {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    padding-block: var(--space-2);
+  }
+
+  .employer-steps li + li {
+    border-top: 1px solid rgba(214, 225, 229, 0.18);
+  }
+
+  .employer-steps__number {
+    color: var(--color-gold);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+
+  .employer-steps h3 {
+    color: var(--color-paper);
+    font-size: var(--step-1);
+  }
+
+  .employer-steps p {
+    color: #d6e1e5;
+    font-size: var(--step--1);
+    margin: 0;
+    max-width: 68ch;
+  }
+
+  .employers-sequence__callout {
+    border-left: 3px solid var(--color-gold);
+    color: #ecf2f3;
+    font-size: var(--step--1);
+    margin-block-start: var(--space-3);
+    max-width: 62rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .employer-resources {
+    background: var(--color-paper);
+  }
+
+  .employer-section-heading--split {
+    align-items: end;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1.1fr) minmax(15rem, 0.7fr);
+    max-width: none;
+  }
+
+  .employer-section-heading--split > p {
+    font-size: var(--step--1);
+    margin-block-end: 0.5rem;
+  }
+
+  .employer-resource-list {
+    border-top: 1px solid var(--color-line);
+    list-style: none;
+    margin-block-start: var(--space-4);
+  }
+
+  .employer-resource-list li {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .employer-resource-list a {
+    align-items: start;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 2rem minmax(0, 1fr) 10rem;
+    padding-block: 1rem;
+    text-decoration: none;
+  }
+
+  .employer-resource-list a:hover {
+    background: var(--color-mist);
+    margin-inline: -0.6rem;
+    padding-inline: 0.6rem;
+  }
+
+  .employer-resource-list__number {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+
+  .employer-resource-list__copy strong {
+    color: var(--color-ink);
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .employer-resource-list__copy strong span {
+    color: var(--color-accent);
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--step--1);
+    margin-inline-start: 0.35rem;
+  }
+
+  .employer-resource-list__copy small {
+    color: var(--color-muted);
+    display: block;
+    font-size: var(--step--1);
+    margin-block-start: 0.35rem;
+  }
+
+  .employer-resource-list__agency {
+    font-size: 0.68rem;
+    text-align: right;
+  }
+
+  .source-note {
+    border-left: 2px solid var(--color-gold);
+    font-size: var(--step--1);
+    margin-block-start: var(--space-3);
+    padding-inline-start: 1rem;
+  }
+
+  .employer-boundary__grid {
+    display: grid;
+    gap: clamp(2rem, 8vw, 8rem);
+    grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1.1fr);
+  }
+
+  .employer-boundary__lead {
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    line-height: 1.35;
+  }
+
+  .employer-next {
+    border-top: 1px solid var(--color-line);
+    display: grid;
+    gap: 0.7rem 1.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-block-start: var(--space-2);
+    padding-block-start: var(--space-2);
+  }
+
+  .employer-next a {
+    color: var(--color-accent-dark);
+    font-size: var(--step--1);
+    font-weight: 850;
+  }
+
+  .employers-notice {
+    background: var(--color-highlight);
+    color: var(--color-navy-deep);
+    font-size: var(--step--1);
+    padding-block: 1.1rem;
+  }
+
+  @media (max-width: 900px) {
+    .employers-hero__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.78fr);
+    }
+
+    .employer-lanes {
+      grid-template-columns: 1fr;
+    }
+
+    .employer-lane {
+      min-height: 0;
+    }
+
+    .employer-lane__number {
+      margin-block-end: var(--space-3);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .employers-hero__grid,
+    .employer-boundary__grid,
+    .employer-section-heading--split {
+      display: block;
+      min-height: 0;
+    }
+
+    .employer-slip {
+      margin-block-start: var(--space-4);
+    }
+
+    .employer-section-heading--split > p,
+    .employer-boundary__grid > div + div {
+      margin-block-start: var(--space-3);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .employers-hero__actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .employers-hero__actions .button {
+      width: 100%;
+    }
+
+    .employer-steps li {
+      display: block;
+    }
+
+    .employer-steps__number {
+      display: block;
+      margin-block-end: 0.5rem;
+    }
+
+    .employer-resource-list a {
+      grid-template-columns: 2rem minmax(0, 1fr);
+    }
+
+    .employer-resource-list__agency {
+      grid-column: 2;
+      text-align: left;
+    }
+
+    .employer-next {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

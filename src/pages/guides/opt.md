@@ -1,14 +1,12 @@
 ---
 layout: ../../layouts/GuideLayout.astro
-title: "OPT planning: connect role, field, and authorization"
-description: "A planning guide for F-1 students evaluating an OPT-related role, its relationship to the course of study, and the records to review with a DSO."
+title: "OPT planning: connect the role to the degree"
+description: "A focused guide for documenting the relationship between an F-1 course of study, proposed practical training, authorization records, and official verification."
 route: "/guides/opt.html"
-guideType: "work-authorization-planning"
+guideType: "focused work-authorization guide"
 reviewedOn: "2026-08-22"
 status: "editorial-cutover"
 sourceIds:
-  - target-home-copy
-  - target-rd-scholars-copy
   - official-uscis-opt
   - official-ice-practical-training
   - official-dhs-working
@@ -17,88 +15,66 @@ sourceIds:
 mediaIds: []
 ---
 
-# OPT planning is a field-and-timing question, not a job shortcut
+# OPT planning starts with the degree relationship
 
-Optional Practical Training (OPT) is part of the F-1 planning conversation for eligible students. The useful question is not simply “Do I have an opportunity?” It is whether the proposed activity, the eligible course of study, the authorization record, and the timing can be reviewed together by the DSO and the relevant government agency.
+Optional Practical Training (OPT) is one focused work-authorization question within USIVA’s broader all-visa directory. The useful planning task is to place the course of study, the actual role, the authorization record, and the reporting process beside one another. This page only organizes that question for review; it is not a job-finding service or a filing service.
 
-> **Information boundary.** This page is informational planning content. It is not legal advice and does not guarantee admission, employment, funding, visa issuance, work authorization, or government approval. It does not replace individualized advice from qualified immigration counsel or the school’s DSO. Rules, forms, fees, and local instructions change; verify the current official guidance before acting.
+> **USIVA boundary.** USIVA is not a law firm. This page is informational planning content; it does not provide legal advice or representation, decide eligibility, act as a filing service, or guarantee employment, work authorization, visa issuance, or a government decision. Rules, forms, fees, and school instructions change. Verify the current official guidance before acting.
 
-## What OPT is asking you to connect
+## Begin with the official handoff
 
-The [USCIS OPT reference](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students) and the [ICE Practical Training resource](https://www.ice.gov/sevis/practical-training) are the source of truth for current eligibility and authorization instructions. The State Department also describes OPT as temporary employment directly related to an eligible F-1 student’s area of study and notes that an endorsed Form I-20 and USCIS employment authorization are part of the public framework.
+The [USCIS OPT page](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students) and the [ICE Practical Training resource](https://www.ice.gov/sevis/practical-training) are the starting points for current authorization information. The [DHS Working in the United States resource](https://studyinthestates.dhs.gov/students/resources/working) directs students to consult the DSO before working. Use those pages and the school’s current instructions for the rule; use this guide to make the facts easier to review.
 
-For planning purposes, connect four records:
+## Put four facts in one note
 
-1. **The course of study:** the degree, level, completion point, and field the school has recorded.
-2. **The proposed activity:** the actual duties, tools, outputs, location, hours, supervisor, and compensation—not only the role title.
-3. **The authorization record:** the DSO’s guidance, the relevant Form I-20 record, the application or authorization record, and the dates that control when work may begin and end.
-4. **The reporting record:** the contact and process for reporting changes while authorized.
+### Course of study
 
-No single letter or job title proves the whole connection.
+Record the degree, level, field, completion point, and the wording the school uses in the student record. Do not substitute a résumé label or a broad subject area for the school’s record.
 
-## Create an OPT decision record
+### Proposed role
 
-This is a discussion aid for the DSO, not a filing form.
+Describe the duties, tools, outputs, location, hours, supervisor, compensation, and directing organization. A title such as “researcher,” “analyst,” or “engineer” does not establish the relationship by itself.
 
-| Question to answer | Useful record | First verifier |
+### Authorization record
+
+Keep the DSO’s dated guidance, any relevant Form I-20 record, the employment authorization record when issued, and the dates that govern when activity may begin or end. Do not calculate a personal filing or start date from an old article.
+
+### Reporting record
+
+Write down who receives notice of a change, which changes must be reported, and where the current school or agency instructions are stored. Keep a dated log rather than relying on memory.
+
+## Describe the role in facts
+
+| Question | Record to bring | First verifier |
 | --- | --- | --- |
-| How does the proposed work relate to the degree? | Detailed duties, deliverables, supervisor description, and a short field-relationship explanation | DSO; qualified counsel if the relationship is unclear |
-| What academic date controls the plan? | Program end information, academic calendar, degree record, and school-issued guidance | DSO |
-| What authorization must exist before work starts? | Current USCIS instructions, DSO recommendation or endorsement record, and the employment authorization document when issued | DSO and USCIS |
-| What employer facts matter? | Legal employer name, worksite or location, hours, compensation, supervisor, and any staffing or partner arrangement | DSO; employer’s authorized representative |
-| How will changes be reported? | School reporting instructions, employer contact, address or employment-change log, and a personal reminder calendar | DSO |
+| How does the work relate to the degree? | Specific duties, deliverables, tools, and a short field-relationship explanation | DSO; qualified counsel when the relationship is disputed |
+| What academic date controls the discussion? | Program-end information, academic calendar, degree record, and school instructions | DSO |
+| What must exist before work begins? | Current USCIS instructions, DSO recommendation or endorsement record, and authorization document when issued | DSO and USCIS |
+| Who actually directs the work? | Legal employer or host, worksite, supervisor, hours, compensation, and any staffing or partner arrangement | DSO and employer representative |
+| How will a change be handled? | School reporting instructions, contact details, and a personal change log | DSO |
 
-The [DHS Working in the United States resource](https://studyinthestates.dhs.gov/students/resources/working) emphasizes that F-1 employment opportunities are limited and that students should talk with the DSO before working. Treat that as an operating rule for the planning file: ask first, document the answer, then follow the current authorization record.
+If a field is blank, it is an unresolved question. It is not permission to infer that a role is authorized.
 
-## The role is more than its label
+## Log changes before acting
 
-“Research,” “assistantship,” “internship,” “fellowship,” “contract,” and “volunteer” can describe very different facts. Before presenting a role for review, write down:
+Ask for a fresh review when the employer, worksite, duties, hours, compensation, supervisor, study record, transfer, travel plan, or authorization dates change. A partner organization or staffing company may control facts that are not visible in a brand name. Record who directs the work and where it actually occurs, including a remote or partner site.
 
-- who directs the work;
-- what the student will do each week;
-- where the work will occur, including a remote or partner site;
-- whether compensation, tuition treatment, a stipend, equity, or another benefit is involved;
-- which organization is the employer or host;
-- how the work uses the knowledge or skills from the course of study; and
-- what written approval or reporting process the school requires.
+Treat “unpaid,” “volunteer,” “fellowship,” “contract,” and “research” as descriptions to test, not as automatic answers. The activity’s real duties and control matter more than its label.
 
-If those facts are not yet written, the opportunity is not ready for a reliable authorization discussion.
+## Know when this guide stops
 
-## Stop and verify before acting
+Hand the question to the DSO or qualified counsel when the role is not clearly related to the recorded field, work might start before the current authorization permits it, the document is pending or inconsistent, a study or status change affects the plan, or a prior refusal, status violation, travel issue, dependent, or personal deadline could change the analysis. These are escalation signals, not conclusions about eligibility.
 
-Pause the plan and ask the DSO or qualified counsel to review it when:
+The [current Form I-765 Instructions](https://www.uscis.gov/sites/default/files/document/forms/i-765instr.pdf) and USCIS’s live OPT page control form and filing details. This guide intentionally does not reproduce a filing sequence, fee, deadline, unemployment calculation, or travel answer.
 
-- the proposed role is not clearly related to the recorded field of study;
-- the role changes employer, worksite, duties, hours, pay, or supervisor;
-- a partner or staffing company, rather than the visible brand, directs the work;
-- the authorization document is pending, expired, inconsistent, or not yet available;
-- a student is considering work before the date the current authorization permits;
-- a study completion, transfer, travel, or new program changes the underlying record; or
-- the activity is described as unpaid but still resembles services performed for an organization.
+## Continue through the focused guide set
 
-These are signals to obtain a case-specific answer, not conclusions about eligibility.
+- [F-1 readiness](/guides/f-1-readiness.html) organizes the school, academic, funding, and activity foundation.
+- [STEM OPT planning](/guides/stem-opt.html) adds the degree, employer, training-plan, and reporting relationship.
+- [Evidence & checklists](/guides/evidence-checklists.html) provides a dated cross-stage record index.
+- [All visa categories](/visa-categories.html) is the broader USIVA directory beyond these focused guides; its official category source is the [State Department directory](https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html).
 
-## Keep an OPT evidence file
-
-The [Evidence & checklists guide](/guides/evidence-checklists.html) can hold the cross-stage index. For OPT, give special attention to:
-
-- the final academic record and the school’s program-end information;
-- the DSO’s written instructions and any endorsed student record;
-- the submitted or approved authorization record and the dates shown on it;
-- the employer’s legal identity and written duties;
-- a dated explanation of how the duties relate to the field of study;
-- employer, address, and role-change records; and
-- the source and date of every rule or instruction used in the decision.
-
-Do not use an old checklist to calculate a filing window, fee, unemployment limit, or travel decision. Verify those details against the [USCIS OPT page](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students), the [current Form I-765 Instructions](https://www.uscis.gov/sites/default/files/document/forms/i-765instr.pdf), and the DSO’s instructions at the time of action.
-
-## Continue the planning path
-
-- [F-1 readiness](/guides/f-1-readiness.html) covers the study, school, funding, and activity foundation.
-- [STEM OPT](/guides/stem-opt.html) covers the additional degree, employer, training-plan, and reporting questions.
-- [Evidence & checklists](/guides/evidence-checklists.html) turns the records into an owned verification log.
-
-## Official sources
+## Official handoffs
 
 - [USCIS: Optional Practical Training (OPT) for F-1 Students](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students)
 - [ICE: Practical Training](https://www.ice.gov/sevis/practical-training)

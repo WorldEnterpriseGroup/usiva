@@ -1,4 +1,5 @@
 ---
+import BrandMark from './BrandMark.astro';
 ---
 
 <footer class="site-footer">
@@ -6,35 +7,55 @@
     <div class="site-footer__grid">
       <div class="site-footer__lead">
         <a href="/" aria-label="USIVA home">
-          <span class="footer-brand">
-            <span class="footer-brand__mark" aria-hidden="true">US</span>
-            <span class="footer-brand__name">USIVA</span>
-          </span>
+          <BrandMark tone="inverse" />
         </a>
-        <p>Visa-readiness and compliance planning for international study and research pathways.</p>
+        <p>Informational visa planning, evidence organization, and official-source navigation for people and organizations.</p>
       </div>
 
-      <div>
-        <h2>USIVA</h2>
-        <ul>
-          <li><a href="/international-rd-scholars.html">R&amp;D Scholars</a></li>
-          <li><a href="/#services">Services</a></li>
-          <li><a href="/#boundaries">Compliance</a></li>
+      <nav class="site-footer__group" aria-label="Explore USIVA">
+        <h2>Explore</h2>
+        <ul class="site-footer__list">
+          <li><a href="/visa-categories.html">Visa categories</a></li>
+          <li><a href="/visa/nonimmigrant.html">Nonimmigrant routes</a></li>
+          <li><a href="/visa/immigrant.html">Immigrant routes</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/blog.html">Field notes</a></li>
+          <li><a href="/about.html">About USIVA</a></li>
+          <li><a href="/other-pages.html">Route atlas</a></li>
         </ul>
-      </div>
+      </nav>
 
-      <div>
-        <h2>US Fellows</h2>
-        <ul>
-          <li><a href="https://usfellows.org/international-rd-scholars.html">International R&amp;D Scholars</a></li>
-          <li><a href="https://usfellows.org/apply.html">Apply</a></li>
-          <li><a href="https://usfellows.org/submit-opportunity.html">Partner</a></li>
+      <nav class="site-footer__group" aria-label="Prepare a question">
+        <h2>Prepare</h2>
+        <ul class="site-footer__list">
+          <li><a href="/employers.html">Employer resources</a></li>
+          <li><a href="/briefs.html">Research briefs</a></li>
+          <li><a href="/contacts.html#brief-heading">Question brief</a></li>
+          <li><a href="/guides/evidence-checklists.html">Evidence &amp; records</a></li>
         </ul>
-      </div>
+      </nav>
 
-      <div>
+      <nav class="site-footer__group" aria-label="Official sources">
+        <h2>Official sources</h2>
+        <ul class="site-footer__list">
+          <li><a href="/official-tools.html">Official tools directory</a></li>
+          <li><a href="https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students" rel="noreferrer">USCIS / OPT <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://studyinthestates.dhs.gov/students/resources/working" rel="noreferrer">DHS / working <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://studyinthestates.dhs.gov/stem-opt-hub" rel="noreferrer">DHS / STEM OPT Hub <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://travel.state.gov/content/travel/en/us-visas.html" rel="noreferrer">State Department / visas <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="site-footer__lower">
+      <div class="site-footer__notice">
         <h2>Notice</h2>
         <p>USIVA planning content is informational. It does not guarantee admission, employment, funding, visa issuance, or government approval, and it does not replace individualized legal advice.</p>
+      </div>
+
+      <div class="site-footer__partner">
+        <span class="site-footer__label">Connected program reference</span>
+        <p>For the International R&amp;D Scholars pathway, continue to the <a href="https://usfellows.org/international-rd-scholars.html" rel="noreferrer">US Fellows program page <span aria-hidden="true">↗</span></a>.</p>
       </div>
     </div>
 
@@ -48,94 +69,118 @@
 <style>
   .site-footer {
     background: var(--color-navy-deep);
-    color: #c8d5dc;
+    color: #d1dde2;
     padding-block: var(--space-4) var(--space-3);
   }
 
   .site-footer__grid {
     display: grid;
     gap: var(--space-3);
-    grid-template-columns: 1.3fr repeat(3, 0.78fr);
+    grid-template-columns: minmax(15rem, 1.5fr) repeat(3, minmax(8.5rem, 1fr));
   }
 
   .site-footer__lead {
     padding-inline-end: var(--space-3);
   }
 
-  .site-footer h2 {
+  .site-footer__lead :global(.brand-mark) {
+    min-width: auto;
+  }
+
+  .site-footer__lead p,
+  .site-footer__notice p,
+  .site-footer__partner p {
+    color: #c6d3d9;
+    font-size: var(--step--1);
+    line-height: 1.5;
+    margin-block-start: 0.85rem;
+  }
+
+  .site-footer__lead p {
+    max-width: 32ch;
+  }
+
+  .site-footer h2,
+  .site-footer__label {
     color: var(--color-paper);
     font-family: var(--font-body);
-    font-size: var(--step--1);
-    letter-spacing: 0.09em;
-    margin-block-end: 0.9rem;
+    font-size: var(--step--2);
+    font-weight: 750;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    margin: 0;
     text-transform: uppercase;
   }
 
-  .site-footer p {
-    color: #c8d5dc;
-    font-size: var(--step--1);
-    margin-block-start: 1rem;
-  }
-
-  .site-footer ul {
+  .site-footer__list {
+    display: grid;
+    gap: 0.42rem;
     list-style: none;
+    margin-block-start: 0.85rem;
   }
 
-  .site-footer li + li {
-    margin-block-start: 0.45rem;
-  }
-
-  .site-footer a {
-    color: inherit;
+  .site-footer__list a {
+    color: #d1dde2;
+    font-size: var(--step--1);
     text-decoration: none;
   }
 
-  .site-footer a:hover {
+  .site-footer__list a:hover,
+  .site-footer__bottom a:hover,
+  .site-footer__partner a:hover {
     color: var(--color-highlight);
   }
 
-  .footer-brand {
-    align-items: center;
-    display: inline-flex;
-    gap: 0.7rem;
+  .site-footer__list span,
+  .site-footer__partner span[aria-hidden='true'] {
+    color: var(--color-highlight);
+    margin-inline-start: 0.2rem;
   }
 
-  .footer-brand__mark {
-    align-items: center;
-    border: 2px solid var(--color-gold);
-    border-radius: 50%;
-    color: var(--color-paper);
-    display: inline-flex;
-    font-family: var(--font-display);
-    font-size: 0.78rem;
-    font-weight: 700;
-    height: 2.7rem;
-    justify-content: center;
-    width: 2.7rem;
+  .site-footer__lower {
+    border-top: 1px solid rgba(213, 221, 224, 0.22);
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: minmax(0, 1.3fr) minmax(15rem, 0.9fr);
+    margin-block-start: var(--space-3);
+    padding-block: var(--space-2);
   }
 
-  .footer-brand__name {
+  .site-footer__notice p,
+  .site-footer__partner p {
+    margin-block-end: 0;
+  }
+
+  .site-footer__partner {
+    border-inline-start: 1px solid rgba(213, 221, 224, 0.22);
+    padding-inline-start: var(--space-3);
+  }
+
+  .site-footer__partner a {
     color: var(--color-paper);
-    font-family: var(--font-display);
-    font-size: 1.55rem;
     font-weight: 700;
-    letter-spacing: -0.04em;
+    text-decoration: none;
   }
 
   .site-footer__bottom {
     align-items: center;
-    border-top: 1px solid rgba(214, 225, 229, 0.2);
+    border-top: 1px solid rgba(213, 221, 224, 0.22);
+    color: #aebfc7;
     display: flex;
-    font-size: var(--step--1);
+    font-size: var(--step--2);
     gap: 1rem;
     justify-content: space-between;
-    margin-block-start: var(--space-4);
     padding-block-start: var(--space-2);
+  }
+
+  .site-footer__bottom a {
+    color: inherit;
+    text-decoration: none;
   }
 
   @media (max-width: 900px) {
     .site-footer__grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .site-footer__lead {
@@ -144,13 +189,22 @@
   }
 
   @media (max-width: 560px) {
-    .site-footer__grid {
+    .site-footer__grid,
+    .site-footer__lower {
       grid-template-columns: 1fr;
+    }
+
+    .site-footer__partner {
+      border-inline-start: 0;
+      border-top: 1px solid rgba(213, 221, 224, 0.22);
+      padding-block-start: var(--space-2);
+      padding-inline-start: 0;
     }
 
     .site-footer__bottom {
       align-items: flex-start;
       flex-direction: column;
+      gap: 0.35rem;
     }
   }
 </style>

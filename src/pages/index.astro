@@ -1,218 +1,781 @@
 ---
 import ActionLinks from '../components/ActionLinks.astro';
-import BoundaryGrid from '../components/BoundaryGrid.astro';
-import EditorialHero from '../components/EditorialHero.astro';
-import EvidenceGrid from '../components/EvidenceGrid.astro';
-import RoleMap from '../components/RoleMap.astro';
 import SectionIntro from '../components/SectionIntro.astro';
-import type { Action, PathwayItem } from '../components/types';
+import SourceList from '../components/SourceList.astro';
+import type { Action } from '../components/types';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const heroPathway: PathwayItem[] = [
-  { label: 'Document readiness', detail: 'Records, funding, and timing' },
-  { label: 'Student visa posture', detail: 'F-1, I-20, SEVIS, and interview' },
-  { label: 'Authorized research work', detail: 'Assistantship, CPT, OPT, and STEM OPT' },
-  { label: 'Careful next step', detail: 'Written approvals and legal escalation' },
-];
-
 const heroActions: Action[] = [
-  { label: 'Plan R&D Scholar readiness', href: '/international-rd-scholars.html', tone: 'gold' },
-  { label: 'Apply through US Fellows', href: 'https://usfellows.org/apply.html', tone: 'outline', external: true },
+  { label: 'Choose a visa journey', href: '#services', tone: 'gold' },
+  { label: 'Start an employer question', href: '/contacts.html', tone: 'outline' },
 ];
 
-const services = [
+const journeys = [
   {
-    marker: '01',
-    title: 'Document readiness',
-    text: 'Passport, identity records, transcripts, English proficiency evidence, credential evaluations, funding proof, prior visa history, and university-specific requirements.',
+    audience: 'Individuals',
+    title: 'Study and exchange',
+    detail: 'F-1, J-1, school, SEVIS, funding, and document questions before a program decision.',
+    href: '/guides/f-1-readiness.html',
   },
   {
-    marker: '02',
-    title: 'Student visa posture',
-    text: 'F-1 planning, I-20 readiness, SEVIS fee timing, DS-160 preparation, interview narrative, non-immigrant intent, and financial documentation.',
+    audience: 'Individuals',
+    title: 'Work and talent',
+    detail: 'Employment, practical training, status timing, and the evidence a role may require.',
+    href: '/services.html',
   },
   {
-    marker: '03',
-    title: 'Authorized research work',
-    text: 'Assistantship, on-campus work, CPT, OPT, STEM OPT, sponsor rules, school DSO coordination, and the difference between training, study, and employment.',
-  },
-];
-
-const rolePanels = [
-  {
-    eyebrow: 'US Fellows',
-    title: 'Research pathway',
-    description: 'US Fellows helps the scholar build the thesis, university, professor, funding, recommendation, and partner strategy.',
-    items: [
-      'International R&D Scholars Program',
-      'Grants.gov and SAM.gov funding literacy',
-      'A focused university application portfolio',
-      'Professor, PI/KP, NGO, and industry partner logic',
-    ],
-    tone: 'fellows' as const,
+    audience: 'Individuals and families',
+    title: 'Family and life changes',
+    detail: 'A starting point for dependent, travel, change-of-circumstance, and status questions.',
+    href: '/tips-faq.html',
   },
   {
-    eyebrow: 'USIVA',
-    title: 'Visa and compliance planning',
-    description: 'USIVA helps the scholar understand which immigration and work-authorization questions must be answered before each stage.',
-    items: [
-      'F-1 readiness and non-immigrant intent framing',
-      'Assistantship and authorized work boundaries',
-      'OPT and STEM OPT planning conversations',
-      'Escalation to licensed legal counsel when advice is needed',
-    ],
-    tone: 'usiva' as const,
+    audience: 'Long-range planning',
+    title: 'Residence and transition',
+    detail: 'Organize the question, the record, and the right handoff when a temporary route may change.',
+    href: '/contacts.html',
+  },
+  {
+    audience: 'Companies and employers',
+    title: 'Hire, transfer, and retain',
+    detail: 'Frame worker, role, timing, sponsorship, and compliance questions before a commitment is made.',
+    href: '/contacts.html',
+  },
+  {
+    audience: 'One contained program reference',
+    title: 'International R&D Scholars',
+    detail: 'A US Fellows research-program reference with a separate USIVA visa-readiness companion.',
+    href: '/international-rd-scholars.html',
   },
 ];
 
-const boundaries = [
+const trustSteps = [
   {
-    title: 'Before admission',
-    text: 'No U.S. student work authorization exists simply because a scholar is preparing a PhD packet. Remote activity, volunteering, compensation, and training should be reviewed carefully.',
+    label: 'Ask',
+    text: 'Name the decision in front of you and the facts that could change it.',
   },
   {
-    title: 'During F-1 study',
-    text: 'Full course of study, assistantship duties, on-campus employment, CPT, and other activity must be coordinated through the university and its designated school official.',
+    label: 'Verify',
+    text: 'Use the agency, school, employer, sponsor, or consular source responsible for the rule.',
   },
   {
-    title: 'After the PhD',
-    text: 'OPT and STEM OPT are possible only when eligibility, timing, degree relationship, employer requirements, reporting, and government rules are satisfied.',
+    label: 'Hand off',
+    text: 'Take a dated, organized question to the DSO, employer, agency, or qualified counsel who can act.',
   },
 ];
 
-const ctaActions: Action[] = [
-  { label: 'View US Fellows pathway', href: 'https://usfellows.org/international-rd-scholars.html', tone: 'gold', external: true },
-  { label: 'View USIVA companion', href: '/international-rd-scholars.html', tone: 'light' },
+const officialSources = [
+  { label: 'U.S. Department of State: U.S. visas', href: 'https://travel.state.gov/content/travel/en/us-visas.html' },
+  { label: 'U.S. Department of State: Student visa', href: 'https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html' },
+  { label: 'USCIS: Working in the United States', href: 'https://www.uscis.gov/working-in-the-united-states' },
+  { label: 'DHS Study in the States: Working in the United States', href: 'https://studyinthestates.dhs.gov/students/resources/working' },
+];
+
+const officialActions: Action[] = [
+  { label: 'Open the State Department visa overview', href: 'https://travel.state.gov/content/travel/en/us-visas.html', tone: 'primary', external: true },
+  { label: 'Open USCIS', href: 'https://www.uscis.gov/', tone: 'outline', external: true },
+];
+
+const employerActions: Action[] = [
+  { label: 'Start an employer question', href: '/contacts.html', tone: 'light' },
+  { label: 'Review USCIS employer resources', href: 'https://www.uscis.gov/working-in-the-united-states', tone: 'outline', external: true },
 ];
 ---
 
 <BaseLayout
-  title="USIVA | Visa and Compliance Planning for International Scholars"
-  description="USIVA provides visa-readiness and compliance planning for international scholars, students, researchers, and US Fellows International R&D Scholars."
+  title="USIVA | A Clearer Way Through U.S. Visa Decisions"
+  description="USIVA helps individuals, families, students, professionals, researchers, and employers organize U.S. visa questions, evidence, timing, and responsible handoffs."
   activePath="/"
-  topbarMessage="Visa-readiness planning for study, research, and compliant opportunity."
-  topbarLink={{ label: 'US Fellows R&D Scholars', href: 'https://usfellows.org/international-rd-scholars.html', external: true }}
+  topbarMessage="Visa planning for individuals, families, employers, and the decisions between them."
+  topbarLink={{ label: 'R&D Scholars program reference', href: '/international-rd-scholars.html' }}
+  ogImage="/assets/photos/usiva-hero-consultation.webp"
 >
-  <EditorialHero
-    eyebrow="U.S. Immigration and Visa Association"
-    title="Visa planning that respects the whole research journey."
-    description="USIVA helps international scholars understand the documentation, timing, work-authorization boundaries, and compliance decisions that surround study, funded assistantships, research training, OPT, and other eligible pathways."
-    panelLabel="Companion role"
-    panelTitle="US Fellows builds the research pathway. USIVA helps protect the visa posture."
-    panelText="The two sites link together because scholars need both: a fundable academic strategy and a clean, careful compliance plan."
-    panelItems={heroPathway}
-    panelCaption="A planning sequence that moves from evidence to study, authorized activity, and the next careful decision."
-    actions={heroActions}
-  />
+  <section class="home-hero" aria-labelledby="home-title">
+    <div class="shell-container home-hero__inner">
+      <div class="home-hero__copy">
+        <p class="eyebrow">U.S. Immigration and Visa Association</p>
+        <h1 id="home-title">One steady place for every visa journey.</h1>
+        <p class="home-hero__lede">USIVA helps people and companies turn a high-stakes immigration question into an organized next step: the evidence to gather, the timing to check, the authority to ask, and the boundary not to cross.</p>
+        <ActionLinks actions={heroActions} />
+        <p class="home-hero__source">Begin with the <a href="https://travel.state.gov/content/travel/en/us-visas.html">U.S. Department of State visa overview <span aria-hidden="true">↗</span></a>.</p>
+      </div>
 
-  <section class="section section--paper" id="services">
+      <figure class="home-hero__figure">
+        <img
+          src="/assets/photos/usiva-hero-consultation.webp"
+          alt="Two people review a document together at a library table."
+          width="1536"
+          height="1024"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <figcaption><span>Orientation / 01</span> A focused conversation can turn a complicated route into a short, verifiable list of questions.</figcaption>
+      </figure>
+    </div>
+
+    <div class="shell-container home-hero__standard">
+      <div>
+        <p class="home-hero__standard-label">The USIVA standard</p>
+        <p>Useful orientation without pretending that a public page can decide a private case.</p>
+      </div>
+      <ol>
+        <li>Evidence before assumption</li>
+        <li>Current official sources</li>
+        <li>Responsible handoff</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="home-section home-section--paper" id="services">
     <div class="shell-container">
       <SectionIntro
-        eyebrow="What USIVA adds"
-        title="Clear planning before the scholar makes expensive moves."
-        description="International candidates often focus on admission first and immigration later. USIVA moves the compliance questions earlier so the scholar understands evidence, timing, risk, and authorization boundaries before the application cycle becomes urgent."
+        eyebrow="Start with the decision"
+        title="Choose the question, not just a visa label."
+        description="Different people arrive with different facts. Use this index to find a useful first route, then move to the school, employer, government agency, sponsor, consulate, or qualified counsel responsible for the actual decision."
       />
-      <div class="home-grid home-grid--evidence">
-        <EvidenceGrid items={services} />
+
+      <div class="journey-index">
+        {journeys.map((journey, index) => (
+          <a class="journey-row" href={journey.href}>
+            <span class="journey-row__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+            <span class="journey-row__copy">
+              <span class="journey-row__audience">{journey.audience}</span>
+              <strong>{journey.title}</strong>
+              <small>{journey.detail}</small>
+            </span>
+            <span class="journey-row__arrow" aria-hidden="true">→</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="section section--mist" aria-labelledby="roles-title">
-    <div class="shell-container">
-      <div class="section-intro section-intro--compact">
-        <p class="eyebrow">Connected responsibilities</p>
-        <h2 id="roles-title">Two sites, one careful handoff.</h2>
-        <div class="section-rule" aria-hidden="true"></div>
-        <p>Research ambition and visa discipline work best when the candidate can see which organization owns the next question.</p>
-      </div>
-      <RoleMap panels={rolePanels} />
-    </div>
-  </section>
-
-  <section class="section section--night" id="boundaries">
-    <div class="shell-container">
-      <div class="boundary-intro">
-        <SectionIntro
-          eyebrow="Compliance first"
-          title="Good research planning never outruns visa rules."
-          description="USIVA keeps the scholar focused on authorized activity, university process, documentation quality, and written approvals. No website page can replace individualized legal advice, and no program can guarantee an immigration outcome."
+  <section class="home-section home-section--night" id="boundaries">
+    <div class="shell-container trust-layout">
+      <figure class="trust-layout__figure">
+        <img
+          src="/assets/photos/usiva-pathways-terminal.webp"
+          alt="A suited traveler walks through a bright terminal carrying a portfolio and pulling a suitcase."
+          width="1536"
+          height="1024"
+          loading="lazy"
+          decoding="async"
         />
+        <figcaption><span>Movement / 02</span> Timing, travel, and status questions belong in the same working file.</figcaption>
+      </figure>
+
+      <div class="trust-layout__copy">
+        <SectionIntro
+          eyebrow="A trust space, not a promise machine"
+          title="Make the next step verifiable."
+          description="USIVA is informational planning content. It does not file an application, decide eligibility, replace a lawyer or DSO, or guarantee admission, employment, funding, visa issuance, or government approval."
+        />
+        <ol class="trust-steps">
+          {trustSteps.map((step, index) => (
+            <li>
+              <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{step.label}</h3>
+                <p>{step.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
-      <BoundaryGrid items={boundaries} />
     </div>
   </section>
 
-  <section class="section section--signal">
-    <div class="shell-container cta-layout">
+  <section class="home-section home-section--mist" aria-labelledby="field-title">
+    <div class="shell-container">
+      <div class="field-heading">
+        <p class="eyebrow">What a careful file can hold</p>
+        <h2 id="field-title">Records carry the story. Roles carry the responsibility.</h2>
+        <p>Visa questions are rarely only about a form. They are about people, work, study, family history, timing, and the organizations that must coordinate a lawful next move.</p>
+      </div>
+
+      <div class="field-grid">
+        <figure class="field-figure field-figure--family">
+          <img
+            src="/assets/photos/usiva-family-records.webp"
+            alt="A couple sorts a stack of paper records at a kitchen table."
+            width="1536"
+            height="1024"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption><span>Individuals / 03</span> Keep identity, travel, family, academic, and financial records organized before a deadline makes them urgent.</figcaption>
+        </figure>
+        <figure class="field-figure field-figure--work">
+          <img
+            src="/assets/photos/usiva-employment-engineering.webp"
+            alt="An engineer examines a machined component beside technical drawings in a workshop."
+            width="1536"
+            height="1024"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption><span>Employers / 04</span> A role, its duties, the worker’s record, and the sponsoring organization need one shared question set.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section home-section--paper" id="sources">
+    <div class="shell-container">
+      <SectionIntro
+        eyebrow="Primary sources"
+        title="Use official resources as the handoff point."
+        description="Public guidance can orient a question. Current agency, consular, school, employer, sponsor, and counsel instructions control when they differ. Check the live source before acting."
+      />
+
+      <div class="source-layout">
+        <SourceList sources={officialSources} />
+        <aside class="source-actions" aria-label="Official resource actions">
+          <p class="source-actions__label">Open the authority</p>
+          <p>Start with the source that matches the decision in front of you, then bring the unresolved facts to the responsible office.</p>
+          <ActionLinks actions={officialActions} />
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section home-section--signal" id="employers" aria-labelledby="employer-title">
+    <div class="shell-container employer-layout">
       <div>
-        <p class="eyebrow">Connected pathway</p>
-        <h2>Start with the research plan, then protect the visa plan.</h2>
-        <p>The International R&amp;D Scholars Program belongs on US Fellows. The companion compliance page belongs on USIVA. Together, they help the candidate prepare with ambition and discipline.</p>
+        <p class="eyebrow">For employers and people teams</p>
+        <h2 id="employer-title">Start with the role, the worker, and the timing.</h2>
+        <p>Before a hire, transfer, extension, or international assignment becomes urgent, make a short brief of the work, the person’s current position, the business need, and the questions that need official or legal review.</p>
       </div>
-      <div class="cta-layout__actions">
-        <ActionLinks actions={ctaActions} />
+      <div class="employer-layout__actions">
+        <ActionLinks actions={employerActions} />
+        <p class="employer-layout__note">No sensitive documents are needed to begin an orientation question.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="program-note" aria-labelledby="program-title">
+    <div class="shell-container program-note__inner">
+      <div>
+        <p class="program-note__label">One contained program reference</p>
+        <h2 id="program-title">International R&amp;D Scholars</h2>
+      </div>
+      <p>US Fellows owns the research-program context. USIVA keeps a separate companion page for the visa-readiness questions that may surround that one program.</p>
+      <a href="/international-rd-scholars.html">Read the USIVA companion <span aria-hidden="true">→</span></a>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .home-grid--evidence {
-    margin-block-start: var(--space-4);
-  }
-
-  .section-intro--compact h2 {
-    max-width: 14ch;
-  }
-
-  .boundary-intro {
-    display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1.2fr);
-    margin-block-end: var(--space-4);
-  }
-
-  .boundary-intro .section-intro {
-    grid-column: 1 / -1;
-  }
-
-  .section--signal h2 {
+  .home-hero {
+    background: var(--color-navy-deep);
     color: var(--color-paper);
-    font-size: var(--step-3);
-    max-width: 17ch;
   }
 
-  .section--signal .eyebrow {
+  .home-hero__inner {
+    align-items: end;
+    display: grid;
+    gap: clamp(2rem, 5vw, 5.5rem);
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.88fr);
+    padding-block: clamp(3.75rem, 8vw, 7rem) clamp(3rem, 6vw, 5rem);
+  }
+
+  .home-hero .eyebrow {
     color: var(--color-highlight);
   }
 
-  .section--signal p {
+  .home-hero h1 {
+    color: var(--color-paper);
+    font-size: clamp(2.4rem, 4.35vw, 4.25rem);
+    max-width: 11ch;
+  }
+
+  .home-hero__lede {
+    color: #d6e1e5;
+    font-size: clamp(1rem, 0.93rem + 0.35vw, 1.2rem);
+    line-height: 1.58;
+    margin-block-start: var(--space-3);
+    max-width: 52ch;
+  }
+
+  .home-hero__source {
+    color: #b9cbd3;
+    font-size: var(--step--1);
+    margin-block-start: var(--space-2);
+  }
+
+  .home-hero__source a {
+    color: var(--color-paper);
+    font-weight: 750;
+  }
+
+  .home-hero__figure,
+  .trust-layout__figure,
+  .field-figure {
+    margin: 0;
+  }
+
+  .home-hero__figure {
+    border: 1px solid rgba(214, 225, 229, 0.28);
+    padding: 0.55rem;
+  }
+
+  .home-hero__figure img,
+  .trust-layout__figure img,
+  .field-figure img {
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .home-hero__figure img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .home-hero figcaption,
+  .trust-layout__figure figcaption,
+  .field-figure figcaption {
+    color: #c8d5dc;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    padding: 0.8rem 0.35rem 0.15rem;
+  }
+
+  .home-hero figcaption span,
+  .trust-layout__figure figcaption span,
+  .field-figure figcaption span {
+    color: var(--color-highlight);
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    margin-block-end: 0.2rem;
+    text-transform: uppercase;
+  }
+
+  .home-hero__standard {
+    align-items: center;
+    border-top: 1px solid rgba(214, 225, 229, 0.25);
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1.4fr;
+    padding-block: 1.25rem 1.5rem;
+  }
+
+  .home-hero__standard p {
+    color: #d6e1e5;
+    font-size: var(--step--1);
+  }
+
+  .home-hero__standard-label,
+  .source-actions__label,
+  .program-note__label {
+    color: var(--color-highlight) !important;
+    font-family: var(--font-mono);
+    font-size: 0.72rem !important;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .home-hero__standard-label {
+    margin-block-end: 0.3rem;
+  }
+
+  .home-hero__standard ol {
+    display: grid;
+    gap: 0.55rem 1.25rem;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+  }
+
+  .home-hero__standard li {
+    border-left: 1px solid var(--color-gold);
+    color: var(--color-paper);
+    font-size: var(--step--1);
+    padding-inline-start: 0.75rem;
+  }
+
+  .home-section {
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  .home-section--paper,
+  .program-note {
+    background: var(--color-paper);
+  }
+
+  .home-section--mist {
+    background: var(--color-mist);
+  }
+
+  .home-section--night {
+    background: var(--color-navy);
+    color: var(--color-paper);
+  }
+
+  .home-section--night h2,
+  .home-section--night h3,
+  .home-section--signal h2 {
+    color: var(--color-paper);
+  }
+
+  .home-section--night p {
+    color: #d6e1e5;
+  }
+
+  .home-section .section-intro h2 {
+    font-size: clamp(2rem, 3.35vw, 3.25rem);
+    max-width: 19ch;
+  }
+
+  .home-section .section-intro > p:last-child {
+    font-size: var(--step--1);
+    max-width: 66ch;
+  }
+
+  .journey-index {
+    border-top: 1px solid var(--color-line);
+    margin-block-start: clamp(2.25rem, 4vw, 3.8rem);
+  }
+
+  .journey-row {
+    align-items: center;
+    border-bottom: 1px solid var(--color-line);
+    color: inherit;
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    padding-block: 1.35rem;
+    text-decoration: none;
+    transition: background-color 180ms ease, padding-inline 180ms ease;
+  }
+
+  .journey-row:hover {
+    background: var(--color-mist);
+    color: inherit;
+    padding-inline: 0.8rem;
+  }
+
+  .journey-row__number {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+
+  .journey-row__copy {
+    display: grid;
+    gap: 0.16rem;
+  }
+
+  .journey-row__audience {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .journey-row strong {
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.8rem);
+    font-weight: 600;
+  }
+
+  .journey-row small {
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    line-height: 1.45;
+    max-width: 70ch;
+  }
+
+  .journey-row__arrow {
+    color: var(--color-accent);
+    font-size: 1.45rem;
+    padding-inline: 0.35rem;
+  }
+
+  .trust-layout {
+    align-items: start;
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 6rem);
+    grid-template-columns: minmax(14rem, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .trust-layout__figure {
+    position: sticky;
+    top: 8rem;
+  }
+
+  .trust-layout__figure img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .trust-layout__copy .section-intro h2 {
+    max-width: 12ch;
+  }
+
+  .trust-steps {
+    border-top: 1px solid rgba(214, 225, 229, 0.28);
+    list-style: none;
+    margin-block-start: var(--space-3);
+  }
+
+  .trust-steps li {
+    align-items: start;
+    border-bottom: 1px solid rgba(214, 225, 229, 0.28);
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 2.4rem 1fr;
+    padding-block: 1.25rem;
+  }
+
+  .trust-steps li > span {
+    color: var(--color-highlight);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+
+  .trust-steps h3 {
+    font-size: clamp(1.25rem, 1.08rem + 0.5vw, 1.7rem);
+    margin-block-end: 0.25rem;
+  }
+
+  .trust-steps p {
+    font-size: var(--step--1);
+  }
+
+  .field-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    margin-block-end: clamp(2.25rem, 5vw, 4rem);
+  }
+
+  .field-heading .eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .field-heading h2 {
+    font-size: clamp(2rem, 3.7vw, 3.5rem);
+    max-width: 14ch;
+  }
+
+  .field-heading > p:last-child {
+    align-self: end;
+    font-size: var(--step--1);
+    max-width: 45ch;
+  }
+
+  .field-grid {
+    align-items: start;
+    display: grid;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  }
+
+  .field-figure--work {
+    margin-block-start: clamp(2rem, 8vw, 6.5rem);
+  }
+
+  .field-figure img {
+    aspect-ratio: 3 / 2;
+  }
+
+  .field-figure figcaption {
+    color: var(--color-muted);
+    padding-inline: 0;
+  }
+
+  .field-figure figcaption span {
+    color: var(--color-accent);
+  }
+
+  .source-layout {
+    align-items: start;
+    display: grid;
+    gap: clamp(2rem, 5vw, 5rem);
+    grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+    margin-block-start: clamp(2.25rem, 4vw, 3.8rem);
+  }
+
+  .source-actions {
+    border-left: 3px solid var(--color-gold);
+    padding-inline-start: var(--space-2);
+  }
+
+  .source-actions > p:not(.source-actions__label) {
+    font-size: var(--step--1);
+  }
+
+  .source-actions .action-links {
+    margin-block-start: var(--space-2);
+  }
+
+  .home-section--signal {
+    background: var(--color-accent);
+    color: var(--color-paper);
+  }
+
+  .home-section--signal .eyebrow {
+    color: var(--color-highlight);
+  }
+
+  .home-section--signal p {
     color: #fff4e0;
   }
 
-  .cta-layout {
+  .employer-layout {
     align-items: center;
     display: grid;
-    gap: var(--space-4);
+    gap: clamp(2rem, 5vw, 5rem);
     grid-template-columns: minmax(0, 1fr) auto;
   }
 
-  .cta-layout__actions .action-links {
+  .employer-layout h2 {
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    max-width: 15ch;
+  }
+
+  .employer-layout > div:first-child > p:last-child {
+    font-size: var(--step--1);
+    max-width: 62ch;
+  }
+
+  .employer-layout__actions .action-links {
     margin-block-start: 0;
   }
 
-  @media (max-width: 760px) {
-    .boundary-intro {
-      display: block;
-      margin-block-end: var(--space-3);
+  .employer-layout__note {
+    color: #fff4e0;
+    font-size: 0.78rem;
+    margin-block-start: 0.85rem;
+    max-width: 28ch;
+  }
+
+  .program-note {
+    border-top: 1px solid var(--color-line);
+    padding-block: clamp(2rem, 4vw, 3.25rem);
+  }
+
+  .program-note__inner {
+    align-items: end;
+    display: grid;
+    gap: 1.5rem 2rem;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) auto;
+  }
+
+  .program-note h2 {
+    font-size: clamp(1.45rem, 1.2rem + 0.8vw, 2.1rem);
+  }
+
+  .program-note__inner > p {
+    font-size: var(--step--1);
+  }
+
+  .program-note a {
+    color: var(--color-accent);
+    font-size: var(--step--1);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .program-note a:hover {
+    color: var(--color-accent-dark);
+  }
+
+  @media (max-width: 900px) {
+    .home-hero__inner,
+    .trust-layout,
+    .source-layout,
+    .employer-layout {
+      grid-template-columns: 1fr;
     }
 
-    .cta-layout {
+    .home-hero__figure {
+      max-width: 44rem;
+    }
+
+    .trust-layout__figure {
+      max-width: 30rem;
+      position: static;
+    }
+
+    .source-actions {
+      border-left: 0;
+      border-top: 3px solid var(--color-gold);
+      padding-block-start: var(--space-2);
+      padding-inline-start: 0;
+    }
+
+    .employer-layout__actions .action-links {
+      margin-block-start: var(--space-2);
+    }
+
+    .program-note__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    }
+
+    .program-note a {
+      grid-column: 2;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .home-hero__standard {
+      align-items: start;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .home-hero__standard ol {
+      grid-template-columns: 1fr;
+    }
+
+    .journey-row {
+      align-items: start;
+      grid-template-columns: 2.2rem minmax(0, 1fr) auto;
+    }
+
+    .field-heading {
       display: block;
     }
 
-    .cta-layout__actions .action-links {
-      margin-block-start: var(--space-3);
+    .field-heading > p:last-child {
+      margin-block-start: var(--space-2);
+    }
+
+    .field-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .field-figure--work {
+      margin-block-start: 0;
+    }
+
+    .program-note__inner {
+      display: block;
+    }
+
+    .program-note__inner > p,
+    .program-note a {
+      display: block;
+      margin-block-start: 1rem;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .journey-row {
+      gap: 0.7rem;
+      grid-template-columns: 1.8rem minmax(0, 1fr) auto;
+      padding-block: 1.1rem;
+    }
+
+    .journey-row strong {
+      font-size: 1.3rem;
+    }
+
+    .journey-row__arrow {
+      font-size: 1.2rem;
     }
   }
 </style>

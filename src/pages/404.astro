@@ -8,83 +8,110 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   activePath="/404.html"
   canonical="https://usiva.org/404.html"
   noindex={true}
-  topbarMessage="USIVA publishes one current route map."
+  topbarMessage="USIVA route map · informational planning only."
   topbarLink={{ label: 'Open the route atlas', href: '/other-pages.html' }}
 >
-  <section class="error-page" aria-labelledby="error-heading">
-    <div class="error-page__inner">
+  <section class="error-state" aria-labelledby="error-heading">
+    <div class="shell-container error-state__inner">
       <p class="eyebrow">404 · route not found</p>
-      <h1 id="error-heading">That page is not part of the new USIVA route map.</h1>
-      <p class="error-page__lede">The public site has been cut over to a focused set of visa-readiness, compliance-planning, guidance, and source-trail pages.</p>
-      <div class="error-page__actions">
-        <a class="button button--gold" href="/">Return home</a>
+      <h1 id="error-heading">This page is not in the current USIVA route map.</h1>
+      <p class="error-state__lede">The public site is organized around visa categories, planning questions, official tools, and source-aware reference pages.</p>
+      <div class="error-state__actions">
+        <a class="button button--primary" href="/">Return to USIVA home</a>
         <a class="button button--outline" href="/other-pages.html">Open the route atlas</a>
       </div>
+    </div>
+  </section>
+
+  <section class="section error-links" aria-labelledby="error-links-heading">
+    <div class="shell-container">
+      <p class="eyebrow">Try a known route</p>
+      <h2 id="error-links-heading">Start with the question in front of you.</h2>
+      <ul>
+        <li><a href="/visa.html"><strong>Browse visa routes</strong><span>Start with the directory and its official-source handoffs.</span></a></li>
+        <li><a href="/official-tools.html"><strong>Verify a government task</strong><span>Open official case-status, visa, and employer tools.</span></a></li>
+        <li><a href="/contacts.html"><strong>Prepare a question brief</strong><span>Organize the stage, purpose, date, and unclear item.</span></a></li>
+      </ul>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .error-page {
-    align-items: center;
+  .error-state {
     background: var(--color-navy-deep);
     color: var(--color-paper);
-    display: flex;
-    min-height: 60vh;
+  }
+
+  .error-state__inner {
+    min-height: min(34rem, 58vh);
     padding-block: var(--space-5);
   }
 
-  .error-page__inner {
-    margin-inline: auto;
-    max-width: 76rem;
-    padding-inline: var(--gutter);
-    width: 100%;
-  }
-
-  .error-page h1 {
+  .error-state h1 {
     color: var(--color-paper);
-    font-size: clamp(2.7rem, 7vw, 6.2rem);
-    max-width: 15ch;
+    max-width: 19ch;
   }
 
-  .error-page .eyebrow {
+  .error-state .eyebrow {
     color: var(--color-highlight);
   }
 
-  .error-page__lede {
+  .error-state__lede {
     color: #d6e1e5;
     font-size: var(--step-1);
-    max-width: 44rem;
+    margin-block-start: var(--space-2);
+    max-width: 54ch;
   }
 
-  .error-page__actions {
+  .error-state__actions {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-1);
     margin-block-start: var(--space-3);
   }
 
-  .button {
-    align-items: center;
-    border: 1px solid transparent;
-    border-radius: var(--radius-s);
-    display: inline-flex;
-    font-size: var(--step--1);
-    font-weight: 850;
-    justify-content: center;
-    min-height: 3rem;
-    padding: 0.8rem 1.25rem;
+  .error-links {
+    background: var(--color-paper);
+  }
+
+  .error-links h2 {
+    max-width: 24ch;
+  }
+
+  .error-links ul {
+    border-top: 1px solid var(--color-line);
+    list-style: none;
+    margin-block-start: var(--space-3);
+  }
+
+  .error-links li {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .error-links a {
+    display: grid;
+    gap: 0.25rem 1rem;
+    grid-template-columns: minmax(12rem, 0.55fr) minmax(0, 1fr);
+    padding-block: var(--space-2);
     text-decoration: none;
-    text-transform: uppercase;
   }
 
-  .button--gold {
-    background: var(--color-gold);
-    color: var(--color-navy-deep);
+  .error-links strong {
+    color: var(--color-ink);
   }
 
-  .button--outline {
-    border-color: #d6e1e5;
-    color: var(--color-paper);
+  .error-links span {
+    color: var(--color-muted);
+    font-size: var(--step--1);
+  }
+
+  @media (max-width: 620px) {
+    .error-state__actions .button {
+      width: 100%;
+    }
+
+    .error-links a {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

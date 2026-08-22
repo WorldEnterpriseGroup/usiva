@@ -1,0 +1,521 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import {
+  categoryPath,
+  directoryPath,
+  familyPath,
+  type VisaCategory,
+} from '../data/visa-categories';
+
+interface Props {
+  category: VisaCategory;
+  related: readonly VisaCategory[];
+}
+
+const { category, related } = Astro.props;
+const routePath = categoryPath(category);
+const familyRoutePath = familyPath({ track: category.track, slug: category.familySlug });
+const trackLabel = category.track === 'nonimmigrant' ? 'Nonimmigrant' : 'Immigrant';
+const title = `${category.code} ${trackLabel.toLowerCase()} route | USIVA`;
+const description = `${category.code} ${trackLabel.toLowerCase()} route: ${category.title}. Official source, planning topics, and scope note.`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  activePath={routePath}
+  canonical={routePath}
+  topbarMessage="Source-aware visa orientation; verify current instructions with the responsible authority."
+  topbarLink={{ label: 'Read the public boundary', href: '/about.html' }}
+>
+  <article class="visa-route">
+    <div class="route-shell">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/visa-categories.html">Visa categories</a>
+        <span aria-hidden="true">/</span>
+        <a href={directoryPath(category.track)}>{trackLabel}</a>
+        <span aria-hidden="true">/</span>
+        <a href={familyRoutePath}>{category.family}</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{category.code}</span>
+      </nav>
+
+      <header class="route-hero">
+        <div class="route-hero__copy">
+          <p class="eyebrow">{trackLabel} visa · family {category.family}</p>
+          <h1><span>{trackLabel} route · {category.code}</span> {category.title}</h1>
+          <p class="route-hero__purpose">{category.purpose}</p>
+          <div class="route-actions">
+            <a class="button button--primary" href={category.officialNextStep.url} target="_blank" rel="noopener noreferrer">
+              {category.officialNextStep.label} <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button button--outline" href={familyRoutePath}>Browse {category.family} family</a>
+          </div>
+        </div>
+
+        <aside class="record-card" aria-label="Category record">
+          <p class="record-card__label">Catalog record</p>
+          <p class="record-card__code">{category.code}</p>
+          <dl>
+            <div>
+              <dt>Audience</dt>
+              <dd>{category.audience}</dd>
+            </div>
+            <div>
+              <dt>Source checked</dt>
+              <dd>{category.officialSourceCheckedOn}</dd>
+            </div>
+          </dl>
+        </aside>
+      </header>
+
+      <div class="route-content">
+        <div class="route-main">
+          <section class="planning-section" aria-labelledby="planning-heading">
+            <header class="section-heading">
+              <p class="eyebrow">Planning brief</p>
+              <h2 id="planning-heading">Questions to carry into an official conversation</h2>
+              <p>Use these prompts to make the next conversation more specific. They are planning topics, not a checklist that predicts an outcome.</p>
+            </header>
+
+            <ol class="topic-list">
+              {category.planningTopics.map((topic, index) => (
+                <li>
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <p>{topic}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section class="source-section" aria-labelledby="source-heading">
+            <div>
+              <p class="eyebrow">Source trail</p>
+              <h2 id="source-heading">Start with the published government record.</h2>
+            </div>
+            <div class="source-section__body">
+              <p><strong>{category.officialSourceAgency}</strong> · {category.officialSourceLabel}</p>
+              <p>Checked {category.officialSourceCheckedOn}. Government pages and post-specific instructions can change; save the current source you used.</p>
+              <a class="source-link" href={category.officialSourceUrl} target="_blank" rel="noopener noreferrer">
+                Open official source <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </section>
+        </div>
+
+        <aside class="boundary-panel" aria-labelledby="boundary-heading">
+          <p class="eyebrow">Keep the boundary visible</p>
+          <h2 id="boundary-heading">What this page cannot decide</h2>
+          <p>{category.scopeNote}</p>
+          <p class="boundary-panel__prompt">If the answer turns on personal facts, ask the authority responsible for the record or consult qualified immigration counsel.</p>
+        </aside>
+      </div>
+
+      <section class="related-section" aria-labelledby="related-heading">
+        <div class="related-section__intro">
+          <p class="eyebrow">Stay in the family</p>
+          <h2 id="related-heading">Related {category.family} routes</h2>
+          <p>Compare nearby records without assuming that a neighboring code answers the same question.</p>
+        </div>
+        <ul class="related-list">
+          {related.map((item) => (
+            <li>
+              <a href={categoryPath(item)}>
+                <span>{item.code}</span>
+                <strong>{item.title}</strong>
+                <b aria-hidden="true">→</b>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .visa-route {
+    background: var(--color-canvas);
+  }
+
+  .route-shell {
+    margin-inline: auto;
+    max-width: var(--measure-wide);
+    padding-inline: var(--gutter);
+  }
+
+  .breadcrumbs {
+    align-items: center;
+    color: var(--color-muted);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: var(--step--1);
+    gap: 0.45rem;
+    padding-block: var(--space-2);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-accent-dark);
+    font-weight: 800;
+  }
+
+  .breadcrumbs span:last-child {
+    color: var(--color-navy);
+    font-weight: 800;
+  }
+
+  .route-hero {
+    align-items: end;
+    background: var(--color-mist);
+    border-block: 1px solid var(--color-line);
+    display: grid;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    margin-inline: calc(var(--gutter) * -1);
+    padding: clamp(3rem, 6vw, 5rem) var(--gutter) clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .route-hero__copy {
+    max-width: 60rem;
+  }
+
+  .route-hero h1 {
+    color: var(--color-navy-deep);
+    font-size: clamp(2.35rem, 5vw, 4.45rem);
+    letter-spacing: -0.045em;
+    line-height: 0.96;
+    max-width: 16ch;
+  }
+
+  .route-hero h1 span {
+    color: var(--color-accent);
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.25em;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    margin-block-end: 0.75rem;
+  }
+
+  .route-hero__purpose {
+    color: var(--color-ink);
+    font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+    line-height: 1.5;
+    margin-block-start: var(--space-2);
+    max-width: 55ch;
+  }
+
+  .route-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-block-start: var(--space-3);
+  }
+
+  .button {
+    align-items: center;
+    border: 1px solid transparent;
+    display: inline-flex;
+    font-size: var(--step--1);
+    font-weight: 850;
+    gap: 0.55rem;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .button--primary {
+    background: var(--color-accent);
+    color: var(--color-paper);
+  }
+
+  .button--primary:hover {
+    background: var(--color-accent-dark);
+    color: var(--color-paper);
+  }
+
+  .button--outline {
+    border-color: var(--color-navy-soft);
+    color: var(--color-navy);
+  }
+
+  .button--outline:hover {
+    background: var(--color-paper);
+    color: var(--color-navy-deep);
+  }
+
+  .record-card {
+    background: var(--color-navy-deep);
+    box-shadow: 1rem 1rem 0 rgba(9, 27, 45, 0.12);
+    color: var(--color-paper);
+    padding: var(--space-2);
+  }
+
+  .record-card__label {
+    color: var(--color-highlight);
+    font-size: var(--step--1);
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .record-card__code {
+    color: var(--color-paper);
+    font-family: var(--font-mono);
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    line-height: 1;
+    margin-block: var(--space-2);
+    overflow-wrap: anywhere;
+  }
+
+  .record-card dl {
+    border-top: 1px solid rgba(214, 225, 229, 0.3);
+    margin: 0;
+  }
+
+  .record-card dl > div {
+    border-bottom: 1px solid rgba(214, 225, 229, 0.3);
+    display: grid;
+    gap: 0.3rem;
+    padding-block: 0.8rem;
+  }
+
+  .record-card dt {
+    color: var(--color-highlight);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .record-card dd {
+    color: #d6e1e5;
+    font-size: var(--step--1);
+    margin: 0;
+  }
+
+  .route-content {
+    align-items: start;
+    display: grid;
+    gap: clamp(2rem, 5vw, 5rem);
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+    padding-block: var(--space-5);
+  }
+
+  .route-main {
+    min-width: 0;
+  }
+
+  .section-heading {
+    max-width: 50rem;
+  }
+
+  .section-heading h2,
+  .source-section h2,
+  .boundary-panel h2,
+  .related-section h2 {
+    color: var(--color-navy-deep);
+    font-size: clamp(1.7rem, 2.8vw, 2.7rem);
+    letter-spacing: -0.035em;
+    line-height: 1;
+  }
+
+  .section-heading > p:last-child {
+    font-size: var(--step-0);
+  }
+
+  .topic-list {
+    list-style: none;
+    margin: var(--space-3) 0 0;
+    padding: 0;
+  }
+
+  .topic-list li {
+    border-top: 1px solid var(--color-line);
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    padding-block: var(--space-2);
+  }
+
+  .topic-list li:last-child {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .topic-list span {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    font-weight: 850;
+  }
+
+  .topic-list p {
+    color: var(--color-ink);
+    font-size: var(--step-0);
+    margin: 0;
+  }
+
+  .source-section {
+    background: var(--color-paper);
+    border-left: 0.3rem solid var(--color-gold);
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    margin-block-start: var(--space-5);
+    padding: var(--space-3);
+  }
+
+  .source-section__body p {
+    font-size: var(--step--1);
+    margin: 0 0 0.85rem;
+  }
+
+  .source-section__body p strong {
+    color: var(--color-navy-deep);
+  }
+
+  .source-link {
+    color: var(--color-accent-dark);
+    font-size: var(--step--1);
+    font-weight: 850;
+  }
+
+  .boundary-panel {
+    background: var(--color-navy);
+    color: var(--color-paper);
+    padding: var(--space-3);
+    position: sticky;
+    top: 8rem;
+  }
+
+  .boundary-panel h2 {
+    color: var(--color-paper);
+  }
+
+  .boundary-panel p {
+    color: #d6e1e5;
+    font-size: var(--step-0);
+  }
+
+  .boundary-panel .eyebrow {
+    color: var(--color-highlight);
+  }
+
+  .boundary-panel__prompt {
+    border-top: 1px solid rgba(214, 225, 229, 0.3);
+    font-size: var(--step--1) !important;
+    margin-block-start: var(--space-3);
+    padding-block-start: var(--space-2);
+  }
+
+  .related-section {
+    border-top: 1px solid var(--color-line);
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    padding-block: var(--space-4) var(--space-5);
+  }
+
+  .related-section__intro > p:last-child {
+    font-size: var(--step--1);
+  }
+
+  .related-list {
+    border-top: 1px solid var(--color-line);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .related-list li {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .related-list a {
+    align-items: center;
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: minmax(4rem, 0.3fr) minmax(0, 1fr) 1rem;
+    padding: 0.9rem 0;
+    text-decoration: none;
+  }
+
+  .related-list a:hover {
+    background: var(--color-mist);
+    color: var(--color-ink);
+    padding-inline: 0.7rem;
+  }
+
+  .related-list span {
+    color: var(--color-accent-dark);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    font-weight: 850;
+  }
+
+  .related-list strong {
+    color: var(--color-navy-deep);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .related-list b {
+    color: var(--color-accent);
+    justify-self: end;
+  }
+
+  @media (max-width: 820px) {
+    .route-hero,
+    .route-content,
+    .related-section {
+      grid-template-columns: 1fr;
+    }
+
+    .route-hero {
+      gap: var(--space-3);
+    }
+
+    .record-card {
+      box-shadow: none;
+      max-width: 34rem;
+    }
+
+    .boundary-panel {
+      position: static;
+    }
+
+    .source-section {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .route-shell {
+      padding-inline: 1rem;
+    }
+
+    .route-hero {
+      margin-inline: -1rem;
+      padding-inline: 1rem;
+    }
+
+    .route-actions,
+    .route-actions .button {
+      width: 100%;
+    }
+
+    .route-actions .button {
+      min-height: 3.25rem;
+    }
+
+    .related-list a {
+      grid-template-columns: 4rem minmax(0, 1fr) 1rem;
+    }
+  }
+</style>

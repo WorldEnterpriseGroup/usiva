@@ -1,0 +1,373 @@
+---
+import {
+  categoryPath,
+  familyPath,
+  type VisaCategory,
+  type VisaFamily,
+  type VisaTrack,
+} from '../data/visa-categories';
+
+interface Props {
+  track: VisaTrack;
+  categories: readonly VisaCategory[];
+  families: readonly VisaFamily[];
+  heading: string;
+  description: string;
+  id?: string;
+}
+
+const { track, categories, families, heading, description, id = `${track}-visa-directory` } = Astro.props;
+const trackLabel = track === 'nonimmigrant' ? 'Nonimmigrant' : 'Immigrant';
+const groups = families
+  .map((family) => ({
+    family,
+    categories: categories.filter((category) => category.familySlug === family.slug),
+  }))
+  .filter((group) => group.categories.length > 0);
+---
+
+<section class="visa-directory" aria-labelledby={id}>
+  <header class="directory-intro">
+    <div>
+      <p class="eyebrow">{trackLabel} visa index</p>
+      <h2 id={id}>{heading}</h2>
+      <p class="directory-intro__description">{description}</p>
+    </div>
+    <p class="directory-intro__count">
+      <strong>{categories.length}</strong>
+      <span>source-aware route records</span>
+    </p>
+  </header>
+
+  <nav class="family-index" aria-label={`${trackLabel} visa family index`}>
+    <p class="family-index__label">Jump to a family</p>
+    <ul>
+      {groups.map(({ family }) => (
+        <li>
+          <a href={`#${track}-${family.slug}`}>
+            <span>{family.code}</span>
+            <small>{family.title}</small>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <div class="family-groups">
+    {groups.map(({ family, categories: familyCategories }) => (
+      <section class="family-group" id={`${track}-${family.slug}`} aria-labelledby={`${track}-${family.slug}-heading`}>
+        <header class="family-group__header">
+          <div>
+            <p class="family-group__code">{family.code}</p>
+            <h3 id={`${track}-${family.slug}-heading`}>{family.title}</h3>
+          </div>
+          <a class="family-group__link" href={familyPath(family)}>
+            Open family index <span aria-hidden="true">→</span>
+          </a>
+          <p>{family.summary}</p>
+        </header>
+
+        <ol class="category-list">
+          {familyCategories.map((category, index) => (
+            <li>
+              <a class="category-row" href={categoryPath(category)}>
+                <span class="category-row__number">{String(index + 1).padStart(2, '0')}</span>
+                <span class="category-row__code">{category.code}</span>
+                <span class="category-row__copy">
+                  <strong>{category.title}</strong>
+                  <small>{category.audience}</small>
+                </span>
+                <span class="category-row__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+  </div>
+</section>
+
+<style>
+  .visa-directory {
+    margin-inline: auto;
+    max-width: var(--measure-wide);
+    padding-inline: var(--gutter);
+  }
+
+  .directory-intro {
+    align-items: end;
+    border-bottom: 1px solid var(--color-line);
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: minmax(0, 1fr) minmax(10rem, 0.28fr);
+    padding-block-end: var(--space-3);
+  }
+
+  .directory-intro h2 {
+    color: var(--color-navy-deep);
+    font-size: clamp(1.8rem, 3vw, 3.15rem);
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    max-width: 16ch;
+  }
+
+  .directory-intro__description {
+    font-size: var(--step-0);
+    max-width: 58ch;
+  }
+
+  .directory-intro__count {
+    border-left: 0.25rem solid var(--color-gold);
+    display: grid;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0.8rem 0 0.8rem var(--space-2);
+  }
+
+  .directory-intro__count strong {
+    color: var(--color-navy-deep);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 0.9;
+  }
+
+  .directory-intro__count span {
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    font-weight: 750;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .family-index {
+    align-items: baseline;
+    border-bottom: 1px solid var(--color-line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1rem;
+    padding-block: var(--space-2);
+  }
+
+  .family-index__label {
+    color: var(--color-navy);
+    font-size: var(--step--1);
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .family-index ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    margin: 0;
+  }
+
+  .family-index a {
+    align-items: baseline;
+    background: var(--color-mist);
+    border: 1px solid transparent;
+    display: inline-flex;
+    gap: 0.35rem;
+    padding: 0.45rem 0.65rem;
+    text-decoration: none;
+  }
+
+  .family-index a:hover {
+    background: var(--color-highlight);
+    color: var(--color-navy-deep);
+  }
+
+  .family-index a span {
+    color: var(--color-accent-dark);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 850;
+  }
+
+  .family-index a small {
+    color: var(--color-muted);
+    font-size: 0.76rem;
+  }
+
+  .family-groups {
+    display: grid;
+    gap: var(--space-4);
+    padding-block: var(--space-4) var(--space-5);
+  }
+
+  .family-group {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    box-shadow: 0 0.8rem 2rem rgba(9, 27, 45, 0.05);
+    scroll-margin-top: 8rem;
+  }
+
+  .family-group__header {
+    align-items: start;
+    background: var(--color-navy-deep);
+    color: var(--color-paper);
+    display: grid;
+    gap: 0.35rem 1.5rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .family-group__header h3 {
+    color: var(--color-paper);
+    font-size: clamp(1.25rem, 1.8vw, 1.7rem);
+    margin: 0;
+  }
+
+  .family-group__header p:last-child {
+    color: #d6e1e5;
+    font-size: var(--step--1);
+    grid-column: 1 / -1;
+    margin: 0;
+    max-width: 70ch;
+  }
+
+  .family-group__code {
+    color: var(--color-highlight);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.2rem;
+    text-transform: uppercase;
+  }
+
+  .family-group__link {
+    align-self: center;
+    border-bottom: 1px solid var(--color-highlight);
+    color: var(--color-highlight);
+    font-size: var(--step--1);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .family-group__link:hover {
+    color: var(--color-paper);
+  }
+
+  .category-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .category-list li + li {
+    border-top: 1px solid var(--color-line);
+  }
+
+  .category-row {
+    align-items: center;
+    display: grid;
+    gap: 0.8rem 1rem;
+    grid-template-columns: 2rem minmax(5.5rem, 0.2fr) minmax(0, 1fr) 1.5rem;
+    min-height: 4.7rem;
+    padding: 0.85rem var(--space-3);
+    text-decoration: none;
+    transition: background-color 180ms ease, padding-inline 180ms ease;
+  }
+
+  .category-row:hover {
+    background: var(--color-mist);
+    color: var(--color-ink);
+    padding-inline: calc(var(--space-3) + 0.25rem);
+  }
+
+  .category-row__number {
+    color: var(--color-soft);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .category-row__code {
+    color: var(--color-accent-dark);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    font-weight: 850;
+    overflow-wrap: anywhere;
+  }
+
+  .category-row__copy {
+    display: grid;
+    gap: 0.18rem;
+  }
+
+  .category-row__copy strong {
+    color: var(--color-navy-deep);
+    font-family: var(--font-display);
+    font-size: 1.22rem;
+    font-weight: 600;
+    line-height: 1.14;
+  }
+
+  .category-row__copy small {
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    line-height: 1.45;
+  }
+
+  .category-row__arrow {
+    color: var(--color-accent);
+    font-size: 1.3rem;
+    justify-self: end;
+  }
+
+  @media (max-width: 760px) {
+    .visa-directory {
+      padding-inline: 1rem;
+    }
+
+    .directory-intro {
+      grid-template-columns: 1fr;
+    }
+
+    .directory-intro__count {
+      border-left: 0;
+      border-top: 1px solid var(--color-line);
+      grid-template-columns: auto 1fr;
+      padding: var(--space-2) 0 0;
+    }
+
+    .directory-intro__count strong {
+      font-size: 2.7rem;
+    }
+
+    .directory-intro__count span {
+      align-self: end;
+      padding-bottom: 0.3rem;
+    }
+
+    .family-group__header {
+      grid-template-columns: 1fr;
+    }
+
+    .family-group__link {
+      justify-self: start;
+    }
+
+    .category-row {
+      grid-template-columns: 1.7rem minmax(4.6rem, 0.24fr) minmax(0, 1fr) 1rem;
+      padding-inline: 0.8rem;
+    }
+
+    .category-row:hover {
+      padding-inline: 1rem;
+    }
+
+    .category-row__copy strong {
+      font-size: 1.08rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .category-row {
+      transition: none;
+    }
+  }
+</style>

@@ -1,0 +1,26 @@
+---
+import VisaRouteLayout from '../../../layouts/VisaRouteLayout.astro';
+import {
+  immigrantCategories,
+  type VisaCategory,
+} from '../../../data/visa-categories';
+
+interface Props {
+  category: VisaCategory;
+}
+
+export function getStaticPaths() {
+  return immigrantCategories.map((category) => ({
+    params: { slug: category.slug },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+const sameFamily = immigrantCategories.filter(
+  (candidate) => candidate.familySlug === category.familySlug && candidate.code !== category.code,
+);
+const related = (sameFamily.length > 0 ? sameFamily : immigrantCategories.filter((candidate) => candidate.code !== category.code)).slice(0, 4);
+---
+
+<VisaRouteLayout category={category} related={related} />

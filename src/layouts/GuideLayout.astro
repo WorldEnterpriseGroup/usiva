@@ -12,6 +12,8 @@ const canonicalUrl = new URL(route, siteRoot);
 const socialImageUrl = new URL('/assets/usiva-social.svg', siteRoot);
 const guideType = String(frontmatter?.guideType ?? 'planning guide').replaceAll('-', ' ');
 const reviewedOn = String(frontmatter?.reviewedOn ?? '2026-08-22');
+const directoryUrl = '/visa-categories.html';
+const officialDirectoryUrl = 'https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/all-visa-categories.html';
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -55,14 +57,24 @@ const structuredData = {
     <a class="skip-link" href="#main">Skip to content</a>
     <SiteHeader
       activePath={route}
-      topbarMessage="Public planning guidance; verify current rules with official sources."
+      topbarMessage="Focused visa guidance; verify current rules with official sources."
       topbarLink={{ label: 'Read the USIVA boundary', href: '/about.html' }}
     />
     <main id="main" class="guide-main">
       <div class="guide-shell">
         <header class="guide-header">
-          <p class="eyebrow">USIVA guidance · {guideType}</p>
-          <p class="guide-header__meta">Reviewed {reviewedOn} · informational planning content</p>
+          <nav class="guide-header__trail" aria-label="Guide context">
+            <a href={directoryUrl}>All visa categories</a>
+            <span aria-hidden="true">/</span>
+            <span>USIVA focused guide</span>
+          </nav>
+          <div class="guide-header__line">
+            <p class="eyebrow">USIVA guidance · {guideType}</p>
+            <p class="guide-header__meta">Reviewed {reviewedOn} · informational planning content</p>
+          </div>
+          <p class="guide-header__scope">
+            One focused guide inside USIVA’s broader <a href={directoryUrl}>all-visa directory</a>. The official category record is maintained by the <a href={officialDirectoryUrl} rel="noreferrer">U.S. Department of State</a>. Use this page to organize a question and prepare an official handoff, not to decide eligibility or follow a universal filing checklist.
+          </p>
         </header>
         <article class="guide-document">
           <slot />
@@ -76,20 +88,43 @@ const structuredData = {
 <style>
   .guide-main {
     background: var(--color-paper);
-    padding-block: clamp(3.5rem, 8vw, 7rem) var(--space-5);
+    padding-block: clamp(2.5rem, 5vw, 4.5rem) var(--space-5);
   }
 
   .guide-shell {
     margin-inline: auto;
-    max-width: 78rem;
+    max-width: 72rem;
     padding-inline: var(--gutter);
   }
 
   .guide-header {
     border-bottom: 1px solid var(--color-line);
     margin-inline: auto;
-    max-width: 52rem;
-    padding-block-end: var(--space-2);
+    max-width: 62rem;
+    padding-block-end: var(--space-3);
+  }
+
+  .guide-header__trail {
+    align-items: center;
+    color: var(--color-muted);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: var(--step--1);
+    gap: 0.45rem;
+    margin-block-end: var(--space-2);
+  }
+
+  .guide-header__trail a {
+    color: var(--color-accent-dark);
+    font-weight: 800;
+  }
+
+  .guide-header__line {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    justify-content: space-between;
   }
 
   .guide-header__meta {
@@ -98,41 +133,57 @@ const structuredData = {
     margin: 0;
   }
 
+  .guide-header__scope {
+    border-inline-start: 0.25rem solid var(--color-gold);
+    color: var(--color-navy);
+    font-size: var(--step--1);
+    line-height: 1.55;
+    margin-block: var(--space-2) 0;
+    max-width: 72ch;
+    padding-inline-start: var(--space-2);
+  }
+
+  .guide-header__scope a {
+    color: var(--color-accent-dark);
+    font-weight: 800;
+  }
+
   .guide-document {
     color: var(--color-ink);
     margin-inline: auto;
-    max-width: 52rem;
+    max-width: 62rem;
   }
 
   .guide-document :global(h1) {
     color: var(--color-navy-deep);
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 5.3rem);
+    font-size: clamp(2.35rem, 5vw, 4.25rem);
     letter-spacing: -0.055em;
-    line-height: 0.98;
+    line-height: 1;
     margin-block: var(--space-3) var(--space-2);
-    max-width: 16ch;
+    max-width: 19ch;
   }
 
   .guide-document :global(h2) {
     color: var(--color-navy);
-    font-family: var(--font-display);
-    font-size: var(--step-2);
+    font-size: clamp(1.35rem, 1.15rem + 0.75vw, 1.95rem);
     letter-spacing: -0.035em;
     line-height: 1.05;
-    margin-block: var(--space-4) var(--space-1);
+    margin-block: var(--space-3) var(--space-1);
   }
 
   .guide-document :global(h3) {
     color: var(--color-navy);
-    font-size: var(--step-1);
-    margin-block: var(--space-3) var(--space-1);
+    font-size: var(--step-0);
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    margin-block: var(--space-2) var(--space-1);
   }
 
   .guide-document :global(p),
   .guide-document :global(li) {
     font-size: var(--step-0);
-    line-height: 1.75;
+    line-height: 1.65;
   }
 
   .guide-document :global(p) {
@@ -157,9 +208,9 @@ const structuredData = {
   }
 
   .guide-document :global(blockquote) {
-    background: #e8f0f1;
+    background: var(--color-mist);
     border-inline-start: 0.35rem solid var(--color-gold);
-    margin: var(--space-3) 0;
+    margin: var(--space-2) 0;
     padding: var(--space-2);
   }
 
@@ -170,6 +221,7 @@ const structuredData = {
   .guide-document :global(table) {
     border-collapse: collapse;
     display: block;
+    font-size: var(--step--1);
     margin-block: var(--space-2);
     max-width: 100%;
     overflow-x: auto;
@@ -179,7 +231,7 @@ const structuredData = {
   .guide-document :global(th),
   .guide-document :global(td) {
     border: 1px solid var(--color-line);
-    padding: 0.7rem 0.85rem;
+    padding: 0.6rem 0.7rem;
     text-align: left;
     vertical-align: top;
   }
@@ -202,8 +254,16 @@ const structuredData = {
   }
 
   @media (max-width: 620px) {
+    .guide-header__line {
+      display: block;
+    }
+
+    .guide-header__meta {
+      margin-block-start: 0.35rem;
+    }
+
     .guide-document :global(h1) {
-      font-size: clamp(2.35rem, 13vw, 3.5rem);
+      font-size: clamp(2.2rem, 12vw, 3.35rem);
     }
   }
 </style>

@@ -1,283 +1,595 @@
 ---
 import ActionLinks from '../components/ActionLinks.astro';
-import BoundaryGrid from '../components/BoundaryGrid.astro';
-import ComparisonTable from '../components/ComparisonTable.astro';
-import EditorialHero from '../components/EditorialHero.astro';
-import ReadinessGrid from '../components/ReadinessGrid.astro';
 import SectionIntro from '../components/SectionIntro.astro';
 import SourceList from '../components/SourceList.astro';
-import StepTimeline from '../components/StepTimeline.astro';
-import type { Action, PathwayItem } from '../components/types';
+import type { Action } from '../components/types';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const heroPathway: PathwayItem[] = [
-  { label: 'Pre-application', detail: 'Records, funding, and risk questions' },
-  { label: 'Admission cycle', detail: 'I-20, SEVIS, DS-160, and interview' },
-  { label: 'PhD years', detail: 'Status, assistantship, and DSO coordination' },
-  { label: 'After graduation', detail: 'OPT, STEM OPT, or counsel-led options' },
-];
-
 const heroActions: Action[] = [
-  { label: 'View research pathway', href: 'https://usfellows.org/international-rd-scholars.html', tone: 'gold', external: true },
-  { label: 'Review readiness packet', href: '#readiness', tone: 'outline' },
+  { label: 'Open program context', href: 'https://usfellows.org/international-rd-scholars.html', tone: 'gold', external: true },
+  { label: 'Return to all visa journeys', href: '/', tone: 'outline' },
 ];
 
-const timeline = [
-  {
-    stage: 'Before applying',
-    title: 'Pre-application readiness',
-    description: 'Confirm passport status, academic records, TOEFL or waiver path, credential evaluation needs, financial planning, prior visa history, and any risk questions that should be escalated before money is spent.',
-  },
-  {
-    stage: 'Admission cycle',
-    title: 'I-20 and F-1 preparation',
-    description: 'After admission and funding decisions, prepare I-20 evidence, SEVIS fee timing, DS-160, interview readiness, non-immigrant intent narrative, and proof of financial support.',
-  },
-  {
-    stage: 'PhD years',
-    title: 'Maintain student status',
-    description: 'Coordinate full course load, assistantship duties, on-campus work, CPT questions, travel signatures, address updates, and any research partner activity with the designated school official.',
-  },
-  {
-    stage: 'Graduation',
-    title: 'OPT and possible STEM OPT',
-    description: 'Plan post-completion OPT timing, degree relationship, unemployment limits, reporting duties, and STEM OPT eligibility when the degree CIP code and employer conditions support it.',
-  },
-  {
-    stage: 'Long range',
-    title: 'University, NGO, industry, or other legal pathways',
-    description: 'Evaluate postdoc, employer-sponsored, exchange, or other options with appropriate counsel. The pathway creates preparation and confidence, not an immigration guarantee.',
-  },
+const scopeItems = [
+  'Organize records, dates, and questions across application, study, and post-completion stages.',
+  'Separate university-controlled assistantship, CPT, OPT, and STEM OPT questions before activity begins.',
+  'Point to primary government resources and the office or professional that must answer the live question.',
 ];
 
-const readiness = [
+const limits = [
+  'This page is not the program application, an admissions route, or a funding or employment promise.',
+  'It does not decide eligibility, provide individualized legal advice, file applications, or collect personal documents.',
+  'School, DSO, sponsor, employer, consular, agency, and qualified-counsel instructions control when they differ.',
+];
+
+const stages = [
   {
-    title: 'Identity and travel',
-    text: 'Passport validity, name consistency, prior visas, travel history, civil records, and any issue that could affect interview preparation.',
+    stage: '01 / Before applying',
+    title: 'Build the record',
+    text: 'Check identity, academic history, English-proficiency requirements, funding assumptions, prior visa history, and the school or program questions that still need an answer.',
   },
   {
-    title: 'Academic evidence',
-    text: 'Transcripts, diplomas, NACES-member evaluation when required, English proficiency documentation, writing samples, CV, and program portal requirements.',
+    stage: '02 / Admission and visa',
+    title: 'Coordinate the F-1 sequence',
+    text: 'After a school decision, confirm the Form I-20 and SEVIS path, DS-160 information, financial evidence, interview preparation, and school-specific instructions.',
   },
   {
-    title: 'Funding evidence',
-    text: 'Assistantship letters, tuition waiver terms, stipend details, bank evidence if needed, sponsor documentation, and realistic living-cost assumptions.',
+    stage: '03 / During study',
+    title: 'Keep activity authorized',
+    text: 'Treat the full course of study, assistantship, on-campus work, CPT questions, travel, and research-partner activity as separate items for DSO and university review.',
   },
   {
-    title: 'University authorization',
-    text: 'I-20, SEVIS ID, DSO instructions, assistantship scope, CPT approvals if applicable, travel signatures, and program start rules.',
-  },
-  {
-    title: 'Research partner boundaries',
-    text: 'Written role descriptions, no unauthorized work, sponsor restrictions, conflict checks, university approvals, and contract or grant compliance.',
-  },
-  {
-    title: 'Post-completion planning',
-    text: 'OPT filing window, field relationship, employer eligibility, STEM OPT degree and employer checks, reporting requirements, and status maintenance.',
+    stage: '04 / After completion',
+    title: 'Verify the next work question',
+    text: 'For OPT or possible STEM OPT, connect the degree, field, dates, employer, training plan, reporting duties, and current USCIS or DHS instructions before relying on a plan.',
   },
 ];
 
 const workBoundaries = [
-  {
-    title: 'Assistantship',
-    text: 'A GA, TA, or RA is a university-controlled role with duties, stipend, tuition treatment, and status implications defined by the institution.',
-  },
-  {
-    title: 'CPT',
-    text: 'Curricular Practical Training is tied to curriculum and must be authorized by the school before the activity begins.',
-  },
-  {
-    title: 'OPT',
-    text: 'Optional Practical Training is employment authorization related to the field of study. Timing, filing, and maintenance rules matter.',
-  },
-  {
-    title: 'STEM OPT',
-    text: 'STEM OPT requires a STEM-designated degree, eligible employer, Form I-983 training plan, reporting, and continuing compliance.',
-  },
-];
-
-const roleRows = [
-  {
-    area: 'Before admission',
-    first: 'Research direction, university portfolio, professor map, funding snapshots, recommendation strategy.',
-    second: 'Credential timing, English-proficiency planning, visa-history review, F-1 evidence planning, risk escalation.',
-  },
-  {
-    area: 'PhD years',
-    first: 'Research development, partner relationships, contract-management learning, public-value alignment.',
-    second: 'Status maintenance, DSO coordination, assistantship boundaries, travel and reporting discipline.',
-  },
-  {
-    area: 'After graduation',
-    first: 'Postdoc, NGO, industry, and research partner strategy based on the scholar\'s field and funding lane.',
-    second: 'OPT, STEM OPT, employer documentation, status timing, and referral to licensed counsel for legal advice.',
-  },
+  { label: 'Assistantship', text: 'A university-controlled role with duties, funding, and status questions defined by the institution.' },
+  { label: 'CPT', text: 'Curricular practical training that requires the applicable school authorization before activity begins.' },
+  { label: 'OPT', text: 'Post-completion or other practical training questions tied to field, timing, filing, and authorization.' },
+  { label: 'STEM OPT', text: 'An extension discussion that adds degree, employer, training-plan, and reporting requirements.' },
 ];
 
 const sources = [
+  { label: 'U.S. Department of State: Student visa', href: 'https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html' },
+  { label: 'DHS Study in the States: School Search', href: 'https://studyinthestates.dhs.gov/school-search' },
+  { label: 'DHS Study in the States: Maintain Your Status', href: 'https://studyinthestates.dhs.gov/students/maintain-your-status' },
+  { label: 'DHS Study in the States: Working in the United States', href: 'https://studyinthestates.dhs.gov/students/resources/working' },
   { label: 'USCIS: Optional Practical Training for F-1 Students', href: 'https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students' },
   { label: 'DHS Study in the States: STEM OPT Hub', href: 'https://studyinthestates.dhs.gov/stem-opt-hub' },
-  { label: 'DHS Study in the States: Working in the United States', href: 'https://studyinthestates.dhs.gov/students/resources/working' },
-  { label: 'NACES: Member credential evaluation agencies', href: 'https://www.naces.org/members' },
-  { label: 'ETS: TOEFL iBT fees', href: 'https://www.ets.org/toefl/test-takers/ibt/register/fees.html' },
-  { label: 'US Fellows: International R&D Scholars Program', href: 'https://usfellows.org/international-rd-scholars.html' },
 ];
 
-const ctaActions: Action[] = [
-  { label: 'Start with US Fellows', href: 'https://usfellows.org/apply.html', tone: 'gold', external: true },
-  { label: 'View full pathway', href: 'https://usfellows.org/international-rd-scholars.html', tone: 'light', external: true },
+const sourceActions: Action[] = [
+  { label: 'Open Student Visa guidance', href: 'https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html', tone: 'primary', external: true },
+  { label: 'Open USCIS OPT guidance', href: 'https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students', tone: 'outline', external: true },
+];
+
+const finalActions: Action[] = [
+  { label: 'Open program context', href: 'https://usfellows.org/international-rd-scholars.html', tone: 'gold', external: true },
+  { label: 'Start a broader visa question', href: '/contacts.html', tone: 'light' },
 ];
 ---
 
 <BaseLayout
-  title="International R&D Scholars Visa Planning | USIVA"
-  description="USIVA companion page for the US Fellows International R&D Scholars Program, covering F-1 readiness, assistantship boundaries, OPT planning, documentation, and compliance."
+  title="International R&D Scholars | USIVA Companion"
+  description="USIVA's companion for the International R&D Scholars Program: F-1 readiness, university coordination, work-authorization boundaries, and official-source handoffs."
   activePath="/international-rd-scholars.html"
-  topbarMessage="Companion compliance planning for the US Fellows International R&D Scholars Program."
-  topbarLink={{ label: 'View the US Fellows pathway', href: 'https://usfellows.org/international-rd-scholars.html', external: true }}
+  topbarMessage="A bounded visa-readiness companion for one research program."
+  topbarLink={{ label: 'Explore all visa journeys', href: '/' }}
+  ogImage="/assets/photos/usiva-evidence-desk.webp"
 >
-  <EditorialHero
-    eyebrow="International R&D Scholars visa planning"
-    title="The research plan is ambitious. The visa plan must be precise."
-    description="USIVA helps International R&D Scholars understand the compliance decisions across a staged path: pre-application records, F-1 study, funded assistantships, authorized research work, OPT, STEM OPT where eligible, and the legal boundaries around every next step."
-    panelLabel="Compliance thesis"
-    panelTitle="No permanent promise. No work outside authorization. No shortcut around the university."
-    panelText="The pathway is designed for non-immigrant study and research progression. Every work, funding, and partner activity must fit the school, sponsor, and government rules that apply at that stage."
-    panelItems={heroPathway}
-    panelCaption="The compliance questions change as the scholar moves from preparation to study, authorized activity, and the long range."
-    actions={heroActions}
-  />
-
-  <section class="section section--paper" id="timeline">
-    <div class="shell-container">
-      <SectionIntro
-        eyebrow="Stage-based compliance map"
-        title="Visa planning changes at each stage of the scholar's path."
-        description="US Fellows helps build the fundable PhD strategy. USIVA helps the scholar understand which immigration and authorization questions must be resolved before each stage can proceed responsibly."
-      />
-      <div class="timeline-wrap">
-        <StepTimeline steps={timeline} />
+  <section class="rd-hero" aria-labelledby="rd-title">
+    <div class="shell-container rd-hero__inner">
+      <div class="rd-hero__copy">
+        <p class="eyebrow">One program / USIVA companion</p>
+        <h1 id="rd-title">International R&amp;D Scholars, with a clear visa-readiness scope.</h1>
+        <p class="rd-hero__lede">This page is for people considering the US Fellows International R&amp;D Scholars Program. It covers the planning questions around F-1 study, university coordination, authorized practical training, and responsible handoffs. It is not the program page and it is not legal advice.</p>
+        <ActionLinks actions={heroActions} />
       </div>
-    </div>
-  </section>
 
-  <section class="section section--mist" id="readiness">
-    <div class="shell-container">
-      <SectionIntro
-        eyebrow="Readiness packet"
-        title="USIVA wants the scholar organized before the deadline pressure arrives."
-        description="A clean readiness packet helps the candidate answer university, consular, DSO, sponsor, and employer questions without scrambling."
-      />
-      <div class="readiness-wrap">
-        <ReadinessGrid items={readiness} />
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--night">
-    <div class="shell-container">
-      <SectionIntro
-        eyebrow="Work authorization"
-        title="Assistantship, internship, research, and employment are not interchangeable."
-        description="The International R&D Scholars model exposes candidates to real partners, but exposure must not become unauthorized work. USIVA helps clarify which activities require university approval, DSO action, sponsor review, or legal counsel."
-      />
-      <div class="boundary-wrap">
-        <BoundaryGrid items={workBoundaries} />
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--paper" aria-labelledby="responsibility-title">
-    <div class="shell-container">
-      <SectionIntro
-        eyebrow="Role clarity"
-        title="Two connected sites, two different responsibilities."
-        description="The pathway is easier to navigate when research strategy and visa-readiness questions remain visible as separate responsibilities."
-      />
-      <h2 id="responsibility-title" class="visually-hidden">US Fellows and USIVA responsibilities</h2>
-      <div class="comparison-wrap">
-        <ComparisonTable
-          firstLabel="US Fellows"
-          secondLabel="USIVA"
-          caption="Research strategy and visa-readiness responsibilities by stage"
-          rows={roleRows}
+      <figure class="rd-hero__figure">
+        <img
+          src="/assets/photos/usiva-evidence-desk.webp"
+          alt="Hands turn a blank page beside a calendar, notebook, ruler, and folder on a dark desk."
+          width="1448"
+          height="1086"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
-      </div>
+        <figcaption><span>Evidence / 01</span> A readiness file is a way to make the next question visible, not proof that an outcome is available.</figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="section section--mist" id="sources">
+  <section class="rd-section rd-section--paper" id="scope">
     <div class="shell-container">
       <SectionIntro
-        eyebrow="Primary references"
-        title="Public rules and fee pages must be checked before decisions."
-        description="These references help candidates and advisors verify the current public framework. Program-specific instructions from the university and DSO control the actual case."
+        eyebrow="Scope before detail"
+        title="Keep the research pathway and the visa question in their proper lanes."
+        description="US Fellows provides the research-program context. USIVA provides a public planning companion. The university, DSO, government agency, employer, sponsor, consulate, or qualified counsel remains responsible for the live decision."
       />
-      <div class="sources-wrap">
-        <SourceList sources={sources} />
+
+      <div class="scope-grid">
+        <article class="scope-panel scope-panel--in">
+          <p class="scope-panel__label">USIVA covers</p>
+          <ul>
+            {scopeItems.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+        <article class="scope-panel scope-panel--out">
+          <p class="scope-panel__label">This page does not</p>
+          <ul>
+            {limits.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section section--signal">
-    <div class="shell-container cta-layout">
+  <section class="rd-section rd-section--mist" id="timeline">
+    <div class="shell-container">
+      <SectionIntro
+        eyebrow="Four moments to verify"
+        title="The question changes as the scholar moves."
+        description="Use the sequence as a conversation map. Do not treat it as a personal eligibility checklist or a substitute for current school and government instructions."
+      />
+
+      <ol class="rd-sequence">
+        {stages.map((stage) => (
+          <li>
+            <div class="rd-sequence__stage">{stage.stage}</div>
+            <h3>{stage.title}</h3>
+            <p>{stage.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="rd-section rd-section--night" id="boundaries">
+    <div class="shell-container rd-boundary-layout">
+      <div class="rd-boundary-copy">
+        <p class="eyebrow">A hard boundary</p>
+        <h2>Research exposure is not work authorization.</h2>
+        <p>The program may create research or partner conversations. That exposure does not itself authorize employment, compensation, or training. Review the activity with the school, DSO, sponsor, employer, and appropriate counsel before it begins.</p>
+      </div>
+
+      <figure class="rd-boundary-figure">
+        <img
+          src="/assets/photos/usiva-study-research.webp"
+          alt="A researcher in a white coat works at a microscope in a laboratory."
+          width="1536"
+          height="1024"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption><span>Research / 02</span> The subject matter may be scientific; the authorization question is still specific to the person, school, role, and timing.</figcaption>
+      </figure>
+    </div>
+
+    <div class="shell-container">
+      <div class="work-boundaries">
+        {workBoundaries.map((boundary, index) => (
+          <article>
+            <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+            <h3>{boundary.label}</h3>
+            <p>{boundary.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="rd-section rd-section--paper" id="sources">
+    <div class="shell-container">
+      <SectionIntro
+        eyebrow="Official-source handoff"
+        title="Verify the live rule with the authority that owns it."
+        description="These public sources orient the main questions. Recheck them before acting, and pair them with school-specific instructions or individualized professional advice when the facts require it."
+      />
+
+      <div class="rd-sources-layout">
+        <SourceList sources={sources} />
+        <aside class="rd-source-actions" aria-label="Official source actions">
+          <p class="rd-source-actions__label">Start here</p>
+          <p>Use the State Department for the student-visa overview, USCIS for current authorization guidance, and the school or DSO for program-specific instructions.</p>
+          <ActionLinks actions={sourceActions} />
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="rd-next" aria-labelledby="next-title">
+    <div class="shell-container rd-next__inner">
       <div>
-        <p class="eyebrow">Next step</p>
-        <h2>Build the research file and the visa-readiness file together.</h2>
-        <p>The strongest candidate prepares both sides: fundable research logic through US Fellows and careful compliance planning through USIVA.</p>
+        <p class="eyebrow">Two clean handoffs</p>
+        <h2 id="next-title">Use US Fellows for program context. Use USIVA for the visa-readiness question.</h2>
+        <p>Keep the research file and the immigration question connected, but do not make one page stand in for the other.</p>
       </div>
-      <div class="cta-layout__actions">
-        <ActionLinks actions={ctaActions} />
-      </div>
+      <ActionLinks actions={finalActions} />
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  section[id] {
-    scroll-margin-top: 8rem;
-  }
-
-  .timeline-wrap,
-  .readiness-wrap,
-  .boundary-wrap,
-  .comparison-wrap,
-  .sources-wrap {
-    margin-block-start: var(--space-4);
-  }
-
-  .section--signal h2 {
+  .rd-hero {
+    background: var(--color-navy-deep);
     color: var(--color-paper);
-    font-size: var(--step-3);
-    max-width: 17ch;
   }
 
-  .section--signal .eyebrow {
+  .rd-hero__inner {
+    align-items: end;
+    display: grid;
+    gap: clamp(2rem, 5vw, 5.5rem);
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+    padding-block: clamp(3.5rem, 7vw, 6.5rem);
+  }
+
+  .rd-hero .eyebrow,
+  .rd-boundary-copy .eyebrow,
+  .rd-next .eyebrow {
     color: var(--color-highlight);
   }
 
-  .section--signal p {
-    color: #fff4e0;
+  .rd-hero h1 {
+    color: var(--color-paper);
+    font-size: clamp(2.45rem, 4.5vw, 4.35rem);
+    max-width: 12ch;
   }
 
-  .cta-layout {
+  .rd-hero__lede {
+    color: #d6e1e5;
+    font-size: clamp(1rem, 0.94rem + 0.25vw, 1.15rem);
+    line-height: 1.58;
+    margin-block-start: var(--space-3);
+    max-width: 58ch;
+  }
+
+  .rd-hero__figure,
+  .rd-boundary-figure {
+    margin: 0;
+  }
+
+  .rd-hero__figure {
+    border: 1px solid rgba(214, 225, 229, 0.28);
+    padding: 0.55rem;
+  }
+
+  .rd-hero__figure img,
+  .rd-boundary-figure img {
+    display: block;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .rd-hero__figure img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .rd-hero figcaption,
+  .rd-boundary-figure figcaption {
+    color: #c8d5dc;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    padding: 0.8rem 0.35rem 0.15rem;
+  }
+
+  .rd-hero figcaption span,
+  .rd-boundary-figure figcaption span {
+    color: var(--color-highlight);
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    margin-block-end: 0.2rem;
+    text-transform: uppercase;
+  }
+
+  .rd-section {
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  .rd-section--paper {
+    background: var(--color-paper);
+  }
+
+  .rd-section--mist {
+    background: var(--color-mist);
+  }
+
+  .rd-section--night,
+  .rd-next {
+    background: var(--color-navy);
+    color: var(--color-paper);
+  }
+
+  .rd-section--night h2,
+  .rd-section--night h3,
+  .rd-next h2 {
+    color: var(--color-paper);
+  }
+
+  .rd-section--night p,
+  .rd-next p {
+    color: #d6e1e5;
+  }
+
+  .rd-section .section-intro h2 {
+    font-size: clamp(2rem, 3.3vw, 3.15rem);
+    max-width: 20ch;
+  }
+
+  .rd-section .section-intro > p:last-child {
+    font-size: var(--step--1);
+    max-width: 68ch;
+  }
+
+  .scope-grid {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-block-start: clamp(2.25rem, 4vw, 3.8rem);
+  }
+
+  .scope-panel {
+    padding: clamp(1.4rem, 3vw, 2.5rem);
+  }
+
+  .scope-panel--in {
+    background: var(--color-mist);
+    border-top: 3px solid var(--color-teal);
+  }
+
+  .scope-panel--out {
+    background: #f6eee7;
+    border-top: 3px solid var(--color-accent);
+  }
+
+  .scope-panel__label,
+  .rd-source-actions__label {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    margin-block-end: 1rem;
+    text-transform: uppercase;
+  }
+
+  .scope-panel--in .scope-panel__label {
+    color: var(--color-teal);
+  }
+
+  .scope-panel ul {
+    list-style: none;
+  }
+
+  .scope-panel li {
+    padding-inline-start: 1.15rem;
+    position: relative;
+  }
+
+  .scope-panel li + li {
+    margin-block-start: 0.85rem;
+  }
+
+  .scope-panel li::before {
+    color: var(--color-accent);
+    content: '—';
+    left: 0;
+    position: absolute;
+  }
+
+  .scope-panel--in li::before {
+    color: var(--color-teal);
+  }
+
+  .scope-panel li {
+    color: var(--color-muted);
+    font-size: var(--step--1);
+    line-height: 1.5;
+  }
+
+  .rd-sequence {
+    border-top: 1px solid var(--color-line);
+    list-style: none;
+    margin-block-start: clamp(2.25rem, 4vw, 3.8rem);
+  }
+
+  .rd-sequence li {
+    align-items: start;
+    border-bottom: 1px solid var(--color-line);
+    display: grid;
+    gap: 1.3rem;
+    grid-template-columns: minmax(10rem, 0.7fr) minmax(12rem, 0.85fr) 1.45fr;
+    padding-block: 1.35rem;
+  }
+
+  .rd-sequence__stage {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .rd-sequence h3 {
+    font-size: clamp(1.25rem, 1.08rem + 0.5vw, 1.7rem);
+  }
+
+  .rd-sequence p {
+    font-size: var(--step--1);
+    line-height: 1.5;
+  }
+
+  .rd-boundary-layout {
+    align-items: start;
+    display: grid;
+    gap: clamp(2rem, 6vw, 6rem);
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.85fr);
+  }
+
+  .rd-boundary-copy {
+    padding-block-start: 1rem;
+  }
+
+  .rd-boundary-copy h2 {
+    font-size: clamp(2rem, 3.6vw, 3.5rem);
+    max-width: 13ch;
+  }
+
+  .rd-boundary-copy > p:last-child {
+    font-size: var(--step--1);
+    margin-block-start: var(--space-2);
+    max-width: 54ch;
+  }
+
+  .rd-boundary-figure img {
+    aspect-ratio: 3 / 2;
+  }
+
+  .work-boundaries {
+    border-top: 1px solid rgba(214, 225, 229, 0.28);
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-block-start: clamp(2.5rem, 6vw, 5rem);
+  }
+
+  .work-boundaries article {
+    border-bottom: 1px solid rgba(214, 225, 229, 0.28);
+    padding-block: 1.2rem;
+  }
+
+  .work-boundaries article > span {
+    color: var(--color-highlight);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+  }
+
+  .work-boundaries h3 {
+    font-size: 1.25rem;
+    margin-block: 0.55rem 0.35rem;
+  }
+
+  .work-boundaries p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    padding-inline-end: 1rem;
+  }
+
+  .rd-sources-layout {
+    align-items: start;
+    display: grid;
+    gap: clamp(2rem, 5vw, 5rem);
+    grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+    margin-block-start: clamp(2.25rem, 4vw, 3.8rem);
+  }
+
+  .rd-source-actions {
+    border-left: 3px solid var(--color-gold);
+    padding-inline-start: var(--space-2);
+  }
+
+  .rd-source-actions > p:not(.rd-source-actions__label) {
+    font-size: var(--step--1);
+  }
+
+  .rd-source-actions .action-links {
+    margin-block-start: var(--space-2);
+  }
+
+  .rd-next {
+    padding-block: clamp(4rem, 7vw, 6rem);
+  }
+
+  .rd-next__inner {
     align-items: center;
     display: grid;
-    gap: var(--space-4);
+    gap: clamp(2rem, 5vw, 5rem);
     grid-template-columns: minmax(0, 1fr) auto;
   }
 
-  .cta-layout__actions .action-links {
+  .rd-next h2 {
+    font-size: clamp(2rem, 3.5vw, 3.4rem);
+    max-width: 17ch;
+  }
+
+  .rd-next__inner > div > p:last-child {
+    font-size: var(--step--1);
+    margin-block-start: var(--space-2);
+    max-width: 58ch;
+  }
+
+  .rd-next__inner > .action-links {
     margin-block-start: 0;
   }
 
+  @media (max-width: 900px) {
+    .rd-hero__inner,
+    .rd-boundary-layout,
+    .rd-sources-layout,
+    .rd-next__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .rd-hero__figure {
+      max-width: 42rem;
+    }
+
+    .rd-boundary-figure {
+      max-width: 36rem;
+    }
+
+    .rd-source-actions {
+      border-left: 0;
+      border-top: 3px solid var(--color-gold);
+      padding-block-start: var(--space-2);
+      padding-inline-start: 0;
+    }
+
+    .rd-next__inner > .action-links {
+      margin-block-start: var(--space-2);
+    }
+  }
+
   @media (max-width: 760px) {
-    .cta-layout {
+    .scope-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .rd-sequence li {
+      display: grid;
+      gap: 0.45rem 1rem;
+      grid-template-columns: 7rem 1fr;
+    }
+
+    .rd-sequence p {
+      grid-column: 2;
+    }
+
+    .work-boundaries {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 500px) {
+    .rd-sequence li {
       display: block;
     }
 
-    .cta-layout__actions .action-links {
-      margin-block-start: var(--space-3);
+    .rd-sequence h3 {
+      margin-block: 0.35rem 0.45rem;
+    }
+
+    .work-boundaries {
+      grid-template-columns: 1fr;
     }
   }
 </style>

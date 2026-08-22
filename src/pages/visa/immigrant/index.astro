@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import VisaDirectory from '../../../components/VisaDirectory.astro';
+import { immigrantCategories, immigrantFamilies } from '../../../data/visa-categories';
+
+const routePath = '/visa/immigrant.html';
+const title = 'Immigrant visa categories | USIVA';
+const description = 'Browse source-aware immigrant visa categories for family, adoption, employment, special immigrant, diversity, K, and returning-resident routes.';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  activePath={routePath}
+  canonical={routePath}
+  topbarMessage="Source-aware visa orientation; verify current instructions with the responsible authority."
+  topbarLink={{ label: 'Read the public boundary', href: '/about.html' }}
+>
+  <article class="track-page">
+    <header class="track-hero track-hero--permanent">
+      <div class="track-shell">
+        <p class="eyebrow">USIVA / immigrant index</p>
+        <h1>Permanent immigration has a family, employment, or program record behind it.</h1>
+        <p>Browse family, adoption, employment, special immigrant, K, diversity, and returning-resident routes. Keep the petition, visa-number, civil-document, and post-specific questions visible as separate handoffs.</p>
+      </div>
+    </header>
+    <div class="track-shell track-content">
+      <VisaDirectory
+        track="immigrant"
+        categories={immigrantCategories}
+        families={immigrantFamilies}
+        heading="Immigrant category index"
+        description="Each record is an orientation point to the official State Department or USCIS source. It does not predict approval, visa availability, or timing."
+      />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .track-page {
+    background: var(--color-canvas);
+  }
+
+  .track-shell {
+    margin-inline: auto;
+    max-width: var(--measure-wide);
+    padding-inline: var(--gutter);
+  }
+
+  .track-hero {
+    background: var(--color-mist);
+    border-bottom: 1px solid var(--color-line);
+    padding-block: clamp(3rem, 6vw, 5rem) var(--space-4);
+  }
+
+  .track-hero--permanent {
+    background: #e3eceb;
+  }
+
+  .track-hero h1 {
+    color: var(--color-navy-deep);
+    font-size: clamp(2.3rem, 5vw, 4.45rem);
+    letter-spacing: -0.045em;
+    line-height: 0.96;
+    max-width: 15ch;
+  }
+
+  .track-hero p:last-child {
+    font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+    margin-block-start: var(--space-2);
+    max-width: 62ch;
+  }
+
+  .track-content {
+    padding-block-start: var(--space-4);
+  }
+
+  @media (max-width: 620px) {
+    .track-shell {
+      padding-inline: 1rem;
+    }
+  }
+</style>

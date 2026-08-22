@@ -1,6 +1,6 @@
 # USIVA — U.S. Immigration and Visa Association
 
-USIVA is the US Council visa-readiness and compliance-planning companion to US Fellows. Its content is informational planning content. It does not guarantee admission, employment, funding, visa issuance, or government approval, and it does not replace individualized legal advice.
+USIVA is the US Council's informational planning and official-source navigation space for people and organizations working through U.S. immigration and visa questions. Its content is designed to help readers organize records, understand which public authority owns the next step, and prepare a responsible handoff. USIVA is not a law firm: it does not provide legal advice or representation, make eligibility determinations, submit applications, or guarantee admission, employment, funding, visa issuance, or government approval.
 
 Source of truth: [US-Council/usiva on GitHub](https://github.com/US-Council/usiva). `main` is the only source branch for the public site. The current public release is live on GitHub Pages at [usiva.org](https://usiva.org/), with the internal preview kept at the GitLab Pages URL documented below.
 
@@ -38,6 +38,10 @@ corepack pnpm run preview
 - Put processable editorial media in `src/assets/` and use Astro's asset pipeline. Use `public/` only for exact-copy files such as favicons, manifests, verification files, or downloads. The Astro configuration must keep generated assets in `assets/`, not the underscore-prefixed `_astro/` directory.
 - Keep page files thin: select typed content and compose existing layouts/components. Add a component only when the semantic pattern is reused; add client hydration only when a real interaction requires it.
 - For every new route or collection entry, run `pnpm run check`, `pnpm run build`, and the relevant route/accessibility tests. Inspect the built route rather than relying only on source compilation.
+
+The visa directory is generated from the typed catalog in `src/data/visa-categories.ts`. It intentionally covers principal nonimmigrant and immigrant families plus the published subcategories, while each route sends readers to the controlling USCIS, Department of State, DHS, SEVP, or employer resource. The directory is an orientation index—not an eligibility engine.
+
+The official tools surface is static-safe by design. USCIS Case Status API credentials require an approved application and a server-side token exchange; no secret, receipt number, or user account data belongs in this repository or the browser bundle. Until an approved backend is provisioned, the site provides official Case Status and MyUSCIS handoffs and documents the API contract without pretending to offer live lookup.
 
 Do not put secrets, tokens, private URLs, or DNS credentials in content, source, workflow files, or documentation.
 

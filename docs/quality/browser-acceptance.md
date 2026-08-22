@@ -8,7 +8,7 @@ This record captures the browser-level acceptance performed for the aggressive A
 - Browser: Chromium 145 through Playwright 1.58.0.
 - Accessibility: axe-core 4.13.0 with the WCAG 2 A and AA rule sets.
 - Viewports: 390 × 844 and 1440 × 844.
-- Routes: all 14 generated content routes, including the four `/guides/*.html` routes.
+- Routes: the public route sample plus generated visa families/categories; the static build currently emits 163 HTML routes.
 
 ## Acceptance results
 
@@ -19,6 +19,6 @@ This record captures the browser-level acceptance performed for the aggressive A
 - No horizontal overflow was observed at either viewport.
 - axe reported no WCAG 2 A or AA violations on any route.
 - The strict rendered-output audit passed with zero errors and zero warnings.
-- The media gallery was visually inspected after its responsive reading-list layout was corrected; the four artifacts, captions, notice, and footer remain legible at desktop and mobile widths.
+- The home, visa-category, service, FAQ, media-gallery, and employer routes were visually inspected at desktop and mobile widths. Generated project photography, captions, compact headings, mega-menu shell, route cards, and official-source rails remain legible.
 
 This is a release evidence record, not a runtime dependency. The source and production gates run in both deployment jobs; repeat this browser acceptance after a material layout, component, or accessibility change.
