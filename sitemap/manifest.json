@@ -6,7 +6,7 @@
     "title": "USIVA \u2014 Visa Planning & Immigration Information",
     "captureUrl": "https://usiva.org/",
     "image": "shots/001-index.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/"
   },
   {
@@ -16,7 +16,7 @@
     "title": "About USIVA",
     "captureUrl": "https://usiva.org/about.html",
     "image": "shots/002-about-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/about.html"
   },
   {
@@ -26,7 +26,7 @@
     "title": "Articles & News | USIVA",
     "captureUrl": "https://usiva.org/articles.html",
     "image": "shots/003-articles-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/articles.html"
   },
   {
@@ -36,7 +36,7 @@
     "title": "Field Notes & Blog | USIVA",
     "captureUrl": "https://usiva.org/blog.html",
     "image": "shots/004-blog-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/blog.html"
   },
   {
@@ -46,7 +46,7 @@
     "title": "Research Briefs | USIVA",
     "captureUrl": "https://usiva.org/briefs.html",
     "image": "shots/005-briefs-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/briefs.html"
   },
   {
@@ -56,7 +56,7 @@
     "title": "Contact & Question Brief | USIVA",
     "captureUrl": "https://usiva.org/contacts.html",
     "image": "shots/006-contacts-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/contacts.html"
   },
   {
@@ -66,7 +66,7 @@
     "title": "E-Verify | USIVA",
     "captureUrl": "https://usiva.org/e-verify.html",
     "image": "shots/007-e-verify-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/e-verify.html"
   },
   {
@@ -76,7 +76,7 @@
     "title": "Employer Resources | USIVA",
     "captureUrl": "https://usiva.org/employers.html",
     "image": "shots/008-employers-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/employers.html"
   },
   {
@@ -86,7 +86,7 @@
     "title": "Evidence Checklists | USIVA Guides",
     "captureUrl": "https://usiva.org/guides/evidence-checklists.html",
     "image": "shots/009-guides-evidence-checklists-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/guides/evidence-checklists.html"
   },
   {
@@ -96,7 +96,7 @@
     "title": "F-1 Readiness Guide | USIVA",
     "captureUrl": "https://usiva.org/guides/f-1-readiness.html",
     "image": "shots/010-guides-f-1-readiness-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/guides/f-1-readiness.html"
   },
   {
@@ -106,7 +106,7 @@
     "title": "OPT Guide | USIVA",
     "captureUrl": "https://usiva.org/guides/opt.html",
     "image": "shots/011-guides-opt-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/guides/opt.html"
   },
   {
@@ -116,7 +116,7 @@
     "title": "STEM OPT Guide | USIVA",
     "captureUrl": "https://usiva.org/guides/stem-opt.html",
     "image": "shots/012-guides-stem-opt-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/guides/stem-opt.html"
   },
   {
@@ -126,7 +126,7 @@
     "title": "International R&D Scholars | USIVA",
     "captureUrl": "https://usiva.org/international-rd-scholars.html",
     "image": "shots/013-international-rd-scholars-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/international-rd-scholars.html"
   },
   {
@@ -136,7 +136,7 @@
     "title": "Media Gallery | USIVA",
     "captureUrl": "https://usiva.org/media-gallery.html",
     "image": "shots/014-media-gallery-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/media-gallery.html"
   },
   {
@@ -146,7 +146,7 @@
     "title": "Official Tools Directory | USIVA",
     "captureUrl": "https://usiva.org/official-tools.html",
     "image": "shots/015-official-tools-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/official-tools.html"
   },
   {
@@ -156,7 +156,7 @@
     "title": "Route Atlas | USIVA",
     "captureUrl": "https://usiva.org/other-pages.html",
     "image": "shots/016-other-pages-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/other-pages.html"
   },
   {
@@ -166,7 +166,7 @@
     "title": "Pricing | USIVA",
     "captureUrl": "https://usiva.org/pricing.html",
     "image": "shots/017-pricing-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/pricing.html"
   },
   {
@@ -176,7 +176,7 @@
     "title": "Services | USIVA",
     "captureUrl": "https://usiva.org/services.html",
     "image": "shots/018-services-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/services.html"
   },
   {
@@ -186,7 +186,7 @@
     "title": "Tips & FAQ | USIVA",
     "captureUrl": "https://usiva.org/tips-faq.html",
     "image": "shots/019-tips-faq-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/tips-faq.html"
   },
   {
@@ -196,7 +196,7 @@
     "title": "Visa Categories | USIVA",
     "captureUrl": "https://usiva.org/visa-categories.html",
     "image": "shots/020-visa-categories-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa-categories.html"
   },
   {
@@ -206,7 +206,7 @@
     "title": "Visa Overview | USIVA",
     "captureUrl": "https://usiva.org/visa.html",
     "image": "shots/021-visa-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa.html"
   },
   {
@@ -216,7 +216,7 @@
     "title": "Immigrant Visas Overview | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant.html",
     "image": "shots/022-visa-immigrant-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant.html"
   },
   {
@@ -226,7 +226,7 @@
     "title": "CR 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/cr-1.html",
     "image": "shots/023-visa-immigrant-cr-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/cr-1.html"
   },
   {
@@ -236,7 +236,7 @@
     "title": "CR 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/cr-2.html",
     "image": "shots/024-visa-immigrant-cr-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/cr-2.html"
   },
   {
@@ -246,7 +246,7 @@
     "title": "DV | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/dv.html",
     "image": "shots/025-visa-immigrant-dv-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/dv.html"
   },
   {
@@ -256,7 +256,7 @@
     "title": "EB 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/eb-1.html",
     "image": "shots/026-visa-immigrant-eb-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/eb-1.html"
   },
   {
@@ -266,7 +266,7 @@
     "title": "EB 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/eb-2.html",
     "image": "shots/027-visa-immigrant-eb-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/eb-2.html"
   },
   {
@@ -276,7 +276,7 @@
     "title": "EB 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/eb-3.html",
     "image": "shots/028-visa-immigrant-eb-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/eb-3.html"
   },
   {
@@ -286,7 +286,7 @@
     "title": "EB 4 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/eb-4.html",
     "image": "shots/029-visa-immigrant-eb-4-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/eb-4.html"
   },
   {
@@ -296,7 +296,7 @@
     "title": "EB 5 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/eb-5.html",
     "image": "shots/030-visa-immigrant-eb-5-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/eb-5.html"
   },
   {
@@ -306,7 +306,7 @@
     "title": "EW 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/ew-3.html",
     "image": "shots/031-visa-immigrant-ew-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/ew-3.html"
   },
   {
@@ -316,7 +316,7 @@
     "title": "F1 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/f1.html",
     "image": "shots/032-visa-immigrant-f1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/f1.html"
   },
   {
@@ -326,7 +326,7 @@
     "title": "F2A | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/f2a.html",
     "image": "shots/033-visa-immigrant-f2a-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/f2a.html"
   },
   {
@@ -336,7 +336,7 @@
     "title": "F2B | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/f2b.html",
     "image": "shots/034-visa-immigrant-f2b-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/f2b.html"
   },
   {
@@ -346,7 +346,7 @@
     "title": "F3 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/f3.html",
     "image": "shots/035-visa-immigrant-f3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/f3.html"
   },
   {
@@ -356,7 +356,7 @@
     "title": "F4 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/f4.html",
     "image": "shots/036-visa-immigrant-f4-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/f4.html"
   },
   {
@@ -366,7 +366,7 @@
     "title": "Adoption | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/family/adoption.html",
     "image": "shots/037-visa-immigrant-family-adoption-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/family/adoption.html"
   },
   {
@@ -376,7 +376,7 @@
     "title": "DV | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/family/dv.html",
     "image": "shots/038-visa-immigrant-family-dv-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/family/dv.html"
   },
   {
@@ -386,7 +386,7 @@
     "title": "EB | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/family/eb.html",
     "image": "shots/039-visa-immigrant-family-eb-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/family/eb.html"
   },
   {
@@ -396,7 +396,7 @@
     "title": "F Family | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/family/f-family.html",
     "image": "shots/040-visa-immigrant-family-f-family-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/family/f-family.html"
   },
   {
@@ -406,7 +406,7 @@
     "title": "IR CR | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/family/ir-cr.html",
     "image": "shots/041-visa-immigrant-family-ir-cr-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/family/ir-cr.html"
   },
   {
@@ -416,7 +416,7 @@
     "title": "K Family | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/family/k-family.html",
     "image": "shots/042-visa-immigrant-family-k-family-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/family/k-family.html"
   },
   {
@@ -426,7 +426,7 @@
     "title": "SB | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/family/sb.html",
     "image": "shots/043-visa-immigrant-family-sb-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/family/sb.html"
   },
   {
@@ -436,7 +436,7 @@
     "title": "Special | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/family/special.html",
     "image": "shots/044-visa-immigrant-family-special-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/family/special.html"
   },
   {
@@ -446,7 +446,7 @@
     "title": "IH 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/ih-3.html",
     "image": "shots/045-visa-immigrant-ih-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/ih-3.html"
   },
   {
@@ -456,7 +456,7 @@
     "title": "IH 4 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/ih-4.html",
     "image": "shots/046-visa-immigrant-ih-4-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/ih-4.html"
   },
   {
@@ -466,7 +466,7 @@
     "title": "IR 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/ir-1.html",
     "image": "shots/047-visa-immigrant-ir-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/ir-1.html"
   },
   {
@@ -476,7 +476,7 @@
     "title": "IR 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/ir-2.html",
     "image": "shots/048-visa-immigrant-ir-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/ir-2.html"
   },
   {
@@ -486,7 +486,7 @@
     "title": "IR 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/ir-3.html",
     "image": "shots/049-visa-immigrant-ir-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/ir-3.html"
   },
   {
@@ -496,7 +496,7 @@
     "title": "IR 4 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/ir-4.html",
     "image": "shots/050-visa-immigrant-ir-4-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/ir-4.html"
   },
   {
@@ -506,7 +506,7 @@
     "title": "IR 5 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/ir-5.html",
     "image": "shots/051-visa-immigrant-ir-5-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/ir-5.html"
   },
   {
@@ -516,7 +516,7 @@
     "title": "K 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/k-1.html",
     "image": "shots/052-visa-immigrant-k-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/k-1.html"
   },
   {
@@ -526,7 +526,7 @@
     "title": "K 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/k-3.html",
     "image": "shots/053-visa-immigrant-k-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/k-3.html"
   },
   {
@@ -536,7 +536,7 @@
     "title": "SB | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/sb.html",
     "image": "shots/054-visa-immigrant-sb-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/sb.html"
   },
   {
@@ -546,7 +546,7 @@
     "title": "SD | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/sd.html",
     "image": "shots/055-visa-immigrant-sd-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/sd.html"
   },
   {
@@ -556,7 +556,7 @@
     "title": "SI | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/si.html",
     "image": "shots/056-visa-immigrant-si-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/si.html"
   },
   {
@@ -566,7 +566,7 @@
     "title": "SQ | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/sq.html",
     "image": "shots/057-visa-immigrant-sq-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/sq.html"
   },
   {
@@ -576,7 +576,7 @@
     "title": "SR | USIVA",
     "captureUrl": "https://usiva.org/visa/immigrant/sr.html",
     "image": "shots/058-visa-immigrant-sr-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/immigrant/sr.html"
   },
   {
@@ -586,7 +586,7 @@
     "title": "Nonimmigrant Visas Overview | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant.html",
     "image": "shots/059-visa-nonimmigrant-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant.html"
   },
   {
@@ -596,7 +596,7 @@
     "title": "A 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/a-1.html",
     "image": "shots/060-visa-nonimmigrant-a-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/a-1.html"
   },
   {
@@ -606,7 +606,7 @@
     "title": "A 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/a-2.html",
     "image": "shots/061-visa-nonimmigrant-a-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/a-2.html"
   },
   {
@@ -616,7 +616,7 @@
     "title": "A 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/a-3.html",
     "image": "shots/062-visa-nonimmigrant-a-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/a-3.html"
   },
   {
@@ -626,7 +626,7 @@
     "title": "B 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/b-1.html",
     "image": "shots/063-visa-nonimmigrant-b-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/b-1.html"
   },
   {
@@ -636,7 +636,7 @@
     "title": "B 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/b-2.html",
     "image": "shots/064-visa-nonimmigrant-b-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/b-2.html"
   },
   {
@@ -646,7 +646,7 @@
     "title": "BCC | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/bcc.html",
     "image": "shots/065-visa-nonimmigrant-bcc-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/bcc.html"
   },
   {
@@ -656,7 +656,7 @@
     "title": "C 1 D | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/c-1-d.html",
     "image": "shots/066-visa-nonimmigrant-c-1-d-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/c-1-d.html"
   },
   {
@@ -666,7 +666,7 @@
     "title": "C 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/c-1.html",
     "image": "shots/067-visa-nonimmigrant-c-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/c-1.html"
   },
   {
@@ -676,7 +676,7 @@
     "title": "C 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/c-2.html",
     "image": "shots/068-visa-nonimmigrant-c-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/c-2.html"
   },
   {
@@ -686,7 +686,7 @@
     "title": "C 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/c-3.html",
     "image": "shots/069-visa-nonimmigrant-c-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/c-3.html"
   },
   {
@@ -696,7 +696,7 @@
     "title": "CW 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/cw-1.html",
     "image": "shots/070-visa-nonimmigrant-cw-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/cw-1.html"
   },
   {
@@ -706,7 +706,7 @@
     "title": "D | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/d.html",
     "image": "shots/071-visa-nonimmigrant-d-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/d.html"
   },
   {
@@ -716,7 +716,7 @@
     "title": "E 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/e-1.html",
     "image": "shots/072-visa-nonimmigrant-e-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/e-1.html"
   },
   {
@@ -726,7 +726,7 @@
     "title": "E 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/e-2.html",
     "image": "shots/073-visa-nonimmigrant-e-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/e-2.html"
   },
   {
@@ -736,7 +736,7 @@
     "title": "E 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/e-3.html",
     "image": "shots/074-visa-nonimmigrant-e-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/e-3.html"
   },
   {
@@ -746,7 +746,7 @@
     "title": "E 3D | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/e-3d.html",
     "image": "shots/075-visa-nonimmigrant-e-3d-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/e-3d.html"
   },
   {
@@ -756,7 +756,7 @@
     "title": "E 3R | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/e-3r.html",
     "image": "shots/076-visa-nonimmigrant-e-3r-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/e-3r.html"
   },
   {
@@ -766,7 +766,7 @@
     "title": "F 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/f-1.html",
     "image": "shots/077-visa-nonimmigrant-f-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/f-1.html"
   },
   {
@@ -776,7 +776,7 @@
     "title": "F 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/f-2.html",
     "image": "shots/078-visa-nonimmigrant-f-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/f-2.html"
   },
   {
@@ -786,7 +786,7 @@
     "title": "F 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/f-3.html",
     "image": "shots/079-visa-nonimmigrant-f-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/f-3.html"
   },
   {
@@ -796,7 +796,7 @@
     "title": "A | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/a.html",
     "image": "shots/080-visa-nonimmigrant-family-a-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/a.html"
   },
   {
@@ -806,7 +806,7 @@
     "title": "B | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/b.html",
     "image": "shots/081-visa-nonimmigrant-family-b-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/b.html"
   },
   {
@@ -816,7 +816,7 @@
     "title": "C | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/c.html",
     "image": "shots/082-visa-nonimmigrant-family-c-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/c.html"
   },
   {
@@ -826,7 +826,7 @@
     "title": "D | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/d.html",
     "image": "shots/083-visa-nonimmigrant-family-d-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/d.html"
   },
   {
@@ -836,7 +836,7 @@
     "title": "E | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/e.html",
     "image": "shots/084-visa-nonimmigrant-family-e-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/e.html"
   },
   {
@@ -846,7 +846,7 @@
     "title": "F | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/f.html",
     "image": "shots/085-visa-nonimmigrant-family-f-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/f.html"
   },
   {
@@ -856,7 +856,7 @@
     "title": "G | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/g.html",
     "image": "shots/086-visa-nonimmigrant-family-g-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/g.html"
   },
   {
@@ -866,7 +866,7 @@
     "title": "H | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/h.html",
     "image": "shots/087-visa-nonimmigrant-family-h-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/h.html"
   },
   {
@@ -876,7 +876,7 @@
     "title": "I | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/i.html",
     "image": "shots/088-visa-nonimmigrant-family-i-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/i.html"
   },
   {
@@ -886,7 +886,7 @@
     "title": "J | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/j.html",
     "image": "shots/089-visa-nonimmigrant-family-j-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/j.html"
   },
   {
@@ -896,7 +896,7 @@
     "title": "K | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/k.html",
     "image": "shots/090-visa-nonimmigrant-family-k-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/k.html"
   },
   {
@@ -906,7 +906,7 @@
     "title": "L | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/l.html",
     "image": "shots/091-visa-nonimmigrant-family-l-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/l.html"
   },
   {
@@ -916,7 +916,7 @@
     "title": "M | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/m.html",
     "image": "shots/092-visa-nonimmigrant-family-m-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/m.html"
   },
   {
@@ -926,7 +926,7 @@
     "title": "N | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/n.html",
     "image": "shots/093-visa-nonimmigrant-family-n-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/n.html"
   },
   {
@@ -936,7 +936,7 @@
     "title": "NATO | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/nato.html",
     "image": "shots/094-visa-nonimmigrant-family-nato-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/nato.html"
   },
   {
@@ -946,7 +946,7 @@
     "title": "O | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/o.html",
     "image": "shots/095-visa-nonimmigrant-family-o-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/o.html"
   },
   {
@@ -956,7 +956,7 @@
     "title": "OTHER | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/other.html",
     "image": "shots/096-visa-nonimmigrant-family-other-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/other.html"
   },
   {
@@ -966,7 +966,7 @@
     "title": "P | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/p.html",
     "image": "shots/097-visa-nonimmigrant-family-p-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/p.html"
   },
   {
@@ -976,7 +976,7 @@
     "title": "Q | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/q.html",
     "image": "shots/098-visa-nonimmigrant-family-q-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/q.html"
   },
   {
@@ -986,7 +986,7 @@
     "title": "R | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/r.html",
     "image": "shots/099-visa-nonimmigrant-family-r-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/r.html"
   },
   {
@@ -996,7 +996,7 @@
     "title": "S | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/s.html",
     "image": "shots/100-visa-nonimmigrant-family-s-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/s.html"
   },
   {
@@ -1006,7 +1006,7 @@
     "title": "T | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/t.html",
     "image": "shots/101-visa-nonimmigrant-family-t-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/t.html"
   },
   {
@@ -1016,7 +1016,7 @@
     "title": "TN | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/tn.html",
     "image": "shots/102-visa-nonimmigrant-family-tn-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/tn.html"
   },
   {
@@ -1026,7 +1026,7 @@
     "title": "U | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/u.html",
     "image": "shots/103-visa-nonimmigrant-family-u-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/u.html"
   },
   {
@@ -1036,7 +1036,7 @@
     "title": "V | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/family/v.html",
     "image": "shots/104-visa-nonimmigrant-family-v-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/family/v.html"
   },
   {
@@ -1046,7 +1046,7 @@
     "title": "G 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/g-1.html",
     "image": "shots/105-visa-nonimmigrant-g-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/g-1.html"
   },
   {
@@ -1056,7 +1056,7 @@
     "title": "G 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/g-2.html",
     "image": "shots/106-visa-nonimmigrant-g-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/g-2.html"
   },
   {
@@ -1066,7 +1066,7 @@
     "title": "G 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/g-3.html",
     "image": "shots/107-visa-nonimmigrant-g-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/g-3.html"
   },
   {
@@ -1076,7 +1076,7 @@
     "title": "G 4 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/g-4.html",
     "image": "shots/108-visa-nonimmigrant-g-4-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/g-4.html"
   },
   {
@@ -1086,7 +1086,7 @@
     "title": "G 5 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/g-5.html",
     "image": "shots/109-visa-nonimmigrant-g-5-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/g-5.html"
   },
   {
@@ -1096,7 +1096,7 @@
     "title": "H 1B | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/h-1b.html",
     "image": "shots/110-visa-nonimmigrant-h-1b-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/h-1b.html"
   },
   {
@@ -1106,7 +1106,7 @@
     "title": "H 1B1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/h-1b1.html",
     "image": "shots/111-visa-nonimmigrant-h-1b1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/h-1b1.html"
   },
   {
@@ -1116,7 +1116,7 @@
     "title": "H 2A | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/h-2a.html",
     "image": "shots/112-visa-nonimmigrant-h-2a-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/h-2a.html"
   },
   {
@@ -1126,7 +1126,7 @@
     "title": "H 2B | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/h-2b.html",
     "image": "shots/113-visa-nonimmigrant-h-2b-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/h-2b.html"
   },
   {
@@ -1136,7 +1136,7 @@
     "title": "H 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/h-3.html",
     "image": "shots/114-visa-nonimmigrant-h-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/h-3.html"
   },
   {
@@ -1146,7 +1146,7 @@
     "title": "H 4 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/h-4.html",
     "image": "shots/115-visa-nonimmigrant-h-4-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/h-4.html"
   },
   {
@@ -1156,7 +1156,7 @@
     "title": "I | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/i.html",
     "image": "shots/116-visa-nonimmigrant-i-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/i.html"
   },
   {
@@ -1166,7 +1166,7 @@
     "title": "J 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/j-1.html",
     "image": "shots/117-visa-nonimmigrant-j-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/j-1.html"
   },
   {
@@ -1176,7 +1176,7 @@
     "title": "J 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/j-2.html",
     "image": "shots/118-visa-nonimmigrant-j-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/j-2.html"
   },
   {
@@ -1186,7 +1186,7 @@
     "title": "K 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/k-1.html",
     "image": "shots/119-visa-nonimmigrant-k-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/k-1.html"
   },
   {
@@ -1196,7 +1196,7 @@
     "title": "K 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/k-2.html",
     "image": "shots/120-visa-nonimmigrant-k-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/k-2.html"
   },
   {
@@ -1206,7 +1206,7 @@
     "title": "K 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/k-3.html",
     "image": "shots/121-visa-nonimmigrant-k-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/k-3.html"
   },
   {
@@ -1216,7 +1216,7 @@
     "title": "K 4 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/k-4.html",
     "image": "shots/122-visa-nonimmigrant-k-4-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/k-4.html"
   },
   {
@@ -1226,7 +1226,7 @@
     "title": "L 1A | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/l-1a.html",
     "image": "shots/123-visa-nonimmigrant-l-1a-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/l-1a.html"
   },
   {
@@ -1236,7 +1236,7 @@
     "title": "L 1B | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/l-1b.html",
     "image": "shots/124-visa-nonimmigrant-l-1b-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/l-1b.html"
   },
   {
@@ -1246,7 +1246,7 @@
     "title": "L 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/l-2.html",
     "image": "shots/125-visa-nonimmigrant-l-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/l-2.html"
   },
   {
@@ -1256,7 +1256,7 @@
     "title": "M 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/m-1.html",
     "image": "shots/126-visa-nonimmigrant-m-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/m-1.html"
   },
   {
@@ -1266,7 +1266,7 @@
     "title": "M 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/m-2.html",
     "image": "shots/127-visa-nonimmigrant-m-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/m-2.html"
   },
   {
@@ -1276,7 +1276,7 @@
     "title": "M 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/m-3.html",
     "image": "shots/128-visa-nonimmigrant-m-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/m-3.html"
   },
   {
@@ -1286,7 +1286,7 @@
     "title": "N 8 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/n-8.html",
     "image": "shots/129-visa-nonimmigrant-n-8-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/n-8.html"
   },
   {
@@ -1296,7 +1296,7 @@
     "title": "N 9 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/n-9.html",
     "image": "shots/130-visa-nonimmigrant-n-9-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/n-9.html"
   },
   {
@@ -1306,7 +1306,7 @@
     "title": "Nato 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-1.html",
     "image": "shots/131-visa-nonimmigrant-nato-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/nato-1.html"
   },
   {
@@ -1316,7 +1316,7 @@
     "title": "Nato 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-2.html",
     "image": "shots/132-visa-nonimmigrant-nato-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/nato-2.html"
   },
   {
@@ -1326,7 +1326,7 @@
     "title": "Nato 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-3.html",
     "image": "shots/133-visa-nonimmigrant-nato-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/nato-3.html"
   },
   {
@@ -1336,7 +1336,7 @@
     "title": "Nato 4 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-4.html",
     "image": "shots/134-visa-nonimmigrant-nato-4-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/nato-4.html"
   },
   {
@@ -1346,7 +1346,7 @@
     "title": "Nato 5 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-5.html",
     "image": "shots/135-visa-nonimmigrant-nato-5-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/nato-5.html"
   },
   {
@@ -1356,7 +1356,7 @@
     "title": "Nato 6 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-6.html",
     "image": "shots/136-visa-nonimmigrant-nato-6-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/nato-6.html"
   },
   {
@@ -1366,7 +1366,7 @@
     "title": "Nato 7 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-7.html",
     "image": "shots/137-visa-nonimmigrant-nato-7-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/nato-7.html"
   },
   {
@@ -1376,7 +1376,7 @@
     "title": "O 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/o-1.html",
     "image": "shots/138-visa-nonimmigrant-o-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/o-1.html"
   },
   {
@@ -1386,7 +1386,7 @@
     "title": "O 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/o-2.html",
     "image": "shots/139-visa-nonimmigrant-o-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/o-2.html"
   },
   {
@@ -1396,7 +1396,7 @@
     "title": "O 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/o-3.html",
     "image": "shots/140-visa-nonimmigrant-o-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/o-3.html"
   },
   {
@@ -1406,7 +1406,7 @@
     "title": "P 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/p-1.html",
     "image": "shots/141-visa-nonimmigrant-p-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/p-1.html"
   },
   {
@@ -1416,7 +1416,7 @@
     "title": "P 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/p-2.html",
     "image": "shots/142-visa-nonimmigrant-p-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/p-2.html"
   },
   {
@@ -1426,7 +1426,7 @@
     "title": "P 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/p-3.html",
     "image": "shots/143-visa-nonimmigrant-p-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/p-3.html"
   },
   {
@@ -1436,7 +1436,7 @@
     "title": "P 4 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/p-4.html",
     "image": "shots/144-visa-nonimmigrant-p-4-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/p-4.html"
   },
   {
@@ -1446,7 +1446,7 @@
     "title": "Q 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/q-1.html",
     "image": "shots/145-visa-nonimmigrant-q-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/q-1.html"
   },
   {
@@ -1456,7 +1456,7 @@
     "title": "Q 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/q-2.html",
     "image": "shots/146-visa-nonimmigrant-q-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/q-2.html"
   },
   {
@@ -1466,7 +1466,7 @@
     "title": "R 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/r-1.html",
     "image": "shots/147-visa-nonimmigrant-r-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/r-1.html"
   },
   {
@@ -1476,7 +1476,7 @@
     "title": "R 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/r-2.html",
     "image": "shots/148-visa-nonimmigrant-r-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/r-2.html"
   },
   {
@@ -1486,7 +1486,7 @@
     "title": "S 5 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/s-5.html",
     "image": "shots/149-visa-nonimmigrant-s-5-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/s-5.html"
   },
   {
@@ -1496,7 +1496,7 @@
     "title": "S 6 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/s-6.html",
     "image": "shots/150-visa-nonimmigrant-s-6-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/s-6.html"
   },
   {
@@ -1506,7 +1506,7 @@
     "title": "S 7 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/s-7.html",
     "image": "shots/151-visa-nonimmigrant-s-7-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/s-7.html"
   },
   {
@@ -1516,7 +1516,7 @@
     "title": "T 1 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/t-1.html",
     "image": "shots/152-visa-nonimmigrant-t-1-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/t-1.html"
   },
   {
@@ -1526,7 +1526,7 @@
     "title": "T 2 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/t-2.html",
     "image": "shots/153-visa-nonimmigrant-t-2-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/t-2.html"
   },
   {
@@ -1536,7 +1536,7 @@
     "title": "T 3 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/t-3.html",
     "image": "shots/154-visa-nonimmigrant-t-3-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/t-3.html"
   },
   {
@@ -1546,7 +1546,7 @@
     "title": "T 4 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/t-4.html",
     "image": "shots/155-visa-nonimmigrant-t-4-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/t-4.html"
   },
   {
@@ -1556,7 +1556,7 @@
     "title": "T 5 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/t-5.html",
     "image": "shots/156-visa-nonimmigrant-t-5-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/t-5.html"
   },
   {
@@ -1566,7 +1566,7 @@
     "title": "T 6 | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/t-6.html",
     "image": "shots/157-visa-nonimmigrant-t-6-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/t-6.html"
   },
   {
@@ -1576,7 +1576,7 @@
     "title": "TD | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/td.html",
     "image": "shots/158-visa-nonimmigrant-td-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/td.html"
   },
   {
@@ -1586,7 +1586,7 @@
     "title": "TN | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/tn.html",
     "image": "shots/159-visa-nonimmigrant-tn-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/tn.html"
   },
   {
@@ -1596,7 +1596,7 @@
     "title": "U | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/u.html",
     "image": "shots/160-visa-nonimmigrant-u-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/u.html"
   },
   {
@@ -1606,7 +1606,7 @@
     "title": "V | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/v.html",
     "image": "shots/161-visa-nonimmigrant-v-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/v.html"
   },
   {
@@ -1616,7 +1616,7 @@
     "title": "VWP | USIVA",
     "captureUrl": "https://usiva.org/visa/nonimmigrant/vwp.html",
     "image": "shots/162-visa-nonimmigrant-vwp-html.jpg",
-    "ok": false,
+    "ok": true,
     "url": "https://usiva.org/visa/nonimmigrant/vwp.html"
   }
 ]
