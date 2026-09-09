@@ -4,586 +4,211 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://usiva.org/sitemap/">
-  <title>USIVA Visual Sitemap &mdash; Visa Planning &amp; Immigration Information</title>
+  <title>USIVA Visual Sitemap</title>
   <link rel="icon" href="/assets/usiva-social.svg" type="image/svg+xml">
   <style>
-    :root { color-scheme: light; --ink:#17212b; --muted:#66717d; --line:#cbd1d8; --paper:#fff; --accent:#162e51; --accent-hover:#1a3a6b; --left-width:80%; --right-width:20%; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; overflow:hidden; background:#eef1f4; color:var(--ink); font:14px/1.45 system-ui,sans-serif; }
-    .app-shell { display:grid; grid-template-columns:var(--left-width) 6px var(--right-width); width:100%; height:100vh; overflow:hidden; }
-    .content { min-width:0; height:100vh; overflow-y:auto; }
-    header { padding:24px clamp(20px,4vw,54px) 20px; background:var(--paper); border-bottom:1px solid var(--line); }
-    h1 { margin:0 0 5px; font:500 clamp(27px,3.2vw,40px)/1.1 Georgia,serif; }
-    .meta { margin:0; color:var(--muted); }
-    .summary { display:flex; flex-wrap:wrap; gap:7px 20px; margin-top:12px; font-weight:650; }
-    .toolbar { display:flex; flex-wrap:wrap; gap:10px 18px; align-items:flex-end; margin-top:14px; padding:12px 14px; background:#f8f9fa; border:1px solid var(--line); border-radius:8px; }
-    .toolbar .field { display:flex; flex-direction:column; gap:4px; font-size:12px; font-weight:650; }
-    .toolbar .field label { font-size:12px; font-weight:700; }
-    .toolbar input[type="search"] { min-width:min(260px,60vw); padding:7px 10px; border:1px solid var(--line); border-radius:6px; font:inherit; font-weight:400; background:var(--paper); color:var(--ink); }
-    .toolbar select { padding:7px 10px; border:1px solid var(--line); border-radius:6px; font:inherit; font-weight:400; background:var(--paper); color:var(--ink); }
-    .toolbar :focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
-    .slider-row { display:flex; align-items:center; gap:8px; font-weight:400; }
-    .slider-row input[type="range"] { width:130px; accent-color:var(--accent); }
-    .slider-row output { min-width:74px; font-variant-numeric:tabular-nums; }
-    .result-count { margin:0; font-size:12px; font-weight:400; color:var(--muted); }
-    .help-button { padding:7px 12px; border:1px solid var(--line); border-radius:6px; background:var(--paper); color:var(--ink); font:inherit; font-size:12px; font-weight:700; cursor:pointer; }
-    .help-button:hover { border-color:var(--accent); color:var(--accent); }
-    .help-panel { flex:1 1 100%; margin:0; padding:10px 12px; border-left:3px solid var(--accent); background:var(--paper); font-size:12px; font-weight:400; }
-    .help-panel kbd { padding:1px 6px; border:1px solid var(--line); border-bottom-width:2px; border-radius:4px; background:#f8f9fa; font-family:inherit; font-size:11px; }
-    .directory-wrap { max-height:25vh; overflow-y:auto; padding:18px clamp(20px,4vw,54px); background:#f8f9fa; border-bottom:1px solid var(--line); }
-    .directory-wrap h2 { margin:0 0 9px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
-    .directory { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:3px 18px; margin:0; padding:0; list-style:none; }
-    .directory a { display:flex; gap:7px; color:var(--ink); text-decoration:none; }
-    .directory a:hover { color:var(--accent); text-decoration:underline; }
-    .directory span { color:var(--accent); font-variant-numeric:tabular-nums; font-weight:800; }
-    .dir-head { grid-column:1/-1; margin-top:8px; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); list-style:none; }
-    .dir-head:first-child { margin-top:0; }
-    main { min-width:0; padding:18px 10px 50px clamp(20px,4vw,54px); }
-    .grid { display:grid; grid-template-columns:repeat(var(--cols,16),minmax(0,1fr)); align-items:start; gap:5px; }
-    .section-head { grid-column:1/-1; margin:14px 0 2px; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
-    .card { position:relative; min-width:0; overflow:hidden; background:var(--paper); border:1px solid var(--line); border-radius:3px; scroll-margin-top:12px; cursor:zoom-in; }
-    .card:hover,.card:focus-visible { border-color:var(--accent); outline:2px solid var(--accent); outline-offset:1px; }
-    .card.is-selected { outline:3px solid var(--accent); outline-offset:-3px; }
-    .card img { display:block; width:100%; height:auto; }
-    .number { position:absolute; z-index:1; top:2px; left:2px; min-width:19px; padding:2px 3px; border:1px solid #fff; border-radius:2px; background:var(--accent); color:#fff; box-shadow:0 1px 3px #0006; font-size:8px; font-weight:800; line-height:1; text-align:center; }
-    .error { min-height:100px; display:grid; place-content:center; padding:8px; color:#162e51; text-align:center; font-size:10px; }
-    .no-results { padding:40px 20px; color:var(--muted); text-align:center; }
-    .preview-shell { min-width:0; height:100vh; padding:12px; border-left:1px solid var(--line); background:#dfe3e7; }
-    .preview { display:flex; flex-direction:column; height:100%; overflow:hidden; background:var(--paper); border:1px solid var(--line); border-radius:8px; box-shadow:0 3px 14px #1c273118; }
-    .preview-header { flex:0 0 auto; padding:12px 13px; border-bottom:1px solid var(--line); }
-    .preview-kicker { margin:0 0 3px; color:var(--accent); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
-    .preview-name { margin:0; font-size:14px; overflow-wrap:anywhere; }
-    .preview-name a,
-    .preview-title a { color:inherit; text-decoration:none; }
-    .preview-name a:hover,
-    .preview-title a:hover { text-decoration:underline; color:var(--accent); }
-    .preview-title { margin:3px 0 0; color:var(--muted); font-size:11px; }
-    .preview-help { margin:8px 0 0; color:var(--muted); font-size:10px; }
-    .preview-actions { margin:10px 0 0; }
-    .fs-button { padding:7px 12px; border:1px solid var(--line); border-radius:6px; background:var(--paper); color:var(--ink); font:inherit; font-size:12px; font-weight:700; cursor:pointer; }
-    .fs-button:hover:not(:disabled) { border-color:var(--accent); color:var(--accent); }
-    .fs-button:disabled { opacity:.45; cursor:default; }
-    dialog.lightbox { padding:0; border:0; background:transparent; max-width:min(1400px,96vw); max-height:94vh; }
-    dialog.lightbox::backdrop { background:rgba(10,15,20,.84); }
-    .lightbox-frame { display:flex; flex-direction:column; max-height:94vh; overflow:hidden; background:var(--paper); border-radius:8px; }
-    .lightbox-scroll { overflow:auto; background:#162e51; }
-    .lightbox-scroll:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
-    .lightbox-image { display:block; width:100%; height:auto; touch-action:pan-y; }
-    .lightbox-bar { display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center; justify-content:space-between; padding:10px 14px; border-top:1px solid var(--line); }
-    .lightbox-caption { margin:0; font-size:13px; font-weight:650; }
-    .lightbox-buttons { display:flex; gap:8px; }
-    .lightbox-buttons button { padding:7px 12px; border:1px solid var(--line); border-radius:6px; background:var(--paper); color:var(--ink); font:inherit; font-size:12px; font-weight:700; cursor:pointer; }
-    .lightbox-buttons button:hover { border-color:var(--accent); color:var(--accent); }
-    .preview-scroll { flex:1 1 auto; min-height:0; overflow:auto; background:#dfe3e7; }
-    .preview-link { display:block; min-height:100%; }
-    .preview-image { display:block; width:100%; height:auto; }
-    .splitter { width:6px; cursor:col-resize; background:var(--line,#d8dde3); transition:background .15s; position:relative; z-index:10; height:100vh; }
-    .splitter:hover, .splitter.active { background:var(--accent); }
-    .loading { padding:40px; color:var(--muted); }
-    .pending-badge { display:inline-flex; align-items:center; gap:4px; padding:2px 7px; background:#f0f4f8; border:1px solid var(--line); border-radius:12px; font-size:11px; color:var(--muted); }
-    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+    :root { color-scheme:light; --ink:#17212b; --muted:#66717d; --line:#cbd1d8; --paper:#fff; --accent:#162e51; --left-width:80%; --right-width:20%; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;overflow:hidden;background:#eef1f4;color:var(--ink);font:14px/1.45 system-ui,sans-serif}
+    .app-shell{display:grid;grid-template-columns:var(--left-width) 6px var(--right-width);width:100%;height:100vh;overflow:hidden}
+    .content{min-width:0;height:100vh;overflow-y:auto}
+    header{padding:24px clamp(20px,4vw,54px) 20px;background:var(--paper);border-bottom:1px solid var(--line)}
+    h1{margin:0 0 5px;font:500 clamp(27px,3.2vw,40px)/1.1 Georgia,serif}
+    .meta{margin:0;color:var(--muted)}
+    .summary{display:flex;flex-wrap:wrap;gap:7px 20px;margin-top:12px;font-weight:650}
+    .toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:flex-end;margin-top:14px;padding:12px 14px;background:#f8f9fa;border:1px solid var(--line);border-radius:8px}
+    .toolbar .field{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:650}
+    .toolbar .field label{font-size:12px;font-weight:700}
+    .toolbar input[type="search"]{min-width:min(260px,60vw);padding:7px 10px;border:1px solid var(--line);border-radius:6px;font:inherit;font-weight:400;background:var(--paper);color:var(--ink)}
+    .toolbar select{padding:7px 10px;border:1px solid var(--line);border-radius:6px;font:inherit;font-weight:400;background:var(--paper);color:var(--ink)}
+    .toolbar :focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+    .slider-row{display:flex;align-items:center;gap:8px;font-weight:400}
+    .slider-row input[type="range"]{width:130px;accent-color:var(--accent)}
+    .slider-row output{min-width:74px;font-variant-numeric:tabular-nums}
+    .result-count{margin:0;font-size:12px;font-weight:400;color:var(--muted)}
+    .help-button{padding:7px 12px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+    .help-button:hover{border-color:var(--accent);color:var(--accent)}
+    .help-panel{flex:1 1 100%;margin:0;padding:10px 12px;border-left:3px solid var(--accent);background:var(--paper);font-size:12px;font-weight:400}
+    .help-panel kbd{padding:1px 6px;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;background:#f8f9fa;font-family:inherit;font-size:11px}
+    .directory-wrap{max-height:25vh;overflow-y:auto;padding:18px clamp(20px,4vw,54px);background:#f8f9fa;border-bottom:1px solid var(--line)}
+    .directory-wrap h2{margin:0 0 9px;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+    .directory{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:3px 18px;margin:0;padding:0;list-style:none}
+    .directory a{display:flex;gap:7px;color:var(--ink);text-decoration:none}
+    .directory a:hover{color:var(--accent);text-decoration:underline}
+    .directory span{color:var(--accent);font-variant-numeric:tabular-nums;font-weight:800}
+    .dir-head{grid-column:1/-1;margin-top:8px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);list-style:none}
+    .dir-head:first-child{margin-top:0}
+    main{min-width:0;padding:18px 10px 50px clamp(20px,4vw,54px)}
+    .grid{display:grid;grid-template-columns:repeat(var(--cols,16),minmax(0,1fr));align-items:start;gap:5px}
+    .section-head{grid-column:1/-1;margin:14px 0 2px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    .card{position:relative;min-width:0;overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:3px;scroll-margin-top:12px;cursor:zoom-in}
+    .card:hover,.card:focus-visible{border-color:var(--accent);outline:2px solid var(--accent);outline-offset:1px}
+    .card.is-selected{outline:3px solid var(--accent);outline-offset:-3px}
+    .card img{display:block;width:100%;height:auto}
+    .number{position:absolute;z-index:1;top:2px;left:2px;min-width:19px;padding:2px 3px;border:1px solid #fff;border-radius:2px;background:var(--accent);color:#fff;box-shadow:0 1px 3px #0006;font-size:8px;font-weight:800;line-height:1;text-align:center}
+    .no-results{padding:40px 20px;color:var(--muted);text-align:center}
+    .preview-shell{min-width:0;height:100vh;padding:12px;border-left:1px solid var(--line);background:#dfe3e7}
+    .preview{display:flex;flex-direction:column;height:100%;overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:8px;box-shadow:0 3px 14px #1c273118}
+    .preview-header{flex:0 0 auto;padding:12px 13px;border-bottom:1px solid var(--line)}
+    .preview-kicker{margin:0 0 3px;color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .preview-name{margin:0;font-size:14px;overflow-wrap:anywhere}
+    .preview-name a,.preview-title a{color:inherit;text-decoration:none}
+    .preview-name a:hover,.preview-title a:hover{text-decoration:underline;color:var(--accent)}
+    .preview-title{margin:3px 0 0;color:var(--muted);font-size:11px}
+    .preview-help{margin:8px 0 0;color:var(--muted);font-size:10px}
+    .preview-actions{margin:10px 0 0}
+    .fs-button{padding:7px 12px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+    .fs-button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+    .fs-button:disabled{opacity:.45;cursor:default}
+    dialog.lightbox{padding:0;border:0;background:transparent;max-width:min(1400px,96vw);max-height:94vh}
+    dialog.lightbox::backdrop{background:rgba(10,15,20,.84)}
+    .lightbox-frame{display:flex;flex-direction:column;max-height:94vh;overflow:hidden;background:var(--paper);border-radius:8px}
+    .lightbox-scroll{overflow:auto;background:#162e51}
+    .lightbox-scroll:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+    .lightbox-image{display:block;width:100%;height:auto;touch-action:pan-y}
+    .lightbox-bar{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between;padding:10px 14px;border-top:1px solid var(--line)}
+    .lightbox-caption{margin:0;font-size:13px;font-weight:650}
+    .lightbox-buttons{display:flex;gap:8px}
+    .lightbox-buttons button{padding:7px 12px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+    .lightbox-buttons button:hover{border-color:var(--accent);color:var(--accent)}
+    .preview-scroll{flex:1 1 auto;min-height:0;overflow:auto;background:#dfe3e7}
+    .preview-link{display:block;min-height:100%}
+    .preview-image{display:block;width:100%;height:auto}
+    .splitter{width:6px;cursor:col-resize;background:var(--line);transition:background .15s;position:relative;z-index:10;height:100vh}
+    .splitter:hover,.splitter.active{background:var(--accent)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
     @media(max-width:1400px){.grid{grid-template-columns:repeat(var(--cols,12),minmax(0,1fr))}}
     @media(max-width:900px){.grid{grid-template-columns:repeat(var(--cols,8),minmax(0,1fr))}}
     @media(max-width:680px){body{overflow:auto}.app-shell{display:block;height:auto;overflow:visible}.content{height:auto;overflow:visible}main{padding-right:20px}.grid{grid-template-columns:repeat(var(--cols,5),minmax(0,1fr))}.splitter{display:none}.preview-shell{height:70vh;padding:0 20px 24px;border-left:0}}
   </style>
 </head>
 <body>
-  <div class="app-shell">
-    <div class="content">
-      <header>
-        <h1>USIVA Visual Sitemap</h1>
-        <p class="meta" id="meta">Loading latest capture metadata&hellip;</p>
-        <div class="summary" id="summary"></div>
-        <div class="toolbar" role="search">
-          <div class="field">
-            <label for="gallery-search">Search pages</label>
-            <input type="search" id="gallery-search" placeholder="Filter by file, title, or URL" autocomplete="off">
-          </div>
-          <div class="field">
-            <label for="gallery-sort">Sort pages</label>
-            <select id="gallery-sort">
-              <option value="number">Page number</option>
-              <option value="alpha">File name (A to Z)</option>
-              <option value="section">Section, then file</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="thumb-size">Thumbnail size</label>
-            <div class="slider-row">
-              <input type="range" id="thumb-size" min="2" max="16" step="1" value="16">
-              <output id="thumb-size-value" for="thumb-size">16 per row</output>
-            </div>
-          </div>
-          <div class="field">
-            <button class="help-button" id="keys-help" aria-expanded="false" aria-controls="keys-panel">Keyboard shortcuts (?)</button>
-          </div>
-          <p class="result-count" id="result-count" role="status"></p>
-          <div class="help-panel" id="keys-panel" hidden>
-            <span><kbd>Left</kbd>/<kbd>Right</kbd> move between cards, <kbd>Up</kbd>/<kbd>Down</kbd> move by row, <kbd>J</kbd>/<kbd>K</kbd> next/previous card, <kbd>Enter</kbd> opens the page, <kbd>F</kbd> fullscreen preview, <kbd>/</kbd> focuses search, <kbd>Esc</kbd> clears search, <kbd>?</kbd> toggles this panel.</span>
+<div class="app-shell">
+  <div class="content">
+    <header>
+      <h1>USIVA Visual Sitemap</h1>
+      <p class="meta" id="meta"></p>
+      <div class="summary" id="summary"></div>
+      <div class="toolbar" role="search">
+        <div class="field">
+          <label for="gallery-search">Search pages</label>
+          <input type="search" id="gallery-search" placeholder="Filter by file, title, or URL" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="gallery-sort">Sort pages</label>
+          <select id="gallery-sort">
+            <option value="number">Page number</option>
+            <option value="alpha">File name (A to Z)</option>
+            <option value="section">Section, then file</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="thumb-size">Thumbnail size</label>
+          <div class="slider-row">
+            <input type="range" id="thumb-size" min="2" max="16" step="1" value="16">
+            <output id="thumb-size-value" for="thumb-size">16 per row</output>
           </div>
         </div>
-        <p>Prefer a static overview? Open the <a href="grid.html">grid view</a>. See also the <a href="/sitemap.xml">XML sitemap</a>. <span class="pending-badge">&#9733; Screenshots auto-generated by CI</span></p>
-      </header>
-      <nav class="directory-wrap" aria-label="Page directory">
-        <h2>Numbered page directory</h2>
-        <ol class="directory" id="directory"></ol>
-      </nav>
-      <main>
-        <div class="grid" id="grid"><p class="loading">Loading latest sitemap&hellip;</p></div>
-        <p class="no-results" id="no-results" hidden>No pages match this filter. Clear the search to see every page.</p>
-      </main>
-    </div>
-    <div role="region" aria-label="Preview pane resize control"><div class="splitter" role="separator" tabindex="0" aria-label="Resize preview pane" aria-valuemin="10" aria-valuemax="50" aria-valuenow="20"></div></div>
-    <aside class="preview-shell" aria-label="Page preview">
-      <div class="preview">
-        <div class="preview-header">
-          <p class="preview-kicker" id="preview-number">Page preview</p>
-          <h2 class="preview-name" id="preview-name">Select a page</h2>
-          <p class="preview-title" id="preview-title"></p>
-          <p class="preview-help">Click or focus a thumbnail. Click the large preview to open the full capture.</p>
-          <p class="preview-actions"><button class="fs-button" id="fs-open" type="button">View fullscreen</button></p>
+        <div class="field">
+          <button class="help-button" id="keys-help" aria-expanded="false" aria-controls="keys-panel">Keyboard shortcuts (?)</button>
         </div>
-        <div class="preview-scroll"><a class="preview-link" id="preview-link" target="_blank" rel="noopener"><img class="preview-image" id="preview-image" alt=""></a></div>
+        <p class="result-count" id="result-count" role="status"></p>
+        <div class="help-panel" id="keys-panel" hidden>
+          <span><kbd>Left</kbd>/<kbd>Right</kbd> move between cards, <kbd>Up</kbd>/<kbd>Down</kbd> move by row, <kbd>J</kbd>/<kbd>K</kbd> next/prev, <kbd>Enter</kbd> opens page, <kbd>F</kbd> fullscreen, <kbd>/</kbd> search, <kbd>Esc</kbd> clear, <kbd>?</kbd> this panel.</span>
+        </div>
       </div>
-    </aside>
+      <p style="margin-top:10px;font-size:13px">See also the <a href="/sitemap.xml">XML sitemap</a>.</p>
+    </header>
+    <nav class="directory-wrap" aria-label="Page directory">
+      <h2>Numbered page directory</h2>
+      <ol class="directory" id="directory"></ol>
+    </nav>
+    <main>
+      <div class="grid" id="grid"></div>
+      <p class="no-results" id="no-results" hidden>No pages match. Clear the search to see all pages.</p>
+    </main>
   </div>
-  <p class="sr-only" role="status" id="sr-status"></p>
-  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
-    <div class="lightbox-frame">
-      <div class="lightbox-scroll" tabindex="0" role="region" aria-label="Fullscreen page capture, scrollable"><img class="lightbox-image" id="lightbox-image" alt=""></div>
-      <div class="lightbox-bar">
-        <p class="lightbox-caption" id="lightbox-caption"></p>
-        <div class="lightbox-buttons">
-          <button id="lightbox-prev" type="button">Previous</button>
-          <button id="lightbox-next" type="button">Next</button>
-          <button id="lightbox-close" type="button">Close</button>
-        </div>
+  <div role="region" aria-label="Resize"><div class="splitter" role="separator" tabindex="0" aria-label="Resize preview pane" aria-valuemin="10" aria-valuemax="50" aria-valuenow="20"></div></div>
+  <aside class="preview-shell" aria-label="Page preview">
+    <div class="preview">
+      <div class="preview-header">
+        <p class="preview-kicker" id="preview-number">Page preview</p>
+        <h2 class="preview-name" id="preview-name">Select a page</h2>
+        <p class="preview-title" id="preview-title"></p>
+        <p class="preview-help">Click a thumbnail to preview. Click preview to open page.</p>
+        <p class="preview-actions"><button class="fs-button" id="fs-open" type="button">View fullscreen</button></p>
+      </div>
+      <div class="preview-scroll"><a class="preview-link" id="preview-link" target="_blank" rel="noopener"><img class="preview-image" id="preview-image" alt=""></a></div>
+    </div>
+  </aside>
+</div>
+<p class="sr-only" role="status" id="sr-status"></p>
+<dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
+  <div class="lightbox-frame">
+    <div class="lightbox-scroll" tabindex="0" role="region" aria-label="Fullscreen capture"><img class="lightbox-image" id="lightbox-image" alt=""></div>
+    <div class="lightbox-bar">
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+      <div class="lightbox-buttons">
+        <button id="lightbox-prev" type="button">Previous</button>
+        <button id="lightbox-next" type="button">Next</button>
+        <button id="lightbox-close" type="button">Close</button>
       </div>
     </div>
-  </dialog>
-  <script>
-    const directory = document.querySelector("#directory");
-    const grid = document.querySelector("#grid");
-    const metaLine = document.querySelector("#meta");
-    const summary = document.querySelector("#summary");
-    const previewNumber = document.querySelector("#preview-number");
-    const previewName = document.querySelector("#preview-name");
-    const previewTitle = document.querySelector("#preview-title");
-    const previewLink = document.querySelector("#preview-link");
-    const previewImage = document.querySelector("#preview-image");
-    const searchInput = document.querySelector("#gallery-search");
-    const resultCount = document.querySelector("#result-count");
-    const sortSelect = document.querySelector("#gallery-sort");
-    const sizeSlider = document.querySelector("#thumb-size");
-    const sizeOutput = document.querySelector("#thumb-size-value");
-    const helpButton = document.querySelector("#keys-help");
-    const helpPanel = document.querySelector("#keys-panel");
-    const noResults = document.querySelector("#no-results");
-    const srStatus = document.querySelector("#sr-status");
-    const fsOpen = document.querySelector("#fs-open");
-    const lightbox = document.querySelector("#lightbox");
-    const lightboxImage = document.querySelector("#lightbox-image");
-    const lightboxCaption = document.querySelector("#lightbox-caption");
-    const lightboxPrev = document.querySelector("#lightbox-prev");
-    const lightboxNext = document.querySelector("#lightbox-next");
-    const lightboxClose = document.querySelector("#lightbox-close");
+  </div>
+</dialog>
+<script>
+const MANIFEST = [{"file": "index.html", "number": 1, "redirect": null, "title": "USIVA \u2014 Visa Planning & Immigration Information", "captureUrl": "https://usiva.org/", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/001-index.jpg", "ok": true, "url": "https://usiva.org/"}, {"file": "about.html", "number": 2, "redirect": null, "title": "About USIVA", "captureUrl": "https://usiva.org/about.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/002-about-html.jpg", "ok": true, "url": "https://usiva.org/about.html"}, {"file": "articles.html", "number": 3, "redirect": null, "title": "Articles & News | USIVA", "captureUrl": "https://usiva.org/articles.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/003-articles-html.jpg", "ok": true, "url": "https://usiva.org/articles.html"}, {"file": "blog.html", "number": 4, "redirect": null, "title": "Field Notes & Blog | USIVA", "captureUrl": "https://usiva.org/blog.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/004-blog-html.jpg", "ok": true, "url": "https://usiva.org/blog.html"}, {"file": "briefs.html", "number": 5, "redirect": null, "title": "Research Briefs | USIVA", "captureUrl": "https://usiva.org/briefs.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/005-briefs-html.jpg", "ok": true, "url": "https://usiva.org/briefs.html"}, {"file": "contacts.html", "number": 6, "redirect": null, "title": "Contact & Question Brief | USIVA", "captureUrl": "https://usiva.org/contacts.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/006-contacts-html.jpg", "ok": true, "url": "https://usiva.org/contacts.html"}, {"file": "e-verify.html", "number": 7, "redirect": null, "title": "E-Verify | USIVA", "captureUrl": "https://usiva.org/e-verify.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/007-e-verify-html.jpg", "ok": true, "url": "https://usiva.org/e-verify.html"}, {"file": "employers.html", "number": 8, "redirect": null, "title": "Employer Resources | USIVA", "captureUrl": "https://usiva.org/employers.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/008-employers-html.jpg", "ok": true, "url": "https://usiva.org/employers.html"}, {"file": "guides/evidence-checklists.html", "number": 9, "redirect": null, "title": "Evidence Checklists | USIVA Guides", "captureUrl": "https://usiva.org/guides/evidence-checklists.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/009-guides-evidence-checklists-html.jpg", "ok": true, "url": "https://usiva.org/guides/evidence-checklists.html"}, {"file": "guides/f-1-readiness.html", "number": 10, "redirect": null, "title": "F-1 Readiness Guide | USIVA", "captureUrl": "https://usiva.org/guides/f-1-readiness.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/010-guides-f-1-readiness-html.jpg", "ok": true, "url": "https://usiva.org/guides/f-1-readiness.html"}, {"file": "guides/opt.html", "number": 11, "redirect": null, "title": "OPT Guide | USIVA", "captureUrl": "https://usiva.org/guides/opt.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/011-guides-opt-html.jpg", "ok": true, "url": "https://usiva.org/guides/opt.html"}, {"file": "guides/stem-opt.html", "number": 12, "redirect": null, "title": "STEM OPT Guide | USIVA", "captureUrl": "https://usiva.org/guides/stem-opt.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/012-guides-stem-opt-html.jpg", "ok": true, "url": "https://usiva.org/guides/stem-opt.html"}, {"file": "international-rd-scholars.html", "number": 13, "redirect": null, "title": "International R&D Scholars | USIVA", "captureUrl": "https://usiva.org/international-rd-scholars.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/013-international-rd-scholars-html.jpg", "ok": true, "url": "https://usiva.org/international-rd-scholars.html"}, {"file": "media-gallery.html", "number": 14, "redirect": null, "title": "Media Gallery | USIVA", "captureUrl": "https://usiva.org/media-gallery.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/014-media-gallery-html.jpg", "ok": true, "url": "https://usiva.org/media-gallery.html"}, {"file": "official-tools.html", "number": 15, "redirect": null, "title": "Official Tools Directory | USIVA", "captureUrl": "https://usiva.org/official-tools.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/015-official-tools-html.jpg", "ok": true, "url": "https://usiva.org/official-tools.html"}, {"file": "other-pages.html", "number": 16, "redirect": null, "title": "Route Atlas | USIVA", "captureUrl": "https://usiva.org/other-pages.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/016-other-pages-html.jpg", "ok": true, "url": "https://usiva.org/other-pages.html"}, {"file": "pricing.html", "number": 17, "redirect": null, "title": "Pricing | USIVA", "captureUrl": "https://usiva.org/pricing.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/017-pricing-html.jpg", "ok": true, "url": "https://usiva.org/pricing.html"}, {"file": "services.html", "number": 18, "redirect": null, "title": "Services | USIVA", "captureUrl": "https://usiva.org/services.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/018-services-html.jpg", "ok": true, "url": "https://usiva.org/services.html"}, {"file": "tips-faq.html", "number": 19, "redirect": null, "title": "Tips & FAQ | USIVA", "captureUrl": "https://usiva.org/tips-faq.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/019-tips-faq-html.jpg", "ok": true, "url": "https://usiva.org/tips-faq.html"}, {"file": "visa-categories.html", "number": 20, "redirect": null, "title": "Visa Categories | USIVA", "captureUrl": "https://usiva.org/visa-categories.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/020-visa-categories-html.jpg", "ok": true, "url": "https://usiva.org/visa-categories.html"}, {"file": "visa.html", "number": 21, "redirect": null, "title": "Visa Overview | USIVA", "captureUrl": "https://usiva.org/visa.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/021-visa-html.jpg", "ok": true, "url": "https://usiva.org/visa.html"}, {"file": "visa/immigrant.html", "number": 22, "redirect": null, "title": "Immigrant Visas Overview | USIVA", "captureUrl": "https://usiva.org/visa/immigrant.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/022-visa-immigrant-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant.html"}, {"file": "visa/immigrant/cr-1.html", "number": 23, "redirect": null, "title": "CR 1 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/cr-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/023-visa-immigrant-cr-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/cr-1.html"}, {"file": "visa/immigrant/cr-2.html", "number": 24, "redirect": null, "title": "CR 2 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/cr-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/024-visa-immigrant-cr-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/cr-2.html"}, {"file": "visa/immigrant/dv.html", "number": 25, "redirect": null, "title": "DV | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/dv.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/025-visa-immigrant-dv-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/dv.html"}, {"file": "visa/immigrant/eb-1.html", "number": 26, "redirect": null, "title": "EB 1 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/eb-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/026-visa-immigrant-eb-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/eb-1.html"}, {"file": "visa/immigrant/eb-2.html", "number": 27, "redirect": null, "title": "EB 2 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/eb-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/027-visa-immigrant-eb-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/eb-2.html"}, {"file": "visa/immigrant/eb-3.html", "number": 28, "redirect": null, "title": "EB 3 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/eb-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/028-visa-immigrant-eb-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/eb-3.html"}, {"file": "visa/immigrant/eb-4.html", "number": 29, "redirect": null, "title": "EB 4 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/eb-4.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/029-visa-immigrant-eb-4-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/eb-4.html"}, {"file": "visa/immigrant/eb-5.html", "number": 30, "redirect": null, "title": "EB 5 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/eb-5.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/030-visa-immigrant-eb-5-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/eb-5.html"}, {"file": "visa/immigrant/ew-3.html", "number": 31, "redirect": null, "title": "EW 3 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/ew-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/031-visa-immigrant-ew-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/ew-3.html"}, {"file": "visa/immigrant/f1.html", "number": 32, "redirect": null, "title": "F1 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/f1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/032-visa-immigrant-f1-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/f1.html"}, {"file": "visa/immigrant/f2a.html", "number": 33, "redirect": null, "title": "F2A | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/f2a.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/033-visa-immigrant-f2a-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/f2a.html"}, {"file": "visa/immigrant/f2b.html", "number": 34, "redirect": null, "title": "F2B | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/f2b.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/034-visa-immigrant-f2b-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/f2b.html"}, {"file": "visa/immigrant/f3.html", "number": 35, "redirect": null, "title": "F3 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/f3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/035-visa-immigrant-f3-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/f3.html"}, {"file": "visa/immigrant/f4.html", "number": 36, "redirect": null, "title": "F4 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/f4.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/036-visa-immigrant-f4-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/f4.html"}, {"file": "visa/immigrant/family/adoption.html", "number": 37, "redirect": null, "title": "Adoption | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/family/adoption.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/037-visa-immigrant-family-adoption-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/family/adoption.html"}, {"file": "visa/immigrant/family/dv.html", "number": 38, "redirect": null, "title": "DV | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/family/dv.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/038-visa-immigrant-family-dv-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/family/dv.html"}, {"file": "visa/immigrant/family/eb.html", "number": 39, "redirect": null, "title": "EB | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/family/eb.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/039-visa-immigrant-family-eb-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/family/eb.html"}, {"file": "visa/immigrant/family/f-family.html", "number": 40, "redirect": null, "title": "F Family | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/family/f-family.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/040-visa-immigrant-family-f-family-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/family/f-family.html"}, {"file": "visa/immigrant/family/ir-cr.html", "number": 41, "redirect": null, "title": "IR CR | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/family/ir-cr.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/041-visa-immigrant-family-ir-cr-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/family/ir-cr.html"}, {"file": "visa/immigrant/family/k-family.html", "number": 42, "redirect": null, "title": "K Family | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/family/k-family.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/042-visa-immigrant-family-k-family-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/family/k-family.html"}, {"file": "visa/immigrant/family/sb.html", "number": 43, "redirect": null, "title": "SB | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/family/sb.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/043-visa-immigrant-family-sb-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/family/sb.html"}, {"file": "visa/immigrant/family/special.html", "number": 44, "redirect": null, "title": "Special | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/family/special.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/044-visa-immigrant-family-special-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/family/special.html"}, {"file": "visa/immigrant/ih-3.html", "number": 45, "redirect": null, "title": "IH 3 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/ih-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/045-visa-immigrant-ih-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/ih-3.html"}, {"file": "visa/immigrant/ih-4.html", "number": 46, "redirect": null, "title": "IH 4 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/ih-4.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/046-visa-immigrant-ih-4-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/ih-4.html"}, {"file": "visa/immigrant/ir-1.html", "number": 47, "redirect": null, "title": "IR 1 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/ir-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/047-visa-immigrant-ir-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/ir-1.html"}, {"file": "visa/immigrant/ir-2.html", "number": 48, "redirect": null, "title": "IR 2 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/ir-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/048-visa-immigrant-ir-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/ir-2.html"}, {"file": "visa/immigrant/ir-3.html", "number": 49, "redirect": null, "title": "IR 3 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/ir-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/049-visa-immigrant-ir-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/ir-3.html"}, {"file": "visa/immigrant/ir-4.html", "number": 50, "redirect": null, "title": "IR 4 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/ir-4.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/050-visa-immigrant-ir-4-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/ir-4.html"}, {"file": "visa/immigrant/ir-5.html", "number": 51, "redirect": null, "title": "IR 5 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/ir-5.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/051-visa-immigrant-ir-5-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/ir-5.html"}, {"file": "visa/immigrant/k-1.html", "number": 52, "redirect": null, "title": "K 1 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/k-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/052-visa-immigrant-k-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/k-1.html"}, {"file": "visa/immigrant/k-3.html", "number": 53, "redirect": null, "title": "K 3 | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/k-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/053-visa-immigrant-k-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/k-3.html"}, {"file": "visa/immigrant/sb.html", "number": 54, "redirect": null, "title": "SB | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/sb.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/054-visa-immigrant-sb-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/sb.html"}, {"file": "visa/immigrant/sd.html", "number": 55, "redirect": null, "title": "SD | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/sd.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/055-visa-immigrant-sd-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/sd.html"}, {"file": "visa/immigrant/si.html", "number": 56, "redirect": null, "title": "SI | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/si.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/056-visa-immigrant-si-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/si.html"}, {"file": "visa/immigrant/sq.html", "number": 57, "redirect": null, "title": "SQ | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/sq.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/057-visa-immigrant-sq-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/sq.html"}, {"file": "visa/immigrant/sr.html", "number": 58, "redirect": null, "title": "SR | USIVA", "captureUrl": "https://usiva.org/visa/immigrant/sr.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/058-visa-immigrant-sr-html.jpg", "ok": true, "url": "https://usiva.org/visa/immigrant/sr.html"}, {"file": "visa/nonimmigrant.html", "number": 59, "redirect": null, "title": "Nonimmigrant Visas Overview | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/059-visa-nonimmigrant-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant.html"}, {"file": "visa/nonimmigrant/a-1.html", "number": 60, "redirect": null, "title": "A 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/a-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/060-visa-nonimmigrant-a-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/a-1.html"}, {"file": "visa/nonimmigrant/a-2.html", "number": 61, "redirect": null, "title": "A 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/a-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/061-visa-nonimmigrant-a-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/a-2.html"}, {"file": "visa/nonimmigrant/a-3.html", "number": 62, "redirect": null, "title": "A 3 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/a-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/062-visa-nonimmigrant-a-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/a-3.html"}, {"file": "visa/nonimmigrant/b-1.html", "number": 63, "redirect": null, "title": "B 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/b-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/063-visa-nonimmigrant-b-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/b-1.html"}, {"file": "visa/nonimmigrant/b-2.html", "number": 64, "redirect": null, "title": "B 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/b-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/064-visa-nonimmigrant-b-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/b-2.html"}, {"file": "visa/nonimmigrant/bcc.html", "number": 65, "redirect": null, "title": "BCC | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/bcc.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/065-visa-nonimmigrant-bcc-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/bcc.html"}, {"file": "visa/nonimmigrant/c-1-d.html", "number": 66, "redirect": null, "title": "C 1 D | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/c-1-d.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/066-visa-nonimmigrant-c-1-d-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/c-1-d.html"}, {"file": "visa/nonimmigrant/c-1.html", "number": 67, "redirect": null, "title": "C 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/c-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/067-visa-nonimmigrant-c-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/c-1.html"}, {"file": "visa/nonimmigrant/c-2.html", "number": 68, "redirect": null, "title": "C 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/c-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/068-visa-nonimmigrant-c-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/c-2.html"}, {"file": "visa/nonimmigrant/c-3.html", "number": 69, "redirect": null, "title": "C 3 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/c-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/069-visa-nonimmigrant-c-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/c-3.html"}, {"file": "visa/nonimmigrant/cw-1.html", "number": 70, "redirect": null, "title": "CW 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/cw-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/070-visa-nonimmigrant-cw-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/cw-1.html"}, {"file": "visa/nonimmigrant/d.html", "number": 71, "redirect": null, "title": "D | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/d.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/071-visa-nonimmigrant-d-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/d.html"}, {"file": "visa/nonimmigrant/e-1.html", "number": 72, "redirect": null, "title": "E 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/e-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/072-visa-nonimmigrant-e-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/e-1.html"}, {"file": "visa/nonimmigrant/e-2.html", "number": 73, "redirect": null, "title": "E 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/e-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/073-visa-nonimmigrant-e-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/e-2.html"}, {"file": "visa/nonimmigrant/e-3.html", "number": 74, "redirect": null, "title": "E 3 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/e-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/074-visa-nonimmigrant-e-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/e-3.html"}, {"file": "visa/nonimmigrant/e-3d.html", "number": 75, "redirect": null, "title": "E 3D | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/e-3d.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/075-visa-nonimmigrant-e-3d-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/e-3d.html"}, {"file": "visa/nonimmigrant/e-3r.html", "number": 76, "redirect": null, "title": "E 3R | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/e-3r.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/076-visa-nonimmigrant-e-3r-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/e-3r.html"}, {"file": "visa/nonimmigrant/f-1.html", "number": 77, "redirect": null, "title": "F 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/f-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/077-visa-nonimmigrant-f-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/f-1.html"}, {"file": "visa/nonimmigrant/f-2.html", "number": 78, "redirect": null, "title": "F 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/f-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/078-visa-nonimmigrant-f-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/f-2.html"}, {"file": "visa/nonimmigrant/f-3.html", "number": 79, "redirect": null, "title": "F 3 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/f-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/079-visa-nonimmigrant-f-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/f-3.html"}, {"file": "visa/nonimmigrant/family/a.html", "number": 80, "redirect": null, "title": "A | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/a.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/080-visa-nonimmigrant-family-a-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/a.html"}, {"file": "visa/nonimmigrant/family/b.html", "number": 81, "redirect": null, "title": "B | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/b.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/081-visa-nonimmigrant-family-b-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/b.html"}, {"file": "visa/nonimmigrant/family/c.html", "number": 82, "redirect": null, "title": "C | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/c.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/082-visa-nonimmigrant-family-c-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/c.html"}, {"file": "visa/nonimmigrant/family/d.html", "number": 83, "redirect": null, "title": "D | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/d.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/083-visa-nonimmigrant-family-d-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/d.html"}, {"file": "visa/nonimmigrant/family/e.html", "number": 84, "redirect": null, "title": "E | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/e.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/084-visa-nonimmigrant-family-e-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/e.html"}, {"file": "visa/nonimmigrant/family/f.html", "number": 85, "redirect": null, "title": "F | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/f.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/085-visa-nonimmigrant-family-f-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/f.html"}, {"file": "visa/nonimmigrant/family/g.html", "number": 86, "redirect": null, "title": "G | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/g.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/086-visa-nonimmigrant-family-g-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/g.html"}, {"file": "visa/nonimmigrant/family/h.html", "number": 87, "redirect": null, "title": "H | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/h.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/087-visa-nonimmigrant-family-h-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/h.html"}, {"file": "visa/nonimmigrant/family/i.html", "number": 88, "redirect": null, "title": "I | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/i.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/088-visa-nonimmigrant-family-i-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/i.html"}, {"file": "visa/nonimmigrant/family/j.html", "number": 89, "redirect": null, "title": "J | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/j.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/089-visa-nonimmigrant-family-j-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/j.html"}, {"file": "visa/nonimmigrant/family/k.html", "number": 90, "redirect": null, "title": "K | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/k.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/090-visa-nonimmigrant-family-k-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/k.html"}, {"file": "visa/nonimmigrant/family/l.html", "number": 91, "redirect": null, "title": "L | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/l.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/091-visa-nonimmigrant-family-l-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/l.html"}, {"file": "visa/nonimmigrant/family/m.html", "number": 92, "redirect": null, "title": "M | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/m.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/092-visa-nonimmigrant-family-m-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/m.html"}, {"file": "visa/nonimmigrant/family/n.html", "number": 93, "redirect": null, "title": "N | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/n.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/093-visa-nonimmigrant-family-n-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/n.html"}, {"file": "visa/nonimmigrant/family/nato.html", "number": 94, "redirect": null, "title": "NATO | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/nato.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/094-visa-nonimmigrant-family-nato-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/nato.html"}, {"file": "visa/nonimmigrant/family/o.html", "number": 95, "redirect": null, "title": "O | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/o.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/095-visa-nonimmigrant-family-o-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/o.html"}, {"file": "visa/nonimmigrant/family/other.html", "number": 96, "redirect": null, "title": "OTHER | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/other.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/096-visa-nonimmigrant-family-other-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/other.html"}, {"file": "visa/nonimmigrant/family/p.html", "number": 97, "redirect": null, "title": "P | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/p.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/097-visa-nonimmigrant-family-p-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/p.html"}, {"file": "visa/nonimmigrant/family/q.html", "number": 98, "redirect": null, "title": "Q | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/q.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/098-visa-nonimmigrant-family-q-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/q.html"}, {"file": "visa/nonimmigrant/family/r.html", "number": 99, "redirect": null, "title": "R | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/r.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/099-visa-nonimmigrant-family-r-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/r.html"}, {"file": "visa/nonimmigrant/family/s.html", "number": 100, "redirect": null, "title": "S | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/s.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/100-visa-nonimmigrant-family-s-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/s.html"}, {"file": "visa/nonimmigrant/family/t.html", "number": 101, "redirect": null, "title": "T | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/t.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/101-visa-nonimmigrant-family-t-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/t.html"}, {"file": "visa/nonimmigrant/family/tn.html", "number": 102, "redirect": null, "title": "TN | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/tn.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/102-visa-nonimmigrant-family-tn-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/tn.html"}, {"file": "visa/nonimmigrant/family/u.html", "number": 103, "redirect": null, "title": "U | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/u.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/103-visa-nonimmigrant-family-u-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/u.html"}, {"file": "visa/nonimmigrant/family/v.html", "number": 104, "redirect": null, "title": "V | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/family/v.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/104-visa-nonimmigrant-family-v-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/family/v.html"}, {"file": "visa/nonimmigrant/g-1.html", "number": 105, "redirect": null, "title": "G 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/g-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/105-visa-nonimmigrant-g-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/g-1.html"}, {"file": "visa/nonimmigrant/g-2.html", "number": 106, "redirect": null, "title": "G 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/g-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/106-visa-nonimmigrant-g-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/g-2.html"}, {"file": "visa/nonimmigrant/g-3.html", "number": 107, "redirect": null, "title": "G 3 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/g-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/107-visa-nonimmigrant-g-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/g-3.html"}, {"file": "visa/nonimmigrant/g-4.html", "number": 108, "redirect": null, "title": "G 4 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/g-4.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/108-visa-nonimmigrant-g-4-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/g-4.html"}, {"file": "visa/nonimmigrant/g-5.html", "number": 109, "redirect": null, "title": "G 5 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/g-5.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/109-visa-nonimmigrant-g-5-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/g-5.html"}, {"file": "visa/nonimmigrant/h-1b.html", "number": 110, "redirect": null, "title": "H 1B | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/h-1b.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/110-visa-nonimmigrant-h-1b-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/h-1b.html"}, {"file": "visa/nonimmigrant/h-1b1.html", "number": 111, "redirect": null, "title": "H 1B1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/h-1b1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/111-visa-nonimmigrant-h-1b1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/h-1b1.html"}, {"file": "visa/nonimmigrant/h-2a.html", "number": 112, "redirect": null, "title": "H 2A | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/h-2a.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/112-visa-nonimmigrant-h-2a-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/h-2a.html"}, {"file": "visa/nonimmigrant/h-2b.html", "number": 113, "redirect": null, "title": "H 2B | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/h-2b.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/113-visa-nonimmigrant-h-2b-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/h-2b.html"}, {"file": "visa/nonimmigrant/h-3.html", "number": 114, "redirect": null, "title": "H 3 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/h-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/114-visa-nonimmigrant-h-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/h-3.html"}, {"file": "visa/nonimmigrant/h-4.html", "number": 115, "redirect": null, "title": "H 4 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/h-4.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/115-visa-nonimmigrant-h-4-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/h-4.html"}, {"file": "visa/nonimmigrant/i.html", "number": 116, "redirect": null, "title": "I | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/i.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/116-visa-nonimmigrant-i-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/i.html"}, {"file": "visa/nonimmigrant/j-1.html", "number": 117, "redirect": null, "title": "J 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/j-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/117-visa-nonimmigrant-j-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/j-1.html"}, {"file": "visa/nonimmigrant/j-2.html", "number": 118, "redirect": null, "title": "J 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/j-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/118-visa-nonimmigrant-j-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/j-2.html"}, {"file": "visa/nonimmigrant/k-1.html", "number": 119, "redirect": null, "title": "K 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/k-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/119-visa-nonimmigrant-k-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/k-1.html"}, {"file": "visa/nonimmigrant/k-2.html", "number": 120, "redirect": null, "title": "K 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/k-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/120-visa-nonimmigrant-k-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/k-2.html"}, {"file": "visa/nonimmigrant/k-3.html", "number": 121, "redirect": null, "title": "K 3 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/k-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/121-visa-nonimmigrant-k-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/k-3.html"}, {"file": "visa/nonimmigrant/k-4.html", "number": 122, "redirect": null, "title": "K 4 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/k-4.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/122-visa-nonimmigrant-k-4-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/k-4.html"}, {"file": "visa/nonimmigrant/l-1a.html", "number": 123, "redirect": null, "title": "L 1A | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/l-1a.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/123-visa-nonimmigrant-l-1a-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/l-1a.html"}, {"file": "visa/nonimmigrant/l-1b.html", "number": 124, "redirect": null, "title": "L 1B | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/l-1b.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/124-visa-nonimmigrant-l-1b-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/l-1b.html"}, {"file": "visa/nonimmigrant/l-2.html", "number": 125, "redirect": null, "title": "L 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/l-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/125-visa-nonimmigrant-l-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/l-2.html"}, {"file": "visa/nonimmigrant/m-1.html", "number": 126, "redirect": null, "title": "M 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/m-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/126-visa-nonimmigrant-m-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/m-1.html"}, {"file": "visa/nonimmigrant/m-2.html", "number": 127, "redirect": null, "title": "M 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/m-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/127-visa-nonimmigrant-m-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/m-2.html"}, {"file": "visa/nonimmigrant/m-3.html", "number": 128, "redirect": null, "title": "M 3 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/m-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/128-visa-nonimmigrant-m-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/m-3.html"}, {"file": "visa/nonimmigrant/n-8.html", "number": 129, "redirect": null, "title": "N 8 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/n-8.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/129-visa-nonimmigrant-n-8-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/n-8.html"}, {"file": "visa/nonimmigrant/n-9.html", "number": 130, "redirect": null, "title": "N 9 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/n-9.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/130-visa-nonimmigrant-n-9-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/n-9.html"}, {"file": "visa/nonimmigrant/nato-1.html", "number": 131, "redirect": null, "title": "Nato 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/131-visa-nonimmigrant-nato-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/nato-1.html"}, {"file": "visa/nonimmigrant/nato-2.html", "number": 132, "redirect": null, "title": "Nato 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/132-visa-nonimmigrant-nato-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/nato-2.html"}, {"file": "visa/nonimmigrant/nato-3.html", "number": 133, "redirect": null, "title": "Nato 3 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/133-visa-nonimmigrant-nato-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/nato-3.html"}, {"file": "visa/nonimmigrant/nato-4.html", "number": 134, "redirect": null, "title": "Nato 4 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-4.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/134-visa-nonimmigrant-nato-4-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/nato-4.html"}, {"file": "visa/nonimmigrant/nato-5.html", "number": 135, "redirect": null, "title": "Nato 5 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-5.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/135-visa-nonimmigrant-nato-5-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/nato-5.html"}, {"file": "visa/nonimmigrant/nato-6.html", "number": 136, "redirect": null, "title": "Nato 6 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-6.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/136-visa-nonimmigrant-nato-6-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/nato-6.html"}, {"file": "visa/nonimmigrant/nato-7.html", "number": 137, "redirect": null, "title": "Nato 7 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/nato-7.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/137-visa-nonimmigrant-nato-7-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/nato-7.html"}, {"file": "visa/nonimmigrant/o-1.html", "number": 138, "redirect": null, "title": "O 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/o-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/138-visa-nonimmigrant-o-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/o-1.html"}, {"file": "visa/nonimmigrant/o-2.html", "number": 139, "redirect": null, "title": "O 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/o-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/139-visa-nonimmigrant-o-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/o-2.html"}, {"file": "visa/nonimmigrant/o-3.html", "number": 140, "redirect": null, "title": "O 3 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/o-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/140-visa-nonimmigrant-o-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/o-3.html"}, {"file": "visa/nonimmigrant/p-1.html", "number": 141, "redirect": null, "title": "P 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/p-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/141-visa-nonimmigrant-p-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/p-1.html"}, {"file": "visa/nonimmigrant/p-2.html", "number": 142, "redirect": null, "title": "P 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/p-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/142-visa-nonimmigrant-p-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/p-2.html"}, {"file": "visa/nonimmigrant/p-3.html", "number": 143, "redirect": null, "title": "P 3 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/p-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/143-visa-nonimmigrant-p-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/p-3.html"}, {"file": "visa/nonimmigrant/p-4.html", "number": 144, "redirect": null, "title": "P 4 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/p-4.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/144-visa-nonimmigrant-p-4-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/p-4.html"}, {"file": "visa/nonimmigrant/q-1.html", "number": 145, "redirect": null, "title": "Q 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/q-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/145-visa-nonimmigrant-q-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/q-1.html"}, {"file": "visa/nonimmigrant/q-2.html", "number": 146, "redirect": null, "title": "Q 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/q-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/146-visa-nonimmigrant-q-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/q-2.html"}, {"file": "visa/nonimmigrant/r-1.html", "number": 147, "redirect": null, "title": "R 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/r-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/147-visa-nonimmigrant-r-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/r-1.html"}, {"file": "visa/nonimmigrant/r-2.html", "number": 148, "redirect": null, "title": "R 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/r-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/148-visa-nonimmigrant-r-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/r-2.html"}, {"file": "visa/nonimmigrant/s-5.html", "number": 149, "redirect": null, "title": "S 5 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/s-5.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/149-visa-nonimmigrant-s-5-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/s-5.html"}, {"file": "visa/nonimmigrant/s-6.html", "number": 150, "redirect": null, "title": "S 6 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/s-6.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/150-visa-nonimmigrant-s-6-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/s-6.html"}, {"file": "visa/nonimmigrant/s-7.html", "number": 151, "redirect": null, "title": "S 7 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/s-7.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/151-visa-nonimmigrant-s-7-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/s-7.html"}, {"file": "visa/nonimmigrant/t-1.html", "number": 152, "redirect": null, "title": "T 1 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/t-1.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/152-visa-nonimmigrant-t-1-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/t-1.html"}, {"file": "visa/nonimmigrant/t-2.html", "number": 153, "redirect": null, "title": "T 2 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/t-2.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/153-visa-nonimmigrant-t-2-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/t-2.html"}, {"file": "visa/nonimmigrant/t-3.html", "number": 154, "redirect": null, "title": "T 3 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/t-3.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/154-visa-nonimmigrant-t-3-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/t-3.html"}, {"file": "visa/nonimmigrant/t-4.html", "number": 155, "redirect": null, "title": "T 4 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/t-4.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/155-visa-nonimmigrant-t-4-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/t-4.html"}, {"file": "visa/nonimmigrant/t-5.html", "number": 156, "redirect": null, "title": "T 5 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/t-5.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/156-visa-nonimmigrant-t-5-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/t-5.html"}, {"file": "visa/nonimmigrant/t-6.html", "number": 157, "redirect": null, "title": "T 6 | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/t-6.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/157-visa-nonimmigrant-t-6-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/t-6.html"}, {"file": "visa/nonimmigrant/td.html", "number": 158, "redirect": null, "title": "TD | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/td.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/158-visa-nonimmigrant-td-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/td.html"}, {"file": "visa/nonimmigrant/tn.html", "number": 159, "redirect": null, "title": "TN | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/tn.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/159-visa-nonimmigrant-tn-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/tn.html"}, {"file": "visa/nonimmigrant/u.html", "number": 160, "redirect": null, "title": "U | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/u.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/160-visa-nonimmigrant-u-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/u.html"}, {"file": "visa/nonimmigrant/v.html", "number": 161, "redirect": null, "title": "V | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/v.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/161-visa-nonimmigrant-v-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/v.html"}, {"file": "visa/nonimmigrant/vwp.html", "number": 162, "redirect": null, "title": "VWP | USIVA", "captureUrl": "https://usiva.org/visa/nonimmigrant/vwp.html", "image": "https://raw.githack.com/maha123308/usiva/sitemap/sitemap/shots/162-visa-nonimmigrant-vwp-html.jpg", "ok": true, "url": "https://usiva.org/visa/nonimmigrant/vwp.html"}];
+const META = {"base": "https://usiva.org", "generatedAt": "2026-09-09T13:00:00.000Z"};
 
-    const COLS_KEY = "usiva-sitemap-cols";
-    let allEntries = [];
-    let selectedFile = null;
-    let selectedEntry = null;
-    let lightboxFile = null;
-
-    function numberFor(entry, count) {
-      return String(entry.number).padStart(String(count).length, "0");
-    }
-
-    function sectionOf(entry) {
-      const slash = entry.file.indexOf("/");
-      return slash === -1 ? "Top level" : entry.file.slice(0, slash);
-    }
-
-    function sortedEntries() {
-      const mode = sortSelect.value;
-      const copy = [...allEntries];
-      if (mode === "alpha") copy.sort((a, b) => a.file.localeCompare(b.file));
-      else if (mode === "section") {
-        copy.sort((a, b) => sectionOf(a).localeCompare(sectionOf(b)) || a.file.localeCompare(b.file));
-      } else copy.sort((a, b) => a.number - b.number);
-      return copy;
-    }
-
-    function entryForHash() {
-      const match = location.hash.match(/^#page-(\d+)$/);
-      if (!match) return null;
-      return allEntries.find((entry) => numberFor(entry, allEntries.length) === match[1]) || null;
-    }
-
-    function select(entry, count, card, options = {}) {
-      const { writeHash = true, announce = true } = options;
-      document.querySelectorAll(".card.is-selected").forEach((item) => item.classList.remove("is-selected"));
-      card?.classList.add("is-selected");
-      selectedFile = entry.file;
-      selectedEntry = entry;
-      const number = numberFor(entry, count);
-      previewNumber.textContent = `Page ${number}`;
-      previewName.innerHTML = '';
-      const nameLink = document.createElement('a');
-      nameLink.href = entry.url;
-      nameLink.textContent = entry.file;
-      nameLink.target = '_blank';
-      nameLink.rel = 'noopener';
-      previewName.appendChild(nameLink);
-      previewTitle.innerHTML = '';
-      const titleLink = document.createElement('a');
-      titleLink.href = entry.url;
-      titleLink.textContent = entry.title || 'Untitled';
-      titleLink.target = '_blank';
-      titleLink.rel = 'noopener';
-      previewTitle.appendChild(titleLink);
-      previewLink.href = entry.image || entry.url;
-      previewImage.src = entry.ok ? entry.image : "";
-      previewImage.alt = entry.ok ? `Full-page capture of ${entry.file}` : "";
-      fsOpen.disabled = !entry.ok || !entry.image;
-      if (writeHash) history.replaceState(null, "", `#page-${number}`);
-      if (announce) srStatus.textContent = `Page ${number}: ${entry.file}`;
-    }
-
-    function selectByFile(file, scroll) {
-      const card = grid.querySelector(`.card[data-file="${CSS.escape(file)}"]`);
-      const entry = allEntries.find((item) => item.file === file);
-      if (!card || !entry) return;
-      card.hidden = false;
-      select(entry, allEntries.length, card);
-      if (scroll) card.scrollIntoView({ block: "nearest" });
-    }
-
-    function matchesQuery(entry, query) {
-      if (!query) return true;
-      const haystack = `${entry.file} ${entry.title || ""} ${entry.url || ""}`.toLowerCase();
-      return query.toLowerCase().split(/\s+/).filter(Boolean).every((word) => haystack.includes(word));
-    }
-
-    function applyFilter() {
-      const query = searchInput.value.trim();
-      let visible = 0;
-      grid.querySelectorAll(".card").forEach((card) => {
-        const entry = allEntries.find((item) => item.file === card.dataset.file);
-        const show = entry ? matchesQuery(entry, query) : true;
-        card.hidden = !show;
-        if (show) visible += 1;
-      });
-      directory.querySelectorAll("li[data-file]").forEach((item) => {
-        const entry = allEntries.find((itemEntry) => itemEntry.file === item.dataset.file);
-        item.hidden = entry ? !matchesQuery(entry, query) : false;
-      });
-      directory.querySelectorAll(".dir-head").forEach((head) => {
-        let sibling = head.nextElementSibling;
-        let anyVisible = false;
-        while (sibling && !sibling.classList.contains("dir-head")) {
-          if (!sibling.hidden) { anyVisible = true; break; }
-          sibling = sibling.nextElementSibling;
-        }
-        head.hidden = !anyVisible;
-      });
-      grid.querySelectorAll(".section-head").forEach((head) => {
-        let sibling = head.nextElementSibling;
-        let anyVisible = false;
-        while (sibling && !sibling.classList.contains("section-head")) {
-          if (sibling.classList.contains("card") && !sibling.hidden) { anyVisible = true; break; }
-          sibling = sibling.nextElementSibling;
-        }
-        head.hidden = !anyVisible;
-      });
-      resultCount.textContent = query ? `${visible} of ${allEntries.length} pages` : "";
-      noResults.hidden = visible !== 0;
-      if (selectedFile) {
-        const selectedCard = grid.querySelector(`.card[data-file="${CSS.escape(selectedFile)}"]`);
-        if (selectedCard && selectedCard.hidden) {
-          document.querySelectorAll(".card.is-selected").forEach((item) => item.classList.remove("is-selected"));
-        }
-      }
-    }
-
-    function buildCard(entry, count) {
-      const number = numberFor(entry, count);
-      const card = document.createElement("article");
-      card.className = "card";
-      card.id = `page-${number}`;
-      card.tabIndex = 0;
-      card.dataset.file = entry.file;
-      card.setAttribute("aria-label", `${number}: ${entry.file}`);
-      const badge = document.createElement("span");
-      badge.className = "number";
-      badge.textContent = number;
-      card.append(badge);
-      if (entry.ok && entry.image) {
-        const image = document.createElement("img");
-        image.src = entry.image;
-        image.loading = "lazy";
-        image.alt = `Screenshot of ${entry.file}`;
-        card.append(image);
-      } else {
-        const placeholder = document.createElement("div");
-        placeholder.className = "error";
-        placeholder.style.cssText = "min-height:60px;background:#f0f4f8;display:grid;place-content:center;font-size:9px;color:#66717d;";
-        placeholder.textContent = entry.file;
-        card.append(placeholder);
-      }
-      ["click", "focus"].forEach((eventName) => card.addEventListener(eventName, () => select(entry, count, card)));
-      return card;
-    }
-
-    function buildDirectoryItem(entry, count) {
-      const number = numberFor(entry, count);
-      const item = document.createElement("li");
-      item.dataset.file = entry.file;
-      const anchor = document.createElement("a");
-      anchor.href = `#page-${number}`;
-      const numberLabel = document.createElement("span");
-      numberLabel.textContent = number;
-      anchor.append(numberLabel, document.createTextNode(entry.file));
-      item.append(anchor);
-      return item;
-    }
-
-    function render() {
-      const entries = sortedEntries();
-      const count = allEntries.length;
-      const grouped = sortSelect.value === "section";
-      directory.replaceChildren();
-      grid.replaceChildren();
-      let lastSection = null;
-      entries.forEach((entry) => {
-        if (grouped) {
-          const section = sectionOf(entry);
-          if (section !== lastSection) {
-            lastSection = section;
-            const dirHead = document.createElement("li");
-            dirHead.className = "dir-head";
-            dirHead.textContent = section;
-            directory.append(dirHead);
-            const gridHead = document.createElement("h3");
-            gridHead.className = "section-head";
-            gridHead.textContent = section;
-            grid.append(gridHead);
-          }
-        }
-        directory.append(buildDirectoryItem(entry, count));
-        grid.append(buildCard(entry, count));
-      });
-      applyFilter();
-      if (selectedFile && grid.querySelector(`.card[data-file="${CSS.escape(selectedFile)}"]`)) {
-        selectByFile(selectedFile, false);
-      }
-    }
-
-    function visibleCards() {
-      return [...grid.querySelectorAll(".card")].filter((card) => !card.hidden);
-    }
-
-    function currentCols() {
-      const fromSlider = Number.parseInt(sizeSlider.value, 10);
-      if (Number.isFinite(fromSlider) && fromSlider > 0) return fromSlider;
-      const columns = getComputedStyle(grid).gridTemplateColumns.split(" ").length;
-      return columns > 0 ? columns : 1;
-    }
-
-    function entryForCard(card) {
-      return allEntries.find((item) => item.file === card.dataset.file) || null;
-    }
-
-    grid.addEventListener("keydown", (event) => {
-      const card = event.target.closest(".card");
-      if (!card) return;
-      const cards = visibleCards();
-      const index = cards.indexOf(card);
-      const cols = currentCols();
-      let next = null;
-      if (event.key === "ArrowRight") next = index + 1;
-      else if (event.key === "ArrowLeft") next = index - 1;
-      else if (event.key === "ArrowDown") next = index + cols;
-      else if (event.key === "ArrowUp") next = index - cols;
-      else if (event.key === "j" || event.key === "J") next = index + 1;
-      else if (event.key === "k" || event.key === "K") next = index - 1;
-      else if (event.key === "Enter") {
-        const entry = entryForCard(card);
-        if (entry) window.open(entry.url, "_blank", "noopener");
-        return;
-      } else if (event.key === "f" || event.key === "F") {
-        const entry = entryForCard(card);
-        if (entry && entry.ok && entry.image) openLightbox(entry);
-        return;
-      } else return;
-      event.preventDefault();
-      if (index === -1) return;
-      next = Math.max(0, Math.min(cards.length - 1, next));
-      cards[next].focus();
-    });
-
-    function setHelp(open) {
-      helpPanel.hidden = !open;
-      helpButton.setAttribute("aria-expanded", String(open));
-    }
-
-    helpButton.addEventListener("click", () => setHelp(helpPanel.hidden));
-    searchInput.addEventListener("input", applyFilter);
-    searchInput.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") { searchInput.value = ""; applyFilter(); }
-    });
-    sortSelect.addEventListener("change", render);
-
-    function applyCols(value, persist) {
-      grid.style.setProperty("--cols", String(value));
-      sizeSlider.value = String(value);
-      sizeOutput.textContent = `${value} per row`;
-      if (persist) {
-        try { localStorage.setItem(COLS_KEY, String(value)); } catch { /* private mode */ }
-      }
-    }
-
-    sizeSlider.addEventListener("input", () => applyCols(Number(sizeSlider.value), true));
-
-    document.addEventListener("keydown", (event) => {
-      if (lightbox.open) return;
-      const inField = event.target.closest("input, select, textarea");
-      if (event.key === "?" && !inField) { event.preventDefault(); setHelp(helpPanel.hidden); }
-      else if (event.key === "/" && !inField) { event.preventDefault(); searchInput.focus(); }
-      else if (event.key === "Escape" && !helpPanel.hidden && !inField) { setHelp(false); helpButton.focus(); }
-    });
-
-    window.addEventListener("hashchange", () => {
-      const entry = entryForHash();
-      if (entry && entry.file !== selectedFile) selectByFile(entry.file, true);
-    });
-
-    function lightboxOrder() {
-      return visibleCards()
-        .map((card) => allEntries.find((item) => item.file === card.dataset.file) || null)
-        .filter((entry) => entry && entry.ok && entry.image);
-    }
-
-    function showLightbox(entry) {
-      const number = numberFor(entry, allEntries.length);
-      lightboxFile = entry.file;
-      lightboxCaption.textContent = `Page ${number}: ${entry.file}`;
-      lightboxImage.src = entry.image;
-      lightboxImage.alt = `Full-page capture of ${entry.file}`;
-    }
-
-    function openLightbox(entry) {
-      if (!entry || !entry.ok || !entry.image) return;
-      showLightbox(entry);
-      if (!lightbox.open) lightbox.showModal();
-    }
-
-    function stepLightbox(delta) {
-      const order = lightboxOrder();
-      if (!order.length) return;
-      const index = order.findIndex((entry) => entry.file === lightboxFile);
-      const next = order[(index + delta + order.length) % order.length];
-      showLightbox(next);
-    }
-
-    fsOpen.addEventListener("click", () => { if (selectedEntry) openLightbox(selectedEntry); });
-    lightboxPrev.addEventListener("click", () => stepLightbox(-1));
-    lightboxNext.addEventListener("click", () => stepLightbox(1));
-    lightboxClose.addEventListener("click", () => lightbox.close());
-
-    lightbox.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowLeft") { event.preventDefault(); stepLightbox(-1); }
-      else if (event.key === "ArrowRight") { event.preventDefault(); stepLightbox(1); }
-    });
-
-    let touchStartX = null;
-    lightboxImage.addEventListener("touchstart", (event) => { touchStartX = event.touches[0].clientX; }, { passive: true });
-    lightboxImage.addEventListener("touchend", (event) => {
-      if (touchStartX === null) return;
-      const delta = event.changedTouches[0].clientX - touchStartX;
-      touchStartX = null;
-      if (delta > 40) stepLightbox(-1);
-      else if (delta < -40) stepLightbox(1);
-    }, { passive: true });
-
-    Promise.all([
-      fetch("manifest.json", { cache: "no-store" }).then((r) => r.json()),
-      fetch("meta.json", { cache: "no-store" }).then((r) => r.json())
-    ]).then(([entries, metadata]) => {
-      allEntries = entries;
-      const captured = entries.filter((e) => e.ok).length;
-      const redirects = entries.filter((e) => e.redirect).length;
-      metaLine.textContent = `Generated ${new Date(metadata.generatedAt).toLocaleString()} \u2014 base: ${metadata.base}`;
-      summary.replaceChildren(...[
-        `${entries.length} numbered pages`,
-        `${captured} screenshots captured`,
-        `${redirects} legacy redirects`
-      ].map((text) => Object.assign(document.createElement("span"), { textContent: text })));
-
-      let storedCols = null;
-      try { storedCols = Number.parseInt(localStorage.getItem(COLS_KEY), 10); } catch { /* private mode */ }
-      if (Number.isFinite(storedCols) && storedCols >= 2 && storedCols <= 16) applyCols(storedCols, false);
-      else applyCols(16, false);
-
-      render();
-      const deepLinked = entryForHash();
-      if (deepLinked) selectByFile(deepLinked.file, true);
-      else if (entries.length) select(entries[0], entries.length, grid.querySelector(".card"));
-    }).catch((error) => {
-      const message = document.createElement("p");
-      message.className = "loading";
-      message.textContent = `Could not load the sitemap: ${error.message}`;
-      grid.replaceChildren(message);
-    });
-
-    // Draggable splitter
-    const splitter = document.querySelector('.splitter');
-    let isResizing = false;
-    splitter.addEventListener('mousedown', () => {
-      isResizing = true;
-      splitter.classList.add('active');
-      document.body.style.cursor = 'col-resize';
-      document.body.style.userSelect = 'none';
-    });
-    function applyRightWidth(rightWidth, totalWidth) {
-      const leftWidth = totalWidth - rightWidth - 6;
-      document.documentElement.style.setProperty('--left-width', leftWidth / totalWidth * 100 + '%');
-      document.documentElement.style.setProperty('--right-width', rightWidth / totalWidth * 100 + '%');
-      splitter.setAttribute('aria-valuenow', String(Math.round(rightWidth / totalWidth * 100)));
-    }
-    function rightWidthForClientX(clientX) {
-      const rect = document.body.getBoundingClientRect();
-      const totalWidth = rect.width;
-      const maxRightWidth = Math.max(260, totalWidth * 0.5);
-      return { rightWidth: Math.max(260, Math.min(maxRightWidth, totalWidth - (clientX - rect.left))), totalWidth };
-    }
-    document.addEventListener('mousemove', (e) => {
-      if (!isResizing) return;
-      const { rightWidth, totalWidth } = rightWidthForClientX(e.clientX);
-      applyRightWidth(rightWidth, totalWidth);
-    });
-    splitter.addEventListener('keydown', (e) => {
-      const step = 2;
-      const current = Number(splitter.getAttribute('aria-valuenow')) || 20;
-      let next = null;
-      if (e.key === 'ArrowLeft') next = current + step;
-      else if (e.key === 'ArrowRight') next = current - step;
-      else if (e.key === 'Home') next = 50;
-      else if (e.key === 'End') next = 10;
-      if (next === null) return;
-      e.preventDefault();
-      next = Math.max(10, Math.min(50, next));
-      const totalWidth = document.body.getBoundingClientRect().width;
-      applyRightWidth((next / 100) * totalWidth, totalWidth);
-    });
-    document.addEventListener('mouseup', () => {
-      if (isResizing) {
-        isResizing = false;
-        splitter.classList.remove('active');
-        document.body.style.cursor = '';
-        document.body.style.userSelect = '';
-      }
-    });
-  </script>
+const directory=document.querySelector('#directory'),grid=document.querySelector('#grid'),metaLine=document.querySelector('#meta'),summary=document.querySelector('#summary'),previewNumber=document.querySelector('#preview-number'),previewName=document.querySelector('#preview-name'),previewTitle=document.querySelector('#preview-title'),previewLink=document.querySelector('#preview-link'),previewImage=document.querySelector('#preview-image'),searchInput=document.querySelector('#gallery-search'),resultCount=document.querySelector('#result-count'),sortSelect=document.querySelector('#gallery-sort'),sizeSlider=document.querySelector('#thumb-size'),sizeOutput=document.querySelector('#thumb-size-value'),helpButton=document.querySelector('#keys-help'),helpPanel=document.querySelector('#keys-panel'),noResults=document.querySelector('#no-results'),srStatus=document.querySelector('#sr-status'),fsOpen=document.querySelector('#fs-open'),lightbox=document.querySelector('#lightbox'),lightboxImage=document.querySelector('#lightbox-image'),lightboxCaption=document.querySelector('#lightbox-caption'),lightboxPrev=document.querySelector('#lightbox-prev'),lightboxNext=document.querySelector('#lightbox-next'),lightboxClose=document.querySelector('#lightbox-close');
+const COLS_KEY='usiva-sitemap-cols';
+let allEntries=[],selectedFile=null,selectedEntry=null,lightboxFile=null;
+function numberFor(e,c){return String(e.number).padStart(String(c).length,'0')}
+function sectionOf(e){const s=e.file.indexOf('/');return s===-1?'Top level':e.file.slice(0,s)}
+function sortedEntries(){const m=sortSelect.value,c=[...allEntries];if(m==='alpha')c.sort((a,b)=>a.file.localeCompare(b.file));else if(m==='section')c.sort((a,b)=>sectionOf(a).localeCompare(sectionOf(b))||a.file.localeCompare(b.file));else c.sort((a,b)=>a.number-b.number);return c}
+function entryForHash(){const m=location.hash.match(/^#page-(\d+)$/);if(!m)return null;return allEntries.find(e=>numberFor(e,allEntries.length)===m[1])||null}
+function select(entry,count,card,opts={}){const{writeHash=true,announce=true}=opts;document.querySelectorAll('.card.is-selected').forEach(i=>i.classList.remove('is-selected'));card?.classList.add('is-selected');selectedFile=entry.file;selectedEntry=entry;const n=numberFor(entry,count);previewNumber.textContent=`Page ${n}`;previewName.innerHTML='';const nl=document.createElement('a');nl.href=entry.url;nl.textContent=entry.file;nl.target='_blank';nl.rel='noopener';previewName.appendChild(nl);previewTitle.innerHTML='';const tl=document.createElement('a');tl.href=entry.url;tl.textContent=entry.title||'Untitled';tl.target='_blank';tl.rel='noopener';previewTitle.appendChild(tl);previewLink.href=entry.image||entry.url;previewImage.src=entry.ok?entry.image:'';previewImage.alt=entry.ok?`Capture of ${entry.file}`:'';fsOpen.disabled=!entry.ok||!entry.image;if(writeHash)history.replaceState(null,'',`#page-${n}`);if(announce)srStatus.textContent=`Page ${n}: ${entry.file}`}
+function selectByFile(file,scroll){const card=grid.querySelector(`.card[data-file="${CSS.escape(file)}"]`),entry=allEntries.find(i=>i.file===file);if(!card||!entry)return;card.hidden=false;select(entry,allEntries.length,card);if(scroll)card.scrollIntoView({block:'nearest'})}
+function matchesQuery(entry,q){if(!q)return true;const h=`${entry.file} ${entry.title||''} ${entry.url||''}`.toLowerCase();return q.toLowerCase().split(/\s+/).filter(Boolean).every(w=>h.includes(w))}
+function applyFilter(){const q=searchInput.value.trim();let v=0;grid.querySelectorAll('.card').forEach(card=>{const e=allEntries.find(i=>i.file===card.dataset.file),show=e?matchesQuery(e,q):true;card.hidden=!show;if(show)v++});directory.querySelectorAll('li[data-file]').forEach(item=>{const e=allEntries.find(i=>i.file===item.dataset.file);item.hidden=e?!matchesQuery(e,q):false});directory.querySelectorAll('.dir-head').forEach(h=>{let s=h.nextElementSibling,any=false;while(s&&!s.classList.contains('dir-head')){if(!s.hidden){any=true;break}s=s.nextElementSibling}h.hidden=!any});grid.querySelectorAll('.section-head').forEach(h=>{let s=h.nextElementSibling,any=false;while(s&&!s.classList.contains('section-head')){if(s.classList.contains('card')&&!s.hidden){any=true;break}s=s.nextElementSibling}h.hidden=!any});resultCount.textContent=q?`${v} of ${allEntries.length} pages`:'';noResults.hidden=v!==0}
+function buildCard(entry,count){const n=numberFor(entry,count),card=document.createElement('article');card.className='card';card.id=`page-${n}`;card.tabIndex=0;card.dataset.file=entry.file;card.setAttribute('aria-label',`${n}: ${entry.file}`);const badge=document.createElement('span');badge.className='number';badge.textContent=n;card.append(badge);if(entry.ok&&entry.image){const img=document.createElement('img');img.src=entry.image;img.loading='lazy';img.alt=`Screenshot of ${entry.file}`;card.append(img)}else{const d=document.createElement('div');d.style.cssText='min-height:60px;background:#f0f4f8;display:grid;place-content:center;font-size:9px;color:#66717d;padding:4px;text-align:center';d.textContent=entry.file;card.append(d)}['click','focus'].forEach(ev=>card.addEventListener(ev,()=>select(entry,count,card)));return card}
+function buildDirItem(entry,count){const n=numberFor(entry,count),item=document.createElement('li');item.dataset.file=entry.file;const a=document.createElement('a');a.href=`#page-${n}`;const nl=document.createElement('span');nl.textContent=n;a.append(nl,document.createTextNode(entry.file));item.append(a);return item}
+function render(){const entries=sortedEntries(),count=allEntries.length,grouped=sortSelect.value==='section';directory.replaceChildren();grid.replaceChildren();let last=null;entries.forEach(entry=>{if(grouped){const s=sectionOf(entry);if(s!==last){last=s;const dh=document.createElement('li');dh.className='dir-head';dh.textContent=s;directory.append(dh);const gh=document.createElement('h3');gh.className='section-head';gh.textContent=s;grid.append(gh)}}directory.append(buildDirItem(entry,count));grid.append(buildCard(entry,count))});applyFilter();if(selectedFile&&grid.querySelector(`.card[data-file="${CSS.escape(selectedFile)}"]`))selectByFile(selectedFile,false)}
+function visibleCards(){return[...grid.querySelectorAll('.card')].filter(c=>!c.hidden)}
+function currentCols(){const v=Number.parseInt(sizeSlider.value,10);if(Number.isFinite(v)&&v>0)return v;const c=getComputedStyle(grid).gridTemplateColumns.split(' ').length;return c>0?c:1}
+function entryForCard(card){return allEntries.find(i=>i.file===card.dataset.file)||null}
+grid.addEventListener('keydown',e=>{const card=e.target.closest('.card');if(!card)return;const cards=visibleCards(),idx=cards.indexOf(card),cols=currentCols();let next=null;if(e.key==='ArrowRight')next=idx+1;else if(e.key==='ArrowLeft')next=idx-1;else if(e.key==='ArrowDown')next=idx+cols;else if(e.key==='ArrowUp')next=idx-cols;else if(e.key==='j'||e.key==='J')next=idx+1;else if(e.key==='k'||e.key==='K')next=idx-1;else if(e.key==='Enter'){const en=entryForCard(card);if(en)window.open(en.url,'_blank','noopener');return}else if(e.key==='f'||e.key==='F'){const en=entryForCard(card);if(en&&en.ok&&en.image)openLightbox(en);return}else return;e.preventDefault();if(idx===-1)return;next=Math.max(0,Math.min(cards.length-1,next));cards[next].focus()});
+function setHelp(o){helpPanel.hidden=!o;helpButton.setAttribute('aria-expanded',String(o))}
+helpButton.addEventListener('click',()=>setHelp(helpPanel.hidden));
+searchInput.addEventListener('input',applyFilter);
+searchInput.addEventListener('keydown',e=>{if(e.key==='Escape'){searchInput.value='';applyFilter()}});
+sortSelect.addEventListener('change',render);
+function applyCols(v,persist){grid.style.setProperty('--cols',String(v));sizeSlider.value=String(v);sizeOutput.textContent=`${v} per row`;if(persist){try{localStorage.setItem(COLS_KEY,String(v))}catch{}}}
+sizeSlider.addEventListener('input',()=>applyCols(Number(sizeSlider.value),true));
+document.addEventListener('keydown',e=>{if(lightbox.open)return;const inField=e.target.closest('input,select,textarea');if(e.key==='?'&&!inField){e.preventDefault();setHelp(helpPanel.hidden)}else if(e.key==='/'&&!inField){e.preventDefault();searchInput.focus()}else if(e.key==='Escape'&&!helpPanel.hidden&&!inField){setHelp(false);helpButton.focus()}});
+window.addEventListener('hashchange',()=>{const entry=entryForHash();if(entry&&entry.file!==selectedFile)selectByFile(entry.file,true)});
+function lightboxOrder(){return visibleCards().map(c=>allEntries.find(i=>i.file===c.dataset.file)||null).filter(e=>e&&e.ok&&e.image)}
+function showLightbox(entry){const n=numberFor(entry,allEntries.length);lightboxFile=entry.file;lightboxCaption.textContent=`Page ${n}: ${entry.file}`;lightboxImage.src=entry.image;lightboxImage.alt=`Capture of ${entry.file}`}
+function openLightbox(entry){if(!entry||!entry.ok||!entry.image)return;showLightbox(entry);if(!lightbox.open)lightbox.showModal()}
+function stepLightbox(d){const order=lightboxOrder();if(!order.length)return;const idx=order.findIndex(e=>e.file===lightboxFile);showLightbox(order[(idx+d+order.length)%order.length])}
+fsOpen.addEventListener('click',()=>{if(selectedEntry)openLightbox(selectedEntry)});
+lightboxPrev.addEventListener('click',()=>stepLightbox(-1));
+lightboxNext.addEventListener('click',()=>stepLightbox(1));
+lightboxClose.addEventListener('click',()=>lightbox.close());
+lightbox.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();stepLightbox(-1)}else if(e.key==='ArrowRight'){e.preventDefault();stepLightbox(1)}});
+let touchStartX=null;
+lightboxImage.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX},{passive:true});
+lightboxImage.addEventListener('touchend',e=>{if(touchStartX===null)return;const d=e.changedTouches[0].clientX-touchStartX;touchStartX=null;if(d>40)stepLightbox(-1);else if(d<-40)stepLightbox(1)},{passive:true});
+// Splitter
+const splitter=document.querySelector('.splitter');let isResizing=false;
+splitter.addEventListener('mousedown',()=>{isResizing=true;splitter.classList.add('active');document.body.style.cursor='col-resize';document.body.style.userSelect='none'});
+function applyRightWidth(rw,tw){const lw=tw-rw-6;document.documentElement.style.setProperty('--left-width',lw/tw*100+'%');document.documentElement.style.setProperty('--right-width',rw/tw*100+'%');splitter.setAttribute('aria-valuenow',String(Math.round(rw/tw*100)))}
+document.addEventListener('mousemove',e=>{if(!isResizing)return;const tw=document.body.getBoundingClientRect().width;const rw=Math.max(260,Math.min(Math.max(260,tw*0.5),tw-(e.clientX-document.body.getBoundingClientRect().left)));applyRightWidth(rw,tw)});
+splitter.addEventListener('keydown',e=>{const step=2,cur=Number(splitter.getAttribute('aria-valuenow'))||20;let next=null;if(e.key==='ArrowLeft')next=cur+step;else if(e.key==='ArrowRight')next=cur-step;else if(e.key==='Home')next=50;else if(e.key==='End')next=10;if(next===null)return;e.preventDefault();next=Math.max(10,Math.min(50,next));applyRightWidth(next/100*document.body.getBoundingClientRect().width,document.body.getBoundingClientRect().width)});
+document.addEventListener('mouseup',()=>{if(isResizing){isResizing=false;splitter.classList.remove('active');document.body.style.cursor='';document.body.style.userSelect=''}});
+// Init
+(function init(){allEntries=MANIFEST;const captured=allEntries.filter(e=>e.ok).length;metaLine.textContent=`Generated ${new Date(META.generatedAt).toLocaleString()} \u2014 base: ${META.base}`;summary.replaceChildren(...[`${allEntries.length} numbered pages`,`${captured} screenshots captured`].map(t=>Object.assign(document.createElement('span'),{textContent:t})));let sc=null;try{sc=Number.parseInt(localStorage.getItem(COLS_KEY),10)}catch{}if(Number.isFinite(sc)&&sc>=2&&sc<=16)applyCols(sc,false);else applyCols(16,false);render();const dl=entryForHash();if(dl)selectByFile(dl.file,true);else if(allEntries.length)select(allEntries[0],allEntries.length,grid.querySelector('.card'))})();
+</script>
 </body>
 </html>
