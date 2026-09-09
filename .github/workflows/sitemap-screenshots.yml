@@ -1,0 +1,65 @@
+name: Update sitemap screenshots
+
+on:
+  schedule:
+    # Run every Sunday at 02:00 UTC
+    - cron: "0 2 * * 0"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Force re-capture all pages
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  screenshot:
+    name: Capture usiva.org pages
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: sitemap
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Puppeteer
+        run: npm install puppeteer@25 --no-save
+
+      - name: Capture screenshots
+        run: node scripts/capture-sitemap.mjs
+        env:
+          SITE_BASE: https://usiva.org
+          MANIFEST_PATH: sitemap/manifest.json
+          SHOTS_DIR: sitemap/shots
+
+      - name: Update manifest ok flags
+        run: node scripts/update-manifest.mjs
+        env:
+          MANIFEST_PATH: sitemap/manifest.json
+          SHOTS_DIR: sitemap/shots
+
+      - name: Update meta.json generatedAt
+        run: |
+          node -e "
+            const fs = require('fs');
+            const meta = JSON.parse(fs.readFileSync('sitemap/meta.json','utf8'));
+            meta.generatedAt = new Date().toISOString();
+            fs.writeFileSync('sitemap/meta.json', JSON.stringify(meta, null, 2));
+          "
+
+      - name: Commit and push screenshots
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap/shots sitemap/manifest.json sitemap/meta.json
+          git diff --cached --quiet && echo "No changes" || git commit -m "chore(sitemap): refresh screenshots 2026-09-09"
+          git push

@@ -39,10 +39,10 @@ import BrandMark from './BrandMark.astro';
         <h2>Official sources</h2>
         <ul class="site-footer__list">
           <li><a href="/official-tools.html">Official tools directory</a></li>
-          <li><a href="https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students" rel="noreferrer">USCIS / OPT <span aria-hidden="true">↗</span></a></li>
-          <li><a href="https://studyinthestates.dhs.gov/students/resources/working" rel="noreferrer">DHS / working <span aria-hidden="true">↗</span></a></li>
-          <li><a href="https://studyinthestates.dhs.gov/stem-opt-hub" rel="noreferrer">DHS / STEM OPT Hub <span aria-hidden="true">↗</span></a></li>
-          <li><a href="https://travel.state.gov/content/travel/en/us-visas.html" rel="noreferrer">State Department / visas <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students" rel="noreferrer">USCIS / OPT <span aria-hidden="true">&#x2197;</span></a></li>
+          <li><a href="https://studyinthestates.dhs.gov/students/resources/working" rel="noreferrer">DHS / working <span aria-hidden="true">&#x2197;</span></a></li>
+          <li><a href="https://studyinthestates.dhs.gov/stem-opt-hub" rel="noreferrer">DHS / STEM OPT Hub <span aria-hidden="true">&#x2197;</span></a></li>
+          <li><a href="https://travel.state.gov/content/travel/en/us-visas.html" rel="noreferrer">State Department / visas <span aria-hidden="true">&#x2197;</span></a></li>
         </ul>
       </nav>
     </div>
@@ -55,13 +55,16 @@ import BrandMark from './BrandMark.astro';
 
       <div class="site-footer__partner">
         <span class="site-footer__label">Connected program reference</span>
-        <p>For the International R&amp;D Scholars pathway, continue to the <a href="https://usfellows.org/international-rd-scholars.html" rel="noreferrer">US Fellows program page <span aria-hidden="true">↗</span></a>.</p>
+        <p>For the International R&amp;D Scholars pathway, continue to the <a href="https://usfellows.org/international-rd-scholars.html" rel="noreferrer">US Fellows program page <span aria-hidden="true">&#x2197;</span></a>.</p>
       </div>
     </div>
 
     <div class="site-footer__bottom">
       <span>&copy; 2026 USIVA. A US Council companion site.</span>
-      <a href="/sitemap.xml">Sitemap</a>
+      <div class="site-footer__bottom-links">
+        <a href="/sitemap/">Visual sitemap</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
     </div>
   </div>
 </footer>
@@ -178,6 +181,11 @@ import BrandMark from './BrandMark.astro';
     gap: 1rem;
     justify-content: space-between;
     padding-block-start: var(--space-2);
+  }
+
+  .site-footer__bottom-links {
+    display: flex;
+    gap: 1rem;
   }
 
   .site-footer__bottom a {
